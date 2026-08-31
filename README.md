@@ -28,8 +28,6 @@ this variable and stops with a message if it is not set.
 
 - `scripts/check_tags.py` — prints five teacher utterances per tag,
   used to verify the tag-to-category mapping against the manual.
-- `scripts/check_tag3_context.py` — prints the preceding context for
-  Tag 3 rows, used to verify that Tag 3 is verbatim repetition of the
-  preceding student utterance.- `scripts/check_tag_context.py <tag>` — prints the preceding
+- `scripts/check_tag_context.py <tag>` — prints the preceding
   context for rows with the given tag, used to verify Tags 3 and 4,
   whose definitions refer to the preceding student utterance.
