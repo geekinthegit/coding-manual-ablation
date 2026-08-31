@@ -23,17 +23,23 @@
   utterances are attributable to a single speaker per transcript.
 
 ### 2.1.3 Tag mapping verification
-- Status: verified (2026-08)
+- Status: verified (2026-08; Tag 4 context check added 2026-08-31)
 - Method: Inspection of actual sentences against manual
-  definitions (scripts/check_tags.py). Tag 3 additionally checked
-  through context inspection (scripts/check_tag3_context.py).
+  definitions (scripts/check_tags.py). Tags 3 and 4 additionally
+  checked with preceding context (scripts/check_tag_context.py),
+  because Restating and Revoicing are defined by relation to the
+  preceding student utterance and cannot be verified from the
+  teacher utterance alone.
 - Result: 0 Not coded (101,357) / 1 Keeping Everyone Together
   (19,704) / 2 Getting Students to Relate (2,556) / 3 Restating
   (2,305) / 4 Revoicing (3,436) / 5 Pressing for Accuracy (19,849)
   / 6 Pressing for Reasoning (1,759). The numeric order does not
   follow the manual's order of presentation: tags 4 and 5 are
   swapped relative to it. Tag 3 is verbatim repetition of the
-  immediately preceding student utterance.
+  immediately preceding student utterance (checked 2026-08).
+  Tag 4 is repetition of the preceding student utterance with
+  wording added or changed, including corrections (checked
+  2026-08-31).
 - Known issues:
   (a) Teacher real names remain in transcripts (702 "Ms + name"
   matches). Names are substituted when examples are quoted in
