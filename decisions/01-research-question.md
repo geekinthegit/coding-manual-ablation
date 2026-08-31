@@ -60,7 +60,7 @@
     manipulation–outcome relation with less causal force. The level
     of causal claim supported by the design is recorded under Scope
     of claims (1.2).
-    
+
 ## 1.2 Scope of claims
 
 ### 1.2.1 Level of causal claim
@@ -70,16 +70,11 @@
   and additionally falls under the exception for experiments on
   the tool itself: it manipulates the prompt (placeholder
   replacement of manual components) and measures the resulting
-  change in agreement (Δκ). Causal claims are therefore made, but
-  only at the level of the manipulation: the replacement changed
-  agreement.
+  change in agreement (Δκ). Causal claims are therefore restricted to the effect of the implemented manipulation on agreement.
 - Boundary: No causal claim is made about anything not
   manipulated. The independent causal effect of a component, or a
   component's intrinsic importance, is outside the claim.
-- Rationale: The design is a controlled manipulation without
-  randomization: the same utterances appear in every condition,
-  placeholder replacement holds token length and position fixed,
-  and all other prompt architecture is held constant.
+- Rationale: The same utterances are evaluated under every condition, allowing within-item comparison. Placeholder replacement is designed to preserve token length and downstream position, while the remaining prompt architecture is held constant.
 
 ### 1.2.2 No mechanism claims
 - Status: settled (2026-08-24)
@@ -98,10 +93,7 @@
   human–AI interaction study, examining whether LLM-assisted coding
   can be used there. It is not a pilot of that later study's
   research question.
-- Boundary: Results on TalkMoves do not generalize to the later
-  study's coding manual. What transfers is the methodological
-  point: a manual developed for human coders cannot be assumed to
-  function equivalently when used as an LLM prompt.
+- Boundary: Results on TalkMoves do not generalize to the later study's coding manual. The transferable methodological premise is that a manual developed for human coders should not be assumed, without validation, to function equivalently when used as an LLM prompt.
 - Rationale: TalkMoves was chosen as the test site because it
   provides both a manual written for human coders and human-coded
   labels produced with that manual.
