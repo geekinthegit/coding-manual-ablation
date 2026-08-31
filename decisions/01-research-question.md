@@ -53,7 +53,7 @@
     removing specific components of a coding manual affect an LLM's
     agreement with human dialogue coding?", replaced v2's "how
     sensitive" with a change question but inherited "removing" from
-    v2. Three further changes were then made to that draft.
+    v2. Two further changes were then made to that draft.
     (a) "Removing" was replaced by "replacing ... with placeholders", so that the RQ names the operation actually performed (see v2 (b)). Naming the inserted material also reduces the possibility of reading the observed change as an effect of the component's absence itself, which would move the interpretation back toward the contribution framing rejected in v1.
     (b) "Change" replaced "affect". Both verbs can carry causal
     implications; "change" was judged at the time to state the
