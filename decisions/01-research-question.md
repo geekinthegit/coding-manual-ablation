@@ -60,3 +60,48 @@
     manipulation–outcome relation with less causal force. The level
     of causal claim supported by the design is recorded under Scope
     of claims (1.2).
+    
+## 1.2 Scope of claims
+
+### 1.2.1 Level of causal claim
+- Status: settled (2026-08-29)
+- Decision: The study belongs to the research-tool pathway
+  (functional claims about an LLM's agreement with human coding),
+  and additionally falls under the exception for experiments on
+  the tool itself: it manipulates the prompt (placeholder
+  replacement of manual components) and measures the resulting
+  change in agreement (Δκ). Causal claims are therefore made, but
+  only at the level of the manipulation: the replacement changed
+  agreement.
+- Boundary: No causal claim is made about anything not
+  manipulated. The independent causal effect of a component, or a
+  component's intrinsic importance, is outside the claim.
+- Rationale: The design is a controlled manipulation without
+  randomization: the same utterances appear in every condition,
+  placeholder replacement holds token length and position fixed,
+  and all other prompt architecture is held constant.
+
+### 1.2.2 No mechanism claims
+- Status: settled (2026-08-24)
+- Decision: Agreement is a claim about outputs only. High κ is not
+  taken as evidence that the LLM and human coders share a process,
+  and Δκ is not taken as evidence about what the LLM understands
+  or what human coders relied on.
+- Rationale: The data contain human labels and LLM labels. Neither
+  the human coders' use of the manual nor the LLM's processing of
+  it is observed, so neither can appear as the subject of a result
+  statement.
+
+### 1.2.3 Position of the study
+- Status: settled (2026-08-24)
+- Decision: This is a methodological pre-study for a later
+  human–AI interaction study, examining whether LLM-assisted coding
+  can be used there. It is not a pilot of that later study's
+  research question.
+- Boundary: Results on TalkMoves do not generalize to the later
+  study's coding manual. What transfers is the methodological
+  point: a manual developed for human coders cannot be assumed to
+  function equivalently when used as an LLM prompt.
+- Rationale: TalkMoves was chosen as the test site because it
+  provides both a manual written for human coders and human-coded
+  labels produced with that manual.
