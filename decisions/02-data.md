@@ -25,8 +25,8 @@
 ### 2.1.3 Tag mapping verification
 - Status: verified (2026-08)
 - Method: Inspection of actual sentences against manual
-  definitions. Tag 3 additionally checked through context
-  inspection.
+  definitions (scripts/check_tags.py). Tag 3 additionally checked
+  through context inspection (scripts/check_tag3_context.py).
 - Result: 0 Not coded (101,357) / 1 Keeping Everyone Together
   (19,704) / 2 Getting Students to Relate (2,556) / 3 Restating
   (2,305) / 4 Revoicing (3,436) / 5 Pressing for Accuracy (19,849)
