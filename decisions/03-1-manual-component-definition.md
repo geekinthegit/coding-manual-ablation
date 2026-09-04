@@ -116,3 +116,5 @@ Names-only diagnostic (recorded here until a validation-procedures section exist
 - Use the main-experiment sentences (all of them, or a subset — undecided). Give the model only seven labels: the six move names and Not coded. No manual.
 - This measures the agreement reached with the names alone.
 - Read by comparison, not by threshold: if a replacement condition's preserved agreement is near the names-only value, the name-semantics explanation is supported; if it is clearly above the names-only value, residual manual content is doing work. "Near" and "above" are read against the repetition-level noise measured in the pilot.
+
+Note (2026-09-04, for results discussion): The examples in g work like few-shot examples. The baseline is close to a few-shot prompt, and the example-replacement condition is close to its zero-shot counterpart. A large drop in g fits the in-context learning literature; no drop is the notable observation. The condition name stays as it is — the examples sit inside an explanatory structure, so this is not a standard few-shot setup.
