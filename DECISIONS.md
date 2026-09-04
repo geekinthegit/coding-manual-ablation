@@ -10,12 +10,10 @@ Structure overview. Each section links to its own file under `decisions/`.
 - 2.1 Dataset selection and scope
 - 2.2 Development and held-out evaluation sets
 
-## [3. Experimental Design](decisions/03-experimental-design.md)
-- 3.1 Manual-component definition
-- 3.2 Placeholder substitution
-- 3.3 Filler text specification
-- 3.4 Condition structure
-- 3.5 Negative control
+## 3. Experimental Design
+- [3.1 Manual-component definition](decisions/03-1-manual-component-definition.md)
+- 3.2 Placeholder specification
+- 3.3 Condition manuals
 
 ## [4. Measurement](decisions/04-measurement.md)
 - 4.1 Human–LLM agreement
