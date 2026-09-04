@@ -109,8 +109,7 @@ Types not selected, and why:
 - d (move names): judged relevant, but not a main condition. The underlying question — can the model code from the names alone? — is a response-process question, not a causal one; it is examined through a separate names-only diagnostic (below). Supersedes the 2026-09-03 operational reason ("renaming rather than block replacement; alters the measurement path"). An opaque-ID redesign (making d a sixth condition) was rejected 2026-09-04: adding this one condition would require changing the output format of all six conditions.
 - f (sub-clauses): absent under Restating and Revoicing, so a manual-wide replacement would be asymmetric across moves (3.1.4); and four definition paragraphs summarize their sub-clauses, so replacement would leave much of the same content behind.
 - Boundary statements: not an independent component (3.1.2); replaced as part of e.
-
-Open items for this section: confirmation of the h premise in 02-data (analysis population includes not-coded utterances); final decision on d.
+Open items for this section: confirmation of the h premise in 02-data (analysis population includes not-coded utterances).
 
 Names-only diagnostic (recorded here until a validation-procedures section exists):
 
