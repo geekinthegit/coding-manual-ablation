@@ -117,4 +117,34 @@ Names-only diagnostic (recorded here until a validation-procedures section exist
 - This measures the agreement reached with the names alone.
 - Read by comparison, not by threshold: if a replacement condition's preserved agreement is near the names-only value, the name-semantics explanation is supported; if it is clearly above the names-only value, residual manual content is doing work. "Near" and "above" are read against the repetition-level noise measured in the pilot.
 
+### 3.1.7 Residual-information record
+
+[proposed 2026-09-04] Each condition is defined by two lists: what is replaced, and what remains. The record of what remains is part of the condition definition, and it fixes in advance how far a no-change result can be interpreted, per condition.
+
+| Condition | Replaced | What remains |
+|---|---|---|
+| Baseline | nothing | a–i, all of it |
+| Definition replacement | e | Under four moves, sub-clauses and examples remain, so summaries of the definitions' content and utterance forms remain. Under Restating and Revoicing, only examples remain. Boundary statements are replaced along with e. The "coded as X" name strings go with e, so names remain only in the headings and the 1.2 list. |
+| Example replacement | g | Definitions and sub-clauses remain, so descriptions of qualifying situations remain. Utterance-form information goes, except the inline examples inside 1.6, which remain. The parenthetical labels in Restating and Revoicing examples go, reducing name exposure for those two moves. |
+| Exclusion-rule replacement | h | The inclusion rule remains, so the definition of what is coded remains. The enumeration of what is not coded goes, and the inline examples inside 1.6 go with it. Least residue of the three relevant conditions. |
+| Negative control | a | Everything bearing on assignment remains. |
+
+Move names remain in every condition. A preserved-agreement result therefore always has the name-based account as an alternative, checked against the names-only diagnostic (3.4), not against the residue lists.
+
+Interpretation rules, fixed before data collection:
+
+- Decrease: "agreement decreased when [component] was replaced." Related content remained available and agreement decreased anyway, so the residue does not weaken this statement.
+- No change: "agreement was maintained when [component] was replaced," always citing that condition's residue. Never "[component] is unnecessary."
+- Negative control, no change: replacing irrelevant content of this volume does not by itself change agreement.
+- Negative control, change: the pipeline responds to content-irrelevant replacement; the relevant conditions' results are read against that response's magnitude.
+- A no-change result does not by itself refute the relevance judgment in 3.1.5 — the remaining manual and the names are alternative accounts. The one case where a reading against the judgment stands: no change in h, with agreement clearly above the names-only value. Neither the residue nor the names can then account for it, leaving the reading that h was not involved in agreement.
+
+### 3.1.8 Assignment rulings
+
+[proposed 2026-09-04] Two cases required a ruling when assigning formatting units to types; they are recorded here. All other text maps one-to-one from formatting unit to type, so no ruling was needed.
+
+1. The boundary inside 1.1: the theoretical background sentences (a) and the inclusion rule (b) are separated by the paragraph break and the ➢ symbol. The first paragraph is a; the ➢ item and its numbered sub-items are b.
+
+2. The "➢ Examples:" line under Restating and Revoicing: it carries the ➢ symbol but does not describe a situation, so it is assigned to g (as the heading of the example list), not to f. Whether this line is replaced along with the examples or left in place is decided in the placeholder specification (3.2).
+
 Note (2026-09-04, for results discussion): The examples in g work like few-shot examples. The baseline is close to a few-shot prompt, and the example-replacement condition is close to its zero-shot counterpart. A large drop in g fits the in-context learning literature; no drop is the notable observation. The condition name stays as it is — the examples sit inside an explanatory structure, so this is not a standard few-shot setup.
