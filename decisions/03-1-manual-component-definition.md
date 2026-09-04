@@ -106,8 +106,14 @@ Types not selected, and why:
 
 - b (inclusion rule): its information is nearly all duplicated in e and h (3.1.5), so a b-replacement condition would leave the same information in place; either direction of its result would be weakly interpretable.
 - c (category scheme list): relevance judgment withheld (3.1.5); used neither as condition nor control.
-- d (move names): judged relevant, but the operation would be renaming rather than block replacement — variant strings across three to four locations would all need replacing (3.1.3, note d) — and it interacts with the decision to receive model output as category names, so this condition alone would alter the measurement path. Not selected in this proposal; if this stands, it is recorded as a limitation (name information is not manipulated).
+- d (move names): judged relevant, but not a main condition. The underlying question — can the model code from the names alone? — is a response-process question, not a causal one; it is examined through a separate names-only diagnostic (below). Supersedes the 2026-09-03 operational reason ("renaming rather than block replacement; alters the measurement path"). An opaque-ID redesign (making d a sixth condition) was rejected 2026-09-04: adding this one condition would require changing the output format of all six conditions.
 - f (sub-clauses): absent under Restating and Revoicing, so a manual-wide replacement would be asymmetric across moves (3.1.4); and four definition paragraphs summarize their sub-clauses, so replacement would leave much of the same content behind.
 - Boundary statements: not an independent component (3.1.2); replaced as part of e.
 
 Open items for this section: confirmation of the h premise in 02-data (analysis population includes not-coded utterances); final decision on d.
+
+Names-only diagnostic (recorded here until a validation-procedures section exists):
+
+- Use the main-experiment sentences (all of them, or a subset — undecided). Give the model only seven labels: the six move names and Not coded. No manual.
+- This measures the agreement reached with the names alone.
+- Read by comparison, not by threshold: if a replacement condition's preserved agreement is near the names-only value, the name-semantics explanation is supported; if it is clearly above the names-only value, residual manual content is doing work. "Near" and "above" are read against the repetition-level noise measured in the pilot.
