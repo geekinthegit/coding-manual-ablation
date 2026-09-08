@@ -53,23 +53,23 @@ Prompt formatting is also treated as a potential source of variation. Sclar et a
 
 #### Candidate forms considered
 
-| Candidate | Decision | Reason |
-|---|---|---|
-| Repetition of a non-lexical symbol | Retained | Introduces minimal lexical information and can potentially be constructed to an exact token length. The exact symbol remains to be selected by procedural criteria. |
-| Repetition of the first part of the replaced component | Not adopted | Leaves part of the manipulated information available, making the condition partly readable rather than replacing the component's lexical content. |
-| Lorem ipsum or random word sequences | Not adopted | Introduces lexical material and may act as distractor context. |
-| Grammatical but task-irrelevant text | Not adopted | Introduces additional semantic content unrelated to the coding task. |
-| Coherent text on an unrelated topic | Not adopted | Introduces a competing semantic context and therefore an additional source of interference. |
-| Explicit omission marker, such as `[definition omitted]` | Not adopted | Identifies what was removed, provides an explicit omission cue, and generally cannot supply the required token length without repetition. |
-
-The pilot may be used to verify tokenizer behavior, exact token-match feasibility, serialization, preservation of prompt structure, and output-format compliance. It is not used to choose the symbol on the basis of κ, accuracy, or any other substantive performance outcome.
+| Candidate | Decision | Reason | Source / basis |
+|---|---|---|---|
+| Repetition of a non-lexical symbol | Retained | Introduces minimal lexical information and can potentially be constructed to an exact token length. The exact symbol remains to be selected by procedural criteria. | Design rationale (this study). Filler is not assumed to be computationally neutral; see Lanham et al. (2023), Pfau et al. (2024), and Brauer et al. (2026). |
+| Repetition of the first part of the replaced component | Not adopted | Leaves part of the manipulated information available, making the condition partly readable rather than replacing the component's lexical content. | Design rationale (this study). Zhang et al. (2026) provides a first-repeat replacement as an ablation precedent in a different, non-text-prompt setting. |
+| Lorem ipsum or random word sequences | Not adopted | Introduces lexical material that is absent from the baseline and may act as distractor context. | Shi et al. (2023); Zhou et al. (2023). |
+| Grammatical but task-irrelevant text | Not adopted | Introduces additional semantic content unrelated to the coding task, creating an irrelevant-context manipulation in addition to the intended component replacement. | Shi et al. (2023). |
+| Coherent text on an unrelated topic | Not adopted | Introduces a competing semantic context and therefore an additional potential source of interference. | Shi et al. (2023); Zhou et al. (2023). |
+| Explicit omission marker, such as `[definition omitted]` | Not adopted | Identifies what was removed and therefore provides information about the manipulated component. It also does not naturally supply the required replacement length. | Design rationale (this study). |
 
 Sources:
 
 - Brauer, K., Mayrink Verdun, C., & Marks, S. (2026). *Reading Between the Dots: Decoding Hidden Computation across Filler Tokens*. arXiv preprint arXiv:2607.03502.
-- Lanham, T., et al. (2023). *Measuring Faithfulness in Chain-of-Thought Reasoning*. arXiv preprint arXiv:2307.13702.
-- Pfau, J., Merrill, W., & Bowman, S. R. (2024). *Let's Think Dot by Dot: Hidden Computation in Transformer Language Models*. Conference on Language Modeling (COLM). arXiv:2404.15758.
-- Sclar, M., Choi, Y., Tsvetkov, Y., & Suhr, A. (2024). *Quantifying Language Models' Sensitivity to Spurious Features in Prompt Design or: How I Learned to Start Worrying about Prompt Formatting*. ICLR 2024. arXiv:2310.11324.
+- Lanham, T., Chen, A., Radhakrishnan, A., Steiner, B., Denison, C., Hernandez, D., Li, D., Durmus, E., Hubinger, E., Kernion, J., Lukošiūtė, K., Nguyen, K., Cheng, N., Joseph, N., Schiefer, N., Rausch, O., Larson, R., McCandlish, S., Kundu, S., Kadavath, S., Yang, S., Henighan, T., Maxwell, T., Telleen-Lawton, T., Hume, T., Hatfield-Dodds, Z., Kaplan, J., Brauner, J., Bowman, S. R., & Perez, E. (2023). *Measuring Faithfulness in Chain-of-Thought Reasoning*. arXiv preprint arXiv:2307.13702.
+- Pfau, J., Merrill, W., & Bowman, S. R. (2024). *Let's Think Dot by Dot: Hidden Computation in Transformer Language Models*. Conference on Language Modeling (COLM 2024). arXiv:2404.15758.
+- Shi, F., Chen, X., Misra, K., Scales, N., Dohan, D., Chi, E. H., Schärli, N., & Zhou, D. (2023). *Large Language Models Can Be Easily Distracted by Irrelevant Context*. Proceedings of the 40th International Conference on Machine Learning, 202, 31210–31227.
+- Zhang, T., Bigverdi, M., & Krishna, R. (2026). *Ablate-to-Validate: Are Vision-Language Models Really Using Continuous Thought Tokens?* arXiv preprint arXiv:2605.21642.
+- Zhou, Y., Geng, X., Shen, T., Tao, C., Long, G., Lou, J.-G., & Shen, J. (2023). *Thread of Thought Unraveling Chaotic Contexts*. arXiv preprint arXiv:2311.08734.
 
 ### 3.2.3 Token count matching procedure
 
