@@ -19,49 +19,47 @@ Sources:
 
 ### 3.2.2 Placeholder form
 
-[proposed 2026-09-07] The placeholder form is not yet decided. Six candidates have been raised. Each candidate is listed with the review points recorded so far. No candidate has been rejected.
+[decided 2026-09-08; originally proposed 2026-09-07] The placeholder uses a deterministic non-lexical symbol filler. The purpose of the filler is to remove the lexical information carried by the replaced component without introducing new natural-language content. The exact symbol is not yet fixed; it will be selected using the procedural criteria below before data collection.
 
-Candidates:
+#### Placeholder requirements
 
-1. Repetition of one character (e.g., `xxxx`).
-   - Carries no coding-relevant content.
-   - Is recognizable as a redaction mark. The model receives the signal that something was here and is unreadable.
-   - Recent large models can perform computation over content-free repeated tokens (Brauer et al., 2026). The placeholder position may therefore be used for computation that cannot be observed. Earlier results were negative for some models (Lanham et al., 2023) and positive only with specific training (Pfau et al., 2024).
-   - Runs of repeated characters tokenize in chunks, so an exact token-count match may not be reachable.
-   - Closest precedent: the constant/zero replacement in Zhang et al. (2026). In their discrete-token setting, constant/zero replacement lowered accuracy (LLaVA 77.69 → 73.66; Qwen 71.24 → 58.87), and in two off-the-shelf systems (Mirage, CoVT) zero replacement lowered accuracy more than distribution-matched random replacement. Their replacements were in embedding space, not in prompt text; the precedent is for the design, not evidence about text placeholders.
+| Requirement | Rule | Rationale |
+|---|---|---|
+| No coding-relevant lexical content | The filler must not contain words or phrases that describe the coding categories, assignment rules, examples, exclusions, or the type of component replaced. | Such content would reintroduce information relevant to the coding decision. |
+| No explicit omission cue | Forms such as `[definition omitted]`, `[example removed]`, or `[redacted]` are not used. | They identify the nature of the missing content and may invite the model to infer or reconstruct it. |
+| No retained target content | No part of the replaced component is repeated or retained as filler. | The manipulated information would remain partially available. |
+| No unrelated natural-language filler | Lorem ipsum, random word sequences, grammatical task-irrelevant sentences, and coherent unrelated passages are not used. | They introduce additional lexical or semantic content and may function as distractor context. |
+| Structural formatting preserved | Paragraph boundaries, line breaks, item markers, dialogue markers, and other structural delimiters that are not themselves part of the target component remain unchanged. | This minimizes formatting differences between the baseline and replacement conditions. |
+| Selection independent of performance | The exact symbol is selected using tokenizer compatibility, exact token-match feasibility, stable serialization, preservation of surrounding formatting, and pipeline compatibility. | The placeholder form must be fixed independently of agreement results rather than selected according to which form produces a preferred performance pattern. |
 
-2. Repetition of the first part of the replaced component.
-   - Closest precedent: the first-repeat replacement in Zhang et al. (2026).
-   - Some content of the component remains. The condition would be "partly readable", not "unreadable".
+Structural preservation follows the component assignments established in Section 3.1. For example replacement, `➢ Examples:`, `■`, `S:`, and `T:` remain in place because they define the structure of the example block rather than its lexical coding information. Move-name strings assigned to component d, including parenthetical labels such as `(Restating)` and `(Revoicing)`, also remain. Only the lexical content assigned to component g is replaced.
 
-3. Text with neither meaning nor grammar (e.g., lorem ipsum, random word lists).
-   - May act as a distractor. Zhou et al. (2023) locate LLM difficulty in distractors rather than in long irrelevant context. An agreement drop could then not be separated from filler interference.
-   - Earlier record (September 2026): risk of the model reconstructing a scenario from the filler.
+The placeholder is not assumed to be behaviorally or computationally neutral. Research on filler tokens has produced different results across models and experimental settings. Lanham et al. (2023) found that replacing chain-of-thought content with filler did not recover performance in the models they tested, whereas Pfau et al. (2024) showed that repeated filler tokens could support computation under specific training conditions. Brauer et al. (2026) provide evidence that some recent models can perform computation across content-free filler positions. These findings do not establish what will occur in the present prompt setting, but they rule out treating filler tokens as guaranteed computationally inert.
 
-4. Grammatical text with no coding-relevant content.
-   - Raised 2026-09-07. Not yet reviewed.
+The purpose of the filler is therefore narrower: it provides a minimally lexical replacement that permits token count and downstream token positions to be controlled. Any observed change in agreement is interpreted as the effect of the implemented replacement condition, not as the effect of creating a completely neutral or empty region in the prompt.
 
-5. Coherent text on an unrelated topic.
-   - Content interference. Earlier record (September 2026) cites Chatziveroglou et al. (2025); the citation is to be verified before use.
+Prompt formatting is also treated as a potential source of variation. Sclar et al. (2024) showed that seemingly superficial prompt-formatting choices can affect model performance. The existing structural shell of the manual is therefore preserved wherever it is not part of the manipulated component.
 
-6. A marker naming the omission (e.g., `[definition omitted]`).
-   - Is short, so token count cannot be matched.
-   - Names what was removed, which invites the model to infer or supply the content.
+#### Candidate forms considered
 
-Points that apply to every candidate:
-- Whether the model reads the placeholder position, or uses it for computation, cannot be observed.
-- If the placeholder differs in formatting from the surrounding manual text, the formatting difference is itself a variable (Sclar et al., 2024).
-- Whether the chosen form breaks the model's output format at the required length is a procedure check for the pilot. Changing the character or text within the chosen form is allowed in the pilot; changing the condition set is not.
+| Candidate | Decision | Reason |
+|---|---|---|
+| Repetition of a non-lexical symbol | Retained | Introduces minimal lexical information and can potentially be constructed to an exact token length. The exact symbol remains to be selected by procedural criteria. |
+| Repetition of the first part of the replaced component | Not adopted | Leaves part of the manipulated information available, making the condition partly readable rather than replacing the component's lexical content. |
+| Lorem ipsum or random word sequences | Not adopted | Introduces lexical material and may act as distractor context. |
+| Grammatical but task-irrelevant text | Not adopted | Introduces additional semantic content unrelated to the coding task. |
+| Coherent text on an unrelated topic | Not adopted | Introduces a competing semantic context and therefore an additional source of interference. |
+| Explicit omission marker, such as `[definition omitted]` | Not adopted | Identifies what was removed, provides an explicit omission cue, and generally cannot supply the required token length without repetition. |
+
+The pilot may be used to verify tokenizer behavior, exact token-match feasibility, serialization, preservation of prompt structure, and output-format compliance. It is not used to choose the symbol on the basis of κ, accuracy, or any other substantive performance outcome.
 
 Sources:
-- Brauer, K., Mayrink Verdun, C., & Marks, S. (2026). Reading Between the Dots: Decoding Hidden Computation across Filler Tokens. arXiv preprint arXiv:2607.03502.
-- Lanham, T., et al. (2023). Measuring Faithfulness in Chain-of-Thought Reasoning. arXiv preprint arXiv:2307.13702.
-- Pfau, J., Merrill, W., & Bowman, S. R. (2024). Let's Think Dot by Dot: Hidden Computation in Transformer Language Models. Conference on Language Modeling (COLM). arXiv:2404.15758.
-- Sclar, M., Choi, Y., Tsvetkov, Y., & Suhr, A. (2024). Quantifying Language Models' Sensitivity to Spurious Features in Prompt Design or: How I learned to start worrying about prompt formatting. ICLR 2024. arXiv:2310.11324.
-- Zhang, T., Bigverdi, M., & Krishna, R. (2026). Ablate-to-Validate: Are Vision-Language Models Really Using Continuous Thought Tokens? arXiv preprint arXiv:2605.21642.
-- Zhou, Y., Geng, X., Shen, T., Tao, C., Long, G., Lou, J.-G., & Shen, J. (2023). Thread of Thought Unraveling Chaotic Contexts. arXiv preprint arXiv:2311.08734. Abstract as reproduced in Park, W. (2026), Prompt Engineering Part 2, lecture slides, SNU KDT.
-- Park, W. (2026). Prompt Engineering Part 1: Historically Important Techniques (2022–2024). Lecture slides, SNU KDT. S2A section: slide claim, without primary citation, that current models often answer correctly despite irrelevant context.
-- Chatziveroglou et al. (2025): cited in an earlier record; not verified.
+
+- Brauer, K., Mayrink Verdun, C., & Marks, S. (2026). *Reading Between the Dots: Decoding Hidden Computation across Filler Tokens*. arXiv preprint arXiv:2607.03502.
+- Lanham, T., et al. (2023). *Measuring Faithfulness in Chain-of-Thought Reasoning*. arXiv preprint arXiv:2307.13702.
+- Pfau, J., Merrill, W., & Bowman, S. R. (2024). *Let's Think Dot by Dot: Hidden Computation in Transformer Language Models*. Conference on Language Modeling (COLM). arXiv:2404.15758.
+- Sclar, M., Choi, Y., Tsvetkov, Y., & Suhr, A. (2024). *Quantifying Language Models' Sensitivity to Spurious Features in Prompt Design or: How I Learned to Start Worrying about Prompt Formatting*. ICLR 2024. arXiv:2310.11324.
+
 ### 3.2.3 Token count matching procedure
 
 ### 3.2.4 Interpretation rules fixed in advance
