@@ -1,21 +1,21 @@
 ## 3.2 Placeholder specification
 ### 3.2.1 Purpose and scope of placeholder replacement
 
-[proposed 2026-09-07] A placeholder is a string that occupies the position of a replaced manual component without providing information relevant to the coding decision. Target components are replaced rather than deleted for two reasons.
+[proposed 2026-09-07] A placeholder is a string inserted in place of a manual-component instance and designed not to provide information relevant to the coding decision. Target components are replaced rather than deleted for two reasons.
 
-First, placeholder replacement is used to match prompt length across conditions. In this study, prompt length is measured by the number of input tokens, because LLMs process inputs as tokens and context length is defined in token units (Prompt Engineering Part 1, June 2026). Changes in input length can affect model performance (Levy, Jacoby, & Goldberg, 2024). Deleting a manual component would therefore change both its content and the total input length. To avoid this confound, each placeholder is constructed to match the token count of the text it replaces, so that the total input token count is matched across conditions.
+First, placeholder replacement is used to control prompt length across conditions. In this study, prompt length is measured by the number of input tokens because LLMs process inputs as tokens and context length is defined in token units (Park, 2026). Changes in input length can affect model performance (Levy, Jacoby, & Goldberg, 2024). Deleting a manual-component instance would therefore change both its information content and the length of the prompt. To avoid this confound, each replaced component instance is matched locally with a placeholder containing the same number of tokens. Local matching also preserves the total input token count across conditions.
 
-Second, placeholder replacement is used to preserve the positions of the manual components that follow the replaced component. Information position can affect LLM performance. Liu et al. (2024) found that performance varies depending on where relevant information appears in the input, with stronger performance near the beginning and end and weaker performance in the middle. Deleting a component would shift all subsequent manual content forward. Replacing it with a token-matched placeholder is intended to keep the starting positions of subsequent components unchanged.
+Second, placeholder replacement is used to preserve the token positions of manual content that occurs after each replaced instance. Information position can affect LLM performance. Liu et al. (2024) found that performance varies depending on where relevant information appears in the input, with stronger performance near the beginning and end and weaker performance in the middle. Deleting an instance would shift the manual content that follows it to earlier positions in the token sequence. Locally token-matched replacement is therefore used to keep intervening and subsequent manual content at the same token positions as in the baseline prompt.
 
-Replacing it with a token-matched placeholder is intended to keep the starting positions of subsequent components unchanged. As noted in recent methodological studies (e.g., Zhang et al., 2026), isolating structural confounds—such as token budget preservation and positional anchoring—is critical when manipulating prompt components, ensuring that experimental controls target structural integrity rather than conflating content utilization with length effects.
+These controls are structural. Matching token count and downstream positions does not establish that the placeholder itself is behaviorally or computationally neutral. Placeholder form and its remaining limitations are specified separately in Sections 3.2.2–3.2.4.
 
-Placeholder replacement does not control, and does not reveal, whether the model reads a given component, or how the model uses the information that remains when it produces a label. These response-process questions are outside the scope of the manipulation.
+Placeholder replacement also does not reveal whether the model reads a given manual component or how it uses the information that remains when producing a label. Such response-process claims are outside the scope of the manipulation.
 
 Sources:
-- Levy, M., Jacoby, A., & Goldberg, Y. (2024). Same Task, More Tokens: the Impact of Input Length on the Reasoning Performance of Large Language Models. Proceedings of ACL 2024, 15339–15353.
-- Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., & Liang, P. (2024). Lost in the Middle: How Language Models Use Long Contexts. Transactions of the Association for Computational Linguistics, 12, 157–173.
-- Park, W. (2026). Prompt Engineering Part 1: Historically Important Techniques (2022–2024). Lecture slides, SNU KDT, June 2026.
-- Zhang, T., Bigverdi, M., & Krishna, R. (2026). Ablate-to-Validate: Are Vision-Language Models Really Using Continuous Thought Tokens? arXiv preprint arXiv:2605.21642.
+
+- Levy, M., Jacoby, A., & Goldberg, Y. (2024). *Same Task, More Tokens: The Impact of Input Length on the Reasoning Performance of Large Language Models*. Proceedings of ACL 2024, 15339–15353.
+- Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., & Liang, P. (2024). *Lost in the Middle: How Language Models Use Long Contexts*. Transactions of the Association for Computational Linguistics, 12, 157–173.
+- Park, W. (2026). *Prompt Engineering Part 1: Historically Important Techniques (2022–2024).* Lecture slides, SNU KDT, June 2026.
 
 ### 3.2.2 Placeholder form
 
