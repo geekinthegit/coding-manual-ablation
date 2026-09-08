@@ -13,8 +13,7 @@ Structure overview. Each section links to its own file under `decisions/`.
 ## 3. Experimental Design
 - [3.1 Manual-component definition](decisions/03-1-manual-component-definition.md)
 - [3.2 Placeholder specification](decisions/03-2-placeholder-specification.md)
-- 3.3 Condition manuals
-- 3.4 Names-only diagnostic
+- 3.3 Names-only diagnostic
 
 ## [4. Measurement](decisions/04-measurement.md)
 - 4.1 Human–LLM agreement
