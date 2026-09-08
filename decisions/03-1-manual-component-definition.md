@@ -34,26 +34,38 @@ Sentence-level segmentation is not adopted.
 | a | Theoretical background sentences | First paragraph of 1.1 | 3 sentences (1 paragraph) |
 | b | Inclusion rule | The ➢ item in 1.1 and its numbered sub-items 1 and 2 | 1 item (2 sub-items) |
 | c | Category scheme list | 1.2 | 1 paragraph + list |
-| d | Move names | 1.2 list; each move heading; "coded as X" inside each definition paragraph; for Restating and Revoicing, also the parenthetical labels inside their examples | 6 names |
+| d | Move names | 1.2 list; each move heading; "coded as X" inside each definition paragraph | 6 names |
 | e | Definition paragraphs | First paragraph under each move heading | 6 |
 | f | Sub-clauses (➢ items describing a type of situation in which the code applies) | Under four moves; see notes | 16 |
-| g | Examples | ■ items | 61 |
+| g | Examples | Example-list heading and ■ example items, including speaker-role markers and parenthetical move labels within those items | 61 example items |
 | h | Exclusion rules | ➢ items in 1.6 | 11 |
 | i | Section headings and numbers | 1.1–1.6 headings; category headings (1.3, 1.4, 1.5) | — |
 
 All text in Chapter 1 is assigned to one of types a–i. No text in Chapter 1 is left unassigned (checked 2026-09-03).
 
+Revision note (2026-09-08): Parenthetical `(Restating)` and `(Revoicing)` labels inside example items were reassigned from type d to type g. Although the strings are move names, their local function is to label the demonstrated S:/T: pair as an instance of the move. Speaker-role markers (`S:` and `T:`) are likewise treated as part of the example item because they specify the relation between the utterances in the demonstration. This revision was made before experimental results were observed.
+
 Notes:
 
 - (a) Runs from "The talk moves described in this manual are grounded in accountable talk theory" to "dig deeply into their own reasoning".
+
 - (b) Lists the two types of teacher utterances that are coded.
+
 - (c) Maps three higher-level categories to six moves. Category-name strings do not all match between the 1.2 list and the section headings (observed 2026-09-03): "Accountability to Learning Community" (1.2) vs. "Accountability to the Learning Community" (1.3 heading); "Ensuring Content Knowledge" (1.2) vs. "Accountability to Content Knowledge" (1.4 heading); "Accountability to Rigorous Thinking" is identical in both locations.
-- (d) The name strings are not identical across locations (observed 2026-09-03): the 1.5 heading writes "Pressing for Reasoning" where its definition paragraph writes "coded as Press for Reasoning"; the section heading "Getting Students to Relate to Another's Ideas" is longer than the form used in 1.2 and in its definition paragraph ("Getting Students to Relate"). A name-replacement condition would therefore have to be defined as replacing all variant strings that refer to the same move, with the variant list as part of the condition definition.
-- (e) Definition paragraphs contain the boundary statements (see 3.1.2). Definitions with a boundary statement: Getting Students to Relate (one full sentence: "must go beyond asking a student to repeat"), Restating (a phrase: "word for word, without adding anything or changing any of the wording"), Revoicing (a phrase: "AND adding on to or changing the wording in any way"). The definition paragraphs of four moves (Keeping Everyone Together, Getting Students to Relate, Pressing for Accuracy, Pressing for Reasoning) summarize the content of their sub-clauses.
-- (f) Counts per move: Keeping Everyone Together 7, Getting Students to Relate 2, Pressing for Accuracy 4, Pressing for Reasoning 3. None under Restating or Revoicing: these two moves have only a definition paragraph and an example list. Their "➢ Examples:" line does not describe a situation and is assigned to type g as the heading of the example list (ruling recorded in 3.1.8).
-- (g) Counts per move: Keeping Everyone Together 19, Getting Students to Relate 10, Restating 3, Pressing for Accuracy 13, Revoicing 5, Pressing for Reasoning 11. Two formats: a single utterance, or an S:/T: dialogue pair. All examples under Restating and Revoicing are dialogue pairs with a parenthetical label ("(Restating)", "(Revoicing)"). One call-and-response example under Keeping Everyone Together is also a dialogue pair. Inline examples quoted inside 1.6 items are not counted here; they belong to type h (see 3.1.2, Consequence).
-- (h) Three items contain inline quoted examples ("Okay?" / "Right?"; "That's interesting," / "Good."; "What should we call this street?"), which are part of these items, not of type g.
-- (i) Structural markers. Move-name headings belong to type d, not to i.
+
+- (d) The move-name strings are not identical across locations (observed 2026-09-03): the 1.5 heading writes "Pressing for Reasoning" where its definition paragraph writes "coded as Press for Reasoning"; the section heading "Getting Students to Relate to Another's Ideas" is longer than the form used in 1.2 and in its definition paragraph ("Getting Students to Relate"). A name-replacement condition would therefore have to be defined as replacing all variant strings that refer to the same move, with the variant list included in the condition definition.
+
+- (e) Definition paragraphs contain the boundary statements (see 3.1.2). Definitions with a boundary statement: Getting Students to Relate (one full sentence: "must go beyond asking a student to repeat"), Restating (a phrase: "word for word, without adding anything or changing any of the wording"), and Revoicing (a phrase: "AND adding on to or changing the wording in any way"). The definition paragraphs of four moves (Keeping Everyone Together, Getting Students to Relate, Pressing for Accuracy, Pressing for Reasoning) summarize the content of their sub-clauses.
+
+- (f) Counts per move: Keeping Everyone Together 7, Getting Students to Relate 2, Pressing for Accuracy 4, Pressing for Reasoning 3. Restating and Revoicing have no sub-clauses; they contain a definition paragraph followed directly by an example list. The `➢ Examples:` line under these moves does not describe a situation in which the code applies and is therefore assigned to type g rather than type f (see 3.1.8).
+
+- (g) Counts per move: Keeping Everyone Together 19, Getting Students to Relate 10, Restating 3, Pressing for Accuracy 13, Revoicing 5, Pressing for Reasoning 11. Two example formats occur: a single utterance or an S:/T: dialogue pair. One call-and-response example under Keeping Everyone Together is also a dialogue pair. The `S:` and `T:` markers are treated as part of the example item because they encode speaker roles within the demonstration. All examples under Restating and Revoicing are dialogue pairs with a parenthetical move label, `(Restating)` or `(Revoicing)`; these labels are treated as part of type g because they identify the move instantiated by the demonstration. The `➢ Examples:` line under Restating and Revoicing is also assigned to g as the heading of the example list. Inline examples quoted inside 1.6 items are not counted as type g; they remain part of the exclusion-rule items in which they occur (see 3.1.2).
+
+- (h) Three exclusion-rule items contain inline quoted examples: `"Okay?" / "Right?"`, `"That's interesting," / "Good."`, and `"What should we call this street?"`. These examples are part of the exclusion-rule items that contain them and are therefore assigned to type h rather than type g.
+
+- (i) Section headings and numbers function as structural markers. Move-name headings are assigned to type d rather than type i.
+
+Revision note (2026-09-08): Parenthetical `(Restating)` and `(Revoicing)` labels inside example items were reassigned from type d to type g. Although the strings are move names, their local function is to label the demonstrated S:/T: pair as an instance of the move. The `S:` and `T:` markers are likewise treated as part of g because they encode the speaker-role relation within the demonstration. These revisions were made while specifying the example-replacement condition and before experimental results were observed.
 
 ### 3.1.4 Level at which components are defined: per move or manual-wide
 
@@ -95,7 +107,7 @@ Why e, g, and h:
 
 1. Each is separated cleanly by the formatting units in 3.1.2; no sentence-level cutting is needed.
 2. Each spans the whole of Chapter 1 (e and g exist under all six moves; h applies to the manual as a whole).
-3. Each carries content whose kind exists nowhere else in the manual: the assignment rules (e), the forms of qualifying utterances (g), the explicit exclusion rules (h). Replacement therefore leaves comparatively little of that kind of content behind (recorded per condition in 3.1.7).
+3. Each provides a distinct form of task-relevant information: definitions provide explicit assignment rules, examples provide demonstrations of qualifying utterances, and exclusion rules provide explicit criteria for withholding a move label. Related information remains elsewhere in the manual, and that residue is recorded separately in 3.1.7.
 
 Why a as the negative control:
 
@@ -113,9 +125,12 @@ Open items for this section: confirmation of the h premise in 02-data (analysis 
 
 Names-only diagnostic (recorded here until a validation-procedures section exists):
 
-- Use the main-experiment sentences (all of them, or a subset — undecided). Give the model only seven labels: the six move names and Not coded. No manual.
-- This measures the agreement reached with the names alone.
-- Read by comparison, not by threshold: if a replacement condition's preserved agreement is near the names-only value, the name-semantics explanation is supported; if it is clearly above the names-only value, residual manual content is doing work. "Near" and "above" are read against the repetition-level noise measured in the pilot.
+- Use the main-experiment sentences (all of them, or a subset — undecided). Give the model only seven labels: the six move names and Not coded. No substantive coding-manual content is provided.
+- The purpose is to assess the level of human–LLM agreement that can be achieved when label-name semantics remain available but the substantive manual is absent.
+- This is a descriptive diagnostic, not a controlled contrast with the main replacement conditions. Removing the manual changes prompt length, structure, and information positions.
+- If agreement in a replacement condition is close to the names-only value, label-name semantics and other information available outside the substantive manual remain a plausible account of the preserved agreement.
+- If agreement in a replacement condition is clearly higher than the names-only value, the label names alone are insufficient to account for the observed level of agreement.
+- No subtraction or decomposition of κ is performed.
 
 ### 3.1.7 Residual-information record
 
@@ -125,11 +140,12 @@ Names-only diagnostic (recorded here until a validation-procedures section exist
 |---|---|---|
 | Baseline | nothing | a–i, all of it |
 | Definition replacement | e | Under four moves, sub-clauses and examples remain, so summaries of the definitions' content and utterance forms remain. Under Restating and Revoicing, only examples remain. Boundary statements are replaced along with e. The "coded as X" name strings go with e, so names remain only in the headings and the 1.2 list. |
-| Example replacement | g | Definitions and sub-clauses remain, so descriptions of qualifying situations remain. Utterance-form information goes, except the inline examples inside 1.6, which remain. The parenthetical labels in Restating and Revoicing examples go, reducing name exposure for those two moves. |
+| Example replacement | g | Definitions and sub-clauses remain, so descriptions of qualifying situations remain. The example-list heading, example utterances, `S:`/`T:` speaker-role markers, and parenthetical `(Restating)` / `(Revoicing)` labels are replaced. Inline examples inside 1.6 remain because they belong to h. Move names remain available elsewhere in the category list, move headings, and definition text. |
+
 | Exclusion-rule replacement | h | The inclusion rule remains, so the definition of what is coded remains. The enumeration of what is not coded goes, and the inline examples inside 1.6 go with it. Least residue of the three relevant conditions. |
 | Negative control | a | Everything bearing on assignment remains. |
 
-Move names remain in every condition. A preserved-agreement result therefore always has the name-based account as an alternative, checked against the names-only diagnostic (3.4), not against the residue lists.
+Move-name information remains available in every main condition through the category list, move headings, and definition text where applicable. In the example-replacement condition, however, the additional parenthetical move labels embedded in Restating and Revoicing examples are replaced as part of type g.
 
 Interpretation rules, fixed before data collection:
 
@@ -137,14 +153,15 @@ Interpretation rules, fixed before data collection:
 - No change: "agreement was maintained when [component] was replaced," always citing that condition's residue. Never "[component] is unnecessary."
 - Negative control, no change: replacing irrelevant content of this volume does not by itself change agreement.
 - Negative control, change: the pipeline responds to content-irrelevant replacement; the relevant conditions' results are read against that response's magnitude.
-- A no-change result does not by itself refute the relevance judgment in 3.1.5 — the remaining manual and the names are alternative accounts. The one case where a reading against the judgment stands: no change in h, with agreement clearly above the names-only value. Neither the residue nor the names can then account for it, leaving the reading that h was not involved in agreement.
-
+- A no-change result does not by itself refute the relevance judgment in 3.1.5. Residual manual information, label semantics, redundancy among manual components, and other alternative routes remain possible explanations.
 ### 3.1.8 Assignment rulings
 
 [proposed 2026-09-04] Two cases required a ruling when assigning formatting units to types; they are recorded here. All other text maps one-to-one from formatting unit to type, so no ruling was needed.
 
 1. The boundary inside 1.1: the theoretical background sentences (a) and the inclusion rule (b) are separated by the paragraph break and the ➢ symbol. The first paragraph is a; the ➢ item and its numbered sub-items are b.
 
-2. The "➢ Examples:" line under Restating and Revoicing: it carries the ➢ symbol but does not describe a situation, so it is assigned to g (as the heading of the example list), not to f. Whether this line is replaced along with the examples or left in place is decided in the placeholder specification (3.2).
+2. The `➢ Examples:` line under Restating and Revoicing: it carries the ➢ symbol but does not describe a situation, so it is assigned to g as the heading of the example list, not to f.
 
-Note (2026-09-04, for results discussion): The examples in g work like few-shot examples. The baseline is close to a few-shot prompt, and the example-replacement condition is close to its zero-shot counterpart. A large drop in g fits the in-context learning literature; no drop is the notable observation. The condition name stays as it is — the examples sit inside an explanatory structure, so this is not a standard few-shot setup.
+Revision (2026-09-08): The `➢ Examples:` line is replaced together with type g. Although it marks the beginning of the example block, the word `Examples` explicitly identifies the kind of information occupying that position. The same ruling applies to `S:` / `T:` speaker-role markers and parenthetical `(Restating)` / `(Revoicing)` labels within example items: these are treated as information-bearing parts of the demonstration and are replaced with g. Generic layout features such as item boundaries and line breaks are retained. The detailed placeholder procedure is specified in 3.2.
+
+Note (2026-09-04, revised 2026-09-08, for results discussion): The examples in g have the functional form of demonstrations within the prompt and are therefore analogous to few-shot examples. The example-replacement condition removes these demonstrations while retaining the rest of the coding manual. It is therefore not treated as a standard few-shot-versus-zero-shot comparison, and no specific in-context-learning mechanism is inferred from the result.
