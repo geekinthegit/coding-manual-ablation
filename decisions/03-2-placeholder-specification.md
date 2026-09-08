@@ -96,14 +96,9 @@ Sources:
 
 ### 3.2.4 Interpretation rules fixed in advance
 
-[proposed 2026-09-08] The following rules govern how results from the replacement conditions are stated. They cover only what follows from the placeholder manipulation itself. Condition-specific rules, including the residual-information constraints, are fixed in 3.1.7 and are not repeated here.
+[proposed 2026-09-08] Condition-specific rules are fixed in 3.1.7.
 
-1. Unit of description. An observed change in agreement is stated as the effect of the implemented replacement intervention: the target component's manual-derived coding information was made unavailable under the specified replacement procedure, and agreement changed. It is not stated as a pure estimate of the semantic contribution of the replaced component, because the placeholder is not assumed to be behaviorally or computationally neutral (3.2.2).
-
-2. Description of the condition. A replacement condition is described as a manual in which the component is present but unreadable, not as a manual from which the component is absent. Result statements use this description.
-
-3. What token matching establishes. Local token-count matching controls input length and the positions of downstream manual content (3.2.1, 3.2.3). It does not establish that the filler itself is behaviorally or computationally inert. The possibility that filler positions contribute to model computation is not excluded; because the experiment observes only the final coding response, the model's internal use of placeholder positions is outside the response-process claims of this study.
-
-4. Scope of the negative control. A no-change result in the negative control supports only the claim that no detectable replacement effect occurred at the amount and location of filler instantiated by that control. It does not establish placeholder neutrality at the larger replacement volumes used in the relevant conditions. The volume difference between the control (3 sentences) and the largest relevant condition (61 example items) is recorded in 3.1.6.
-
-5. Model reading. Whether the model reads, skips, or otherwise processes a placeholder position is not stated in either direction.
+1. Results are interpreted as effects of the implemented replacement condition, not as pure estimates of the semantic contribution of the replaced component.
+2. Token matching controls input length and downstream token positions, but does not establish that the placeholder is behaviorally or computationally neutral.
+3. A no-change result in the negative control applies only to the amount and location of filler used in that condition and does not establish placeholder neutrality more generally.
+4. No claims are made about whether or how the model internally processes the placeholder.
