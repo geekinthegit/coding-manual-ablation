@@ -72,8 +72,6 @@ Sources:
 - Zhou, Y., Geng, X., Shen, T., Tao, C., Long, G., Lou, J.-G., & Shen, J. (2023). *Thread of Thought Unraveling Chaotic Contexts*. arXiv preprint arXiv:2311.08734.
 
 ### 3.2.3 Token count matching procedure
-### 3.2.3 Token count matching procedure
-
 [proposed 2026-09-08] Token-count matching is performed separately for each replaced component instance using the tokenizer corresponding to the model used in the experiment. The procedure is defined at the token level because the model receives token IDs produced by the tokenizer rather than raw text directly, and tokenization differs across models (Lee, 2026, pp. 23–28).
 
 The model, and therefore the tokenizer used for matching, has not yet been selected. [unresolved]

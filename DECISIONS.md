@@ -23,7 +23,7 @@ Structure overview. Each section links to its own file under `decisions/`.
 
 ## [5. Procedure](decisions/05-procedure.md)
 - 5.1 Context specification
-- 5.2 Model and API parameters
+- [5.2 Model and API parameters](decisions/05-2-model-and-api-parameters.md)
 - 5.3 Call unit
 - 5.4 Repetition and label aggregation
 - 5.5 Role of the pilot
