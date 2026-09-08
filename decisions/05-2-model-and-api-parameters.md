@@ -7,7 +7,7 @@
 The model must satisfy two requirements.
 
 1. Token-sequence-level verification  
-   Section 3.2.3 requires local verification of the token count of each replacement span and the token positions of unchanged content following that span. The selected model must therefore allow the model-specific token-ID sequence to be reproduced and inspected locally.
+   Section 3.2.3 requires verification that the first unchanged content following each replacement span begins at the same token index as in the baseline prompt. The selected model must therefore allow the model-specific token-ID sequence of the complete prompt to be reproduced and inspected locally.
 
 2. Fixed model version  
    The model version must remain stable throughout data collection. Provider-side model updates can alter model behavior and threaten replicability; the exact model version, API parameters, endpoint, and collection dates must therefore be fixed or recorded (Lin, 2025).
@@ -24,7 +24,7 @@ An OpenAI dated snapshot is preferred for the present project. A pinned open-wei
 Alternatives not adopted:
 
 | Option | Reason |
-|---|---|
+| --- | --- |
 | Moving API model alias | The underlying model version may change during data collection. |
 | Web interface | Exact model version and generation parameters may be unavailable or insufficiently controllable. |
 | API model without token-sequence-level access | Cannot implement the token-position checks required by Section 3.2.3. |
