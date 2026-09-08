@@ -32,11 +32,18 @@ Sources:
 | Structural formatting preserved | Paragraph boundaries, line breaks, item markers, dialogue markers, and other structural delimiters that are not themselves part of the target component remain unchanged. | This minimizes formatting differences between the baseline and replacement conditions. |
 | Selection independent of performance | The exact symbol is selected using tokenizer compatibility, exact token-match feasibility, stable serialization, preservation of surrounding formatting, and pipeline compatibility. | The placeholder form must be fixed independently of agreement results rather than selected according to which form produces a preferred performance pattern. |
 
+Original rule (superseded 2026-09-08):
+
 Structural preservation follows the component assignments established in Section 3.1. For example replacement, `➢ Examples:`, `■`, `S:`, and `T:` remain in place because they define the structure of the example block rather than its lexical coding information. Move-name strings assigned to component d, including parenthetical labels such as `(Restating)` and `(Revoicing)`, also remain. Only the lexical content assigned to component g is replaced.
 
-Revision (2026-09-08): The `➢ Examples:` heading is replaced together with the example content. Although it marks the beginning of the example block, the word `Examples` explicitly identifies the type of information removed and therefore provides component-specific information. The heading was already assigned to type g in Section 3.1.8, so replacing it also keeps the manipulation consistent with the existing component assignment.
+Revised rule (2026-09-08; current):
+
+The `➢ Examples:` heading is replaced together with the example content. Although it marks the beginning of the example block, the word `Examples` explicitly identifies the type of information removed and therefore provides component-specific information. The heading was already assigned to type g in Section 3.1.8, so replacing it keeps the manipulation consistent with the existing component assignment.
 
 Within example items, `S:`, `T:`, and parenthetical move labels such as `(Restating)` and `(Revoicing)` are also replaced because they carry information about speaker roles or the move instantiated by the example. Generic layout features such as item boundaries and line breaks are retained.
+
+The revision was made after examining the informational function of these markers in the actual example items, before observing experimental results.
+
 
 The placeholder is not assumed to be behaviorally or computationally neutral. Research on filler tokens has produced different results across models and experimental settings. Lanham et al. (2023) found that replacing chain-of-thought content with filler did not recover performance in the models they tested, whereas Pfau et al. (2024) showed that repeated filler tokens could support computation under specific training conditions. Brauer et al. (2026) provide evidence that some recent models can perform computation across content-free filler positions. These findings do not establish what will occur in the present prompt setting, but they rule out treating filler tokens as guaranteed computationally inert.
 
