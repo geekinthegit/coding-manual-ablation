@@ -43,7 +43,7 @@ Sentence-level segmentation is not adopted.
 
 All text in Chapter 1 is assigned to one of types a–i. No text in Chapter 1 is left unassigned (checked 2026-09-03).
 
-Revision note (2026-09-08): Parenthetical `(Restating)` and `(Revoicing)` labels inside example items were reassigned from type d to type g. Although the strings are move names, their local function is to label the demonstrated S:/T: pair as an instance of the move. Speaker-role markers (`S:` and `T:`) are likewise treated as part of the example item because they specify the relation between the utterances in the demonstration. This revision was made before experimental results were observed.
+Revision note (2026-09-08): In the 2026-09-04 version of this table, the location column of type d also listed the parenthetical labels inside the Restating and Revoicing examples as a d location. Parenthetical `(Restating)` and `(Revoicing)` labels inside example items were reassigned from type d to type g. Although the strings are move names, their local function is to label the demonstrated S:/T: pair as an instance of the move. Speaker-role markers (`S:` and `T:`) are likewise treated as part of the example item because they specify the relation between the utterances in the demonstration. This revision was made before experimental results were observed.
 
 Notes:
 
@@ -64,8 +64,6 @@ Notes:
 - (h) Three exclusion-rule items contain inline quoted examples: `"Okay?" / "Right?"`, `"That's interesting," / "Good."`, and `"What should we call this street?"`. These examples are part of the exclusion-rule items that contain them and are therefore assigned to type h rather than type g.
 
 - (i) Section headings and numbers function as structural markers. Move-name headings are assigned to type d rather than type i.
-
-Revision note (2026-09-08): Parenthetical `(Restating)` and `(Revoicing)` labels inside example items were reassigned from type d to type g. Although the strings are move names, their local function is to label the demonstrated S:/T: pair as an instance of the move. The `S:` and `T:` markers are likewise treated as part of g because they encode the speaker-role relation within the demonstration. These revisions were made while specifying the example-replacement condition and before experimental results were observed.
 
 ### 3.1.4 Level at which components are defined: per move or manual-wide
 
@@ -145,7 +143,7 @@ Names-only diagnostic (recorded here until a validation-procedures section exist
 | Exclusion-rule replacement | h | The inclusion rule remains, so the definition of what is coded remains. The enumeration of what is not coded goes, and the inline examples inside 1.6 go with it. Least residue of the three relevant conditions. |
 | Negative control | a | Everything bearing on assignment remains. |
 
-Move-name information remains available in every main condition through the category list, move headings, and definition text where applicable. In the example-replacement condition, however, the additional parenthetical move labels embedded in Restating and Revoicing examples are replaced as part of type g.
+Move-name information remains available in every main condition through the category list, move headings, and definition text where applicable. 
 
 Interpretation rules, fixed before data collection:
 
@@ -162,6 +160,6 @@ Interpretation rules, fixed before data collection:
 
 2. The `➢ Examples:` line under Restating and Revoicing: it carries the ➢ symbol but does not describe a situation, so it is assigned to g as the heading of the example list, not to f.
 
-Revision (2026-09-08): The `➢ Examples:` line is replaced together with type g. Although it marks the beginning of the example block, the word `Examples` explicitly identifies the kind of information occupying that position. The same ruling applies to `S:` / `T:` speaker-role markers and parenthetical `(Restating)` / `(Revoicing)` labels within example items: these are treated as information-bearing parts of the demonstration and are replaced with g. Generic layout features such as item boundaries and line breaks are retained. The detailed placeholder procedure is specified in 3.2.
+Addition (2026-09-08): The `➢ Examples:` line is replaced together with type g. Although it marks the beginning of the example block, the word `Examples` explicitly identifies the kind of information occupying that position. The same ruling applies to `S:` / `T:` speaker-role markers and parenthetical `(Restating)` / `(Revoicing)` labels within example items: these are treated as information-bearing parts of the demonstration and are replaced with g. Generic layout features such as item boundaries and line breaks are retained. The detailed placeholder procedure is specified in 3.2.
 
 Note (2026-09-04, revised 2026-09-08, for results discussion): The examples in g have the functional form of demonstrations within the prompt and are therefore analogous to few-shot examples. The example-replacement condition removes these demonstrations while retaining the rest of the coding manual. It is therefore not treated as a standard few-shot-versus-zero-shot comparison, and no specific in-context-learning mechanism is inferred from the result.
