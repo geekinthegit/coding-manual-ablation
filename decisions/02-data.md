@@ -15,9 +15,9 @@
 - Decision: Analysis is restricted to teacher utterances
   (150,918 rows out of 203,601 in the development file).
 - Inclusion criteria: Utterances attributed to the teacher.
-- Exclusion criteria: Student utterances. Rows with a speaker–tag
-  mismatch (about 48), to be inspected and excluded before
-  sampling. Pending.
+- Exclusion criteria: Student utterances. No further exclusion is needed:
+  the speaker–tag mismatch item recorded in August is closed by the
+  population definition (see Known issues (c), resolved 2026-09-08).
 - Rationale: Student utterances come from multiple unidentified
   speakers and make up roughly one third of the corpus; teacher
   utterances are attributable to a single speaker per transcript.
@@ -47,6 +47,7 @@
   (b) An open, unanswered issue on the corpus repository notes
   missing validation files. The splits available may differ from
   those used in the original dataset paper.
+  (c) Speaker–tag mismatch, re-examined 2026-09-08: In the development file, 68 rows are marked as student speech (`Speaker == S`) but contain a value in the teacher `Tag` column: 48 have `Tag = 0` and 20 have `Tag = 1–6`. One additional `Tag = 1–6` case appears in the held-out file. Because the analysis population is defined as `Speaker == T`, these rows are not included in the analysis and no separate exclusion rule is needed. The 20 rows with substantive teacher tags may be speaker-labeling errors, but the original `Speaker` values are retained and no rows are reassigned.
 
 ## 2.2 Development and held-out evaluation sets
 
