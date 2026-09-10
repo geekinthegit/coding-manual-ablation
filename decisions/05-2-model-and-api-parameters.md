@@ -91,11 +91,10 @@ Current verified values:
 | `tiktoken` version | `0.14.0` |
 | Temperature | `0` |
 | Reasoning effort | `none` |
-
-[decided 2026-09-10] The experiment is run in the conda base environment (Anaconda). The `openai` and `tiktoken` packages are not upgraded until data collection is complete.
 | Python version | `3.13.9` |
 | `openai` SDK version | `3.8.0` |
-Python and `openai` SDK versions recorded 2026-09-10.
+
+[decided 2026-09-10] The experiment is run in the conda base environment (Anaconda). The `openai` and `tiktoken` packages are not upgraded until data collection is complete.
 
 API keys are not stored in the repository. The project API key is accessed through a local environment variable.
 
