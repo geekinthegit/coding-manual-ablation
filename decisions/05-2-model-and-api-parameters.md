@@ -92,7 +92,10 @@ Current verified values:
 | Temperature | `0` |
 | Reasoning effort | `none` |
 
-The Python version and `openai` SDK version will be recorded from the execution environment before data collection. [unresolved]
+[decided 2026-09-10] The experiment is run in the conda base environment (Anaconda). The `openai` and `tiktoken` packages are not upgraded until data collection is complete.
+| Python version | `3.13.9` |
+| `openai` SDK version | `3.8.0` |
+Python and `openai` SDK versions recorded 2026-09-10.
 
 API keys are not stored in the repository. The project API key is accessed through a local environment variable.
 
