@@ -25,7 +25,7 @@ Structure overview. Each section links to its own file under `decisions/`.
 - [5.2 Model and API parameters](decisions/05-2-model-and-api-parameters.md)
 - 5.3 Call unit
 - 5.4 Repetition and label aggregation
-- 5.5 Role of the pilot
+-[5.5 Role of the pilot](https://github.com/geekinthegit/coding-manual-ablation/blob/main/decisions/05-5-role-of-the-pilot.md)
 
 ## [6. Analysis](decisions/06-analysis.md)
 - 6.1 Estimation of condition-specific κ
