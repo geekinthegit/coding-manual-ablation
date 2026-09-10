@@ -1,6 +1,6 @@
 ### 3.3 Names-only diagnostic
 
-[proposed 2026-09-09]
+[proposed 2026-09-10]
 
 - Purpose: A names-only diagnostic is used to estimate how much human–LLM agreement can be obtained when the model is given only the category names, without the substantive coding-manual information used in the main experiment.
 

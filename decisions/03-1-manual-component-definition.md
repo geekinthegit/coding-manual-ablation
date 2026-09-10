@@ -123,12 +123,6 @@ Open items for this section: confirmation of the h premise in 02-data (analysis 
 
 Names-only diagnostic: moved to Section 3.3 (2026-09-10), where the procedure was formalized.
 
-- Use the main-experiment sentences (all of them, or a subset — undecided). Give the model only seven labels: the six move names and Not coded. No substantive coding-manual content is provided.
-- The purpose is to assess the level of human–LLM agreement that can be achieved when label-name semantics remain available but the substantive manual is absent.
-- This is a descriptive diagnostic, not a controlled contrast with the main replacement conditions. Removing the manual changes prompt length, structure, and information positions.
-- If agreement in a replacement condition is close to the names-only value, label-name semantics and other information available outside the substantive manual remain a plausible account of the preserved agreement.
-- If agreement in a replacement condition is clearly higher than the names-only value, the label names alone are insufficient to account for the observed level of agreement.
-- No subtraction or decomposition of κ is performed.
 
 ### 3.1.7 Residual-information record
 
