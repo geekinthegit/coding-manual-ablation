@@ -6,7 +6,7 @@
 
 - Procedure: The diagnostic is run on the same utterances used in the main experiment. Model, version, API parameters, context specification, call unit, repetition procedure, and label aggregation follow the specifications defined in Section 5 so that the diagnostic and experimental conditions are evaluated under the same computational environment.
 
-- [unresolved] Label strings: The exact category-name strings used in the names-only prompt remain to be determined, including which positional or wording variants of the move names will be used (see note d in Section 3.1.3).
+- [decided 2026-09-10] Label strings: the seven category-name strings are the 1.2-list name forms of the manual (verified against the manual PDF, 2026-09-10), identical to the output label set in `scripts/tags.py`. "Not coded" (tag 0) does not appear in the 1.2 list; the name is assigned in `tags.py`. Manual-internal wording variants (see note d in Section 3.1.3) remain in the manual text unchanged.
 
 - Interpretation:
   - If a placeholder-replacement condition produces agreement close to the names-only diagnostic, category-label meaning remains a plausible explanation for the residual agreement.
