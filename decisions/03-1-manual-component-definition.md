@@ -121,7 +121,7 @@ Types not selected, and why:
 - Boundary statements: not an independent component (3.1.2); replaced as part of e.
 Open items for this section: confirmation of the h premise in 02-data (analysis population includes not-coded utterances).
 
-Names-only diagnostic (recorded here until a validation-procedures section exists):
+Names-only diagnostic: moved to Section 3.3 (2026-09-10), where the procedure was formalized.
 
 - Use the main-experiment sentences (all of them, or a subset — undecided). Give the model only seven labels: the six move names and Not coded. No substantive coding-manual content is provided.
 - The purpose is to assess the level of human–LLM agreement that can be achieved when label-name semantics remain available but the substantive manual is absent.
