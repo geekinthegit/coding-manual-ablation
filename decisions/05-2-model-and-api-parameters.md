@@ -39,8 +39,7 @@ Alternatives not adopted:
 | API model without token-sequence-level access | Cannot implement the token-position checks required by Section 3.2.3. |
 | Pinned open-weight model | Meets the requirements but adds inference-environment and documentation burden relative to the project timeline. |
 
-The same snapshot will be used for tool validation, the pilot, and the main experiment. Model selection will not be changed on the basis of agreement results.
-
+The same snapshot is used for every call in the project: tool validation, the pilot, the main experiment, and the names-only diagnostic.
 
 ### 5.2.2 Generation parameters
 
@@ -76,7 +75,6 @@ The record will include:
 - API/SDK version;
 - generation parameters;
 - Python version;
-- `openai` package version;
 - `tiktoken` version;
 - tokenizer encoding;
 - data-collection dates.
@@ -97,6 +95,8 @@ Current verified values:
 [decided 2026-09-10] The experiment is run in the conda base environment (Anaconda). The `openai` and `tiktoken` packages are not upgraded until data collection is complete.
 
 API keys are not stored in the repository. The project API key is accessed through a local environment variable.
+
+Package versions are re-verified immediately before data collection, and the calling script records the openai and tiktoken versions with every run log.
 
 
 Sources:
