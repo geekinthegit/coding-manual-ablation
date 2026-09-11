@@ -27,7 +27,8 @@
 - Status: verified (2026-08; Tag 4 context check added 2026-08-31; category counts re-verified 2026-09-11)
 - Method: Inspection of actual sentences against manual definitions (scripts/check_tags.py). Tags 3 and 4 additionally checked with preceding context (scripts/check_tag_context.py), because Restating and Revoicing are defined by relation to the preceding student utterance and cannot be verified from the teacher utterance alone.
 - Result: 0 Not coded (101,309) / 1 Keeping Everyone Together (19,704) / 2 Getting Students to Relate (2,556) / 3 Restating (2,305) / 4 Revoicing (3,436) / 5 Pressing for Accuracy (19,849) / 6 Pressing for Reasoning (1,759). The numeric order does not follow the manual's order of presentation: tags 4 and 5 are swapped relative to it. Tag 3 is verbatim repetition of the immediately preceding student utterance (checked 2026-08). Tag 4 is repetition of the preceding student utterance with wording added or changed, including corrections (checked 2026-08-31). Category counts were re-computed under a single `Speaker == T` mask on 2026-09-11; the previous Tag 0 count of 101,357 included 48 student rows and was corrected to 101,309. The seven category counts now sum to the verified analysis population of 150,918.
-- Known issues: (a) Teacher real names remain in transcripts (702 "Ms + name" matches). Names are substituted when examples are quoted in documents. (b) An open, unanswered issue on the corpus repository notes missing validation files. The splits available may differ from those used in the original dataset paper. (c) Speaker–tag mismatch, re-examined 2026-09-08: In the development file, 68 rows are marked as student speech (`Speaker == S`) but contain a value in the teacher `Tag` column: 48 have `Tag = 0` and 20 have `Tag = 1–6`. One additional `Tag = 1–6` case appears in the held-out file. Because the analysis population is defined as `Speaker == T`, these rows are not included in the analysis and no separate exclusion rule is needed. The 20 rows with substantive teacher tags may be speaker-labeling errors, but the original `Speaker` values are retained and no rows are reassigned.
+- Known issues: (a) Teacher real names remain in transcripts (702 "Ms + name" matches). Names are substituted when examples are quoted in documents. (b) An open, unanswered issue on the corpus repository notes missing validation files. The splits available may differ from those used in the original dataset paper. (c) Speaker–tag mismatch, re-examined 2026-09-08 and count reconciliation completed 2026-09-11: In the development file, 68 rows are marked as student speech (`Speaker == S`) but contain a value in the teacher `Tag` column: 48 have `Tag = 0` and 20 have `Tag = 1–6`. One additional `Tag = 1–6` case appears in the held-out file. Because the analysis population is defined as `Speaker == T`, these rows are not included in the analysis and no separate exclusion rule is needed. On 2026-09-11, category counts were recomputed using a single `Speaker == T` mask, confirming that the previous Tag 0 count had inadvertently included the 48 `Speaker == S, Tag == 0` rows. The 20 rows with substantive teacher tags may be speaker-labeling errors, but the original `Speaker` values are retained and no rows are reassigned.
+
 
 
 ## 2.2 Development and held-out evaluation sets
@@ -60,7 +61,8 @@
 - Boundary: The pilot is a separate stage and is not the
   development run.
 
-  ## 2.3 Sampling design
+  
+## 2.3 Sampling design
 
 [decided 2026-09-10]
 
