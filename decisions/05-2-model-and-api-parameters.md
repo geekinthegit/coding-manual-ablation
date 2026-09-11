@@ -6,17 +6,9 @@
 
 The model must satisfy two requirements.
 
-
-1. Token-level verification of controlled text input
-   Section 3.2.3 requires condition-to-condition verification of token counts and downstream positions within the researcher-constructed text input. The selected model must therefore have a compatible tokenizer that allows this text to be tokenized and its token-ID sequence inspected locally. This requirement does not assume that the provider's complete internal API serialization can be reconstructed locally.
-
-Compatibility was verified locally on 2026-09-09 using `tiktoken 0.14.0`. The call
-
-`encoding_for_model("gpt-5.5-2026-04-23")`
-
-returned `o200k_base`, and the tokenizer successfully returned a token-ID sequence for test text. This verifies access to a compatible tokenizer for the local checks specified in Section 3.2.3. It does not itself constitute verification of the final experimental inputs, which will be performed after the endpoint, message structure, output-format configuration, and placeholder instances are fixed.
-
-
+1. Token-level verification of controlled text input  
+   Section 3.2.3 requires condition-to-condition verification of token counts and downstream positions within the researcher-constructed text input. The selected model must therefore have a compatible tokenizer that allows this text to be tokenized and its token-ID sequence inspected locally. This requirement does not assume that the provider's complete internal API serialization can be reconstructed locally. Compatibility was verified locally on 2026-09-09 using `tiktoken 0.14.0`. The call `encoding_for_model("gpt-5.5-2026-04-23")` returned `o200k_base`, and the tokenizer successfully returned a token-ID sequence for test text. This verifies access to a compatible tokenizer for the local checks specified in Section 3.2.3. It does not itself constitute verification of the final experimental inputs, which will be performed after the endpoint, message structure, output-format configuration, and placeholder instances are fixed.
+   
 2. Fixed model version  
    The model version must remain stable throughout data collection. Provider-side model updates can alter model behavior and threaten replicability; the exact model version, API parameters, endpoint, and collection dates must therefore be fixed or recorded (Lin, 2025).
 
