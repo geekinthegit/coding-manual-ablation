@@ -123,29 +123,33 @@ Open items for this section: confirmation of the h premise in 02-data (analysis 
 
 Names-only diagnostic: moved to Section 3.3 (2026-09-10), where the procedure was formalized.
 
-
 ### 3.1.7 Residual-information record
 
-[proposed 2026-09-04] Each condition is defined by two lists: what is replaced, and what remains. The record of what remains is part of the condition definition, and it fixes in advance how far a no-change result can be interpreted, per condition.
+[decided 2026-09-11; originally proposed 2026-09-04]
+
+Each condition is defined by two lists: what is replaced, and what remains. The record of what remains is part of the condition definition and constrains how the estimated change in agreement can be interpreted for each condition.
 
 | Condition | Replaced | What remains |
 |---|---|---|
 | Baseline | nothing | a–i, all of it |
 | Definition replacement | e | Under four moves, sub-clauses and examples remain, so summaries of the definitions' content and utterance forms remain. Under Restating and Revoicing, only examples remain. Boundary statements are replaced along with e. The "coded as X" name strings go with e, so names remain only in the headings and the 1.2 list. |
 | Example replacement | g | Definitions and sub-clauses remain, so descriptions of qualifying situations remain. The example-list heading, example utterances, `S:`/`T:` speaker-role markers, and parenthetical `(Restating)` / `(Revoicing)` labels are replaced. Inline examples inside 1.6 remain because they belong to h. Move names remain available elsewhere in the category list, move headings, and definition text. |
-
 | Exclusion-rule replacement | h | The inclusion rule remains, so the definition of what is coded remains. The enumeration of what is not coded goes, and the inline examples inside 1.6 go with it. Least residue of the three relevant conditions. |
 | Negative control | a | Everything bearing on assignment remains. |
 
-Move-name information remains available in every main condition through the category list, move headings, and definition text where applicable. 
+Move-name information remains available in every main condition through the category list, move headings, and definition text where applicable.
 
 Interpretation rules, fixed before data collection:
 
-- Decrease: "agreement decreased when [component] was replaced." Related content remained available and agreement decreased anyway, so the residue does not weaken this statement.
-- No change: "agreement was maintained when [component] was replaced," always citing that condition's residue. Never "[component] is unnecessary."
-- Negative control, no change: replacing irrelevant content of this volume does not by itself change agreement.
-- Negative control, change: the pipeline responds to content-irrelevant replacement; the relevant conditions' results are read against that response's magnitude.
-- A no-change result does not by itself refute the relevance judgment in 3.1.5. Residual manual information, label semantics, redundancy among manual components, and other alternative routes remain possible explanations.
+- For each replacement condition, the result will be reported using the condition-specific unweighted Cohen's κ, the estimated Δκ relative to baseline, and its uncertainty interval.
+- The direction and magnitude of the estimated Δκ will be interpreted together with its uncertainty. A small estimated Δκ, an uncertainty interval containing zero, or failure to detect a clear difference will not be interpreted as evidence that agreement was maintained or that the baseline and replacement conditions are equivalent.
+- Such results will also not be interpreted as evidence that the replaced component is unnecessary. Interpretation will take into account the residual manual information available in that condition, including label semantics, redundancy among manual components, and other possible routes to agreement.
+- For the negative control, κ, Δκ, and the corresponding uncertainty interval will likewise be reported directly. A small or uncertain estimated change will not be interpreted as evidence that placeholder replacement is generally neutral. The negative control applies only to the amount and location of filler used in that condition.
+- If the negative-control result shows an estimated change in agreement, the substantive replacement-condition results will be interpreted in light of the magnitude and uncertainty of that change.
+- No equivalence or noninferiority claim is made in this study. Such claims would require a prespecified and substantively justified equivalence or noninferiority margin, which is not part of the present research question.
+
+Revision note (2026-09-11): The previous interpretation rules classified one possible outcome as "no change" and permitted the statement that "agreement was maintained when [component] was replaced." This rule was removed because a small estimated Δκ, an uncertainty interval containing zero, or failure to detect a difference does not establish equivalence or maintenance. The present study instead reports condition-specific κ, Δκ, and uncertainty intervals without defining an equivalence or noninferiority margin.
+
 ### 3.1.8 Assignment rulings
 
 [proposed 2026-09-04] Two cases required a ruling when assigning formatting units to types; they are recorded here. All other text maps one-to-one from formatting unit to type, so no ruling was needed.
