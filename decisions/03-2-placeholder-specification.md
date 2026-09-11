@@ -72,23 +72,29 @@ Sources:
 - Zhou, Y., Geng, X., Shen, T., Tao, C., Long, G., Lou, J.-G., & Shen, J. (2023). *Thread of Thought Unraveling Chaotic Contexts*. arXiv preprint arXiv:2311.08734.
 
 ### 3.2.3 Token count matching procedure
-[proposed 2026-09-08] Token-count matching is performed separately for each replaced component instance using the tokenizer corresponding to the model used in the experiment. The procedure is defined at the token level because the model receives token IDs produced by the tokenizer rather than raw text directly, and tokenization differs across models (Lee, 2026, pp. 23–28).
 
-The model, and therefore the tokenizer used for matching, has not yet been selected. [unresolved]
+[proposed 2026-09-08; scope clarified 2026-09-11] Token-count matching is performed separately for each replaced component instance using the tokenizer corresponding to the model used in the experiment. The procedure is defined at the token level because the model receives token IDs produced by the tokenizer rather than raw text directly, and tokenization differs across models (Lee, 2026, pp. 23–28).
+
+The selected model and tokenizer are specified in Section 5.2.1.
 
 Local matching is required because the selected components occur at multiple positions in the manual. Matching only the total token count of a condition could preserve overall prompt length while shifting the positions of content located between replacement spans. Each definition paragraph, example item, and exclusion-rule item is therefore matched separately to its baseline counterpart.
 
 Exact token-count matching is the target. Whether every replacement instance can be matched exactly using the placeholder form selected in 3.2.2 has not yet been established. If exact matching is not possible for some instances, the rule for resolving the mismatch, including whether the filler symbol is changed or a token-count tolerance is permitted, remains unresolved and must be fixed before data collection. [unresolved]
 
-After replacement, the complete prompt is tokenized again to verify:
+After replacement, the complete researcher-constructed text input is tokenized again using the model-compatible tokenizer to verify:
 
 1. the token count of each replacement instance against its baseline counterpart;
-2. the token position of the first unchanged content following each replacement;
-3. the total input-token count of the complete prompt against the baseline.
+2. the token index, within the researcher-constructed text input, of the first unchanged content following each replacement;
+3. the total token count of the researcher-constructed text input against the baseline.
+
+These checks establish condition-to-condition matching within the text content controlled by the study. They do not claim direct observation or reconstruction of the provider's complete internal API serialization or the absolute token positions of all request-structure tokens. The API endpoint, message structure, and output-format configuration will therefore be held identical across experimental conditions so that any request-level structure outside the manipulated text is not intentionally varied between conditions.
 
 For each replacement instance, the original token count, replacement token count, and verification result will be recorded. The location and format of this record have not yet been decided. [unresolved]
 
 Revision note (2026-09-08): Local instance-level matching was made explicit after recognizing that global token-count matching alone does not preserve the positions of content between multiple replacement spans.
+
+Revision note (2026-09-11): The scope of token-position verification was clarified. Local tokenizer access permits verification of the researcher-constructed text input but does not by itself demonstrate reconstruction of the provider's complete internal API token sequence.
+
 
 Sources:
 
