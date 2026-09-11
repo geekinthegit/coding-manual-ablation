@@ -106,5 +106,5 @@ Sources:
 
 1. Results are interpreted as effects of the implemented replacement condition, not as pure estimates of the semantic contribution of the replaced component.
 2. Token matching controls input length and downstream token positions, but does not establish that the placeholder is behaviorally or computationally neutral.
-3. A no-change result in the negative control applies only to the amount and location of filler used in that condition and does not establish placeholder neutrality more generally.
+3. A small or uncertain estimated Δκ in the negative control does not establish placeholder neutrality. The negative-control result applies only to the amount and location of filler used in that condition and is reported with its uncertainty.
 4. No claims are made about whether or how the model internally processes the placeholder.
