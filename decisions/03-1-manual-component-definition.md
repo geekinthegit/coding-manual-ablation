@@ -121,7 +121,7 @@ Types not selected, and why:
 - Boundary statements: not an independent component (3.1.2); replaced as part of e.
 Open items for this section: confirmation of the h premise in 02-data (analysis population includes not-coded utterances).
 
-Names-only diagnostic: moved to Section 3.3 (2026-09-10), where the procedure was formalized.
+Names-only diagnos reference: moved to Section 3.3 (2026-09-10), where the procedure was formalized.
 
 ### 3.1.7 Residual-information record
 
@@ -141,11 +141,16 @@ Move-name information remains available in every main condition through the cate
 
 Interpretation rules, fixed before data collection:
 
-- For each replacement condition, the result will be reported using the condition-specific unweighted Cohen's κ, the estimated Δκ relative to baseline, and its uncertainty interval.
-- The direction and magnitude of the estimated Δκ will be interpreted together with its uncertainty. A small estimated Δκ, an uncertainty interval containing zero, or failure to detect a clear difference will not be interpreted as evidence that agreement was maintained or that the baseline and replacement conditions are equivalent.
+- For each replacement condition, the result will be reported using the condition-specific unweighted Cohen's κ, the estimated Δκ relative to the full-manual baseline (Δκ = replacement − baseline), and its uncertainty interval. The same utterances are evaluated in all conditions, and uncertainty analysis preserves within-item pairing across conditions.
+
+- The direction and magnitude of the estimated Δκ will be interpreted together with its uncertainty. A small estimated Δκ, an uncertainty interval containing zero, or failure to detect a clear difference will not be interpreted as evidence of no effect, maintained agreement, or equivalence between the baseline and replacement conditions.
+
 - Such results will also not be interpreted as evidence that the replaced component is unnecessary. Interpretation will take into account the residual manual information available in that condition, including label semantics, redundancy among manual components, and other possible routes to agreement.
-- For the negative control, κ, Δκ, and the corresponding uncertainty interval will likewise be reported directly. A small or uncertain estimated change will not be interpreted as evidence that placeholder replacement is generally neutral. The negative control applies only to the amount and location of filler used in that condition.
-- If the negative-control result shows an estimated change in agreement, the substantive replacement-condition results will be interpreted in light of the magnitude and uncertainty of that change.
+
+- The negative control replaces background text judged task-irrelevant and is much smaller in volume than the substantive replacements. Its κ, Δκ, and corresponding uncertainty interval will be reported directly. Interpretation is limited to the specific passage replaced, the amount and location of filler, and the execution conditions used. A small or uncertain Δκ will not establish general filler neutrality.
+
+- The negative-control Δκ and its uncertainty will be reported alongside the substantive Δκ estimates as context. The control will not be subtracted from those estimates, used to adjust them, or used as a pass/fail criterion. A change in agreement in a validly executed control does not by itself invalidate the substantive replacement results. Control results do not establish model-internal mechanisms or which information the model actually used.
+
 - No equivalence or noninferiority claim is made in this study. Such claims would require a prespecified and substantively justified equivalence or noninferiority margin, which is not part of the present research question.
 
 Revision note (2026-09-11): The previous interpretation rules classified one possible outcome as "no change" and permitted the statement that "agreement was maintained when [component] was replaced." This rule was removed because a small estimated Δκ, an uncertainty interval containing zero, or failure to detect a difference does not establish equivalence or maintenance. The present study instead reports condition-specific κ, Δκ, and uncertainty intervals without defining an equivalence or noninferiority margin.
