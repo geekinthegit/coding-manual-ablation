@@ -22,6 +22,13 @@ and must not be used to define adjacency.
 
 Scope
 -----
+Missing text
+------------
+The provider file stores absent utterance text as the literal string "nan".
+The file is read with ``keep_default_na=False`` so that only "nan" is treated
+as missing in Sentence, Tag, and StudentTag; the genuine utterance "None"
+(e.g., an answer to a how-many question) is preserved as text.
+
 Both outputs contain every teacher row (``Speaker == "T"``) with no
 additional exclusions. The raw file is read only. The context window is
 not materialised here; it is constructed later from ``frame.csv``.
@@ -67,7 +74,14 @@ def git_commit_hash() -> str:
 
 
 def main() -> None:
-    df = pd.read_excel(TRAIN_FILE)
+    # The provider file encodes absent values as the literal string "nan".
+    # pandas' default NA list also treats the string "None" as missing, which
+    # erased 12 genuine utterances ("None" as an answer). Only "nan" is missing.
+    df = pd.read_excel(
+        TRAIN_FILE,
+        keep_default_na=False,
+        na_values={"Sentence": ["nan"], "Tag": ["nan"], "StudentTag": ["nan"]},
+    )
 
     # Provider-ID gap description for the full file (reported, not asserted).
     provider_ids = df[PROVIDER_ID_COL]

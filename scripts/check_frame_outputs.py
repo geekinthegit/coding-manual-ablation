@@ -39,8 +39,9 @@ EXPECTED_COUNTS = {
 
 
 def main() -> None:
-    frame = pd.read_csv(FRAME_FILE)
-    labels = pd.read_csv(LABELS_FILE)
+    # Only an empty cell is missing; the string "None" is a genuine utterance.
+    frame = pd.read_csv(FRAME_FILE, keep_default_na=False, na_values=[""])
+    labels = pd.read_csv(LABELS_FILE, keep_default_na=False, na_values=[""])
 
     assert list(frame.columns) == FRAME_COLUMNS, f"frame columns: {list(frame.columns)}"
     assert not FORBIDDEN_IN_FRAME & set(frame.columns), "label column present in frame.csv"
