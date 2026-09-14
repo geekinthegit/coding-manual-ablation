@@ -22,12 +22,37 @@
   speakers and make up roughly one third of the corpus; teacher
   utterances are attributable to a single speaker per transcript.
 
-### 2.1.3 Tag mapping verification
+### 2.1.3 Tag Mapping Verification
 
-- Status: verified (2026-08; Tag 4 context check added 2026-08-31; category counts re-verified 2026-09-11)
-- Method: Inspection of actual sentences against manual definitions (scripts/check_tags.py). Tags 3 and 4 additionally checked with preceding context (scripts/check_tag_context.py), because Restating and Revoicing are defined by relation to the preceding student utterance and cannot be verified from the teacher utterance alone.
-- Result: 0 Not coded (101,309) / 1 Keeping Everyone Together (19,704) / 2 Getting Students to Relate (2,556) / 3 Restating (2,305) / 4 Revoicing (3,436) / 5 Pressing for Accuracy (19,849) / 6 Pressing for Reasoning (1,759). The numeric order does not follow the manual's order of presentation: tags 4 and 5 are swapped relative to it. Tag 3 is verbatim repetition of the immediately preceding student utterance (checked 2026-08). Tag 4 is repetition of the preceding student utterance with wording added or changed, including corrections (checked 2026-08-31). Category counts were re-computed under a single `Speaker == T` mask on 2026-09-11; the previous Tag 0 count of 101,357 included 48 student rows and was corrected to 101,309. The seven category counts now sum to the verified analysis population of 150,918.
-- Known issues: (a) Teacher real names remain in transcripts (702 "Ms + name" matches). Names are substituted when examples are quoted in documents. (b) An open, unanswered issue on the corpus repository notes missing validation files. The splits available may differ from those used in the original dataset paper. (c) Speaker–tag mismatch, re-examined 2026-09-08 and count reconciliation completed 2026-09-11: In the development file, 68 rows are marked as student speech (`Speaker == S`) but contain a value in the teacher `Tag` column: 48 have `Tag = 0` and 20 have `Tag = 1–6`. One additional `Tag = 1–6` case appears in the held-out file. Because the analysis population is defined as `Speaker == T`, these rows are not included in the analysis and no separate exclusion rule is needed. On 2026-09-11, category counts were recomputed using a single `Speaker == T` mask, confirming that the previous Tag 0 count had inadvertently included the 48 `Speaker == S, Tag == 0` rows. The 20 rows with substantive teacher tags may be speaker-labeling errors, but the original `Speaker` values are retained and no rows are reassigned.
+* Status: verified (2026-08; Tag 4 context check added 2026-08-31; category counts re-verified 2026-09-11; sampling-frame and label integrity re-verified 2026-09-14)
+
+* Method: Tag mappings were checked by inspecting actual utterances against the coding-manual definitions using `scripts/check_tags.py`. Tags 3 and 4 were additionally examined together with the immediately preceding student utterance using `scripts/check_tag_context.py`, because Restating and Revoicing are defined by their relation to prior student speech and cannot be verified reliably from the teacher utterance alone.
+
+* Verified mapping and counts:
+  0 = Not coded (101,309)
+  1 = Keeping Everyone Together (19,704)
+  2 = Getting Students to Relate (2,556)
+  3 = Restating (2,305)
+  4 = Revoicing (3,436)
+  5 = Pressing for Accuracy (19,849)
+  6 = Pressing for Reasoning (1,759)
+
+  The numeric tag order does not exactly follow the order in which the categories are presented in the manual: Tags 4 and 5 are reversed relative to that presentation order. Tag 3 was verified as verbatim repetition of the immediately preceding student utterance. Tag 4 was verified as repetition of the preceding student utterance with wording added, changed, or corrected.
+
+* Category-count reconciliation: On 2026-09-11, all category counts were recomputed using a single `Speaker == "T"` mask. This showed that the previously recorded Tag 0 count of 101,357 had inadvertently included 48 rows marked as student speech. After correction, the Tag 0 count is 101,309. The seven verified category counts sum to the prespecified development-set teacher-utterance population of 150,918.
+
+* Reproducibility check (2026-09-14): `scripts/check_population_counts.py` recomputed the Speaker == "T" population size and all seven category counts from the development file and confirmed exact agreement with the recorded values: 150,918 teacher utterances in total and the seven category counts reported above. The source-ID field contained no missing or duplicate values and was monotonically increasing. All 150,918 teacher rows had non-missing labels that mapped successfully through TAG_TO_CATEGORY, with no unmapped tag values, and the seven numeric tags mapped to seven unique coding categories.
+
+  The development file contains 503 transcripts in total, of which 502 contain at least one row satisfying the prespecified teacher mask. The remaining transcript, `Video Mosaic Grade 4 Building large models 3.xlsx`, contains no teacher rows and therefore contributes no utterances to the teacher-utterance analysis population. This is a consequence of the existing `Speaker == "T"` population definition and does not constitute an additional exclusion rule.
+
+  The verification output is retained in `reports/sampling-frame-and-label-check-2026-09-14.txt`.
+
+* Known issues:
+
+  * (a) Teacher real names remain in the transcripts, including 702 matches of the form “Ms + name.” Names are substituted when examples are quoted in study documents.
+  * (b) An open, unanswered issue in the corpus repository reports missing validation files. The development and held-out splits currently available may therefore differ from those used in the original dataset paper.
+  * (c) Speaker–tag mismatch, re-examined 2026-09-08 and reconciled on 2026-09-11: in the development file, 68 rows are marked as student speech (`Speaker == "S"`) but contain a value in the teacher `Tag` column. Of these, 48 have `Tag = 0` and 20 have `Tag = 1–6`. One additional `Tag = 1–6` case occurs in the held-out file. Because the analysis population is defined by `Speaker == "T"`, these rows are not included in the analysis and no separate exclusion rule is applied. The 20 development-set rows with substantive teacher tags may reflect speaker-labeling errors, but the original `Speaker` values are retained and no rows are reassigned.
+
 
 
 
@@ -92,7 +117,7 @@ Under the verified category counts of the analysis population reported in 02-dat
 
 ### 2.3.7 Paired Resampling for Uncertainty Estimation
 
-Uncertainty for Δκ will be estimated using paired utterance-level resampling. Each sampled utterance will be resampled together with its human label and all corresponding LLM outputs across experimental conditions, thereby preserving the within-item pairing. Because the inferential population is the prespecified development-set teacher-utterance population and the sample itself is drawn at the utterance level, transcript-level cluster resampling is not adopted. Transcripts are not the sampling units in the prespecified design, and the study does not posit a transcript-level superpopulation model. This choice is consistent with treating item-level pairing as part of the analysis while keeping the uncertainty procedure aligned with the actual sampling design. If the baseline and a replacement condition produce identical final labels for all 300 sampled utterances, the paired bootstrap distribution of Δκ may be degenerate at zero. This case will be flagged separately. A `[0, 0]` bootstrap interval will not be interpreted as evidence of population-level equality or equivalence. Instead, the result will be described as no condition-discordant labels having been observed among the 300 sampled utterances.
+Uncertainty for Δκ will be estimated using paired utterance-level resampling. Each sampled utterance will be resampled together with its human label and all corresponding LLM outputs across experimental conditions, thereby preserving the within-item pairing. Because the inferential population is the prespecified development-set teacher-utterance population and the sample itself is drawn at the utterance level, transcript-level cluster resampling is not adopted. Transcripts are not the sampling units in the prespecified design, and the study does not posit a transcript-level superpopulation model. This choice is consistent with treating item-level pairing as part of the analysis while keeping the uncertainty procedure aligned with the actual sampling design. If the baseline and a replacement condition produce identical final labels for all 300 sampled utterances, the paired bootstrap distribution of Δκ may be degenerate at zero. This case will be flagged separately. A `[0, 0]` bootstrap interval will not be interpreted as evidence of population-level equality or equivalence. Instead, the result will be described as no condition-discordant labels having been observed among the 300 sampled utterances. The number of condition-discordant utterances will be reported for every condition; when this number is zero or very small, the limited resolution of the bootstrap interval will be noted alongside it.
 
 ### 2.3.8 Limitation of the Sampling Design
 

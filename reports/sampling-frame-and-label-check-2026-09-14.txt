@@ -1,0 +1,32 @@
+Teacher rows: 150,918
+Expected:     150,918
+
+Tag 0 | Not coded | actual=101,309 | expected=101,309 | PASS
+
+Tag 1 | Keeping Everyone Together | actual=19,704 | expected=19,704 | PASS
+
+Tag 2 | Getting Students to Relate | actual=2,556 | expected=2,556 | PASS
+
+Tag 3 | Restating | actual=2,305 | expected=2,305 | PASS
+
+Tag 4 | Revoicing | actual=3,436 | expected=3,436 | PASS
+
+Tag 5 | Pressing for Accuracy | actual=19,849 | expected=19,849 | PASS
+
+Tag 6 | Pressing for Reasoning | actual=1,759 | expected=1,759 | PASS
+
+Source identity checks
+Missing source IDs: 0
+Duplicate source IDs: 0
+Source IDs are increasing: True
+All transcripts: 503
+Teacher transcripts: 502
+Transcripts without teacher rows: ['Video Mosaic Grade 4 Building large models 3.xlsx']
+First source row position: 0
+Last source row position: 203600
+
+Gold-label mapping checks
+Missing teacher labels: 0
+Unmapped tag values: []
+Mapped teacher rows: 150,918 / 150,918
+Seven unique mapped categories: True
