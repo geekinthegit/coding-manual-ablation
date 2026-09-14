@@ -46,7 +46,7 @@
   The development file contains 503 transcripts in total, of which 502 contain at least one row satisfying the prespecified teacher mask. The remaining transcript, `Video Mosaic Grade 4 Building large models 3.xlsx`, contains no teacher rows and therefore contributes no utterances to the teacher-utterance analysis population. This is a consequence of the existing `Speaker == "T"` population definition and does not constitute an additional exclusion rule.
 
   The verification output is retained in `reports/sampling-frame-and-label-check-2026-09-14.txt`.
-
+Canonical row order and source identifiers (2026-09-14): The provider-assigned ID field (`Unnamed: 0`) is increasing and has no duplicates, but it is not contiguous. In the current development file, 49 values are absent (203,601 rows; maximum ID 203,649), and the first gap occurs at row position 2286. Because the +/-7 context window is defined over adjacent rows of the file as read, the 0-based row position of the raw DataFrame is used as the canonical row order and is carried as `source_id`; the provider ID is retained as `source_row_id` for traceability only and is not used to define adjacency. Both identifiers are written to the derived files `data/frame.csv` (API-input fields only) and `data/scoring_labels.csv` (gold labels), produced by `scripts/build_frame.py` and checked by `scripts/check_frame_outputs.py`. These derived files are git-ignored; the build summary is retained in `reports/frame-summary-2026-09-14.txt`.
 * Known issues:
 
   * (a) Teacher real names remain in the transcripts, including 702 matches of the form “Ms + name.” Names are substituted when examples are quoted in study documents.
