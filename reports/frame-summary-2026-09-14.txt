@@ -1,13 +1,13 @@
 Frame and scoring-label build summary
-Generated at: 2026-09-14T17:52:01+09:00
+Generated at: 2026-09-14T18:05:07+09:00
 Script: scripts/build_frame.py
-Script commit: 8d950677c82298faa162ee3d9968eae9e17ee686
+Script commit: 589d59c605702d3dd96e9fa1c257865bfe51ca55
 Source file: /Users/jeobnida/talkmoves-project/TalkMoves/data/train_data_504.xlsx
 Source rows (all speakers): 203,601
 Provider-ID gaps in source file: 49 (first gap at row position 2286)
 
 Teacher rows (N): 150,918
-Teacher rows with missing Sentence: 280
+Teacher rows with missing Sentence: 274
 Tag 0 | Not coded | 101,309
 Tag 1 | Keeping Everyone Together | 19,704
 Tag 2 | Getting Students to Relate | 2,556
