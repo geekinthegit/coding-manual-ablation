@@ -24,7 +24,7 @@ Structure overview. Each section links to its own file under `decisions/`.
 ## [5. Procedure](decisions/05-procedure.md)
 - [5.1 Context specification](https://github.com/geekinthegit/coding-manual-ablation/blob/main/decisions/05-1-context-specification.md)
 - [5.2 Model and API parameters](decisions/05-2-model-and-api-parameters.md)
-- 5.3 Call unit
+* [5.3 Call unit and API request](https://github.com/geekinthegit/coding-manual-ablation/blob/main/decisions/05-3-call-unit-and-api-request.md)
 - 5.4 Repetition and label aggregation
 - [5.5 Role of the pilot](https://github.com/geekinthegit/coding-manual-ablation/blob/main/decisions/05-5-role-of-the-pilot.md)
 ## [6. Analysis](decisions/06-analysis.md)
