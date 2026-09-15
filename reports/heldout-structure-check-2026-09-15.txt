@@ -1,0 +1,43 @@
+Structure check: heldout file
+Source file: /Users/jeobnida/talkmoves-project/TalkMoves/data/test_data_63.xlsx
+Rows (all speakers): 30,401
+
+Teacher rows: 23,250
+
+Tag 0 | Not coded | 15,648
+Tag 1 | Keeping Everyone Together | 3,072
+Tag 2 | Getting Students to Relate | 306
+Tag 3 | Restating | 306
+Tag 4 | Revoicing | 562
+Tag 5 | Pressing for Accuracy | 3,076
+Tag 6 | Pressing for Reasoning | 280
+Sum of tag counts: 23,250
+
+Source identity checks
+Missing source IDs: 0
+Duplicate source IDs: 0
+Source IDs are increasing: True
+Provider-ID gaps (max ID + 1 - rows): 9; first gap at row position: 4946
+All transcripts: 63
+Teacher transcripts: 63
+Transcripts without teacher rows: []
+First source row position: 0
+Last source row position: 30400
+
+Gold-label mapping checks
+Missing teacher labels: 0
+Unmapped tag values: []
+Mapped teacher rows: 23,250 / 23,250
+Seven unique mapped categories: True
+
+Missing utterance text (Sentence == 'nan' in source)
+Teacher rows with missing Sentence: 42
+Student rows with missing Sentence: 157
+  Tag 0 | Not coded | 30
+  Tag 1 | Keeping Everyone Together | 1
+  Tag 3 | Restating | 11
+Genuine utterance 'None' preserved (rows): 0
+
+Speaker == 'S' rows with a teacher Tag value
+Count: 4
+Tag distribution: {0: 3, 3: 1}
