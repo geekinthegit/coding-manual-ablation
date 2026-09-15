@@ -19,7 +19,7 @@ Sources:
 
 ### 3.2.2 Placeholder form
 
-[decided 2026-09-08; originally proposed 2026-09-07] The placeholder uses a deterministic non-lexical symbol filler. The purpose of the filler is to remove the lexical information carried by the replaced component without introducing new natural-language content. The exact symbol is not yet fixed; it will be selected using the procedural criteria below before data collection.
+[decided 2026-09-08; originally proposed 2026-09-07] The placeholder uses a deterministic non-lexical symbol filler. The purpose of the filler is to remove the lexical information carried by the replaced component without introducing new natural-language content. The symbol and construction rule were fixed on 2026-09-15 by the procedural criteria below, before any API call (see "Selected form" at the end of this subsection).
 
 #### Placeholder requirements
 
@@ -28,6 +28,7 @@ Sources:
 | No coding-relevant lexical content | The filler must not contain words or phrases that describe the coding categories, assignment rules, examples, exclusions, or the type of component replaced. | Such content would reintroduce information relevant to the coding decision. |
 | No explicit omission cue | Forms such as `[definition omitted]`, `[example removed]`, or `[redacted]` are not used. | They identify the nature of the missing content and may invite the model to infer or reconstruct it. |
 | No retained target content | No part of the replaced component is repeated or retained as filler. | The manipulated information would remain partially available. |
+| No character that occurs in the manual text | The filler symbol must not be a character that appears anywhere in Chapter 1 (e.g. `.`, `:`, `?`, `;`). | A repeated symbol that also serves as sentence-final, list-heading, or question punctuation in the original would reproduce a structural cue of the replaced text. |
 | No unrelated natural-language filler | Lorem ipsum, random word sequences, grammatical task-irrelevant sentences, and coherent unrelated passages are not used. | They introduce additional lexical or semantic content and may function as distractor context. |
 | Structural formatting preserved | Paragraph boundaries, line breaks, item markers, dialogue markers, and other structural delimiters that are not themselves part of the target component remain unchanged. | This minimizes formatting differences between the baseline and replacement conditions. |
 | Selection independent of performance | The exact symbol is selected using tokenizer compatibility, exact token-match feasibility, stable serialization, preservation of surrounding formatting, and pipeline compatibility. | The placeholder form must be fixed independently of agreement results rather than selected according to which form produces a preferred performance pattern. |
@@ -55,12 +56,30 @@ Prompt formatting is also treated as a potential source of variation. Sclar et a
 
 | Candidate | Decision | Reason | Source / basis |
 |---|---|---|---|
-| Repetition of a non-lexical symbol | Retained | Introduces minimal lexical information and can potentially be constructed to an exact token length. The exact symbol remains to be selected by procedural criteria. | Design rationale (this study). Filler is not assumed to be computationally neutral; see Lanham et al. (2023), Pfau et al. (2024), and Brauer et al. (2026). |
+| Repetition of a non-lexical symbol | Retained | Introduces minimal lexical information and can potentially be constructed to an exact token length. The symbol was selected by procedural criteria on 2026-09-15 (see "Selected form"). | Design rationale (this study). Filler is not assumed to be computationally neutral; see Lanham et al. (2023), Pfau et al. (2024), and Brauer et al. (2026). |
 | Repetition of the first part of the replaced component | Not adopted | Leaves part of the manipulated information available, making the condition partly readable rather than replacing the component's lexical content. | Design rationale (this study). Zhang et al. (2026) provides a first-repeat replacement as an ablation precedent in a different, non-text-prompt setting. |
 | Lorem ipsum or random word sequences | Not adopted | Introduces lexical material that is absent from the baseline and may act as distractor context. | Shi et al. (2023); Zhou et al. (2023). |
 | Grammatical but task-irrelevant text | Not adopted | Introduces additional semantic content unrelated to the coding task, creating an irrelevant-context manipulation in addition to the intended component replacement. | Shi et al. (2023). |
 | Coherent text on an unrelated topic | Not adopted | Introduces a competing semantic context and therefore an additional potential source of interference. | Shi et al. (2023); Zhou et al. (2023). |
 | Explicit omission marker, such as `[definition omitted]` | Not adopted | Identifies what was removed and therefore provides information about the manipulated component. It also does not naturally supply the required replacement length. | Design rationale (this study). |
+
+#### Selected form
+
+[decided 2026-09-15] Symbol `%`, space-separated repetition (rule B).
+
+Construction rule: for a replacement site whose original text plus its line-ending newline occupies k tokens in the assembled prompt, the site text is replaced by k occurrences of `%` joined by single spaces. On marker lines the marker and one following space are preserved and the filler starts after that space (`■ % % %`, `➢ % % %`); on lines without a marker the filler starts at the first character (`% % %`). Line breaks, `■`/`➢` markers, and paragraph boundaries are unchanged. The number of `%` per site is determined by scripts/manual_sites.py (fit_repeats) with all sites of a condition replaced at once and the full prompt re-tokenized, and is recorded per site in data/placeholder_plan.csv (git-ignored). Under rule B the search converged in one iteration for all four conditions with k equal to the original count.
+
+Token accounting unit: the replaced text plus the newline that ends its line. This unit was adopted because o200k_base can merge a newline with the preceding character (e.g. `.\n`); measuring the text without its newline would make the per-instance count and the downstream index checks of 3.2.3 mutually inconsistent at such lines.
+
+Selection procedure (scripts/probe_symbols.py, reports/symbol-probe-2026-09-15.txt): eleven candidates (`. ~ = | % ^ ; : @ & ?`) were tested under two construction rules with tiktoken 0.14.0 / o200k_base, on the full baseline prompt for source_id 7: (a) how repeated symbols group into tokens; (b) whether every site of every condition can be matched exactly; (d) whether `■`/`➢` merge with the filler.
+
+Rule A, contiguous repetition (`%%%%`), rejected: o200k_base merges long runs of one symbol into single tokens (e.g. 32 `.` = 1 token, 16 `=` = 1 token), so matching 79 tokens required about 5,000 characters, the count per site depended on merge-table accidents, and `^` could not be matched exactly at five example sites. The construction is non-linear and not guaranteed for every site.
+
+Rule B, space-separated repetition: for all eleven candidates, `' ' + symbol` is one token for every repetition length tested (1–40) and every site of every condition matched exactly; no marker merged with the filler.
+
+Symbols rejected under rule B: `.` (66 occurrences in Chapter 1), `:` (50), `?` (48), `;` (2) — characters present in the manual text (requirement "No character that occurs in the manual text" above); `|` (Markdown table syntax), `~` (strikethrough), `=` (setext heading underline, equation), `&` (HTML entity start), `@` (mention convention) — markup or notation syntax; `^` (superscript syntax in Markdown extensions; also the only candidate that failed under rule A). Excluded before probing: `# - * > + ` [ ] ( ) _` (Markdown), digits, letters including `x`/`X` (which occur as variables in the manual's own examples).
+
+`%` retained: absent from Chapter 1, no Markdown or markup meaning, exact match at all 90 sites in one iteration. The selection was made without reference to any agreement result.
 
 Sources:
 
@@ -79,7 +98,7 @@ The selected model and tokenizer are specified in Section 5.2.1.
 
 Local matching is required because the selected components occur at multiple positions in the manual. Matching only the total token count of a condition could preserve overall prompt length while shifting the positions of content located between replacement spans. Each definition paragraph, example item, and exclusion-rule item is therefore matched separately to its baseline counterpart.
 
-Exact token-count matching is the target. Whether every replacement instance can be matched exactly using the placeholder form selected in 3.2.2 has not yet been established. If exact matching is not possible for some instances, the rule for resolving the mismatch, including whether the filler symbol is changed or a token-count tolerance is permitted, remains unresolved and must be fixed before data collection. [unresolved]
+Exact token-count matching is the target. Resolved (2026-09-15): with the form fixed in 3.2.2 (`%`, rule B) every replacement instance is matched exactly — all 90 sites in the four conditions pass the three checks below on the full prompt for source_id 7 (reports/token-matching-check-2026-09-15.txt). No token-count tolerance is defined. If a mismatch appears for another source_id, it is resolved by changing the construction rule or symbol and re-verifying, not by admitting a tolerance.
 
 After replacement, the complete researcher-constructed text input is tokenized again using the model-compatible tokenizer to verify:
 
@@ -89,7 +108,7 @@ After replacement, the complete researcher-constructed text input is tokenized a
 
 These checks establish condition-to-condition matching within the text content controlled by the study. They do not claim direct observation or reconstruction of the provider's complete internal API serialization or the absolute token positions of all request-structure tokens. The API endpoint, message structure, and output-format configuration will therefore be held identical across experimental conditions so that any request-level structure outside the manipulated text is not intentionally varied between conditions.
 
-For each replacement instance, the original token count, replacement token count, and verification result will be recorded. The location and format of this record have not yet been decided. [unresolved]
+For each replacement instance, the original token count, replacement token count, and verification result are recorded. Resolved (2026-09-15): the original counts and span boundaries are in data/replacement_manifest.csv (git-ignored; contains manual text; summary in reports/replacement-manifest-summary-<date>.txt), the per-site filler in data/placeholder_plan.csv (git-ignored), and the verification result per condition and source_id in reports/token-matching-check-<date>.txt, produced by scripts/check_token_matching.py, which is re-run on every sampled source_id before data collection.
 
 Revision note (2026-09-08): Local instance-level matching was made explicit after recognizing that global token-count matching alone does not preserve the positions of content between multiple replacement spans.
 

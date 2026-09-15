@@ -110,7 +110,7 @@ Why e, g, and h:
 Why a as the negative control:
 
 - Among the types judged not relevant in 3.1.5, a is the only one with substantive text (i consists of structural markers, whose removal would collapse the section structure rather than replace content).
-- Limitation, recorded as part of the condition definition: the replaced content is far smaller than in the relevant conditions (3 sentences vs., e.g., 61 example items). The control therefore tests whether replacing irrelevant content changes agreement; it does not test whether replacing content at the volume of the relevant conditions changes agreement. No irrelevant text of comparable volume exists in Chapter 1.
+- Limitation, recorded as part of the condition definition: the replaced content is far smaller than in the relevant conditions (3 sentences vs., e.g., 61 example items; measured 2026-09-15 with o200k_base on the assembled prompt for source_id 7: replaced spans total a 79 tokens, e 314, g 602, h 171, of a 2,202-token baseline prompt). The control therefore tests whether replacing irrelevant content changes agreement; it does not test whether replacing content at the volume of the relevant conditions changes agreement. No irrelevant text of comparable volume exists in Chapter 1.
 
 Types not selected, and why:
 
@@ -133,7 +133,7 @@ Each condition is defined by two lists: what is replaced, and what remains. The 
 |---|---|---|
 | Baseline | nothing | a–i, all of it |
 | Definition replacement | e | Under four moves, sub-clauses and examples remain, so summaries of the definitions' content and utterance forms remain. Under Restating and Revoicing, only examples remain. Boundary statements are replaced along with e. The "coded as X" name strings go with e, so names remain only in the headings and the 1.2 list. |
-| Example replacement | g | Definitions and sub-clauses remain, so descriptions of qualifying situations remain. The example-list heading, example utterances, `S:`/`T:` speaker-role markers, and parenthetical `(Restating)` / `(Revoicing)` labels are replaced. Inline examples inside 1.6 remain because they belong to h. Move names remain available elsewhere in the category list, move headings, and definition text. |
+| Example replacement | g | Definitions and sub-clauses remain, so descriptions of qualifying situations remain. The example-list heading, example utterances, `S:`/`T:` speaker-role markers, and parenthetical `(Restating)` / `(Revoicing)` labels are replaced. Inline examples inside 1.6 remain because they belong to h. The `■` item markers, the two-line layout of `S:`/`T:` items, and line breaks remain. Move names remain available elsewhere in the category list, move headings, and definition text. |
 | Exclusion-rule replacement | h | The inclusion rule remains, so the definition of what is coded remains. The enumeration of what is not coded goes, and the inline examples inside 1.6 go with it. Least residue of the three relevant conditions. |
 | Negative control | a | Everything bearing on assignment remains. |
 
