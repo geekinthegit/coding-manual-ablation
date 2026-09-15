@@ -1,7 +1,7 @@
 Frame and scoring-label build summary
-Generated at: 2026-09-15T09:12:35+09:00
+Generated at: 2026-09-15T14:49:10+09:00
 Script: scripts/build_frame.py
-Script commit: 4ed1a547e35b02100f7a3809bdc178140b4069c8
+Script commit: 1d64aa3c356c3cf1298c64a2b97480ac3dd90a66-dirty
 Source file: /Users/jeobnida/talkmoves-project/TalkMoves/data/train_data_504.xlsx
 Source rows (all speakers): 203,601
 Provider-ID gaps in source file: 49 (first gap at row position 2286)
@@ -28,3 +28,4 @@ Tag 6 | Pressing for Reasoning | eligible 1,759 of 1,759
 
 frame.csv rows: 150,918; columns: source_id, source_row_id, Transcript, Speaker, Sentence, eligible
 scoring_labels.csv rows: 150,918; columns: source_id, source_row_id, Tag
+rows_all.csv rows: 203,601; columns: source_id, source_row_id, Transcript, Speaker, Sentence
