@@ -1,0 +1,37 @@
+environment: python: 3.13.9, openai: 3.8.0, tiktoken: 0.14.0
+called_at_utc: 2026-09-15T02:38:28.174231+00:00
+endpoint: chat.completions
+model_requested: gpt-5.5-2026-04-23
+model_returned: gpt-5.5-2026-04-23
+request_parameters: {"model": "gpt-5.5-2026-04-23", "temperature": 0, "reasoning_effort": "none", "max_completion_tokens": 64, "response_format": {"type": "json_schema", "json_schema": {"name": "talkmove_category", "strict": true, "schema": {"type": "object", "properties": {"category": {"type": "string", "enum": ["Not coded", "Keeping Everyone Together", "Getting Students to Relate", "Restating", "Revoicing", "Pressing for Accuracy", "Pressing for Reasoning"]}}, "required": ["category"], "additionalProperties": false}}}}
+synthetic_prompt:
+Task: Read the short manual below, then assign the target line to exactly one category.
+
+Manual (synthetic, for technical testing only):
+- Category A is used when the speaker asks a question.
+- Category B is used when the speaker makes a statement.
+- Otherwise the line is not coded.
+
+Context:
+S: Test line one.
+T: Test line two.
+[TARGET] T: Is this a test?
+S: Test line four.
+
+Output instruction: Respond with one category name from the allowed list.
+raw_response_content: {"category":"Not coded"}
+parsed_category: Not coded
+finish_reason: stop
+usage: {"completion_tokens":14,"prompt_tokens":170,"total_tokens":184,"completion_tokens_details":{"accepted_prediction_tokens":0,"audio_tokens":0,"reasoning_tokens":0,"rejected_prediction_tokens":0,"text_tokens":null},"prompt_tokens_details":{"audio_tokens":0,"cache_write_tokens":null,"cached_tokens":0,"image_tokens":null,"text_tokens":null}}
+checks:
+  1_request_accepted: True
+  2_snapshot_returned: True
+  3_temperature_0_accepted: True
+  4_reasoning_effort_none_accepted: True
+  5_structured_output_accepted: True
+  6_combo_ok: True
+  7_schema_valid_category: True
+  8_parser_unambiguous: True
+  9_not_truncated: True
+  10_usage_available: True
+  11_reasoning_tokens: 0
