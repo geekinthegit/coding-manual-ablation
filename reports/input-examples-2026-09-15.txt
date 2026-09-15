@@ -1,0 +1,144 @@
+Input construction examples (manual placeholders; instructions are drafts)
+Generated at: 2026-09-15T14:49:12+09:00
+Script: scripts/build_inputs.py
+Script commit: 1d64aa3c356c3cf1298c64a2b97480ac3dd90a66-dirty
+Example source_ids: {'near_start': 0, 'full_window': 7, 'empty_text_in_window': 23541}
+
+========================================================================
+[near_start] source_id=0 window=[0, 7] condition=baseline
+========================================================================
+You are coding teacher talk in a mathematics classroom transcript. The Context block below shows consecutive lines from one transcript; T: marks the teacher and S: marks a student. Exactly one line is marked [TARGET]. Assign that target line to exactly one of the categories listed in the Output section. Use the other lines only as context and do not code them.
+
+Coding manual:
+<<MANUAL PLACEHOLDER: baseline>>
+
+Context:
+[TARGET] T: My names Ms Villarin I dont know if Ms Ferrant told you about me but I planned with Ms Ferrant last Friday  and I also have a seventh eighth grade math class
+T: So today her and I will be teaching a lesson together again my names Ms Villarin and thatll be on the board
+T: So you can treat me the way you treat her if you ask questions and you have something that you dont understand you can ask me
+T: Okay
+T: So today were going to be doing a really cool lesson
+T: We have a lot of people in the classroom I dont want you to be nervous at all
+T: If people stand by you its just  cause they want to know what youre thinking
+T: Okay
+
+Output: respond with a JSON object with a single key "category" whose value is exactly one of the following strings: "Not coded", "Keeping Everyone Together", "Getting Students to Relate", "Restating", "Revoicing", "Pressing for Accuracy", "Pressing for Reasoning". Do not include anything else.
+
+========================================================================
+[near_start] source_id=0 window=[0, 7] condition=names_only
+========================================================================
+You are coding teacher talk in a mathematics classroom transcript. The Context block below shows consecutive lines from one transcript; T: marks the teacher and S: marks a student. Exactly one line is marked [TARGET]. Assign that target line to exactly one of the categories listed in the Output section. Use the other lines only as context and do not code them.
+
+Context:
+[TARGET] T: My names Ms Villarin I dont know if Ms Ferrant told you about me but I planned with Ms Ferrant last Friday  and I also have a seventh eighth grade math class
+T: So today her and I will be teaching a lesson together again my names Ms Villarin and thatll be on the board
+T: So you can treat me the way you treat her if you ask questions and you have something that you dont understand you can ask me
+T: Okay
+T: So today were going to be doing a really cool lesson
+T: We have a lot of people in the classroom I dont want you to be nervous at all
+T: If people stand by you its just  cause they want to know what youre thinking
+T: Okay
+
+Output: respond with a JSON object with a single key "category" whose value is exactly one of the following strings: "Not coded", "Keeping Everyone Together", "Getting Students to Relate", "Restating", "Revoicing", "Pressing for Accuracy", "Pressing for Reasoning". Do not include anything else.
+
+========================================================================
+[full_window] source_id=7 window=[0, 14] condition=baseline
+========================================================================
+You are coding teacher talk in a mathematics classroom transcript. The Context block below shows consecutive lines from one transcript; T: marks the teacher and S: marks a student. Exactly one line is marked [TARGET]. Assign that target line to exactly one of the categories listed in the Output section. Use the other lines only as context and do not code them.
+
+Coding manual:
+<<MANUAL PLACEHOLDER: baseline>>
+
+Context:
+T: My names Ms Villarin I dont know if Ms Ferrant told you about me but I planned with Ms Ferrant last Friday  and I also have a seventh eighth grade math class
+T: So today her and I will be teaching a lesson together again my names Ms Villarin and thatll be on the board
+T: So you can treat me the way you treat her if you ask questions and you have something that you dont understand you can ask me
+T: Okay
+T: So today were going to be doing a really cool lesson
+T: We have a lot of people in the classroom I dont want you to be nervous at all
+T: If people stand by you its just  cause they want to know what youre thinking
+[TARGET] T: Okay
+T: All theyre doing is listening to what youre thinking and looking at what youre recording
+T: Okay
+T: So make sure you speak loud enough so that they can hear you and then just pretend like the cameras arent here
+T: Okay
+T: So what were going to be doing today is  about two weeks ago I think you guys did a problem called  Pizza Crusts  Ms Ferrant gave you a problem she had you do it by yourself
+T: Do you all remember it
+T: Yeah
+
+Output: respond with a JSON object with a single key "category" whose value is exactly one of the following strings: "Not coded", "Keeping Everyone Together", "Getting Students to Relate", "Restating", "Revoicing", "Pressing for Accuracy", "Pressing for Reasoning". Do not include anything else.
+
+========================================================================
+[full_window] source_id=7 window=[0, 14] condition=names_only
+========================================================================
+You are coding teacher talk in a mathematics classroom transcript. The Context block below shows consecutive lines from one transcript; T: marks the teacher and S: marks a student. Exactly one line is marked [TARGET]. Assign that target line to exactly one of the categories listed in the Output section. Use the other lines only as context and do not code them.
+
+Context:
+T: My names Ms Villarin I dont know if Ms Ferrant told you about me but I planned with Ms Ferrant last Friday  and I also have a seventh eighth grade math class
+T: So today her and I will be teaching a lesson together again my names Ms Villarin and thatll be on the board
+T: So you can treat me the way you treat her if you ask questions and you have something that you dont understand you can ask me
+T: Okay
+T: So today were going to be doing a really cool lesson
+T: We have a lot of people in the classroom I dont want you to be nervous at all
+T: If people stand by you its just  cause they want to know what youre thinking
+[TARGET] T: Okay
+T: All theyre doing is listening to what youre thinking and looking at what youre recording
+T: Okay
+T: So make sure you speak loud enough so that they can hear you and then just pretend like the cameras arent here
+T: Okay
+T: So what were going to be doing today is  about two weeks ago I think you guys did a problem called  Pizza Crusts  Ms Ferrant gave you a problem she had you do it by yourself
+T: Do you all remember it
+T: Yeah
+
+Output: respond with a JSON object with a single key "category" whose value is exactly one of the following strings: "Not coded", "Keeping Everyone Together", "Getting Students to Relate", "Restating", "Revoicing", "Pressing for Accuracy", "Pressing for Reasoning". Do not include anything else.
+
+========================================================================
+[empty_text_in_window] source_id=23541 window=[23534, 23548] condition=baseline
+========================================================================
+You are coding teacher talk in a mathematics classroom transcript. The Context block below shows consecutive lines from one transcript; T: marks the teacher and S: marks a student. Exactly one line is marked [TARGET]. Assign that target line to exactly one of the categories listed in the Output section. Use the other lines only as context and do not code them.
+
+Coding manual:
+<<MANUAL PLACEHOLDER: baseline>>
+
+Context:
+T: That was already printed suggested
+T: You only have to figure out this part
+T: Lisa please complete the multiplication correctly
+T: Minus two X times what is minus two X squared
+S: Um I dont know
+T: Where did the little squared come from Lisa
+S: Oh times X
+[TARGET] T: Times
+S: X
+T: X thats correct
+T: Minus two X times what
+T: Makes minus 54 X
+S: Twentyseven
+S:
+T: Exactly right minus two X times 27 is minus 54 X
+
+Output: respond with a JSON object with a single key "category" whose value is exactly one of the following strings: "Not coded", "Keeping Everyone Together", "Getting Students to Relate", "Restating", "Revoicing", "Pressing for Accuracy", "Pressing for Reasoning". Do not include anything else.
+
+========================================================================
+[empty_text_in_window] source_id=23541 window=[23534, 23548] condition=names_only
+========================================================================
+You are coding teacher talk in a mathematics classroom transcript. The Context block below shows consecutive lines from one transcript; T: marks the teacher and S: marks a student. Exactly one line is marked [TARGET]. Assign that target line to exactly one of the categories listed in the Output section. Use the other lines only as context and do not code them.
+
+Context:
+T: That was already printed suggested
+T: You only have to figure out this part
+T: Lisa please complete the multiplication correctly
+T: Minus two X times what is minus two X squared
+S: Um I dont know
+T: Where did the little squared come from Lisa
+S: Oh times X
+[TARGET] T: Times
+S: X
+T: X thats correct
+T: Minus two X times what
+T: Makes minus 54 X
+S: Twentyseven
+S:
+T: Exactly right minus two X times 27 is minus 54 X
+
+Output: respond with a JSON object with a single key "category" whose value is exactly one of the following strings: "Not coded", "Keeping Everyone Together", "Getting Students to Relate", "Restating", "Revoicing", "Pressing for Accuracy", "Pressing for Reasoning". Do not include anything else.
