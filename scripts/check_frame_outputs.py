@@ -10,6 +10,10 @@ Checks
 5. The eligible flag is True exactly where Sentence is present, and the
    eligible population and per-tag eligible counts match Decision Log 2.1.2
    [decided 2026-09-15].
+6. rows_all.csv has no label column, one row per source row (203,601), row
+   position equal to source_id, exactly the teacher count of "T" rows, each
+   Transcript in one contiguous block, and its teacher rows agree with
+   frame.csv field by field [proposed 2026-09-15].
 
 This script reads the derived CSVs only; it does not touch the raw file.
 """
@@ -23,9 +27,11 @@ from tags import TAG_TO_CATEGORY
 REPO_ROOT = Path(__file__).resolve().parent.parent
 FRAME_FILE = REPO_ROOT / "data" / "frame.csv"
 LABELS_FILE = REPO_ROOT / "data" / "scoring_labels.csv"
+ROWS_ALL_FILE = REPO_ROOT / "data" / "rows_all.csv"
 
 FRAME_COLUMNS = ["source_id", "source_row_id", "Transcript", "Speaker", "Sentence", "eligible"]
 LABEL_COLUMNS = ["source_id", "source_row_id", "Tag"]
+ROWS_ALL_COLUMNS = ["source_id", "source_row_id", "Transcript", "Speaker", "Sentence"]
 FORBIDDEN_IN_FRAME = {"Tag", "StudentTag"}
 
 # Counts recorded in Decision Log 2.1.3 (2026-09-11), verified at commit 8f92138.
@@ -53,6 +59,9 @@ EXPECTED_ELIGIBLE_COUNTS = {
     5: 19_848,
     6: 1_759,
 }
+
+# Source rows, all speakers, recorded in reports/frame-summary (2026-09-15).
+EXPECTED_SOURCE_ROWS = 203_601
 
 
 def main() -> None:
@@ -103,9 +112,29 @@ def main() -> None:
     assert eligible_pass, "eligible per-tag counts differ from Decision Log 2.1.2"
     print(f"Eligible rows: {n_eligible:,} (expected {EXPECTED_ELIGIBLE_TOTAL:,}); ineligible: {n_ineligible}")
 
+    # rows_all.csv: full row table used for context windows [proposed 2026-09-15].
+    rows_all = pd.read_csv(ROWS_ALL_FILE, keep_default_na=False, na_values=[""])
+    assert list(rows_all.columns) == ROWS_ALL_COLUMNS, f"rows_all columns: {list(rows_all.columns)}"
+    assert not FORBIDDEN_IN_FRAME & set(rows_all.columns), "label column present in rows_all.csv"
+    assert len(rows_all) == EXPECTED_SOURCE_ROWS, f"rows_all rows: {len(rows_all):,}"
+    assert (rows_all["source_id"] == rows_all.index).all(), "rows_all row position != source_id"
+    assert set(rows_all["Speaker"].unique()) == {"S", "T"}, rows_all["Speaker"].unique()
+    assert int((rows_all["Speaker"] == "T").sum()) == EXPECTED_TOTAL, "teacher count in rows_all"
+    # Each Transcript must occupy one contiguous block; the window walks over adjacent rows.
+    starts = int((rows_all["Transcript"] != rows_all["Transcript"].shift()).sum())
+    assert starts == rows_all["Transcript"].nunique(), "a Transcript appears in non-contiguous blocks"
+    # Teacher rows agree with frame.csv at the same source_id.
+    at_ids = rows_all.loc[frame["source_id"].to_numpy()]
+    for col in ("source_row_id", "Transcript", "Speaker"):
+        assert (at_ids[col].to_numpy() == frame[col].to_numpy()).all(), f"{col} mismatch vs frame.csv"
+    assert (at_ids["Sentence"].isna().to_numpy() == frame["Sentence"].isna().to_numpy()).all(), "Sentence missingness mismatch"
+    assert (at_ids["Sentence"].fillna("").to_numpy() == frame["Sentence"].fillna("").to_numpy()).all(), "Sentence text mismatch"
+    print(f"rows_all.csv rows: {len(rows_all):,} (expected {EXPECTED_SOURCE_ROWS:,}); transcript blocks: {starts}")
+
     print(f"\nRows: {len(frame):,} (expected {EXPECTED_TOTAL:,})")
     print("frame.csv columns:", list(frame.columns))
     print("scoring_labels.csv columns:", list(labels.columns))
+    print("rows_all.csv columns:", list(rows_all.columns))
     print("All checks passed.")
 
 

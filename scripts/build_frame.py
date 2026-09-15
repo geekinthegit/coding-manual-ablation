@@ -2,11 +2,13 @@
 
 Purpose
 -------
-Split the raw training file into two derived outputs so that prompt
+Split the raw training file into derived outputs so that prompt
 assembly code never reads a data structure that contains human labels:
 
-* data/frame.csv          -- fields allowed as API input only
+* data/frame.csv          -- teacher rows, fields allowed as API input only
 * data/scoring_labels.csv -- gold labels, joined to the frame by source_id
+* data/rows_all.csv       -- every source row (all speakers), no labels;
+                             used only to build context windows
 
 Canonical row order
 -------------------
@@ -20,8 +22,6 @@ In the current file it is increasing but not contiguous (49 missing values;
 first gap at 2286), so it is kept for traceability to the source data only
 and must not be used to define adjacency.
 
-Scope
------
 Missing text
 ------------
 The provider file stores absent utterance text as the literal string "nan".
@@ -38,11 +38,15 @@ so a human-LLM comparison unit does not exist for that row. Ineligible rows
 are kept in ``frame.csv`` so that row adjacency for the context window is
 unchanged; only the sampling script filters on this flag.
 
-Both outputs contain every teacher row (``Speaker == "T"``) with no
-additional exclusions. The raw file is read only. The context window is
-not materialised here; it is constructed later from ``frame.csv``.
+Scope
+-----
+frame.csv and scoring_labels.csv contain every teacher row
+(``Speaker == "T"``) with no additional exclusions. rows_all.csv contains
+every source row in canonical order [proposed 2026-09-15]; the context window
+is not materialised here but constructed later from rows_all.csv. The raw
+file is read only.
 
-The two CSV outputs are derivatives of TalkMoves (CC BY-NC-SA) and are
+The CSV outputs are derivatives of TalkMoves (CC BY-NC-SA) and are
 git-ignored. Only ``reports/frame-summary-<date>.txt`` is committed.
 """
 
@@ -61,12 +65,14 @@ REPORTS_DIR = REPO_ROOT / "reports"
 
 FRAME_FILE = DATA_DIR / "frame.csv"
 LABELS_FILE = DATA_DIR / "scoring_labels.csv"
+ROWS_ALL_FILE = DATA_DIR / "rows_all.csv"
 
 PROVIDER_ID_COL = "Unnamed: 0"
 LABEL_COLS_IN_SOURCE = ["Tag", "StudentTag"]
 
 FRAME_COLUMNS = ["source_id", "source_row_id", "Transcript", "Speaker", "Sentence", "eligible"]
 LABEL_COLUMNS = ["source_id", "source_row_id", "Tag"]
+ROWS_ALL_COLUMNS = ["source_id", "source_row_id", "Transcript", "Speaker", "Sentence"]
 
 
 def git_commit_hash() -> str:
@@ -97,6 +103,19 @@ def main() -> None:
     n_gaps = int(provider_ids.max() + 1 - len(df))
     mismatch = provider_ids != df.index
     first_gap = int(mismatch.idxmax()) if mismatch.any() else None
+
+    # Full row table, all speakers, no labels, for context-window construction
+    # [proposed 2026-09-15]. Row position in df is source_id (see docstring).
+    assert set(df["Speaker"].unique()) == {"S", "T"}, df["Speaker"].unique()
+    assert (df["Transcript"] != "nan").all(), "literal 'nan' Transcript in source rows"
+    rows_all = pd.DataFrame({
+        "source_id": df.index.astype(int),
+        "source_row_id": df[PROVIDER_ID_COL].astype(int),
+        "Transcript": df["Transcript"],
+        "Speaker": df["Speaker"],
+        "Sentence": df["Sentence"],
+    })[ROWS_ALL_COLUMNS]
+    assert not set(LABEL_COLS_IN_SOURCE) & set(rows_all.columns), "label column leaked into rows_all"
 
     # Single definition of the teacher mask; every count below derives from it.
     is_teacher = df["Speaker"] == "T"
@@ -142,6 +161,7 @@ def main() -> None:
     REPORTS_DIR.mkdir(exist_ok=True)
     frame.to_csv(FRAME_FILE, index=False)
     labels.to_csv(LABELS_FILE, index=False)
+    rows_all.to_csv(ROWS_ALL_FILE, index=False)
 
     now = datetime.now().astimezone()
     summary_file = REPORTS_DIR / f"frame-summary-{now:%Y-%m-%d}.txt"
@@ -170,11 +190,12 @@ def main() -> None:
         "",
         f"frame.csv rows: {len(frame):,}; columns: {', '.join(frame.columns)}",
         f"scoring_labels.csv rows: {len(labels):,}; columns: {', '.join(labels.columns)}",
+        f"rows_all.csv rows: {len(rows_all):,}; columns: {', '.join(rows_all.columns)}",
     ]
     summary_file.write_text("\n".join(lines) + "\n")
 
     print("\n".join(lines))
-    print(f"\nWrote {FRAME_FILE}\nWrote {LABELS_FILE}\nWrote {summary_file}")
+    print(f"\nWrote {FRAME_FILE}\nWrote {LABELS_FILE}\nWrote {ROWS_ALL_FILE}\nWrote {summary_file}")
 
 
 if __name__ == "__main__":

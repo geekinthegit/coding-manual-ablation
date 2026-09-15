@@ -1,0 +1,257 @@
+"""Assemble API inputs: context window, target marker, and prompt text.
+
+Inputs (derived CSVs only; the raw file and scoring_labels.csv are never read)
+----------------------------------------------------------------------------
+* data/rows_all.csv -- every source row (teachers and students), no labels.
+  Row position equals ``source_id`` (canonical row order; see build_frame.py).
+* data/frame.csv    -- teacher rows with the ``eligible`` flag. Target
+  candidates are rows with ``eligible == True``.
+
+Both files are read with ``keep_default_na=False, na_values=[""]`` so that
+only an empty cell is missing and the genuine utterance "None" is kept.
+
+Context window [decided, Decision Log 5.1]
+-----------------------------------------
+Up to 7 rows before and 7 rows after the target, any speaker, within the same
+Transcript, truncated at transcript boundaries, full utterance text.
+
+Serialisation [proposed 2026-09-15, Decision Log 5.1.6]
+-------------------------------------------------------
+* One line per row: ``T: <text>`` or ``S: <text>``; rows joined by a single
+  newline; the block is preceded by the header line ``Context:``.
+* The target row is prefixed with ``[TARGET] `` (e.g. ``[TARGET] T: ...``).
+* A context row whose Sentence is missing in the source keeps only its
+  speaker marker (``S:``). The row is not skipped, and no marker such as
+  ``nan`` or ``[MISSING]`` is inserted: the human coders saw that row empty
+  as well, and no artefact absent from the original situation is added.
+* TASK_INSTRUCTION and OUTPUT_INSTRUCTION are drafts; they are fixed after
+  tool validation.
+
+Prompt order [decided, Decision Log 5.3]
+----------------------------------------
+task instruction -> coding manual -> Context block (with target) ->
+output instruction, joined by blank lines. ``names_only`` omits the manual.
+Manual texts are not available yet; ``MANUAL_PLACEHOLDER`` stands in and the
+interface (``build_prompt(source_id, condition)``) is what later stages use.
+
+No human label (Tag, StudentTag, numeric tag) enters any data structure this
+module reads. Category names appear in the output instruction enum only
+(and, once available, inside the manual text).
+"""
+
+import subprocess
+from datetime import datetime
+from pathlib import Path
+
+import pandas as pd
+
+from tags import TAG_TO_CATEGORY
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = REPO_ROOT / "data"
+REPORTS_DIR = REPO_ROOT / "reports"
+FRAME_FILE = DATA_DIR / "frame.csv"
+ROWS_ALL_FILE = DATA_DIR / "rows_all.csv"
+
+FORBIDDEN_COLUMNS = {"Tag", "StudentTag"}
+ROWS_ALL_COLUMNS = ["source_id", "source_row_id", "Transcript", "Speaker", "Sentence"]
+
+CONTEXT_RADIUS = 7
+TARGET_MARKER = "[TARGET] "
+CONTEXT_HEADER = "Context:"
+SPEAKER_PREFIX = {"T": "T:", "S": "S:"}
+
+# Condition identifiers follow Decision Log 3.1.7 / 3.3.
+CONDITIONS = [
+    "baseline",
+    "definition_replacement",
+    "example_replacement",
+    "exclusion_rule_replacement",
+    "negative_control",
+    "names_only",
+]
+MANUAL_CONDITIONS = [c for c in CONDITIONS if c != "names_only"]
+MANUAL_PLACEHOLDER = {c: f"<<MANUAL PLACEHOLDER: {c}>>" for c in MANUAL_CONDITIONS}
+MANUAL_HEADER = "Coding manual:"
+
+CATEGORY_NAMES = list(TAG_TO_CATEGORY.values())
+
+# [proposed 2026-09-15] Draft instructions; fixed after tool validation.
+TASK_INSTRUCTION = (
+    "You are coding teacher talk in a mathematics classroom transcript. "
+    "The Context block below shows consecutive lines from one transcript; "
+    "T: marks the teacher and S: marks a student. Exactly one line is marked "
+    "[TARGET]. Assign that target line to exactly one of the categories "
+    "listed in the Output section. Use the other lines only as context and "
+    "do not code them."
+)
+OUTPUT_INSTRUCTION = (
+    "Output: respond with a JSON object with a single key \"category\" whose "
+    "value is exactly one of the following strings: "
+    + ", ".join(f'"{name}"' for name in CATEGORY_NAMES)
+    + ". Do not include anything else."
+)
+
+_TABLES = None
+
+
+def git_commit_hash() -> str:
+    """Return HEAD hash; append '-dirty' if the working tree has uncommitted changes."""
+    head = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=REPO_ROOT, capture_output=True, text=True, check=True,
+    ).stdout.strip()
+    status = subprocess.run(
+        ["git", "status", "--porcelain"],
+        cwd=REPO_ROOT, capture_output=True, text=True, check=True,
+    ).stdout
+    return head + ("-dirty" if status.strip() else "")
+
+
+def load_tables() -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Load frame.csv and rows_all.csv and assert that they agree row by row."""
+    frame = pd.read_csv(FRAME_FILE, keep_default_na=False, na_values=[""])
+    rows_all = pd.read_csv(ROWS_ALL_FILE, keep_default_na=False, na_values=[""])
+
+    for name, table in (("frame.csv", frame), ("rows_all.csv", rows_all)):
+        assert not FORBIDDEN_COLUMNS & set(table.columns), f"label column in {name}"
+    assert list(rows_all.columns) == ROWS_ALL_COLUMNS, list(rows_all.columns)
+    assert (rows_all["source_id"] == rows_all.index).all(), "rows_all row position != source_id"
+    assert set(rows_all["Speaker"].unique()) <= set(SPEAKER_PREFIX), rows_all["Speaker"].unique()
+    assert frame["eligible"].dtype == bool, frame["eligible"].dtype
+
+    # Every teacher row in frame.csv must sit at the same position in rows_all.csv.
+    at_ids = rows_all.loc[frame["source_id"].to_numpy()]
+    for col in ("source_row_id", "Transcript", "Speaker"):
+        assert (at_ids[col].to_numpy() == frame[col].to_numpy()).all(), f"{col} mismatch"
+    assert (at_ids["Sentence"].isna().to_numpy() == frame["Sentence"].isna().to_numpy()).all()
+    assert (at_ids["Sentence"].fillna("").to_numpy() == frame["Sentence"].fillna("").to_numpy()).all()
+    return frame, rows_all
+
+
+def get_tables() -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Return the cached (frame, rows_all) pair, loading it on first use."""
+    global _TABLES
+    if _TABLES is None:
+        _TABLES = load_tables()
+    return _TABLES
+
+
+def window_bounds(source_id: int, rows_all: pd.DataFrame) -> tuple[int, int]:
+    """Return (lo, hi), inclusive row positions of the context window.
+
+    Walks outward from the target one row at a time and stops at the radius,
+    at the table edge, or at the first row with a different Transcript.
+    """
+    transcript = rows_all.at[source_id, "Transcript"]
+    lo = source_id
+    while lo > 0 and lo > source_id - CONTEXT_RADIUS and rows_all.at[lo - 1, "Transcript"] == transcript:
+        lo -= 1
+    hi = source_id
+    last = len(rows_all) - 1
+    while hi < last and hi < source_id + CONTEXT_RADIUS and rows_all.at[hi + 1, "Transcript"] == transcript:
+        hi += 1
+    return lo, hi
+
+
+def format_row(speaker: str, sentence) -> str:
+    """Return 'T: <text>' / 'S: <text>'; a missing Sentence yields only the marker."""
+    prefix = SPEAKER_PREFIX[speaker]
+    text = "" if pd.isna(sentence) else str(sentence)
+    assert "\n" not in text, "utterance text contains a newline; serialisation rule undefined"
+    return prefix if text == "" else f"{prefix} {text}"
+
+
+def build_context(source_id: int, rows_all: pd.DataFrame | None = None) -> list[str]:
+    """Return the serialised context rows for one target, target row prefixed."""
+    if rows_all is None:
+        _, rows_all = get_tables()
+    assert rows_all.at[source_id, "Speaker"] == "T", "target must be a teacher row"
+    lo, hi = window_bounds(source_id, rows_all)
+    lines = []
+    for rid in range(lo, hi + 1):
+        line = format_row(rows_all.at[rid, "Speaker"], rows_all.at[rid, "Sentence"])
+        if rid == source_id:
+            line = TARGET_MARKER + line
+        lines.append(line)
+    return lines
+
+
+def serialize(rows: list[str]) -> str:
+    """Join context rows under the Context header, one row per line."""
+    return "\n".join([CONTEXT_HEADER, *rows])
+
+
+def prompt_parts(source_id: int, condition: str, rows_all: pd.DataFrame | None = None) -> dict[str, str]:
+    """Return the prompt sections by name; 'manual' is absent for names_only."""
+    assert condition in CONDITIONS, condition
+    parts = {"task": TASK_INSTRUCTION}
+    if condition != "names_only":
+        parts["manual"] = MANUAL_HEADER + "\n" + MANUAL_PLACEHOLDER[condition]
+    parts["context"] = serialize(build_context(source_id, rows_all))
+    parts["output"] = OUTPUT_INSTRUCTION
+    return parts
+
+
+def build_prompt(source_id: int, condition: str, rows_all: pd.DataFrame | None = None) -> str:
+    """Return the single user-message text for one target and condition."""
+    return "\n\n".join(prompt_parts(source_id, condition, rows_all).values())
+
+
+def pick_examples(frame: pd.DataFrame, rows_all: pd.DataFrame) -> dict[str, int]:
+    """Pick the first eligible target for each of three window situations.
+
+    (a) full window: 7 rows available on both sides;
+    (b) near start: fewer than 7 rows available before the target;
+    (c) empty text: a non-target row inside the window has a missing Sentence.
+    """
+    picks: dict[str, int] = {}
+    for sid in frame.loc[frame["eligible"], "source_id"]:
+        sid = int(sid)
+        lo, hi = window_bounds(sid, rows_all)
+        if "full_window" not in picks and lo == sid - CONTEXT_RADIUS and hi == sid + CONTEXT_RADIUS:
+            picks["full_window"] = sid
+        if "near_start" not in picks and lo > sid - CONTEXT_RADIUS:
+            picks["near_start"] = sid
+        if "empty_text_in_window" not in picks:
+            others = [rid for rid in range(lo, hi + 1) if rid != sid]
+            if rows_all.loc[others, "Sentence"].isna().any():
+                picks["empty_text_in_window"] = sid
+        if len(picks) == 3:
+            break
+    assert len(picks) == 3, f"could not find all example situations: {picks}"
+    return picks
+
+
+def main() -> None:
+    frame, rows_all = get_tables()
+    picks = pick_examples(frame, rows_all)
+    now = datetime.now().astimezone()
+    REPORTS_DIR.mkdir(exist_ok=True)
+    out_file = REPORTS_DIR / f"input-examples-{now:%Y-%m-%d}.txt"
+
+    lines = [
+        "Input construction examples (manual placeholders; instructions are drafts)",
+        f"Generated at: {now.isoformat(timespec='seconds')}",
+        f"Script: scripts/{Path(__file__).name}",
+        f"Script commit: {git_commit_hash()}",
+        f"Example source_ids: {picks}",
+        "",
+    ]
+    for label, sid in picks.items():
+        lo, hi = window_bounds(sid, rows_all)
+        for condition in ("baseline", "names_only"):
+            lines += [
+                "=" * 72,
+                f"[{label}] source_id={sid} window=[{lo}, {hi}] condition={condition}",
+                "=" * 72,
+                build_prompt(sid, condition, rows_all),
+                "",
+            ]
+    out_file.write_text("\n".join(lines))
+    print("\n".join(lines[:5]))
+    print(f"\nWrote {out_file}")
+
+
+if __name__ == "__main__":
+    main()
