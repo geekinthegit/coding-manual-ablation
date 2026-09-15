@@ -29,6 +29,15 @@ The file is read with ``keep_default_na=False`` so that only "nan" is treated
 as missing in Sentence, Tag, and StudentTag; the genuine utterance "None"
 (e.g., an answer to a how-many question) is preserved as text.
 
+Target eligibility
+------------------
+``eligible`` (bool) marks whether a row can be sampled as a target utterance
+[decided 2026-09-15]. A teacher row whose ``Sentence`` is missing in the
+source file is ineligible: there is no utterance to present to the model,
+so a human-LLM comparison unit does not exist for that row. Ineligible rows
+are kept in ``frame.csv`` so that row adjacency for the context window is
+unchanged; only the sampling script filters on this flag.
+
 Both outputs contain every teacher row (``Speaker == "T"``) with no
 additional exclusions. The raw file is read only. The context window is
 not materialised here; it is constructed later from ``frame.csv``.
@@ -56,7 +65,7 @@ LABELS_FILE = DATA_DIR / "scoring_labels.csv"
 PROVIDER_ID_COL = "Unnamed: 0"
 LABEL_COLS_IN_SOURCE = ["Tag", "StudentTag"]
 
-FRAME_COLUMNS = ["source_id", "source_row_id", "Transcript", "Speaker", "Sentence"]
+FRAME_COLUMNS = ["source_id", "source_row_id", "Transcript", "Speaker", "Sentence", "eligible"]
 LABEL_COLUMNS = ["source_id", "source_row_id", "Tag"]
 
 
@@ -109,6 +118,14 @@ def main() -> None:
     # Sentence missingness is reported only; the handling rule is set at the context-window stage.
     n_missing_sentence = int(teacher["Sentence"].isna().sum())
 
+    # Target eligibility flag (see module docstring). Rows are never dropped.
+    teacher["eligible"] = teacher["Sentence"].notna()
+    eligible = teacher[teacher["eligible"]]
+    n_eligible = len(eligible)
+    assert n_eligible == n_teacher - n_missing_sentence
+    eligible_counts = {tag: int((eligible["Tag"] == tag).sum()) for tag in TAG_TO_CATEGORY}
+    assert sum(eligible_counts.values()) == n_eligible
+
     # Row position in the raw DataFrame is the canonical order (see module docstring).
     teacher["source_id"] = teacher.index.astype(int)
     teacher["source_row_id"] = teacher[PROVIDER_ID_COL].astype(int)
@@ -142,6 +159,13 @@ def main() -> None:
     ]
     for tag, category in TAG_TO_CATEGORY.items():
         lines.append(f"Tag {tag} | {category} | {counts[tag]:,}")
+    lines += [
+        "",
+        f"Eligible target rows (Sentence present): {n_eligible:,}",
+        f"Ineligible rows (Sentence missing): {n_teacher - n_eligible:,}",
+    ]
+    for tag, category in TAG_TO_CATEGORY.items():
+        lines.append(f"Tag {tag} | {category} | eligible {eligible_counts[tag]:,} of {counts[tag]:,}")
     lines += [
         "",
         f"frame.csv rows: {len(frame):,}; columns: {', '.join(frame.columns)}",
