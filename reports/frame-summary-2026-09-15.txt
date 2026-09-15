@@ -1,0 +1,30 @@
+Frame and scoring-label build summary
+Generated at: 2026-09-15T09:12:35+09:00
+Script: scripts/build_frame.py
+Script commit: 4ed1a547e35b02100f7a3809bdc178140b4069c8
+Source file: /Users/jeobnida/talkmoves-project/TalkMoves/data/train_data_504.xlsx
+Source rows (all speakers): 203,601
+Provider-ID gaps in source file: 49 (first gap at row position 2286)
+
+Teacher rows (N): 150,918
+Teacher rows with missing Sentence: 274
+Tag 0 | Not coded | 101,309
+Tag 1 | Keeping Everyone Together | 19,704
+Tag 2 | Getting Students to Relate | 2,556
+Tag 3 | Restating | 2,305
+Tag 4 | Revoicing | 3,436
+Tag 5 | Pressing for Accuracy | 19,849
+Tag 6 | Pressing for Reasoning | 1,759
+
+Eligible target rows (Sentence present): 150,644
+Ineligible rows (Sentence missing): 274
+Tag 0 | Not coded | eligible 101,201 of 101,309
+Tag 1 | Keeping Everyone Together | eligible 19,704 of 19,704
+Tag 2 | Getting Students to Relate | eligible 2,556 of 2,556
+Tag 3 | Restating | eligible 2,145 of 2,305
+Tag 4 | Revoicing | eligible 3,431 of 3,436
+Tag 5 | Pressing for Accuracy | eligible 19,848 of 19,849
+Tag 6 | Pressing for Reasoning | eligible 1,759 of 1,759
+
+frame.csv rows: 150,918; columns: source_id, source_row_id, Transcript, Speaker, Sentence, eligible
+scoring_labels.csv rows: 150,918; columns: source_id, source_row_id, Tag
