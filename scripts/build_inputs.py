@@ -110,13 +110,13 @@ _TABLES = None
 
 
 def git_commit_hash() -> str:
-    """Return HEAD hash; append '-dirty' if the working tree has uncommitted changes."""
+    """Return HEAD hash; append '-dirty' if tracked files have uncommitted changes (untracked output files are ignored)."""
     head = subprocess.run(
         ["git", "rev-parse", "HEAD"],
         cwd=REPO_ROOT, capture_output=True, text=True, check=True,
     ).stdout.strip()
     status = subprocess.run(
-        ["git", "status", "--porcelain"],
+        ["git", "status", "--porcelain", "--untracked-files=no"],
         cwd=REPO_ROOT, capture_output=True, text=True, check=True,
     ).stdout
     return head + ("-dirty" if status.strip() else "")
