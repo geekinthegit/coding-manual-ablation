@@ -94,7 +94,7 @@ Judged by the author alone, from the manual text, before seeing any results.
 | e Definitions | Relevant | The body of the assignment rules. |
 | f Sub-clauses | Relevant | Describe the situations in which each code applies. |
 | g Examples | Relevant | The only component showing what qualifying utterances look like. |
-| h Exclusion rules | Relevant (premise: the analysis population includes not-coded utterances; confirm in 02-data) | Contains the explicit exclusion rules specifying which utterances are not coded. |
+| h Exclusion rules | Relevant (premise: the analysis population includes not-coded utterances; confirm in confirmed in 2.1.2) | Contains the explicit exclusion rules specifying which utterances are not coded. |
 | i Headings and numbers | Not relevant | Structural markers. |
 
 ### 3.1.6 Selection of replacement targets
@@ -119,7 +119,7 @@ Types not selected, and why:
 - d (move names): judged relevant, but not a main condition. The underlying question — can the model code from the names alone? — is a response-process question, not a causal one; it is examined through a separate names-only diagnostic (below). Supersedes the 2026-09-03 operational reason ("renaming rather than block replacement; alters the measurement path"). An opaque-ID redesign (making d a sixth condition) was rejected 2026-09-04: adding this one condition would require changing the output format of all six conditions.
 - f (sub-clauses): absent under Restating and Revoicing, so a manual-wide replacement would be asymmetric across moves (3.1.4); and four definition paragraphs summarize their sub-clauses, so replacement would leave much of the same content behind.
 - Boundary statements: not an independent component (3.1.2); replaced as part of e.
-Open items for this section: confirmation of the h premise in 02-data (analysis population includes not-coded utterances).
+Open items for this section: confirmation of the h premise in 02-data (analysis population includes not-coded utterances). Resolved: the h premise was confirmed in 2.1.2 (2026-09-08)
 
 Names-only diagnos reference: moved to Section 3.3 (2026-09-10), where the procedure was formalized.
 

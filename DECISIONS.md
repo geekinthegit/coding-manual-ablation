@@ -6,9 +6,10 @@ Structure overview. Each section links to its own file under `decisions/`.
 - 1.1 RQ wording
 - 1.2 Scope of claims
 
-## [2. Data](decisions/02-data.md)
-- 2.1 Dataset selection and scope
-- 2.2 Development and held-out evaluation sets
+## 2. Data
+- [2.1 Dataset selection and scope](decisions/02-1-dataset-selection-and-scope.md)
+- [2.2 Development and held-out evaluation sets](decisions/02-2-development-and-held-out-sets.md)
+- [2.3 Sampling design](decisions/02-3-sampling-design.md)
 
 ## 3. Experimental Design
 - [3.1 Manual-component definition](decisions/03-1-manual-component-definition.md)

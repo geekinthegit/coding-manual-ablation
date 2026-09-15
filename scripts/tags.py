@@ -3,7 +3,7 @@
 Name strings follow the 1.2 list of the coding manual (verified against
 the manual PDF, 2026-09-10). Tag numbers do not follow the 1.2 listing
 order: 4 = Revoicing and 5 = Pressing for Accuracy, verified by checking
-sample sentences against the manual definitions (see 02-data, 2.1.3).
+sample sentences against the manual definitions (see decisions/02-1-dataset-selection-and-scope.md, 2.1.3).
 "Not coded" (tag 0) does not appear in the 1.2 list; the name is assigned
 here. Manual-internal wording variants (e.g., "coded as Press for
 Reasoning") are left as-is in the manual text and are not part of this
