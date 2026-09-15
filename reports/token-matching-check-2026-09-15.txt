@@ -1,0 +1,12 @@
+Token matching check (Decision Log 3.2.3)
+Generated at: 2026-09-15T17:43:44+09:00
+Script commit: b0b02cf881cedc81f91828f44b7c61647489e037
+tiktoken 0.14.0, encoding o200k_base
+source_ids: [7]
+
+PASS  source_id=7 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2202 vs baseline 2202
+PASS  source_id=7 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2202 vs baseline 2202
+PASS  source_id=7 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2202 vs baseline 2202
+PASS  source_id=7 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2202 vs baseline 2202
+
+RESULT: 0 failing condition/source_id pairs; 90 site checks run

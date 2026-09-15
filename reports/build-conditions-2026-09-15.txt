@@ -1,0 +1,11 @@
+Condition manual generation
+Generated at: 2026-09-15T17:43:43+09:00
+Script commit: b0b02cf881cedc81f91828f44b7c61647489e037
+tiktoken 0.14.0, encoding o200k_base
+Symbol '%', rule B
+
+negative_control: wrote manual/chapter1_negative_control.txt  sites=1  n min/max=79/79  iterations=1
+definition_replacement: wrote manual/chapter1_definition_replacement.txt  sites=6  n min/max=31/73  iterations=1
+example_replacement: wrote manual/chapter1_example_replacement.txt  sites=72  n min/max=2/24  iterations=1
+exclusion_rule_replacement: wrote manual/chapter1_exclusion_rule_replacement.txt  sites=11  n min/max=5/22  iterations=1
+Wrote data/placeholder_plan.csv (90 sites)

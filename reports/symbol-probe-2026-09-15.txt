@@ -1,0 +1,201 @@
+Placeholder symbol probe
+Generated at: 2026-09-15T17:43:40+09:00
+Script commit: b0b02cf881cedc81f91828f44b7c61647489e037
+tiktoken 0.14.0, encoding o200k_base
+Context example source_id: 7; baseline total tokens 2202
+Candidates: '.' '~' '=' '|' '%' '^' ';' ':' '@' '&' '?'
+
+========================================================================
+Symbol '.'
+  (a) tokens for symbol*n, n=1..40:       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2]
+      one char = one token for all n: False
+  (a) tokens for (' '+symbol)*n, n=1..40: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+      one ' sym' = one token for all n: True
+  rule A negative_control             (b) OK  iterations= 6  n range=4960..4960  (d) marker merged at sites: none
+  rule A definition_replacement       (b) OK  iterations= 5  n range=1891..4573  (d) marker merged at sites: none
+  rule A example_replacement          (b) OK  iterations=10  n range=8..1397  (d) marker merged at sites: none
+  rule A exclusion_rule_replacement   (b) OK  iterations=10  n range=172..1263  (d) marker merged at sites: none
+  rule B negative_control             (b) OK  iterations= 1  n range=79..79  (d) marker merged at sites: none
+  rule B definition_replacement       (b) OK  iterations= 1  n range=31..73  (d) marker merged at sites: none
+  rule B example_replacement          (b) OK  iterations= 1  n range=2..24  (d) marker merged at sites: none
+  rule B exclusion_rule_replacement   (b) OK  iterations= 1  n range=5..22  (d) marker merged at sites: none
+
+========================================================================
+Symbol '~'
+  (a) tokens for symbol*n, n=1..40:       [1, 1, 1, 1, 2, 2, 2, 1, 2, 2, 2, 2, 3, 3, 3, 1, 2, 2, 2, 2, 3, 3, 3, 2, 3, 3, 3, 3, 4, 4, 4, 1, 2, 2, 2, 2, 3, 3, 3, 2]
+      one char = one token for all n: False
+  (a) tokens for (' '+symbol)*n, n=1..40: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+      one ' sym' = one token for all n: True
+  rule A negative_control             (b) OK  iterations= 7  n range=2480..2480  (d) marker merged at sites: none
+  rule A definition_replacement       (b) OK  iterations= 6  n range=909..2304  (d) marker merged at sites: none
+  rule A example_replacement          (b) OK  iterations=11  n range=2..693  (d) marker merged at sites: none
+  rule A exclusion_rule_replacement   (b) OK  iterations=11  n range=28..583  (d) marker merged at sites: none
+  rule B negative_control             (b) OK  iterations= 2  n range=78..78  (d) marker merged at sites: none
+  rule B definition_replacement       (b) OK  iterations= 2  n range=30..72  (d) marker merged at sites: none
+  rule B example_replacement          (b) OK  iterations= 2  n range=1..23  (d) marker merged at sites: none
+  rule B exclusion_rule_replacement   (b) OK  iterations= 2  n range=4..21  (d) marker merged at sites: none
+
+========================================================================
+Symbol '='
+  (a) tokens for symbol*n, n=1..40:       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2]
+      one char = one token for all n: False
+  (a) tokens for (' '+symbol)*n, n=1..40: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+      one ' sym' = one token for all n: True
+  rule A negative_control             (b) OK  iterations= 4  n range=4994..4994  (d) marker merged at sites: none
+  rule A definition_replacement       (b) OK  iterations= 6  n range=1898..4652  (d) marker merged at sites: none
+  rule A example_replacement          (b) OK  iterations= 7  n range=4..1455  (d) marker merged at sites: none
+  rule A exclusion_rule_replacement   (b) OK  iterations= 7  n range=259..1364  (d) marker merged at sites: none
+  rule B negative_control             (b) OK  iterations= 1  n range=79..79  (d) marker merged at sites: none
+  rule B definition_replacement       (b) OK  iterations= 1  n range=31..73  (d) marker merged at sites: none
+  rule B example_replacement          (b) OK  iterations= 1  n range=2..24  (d) marker merged at sites: none
+  rule B exclusion_rule_replacement   (b) OK  iterations= 2  n range=5..22  (d) marker merged at sites: none
+
+========================================================================
+Symbol '|'
+  (a) tokens for symbol*n, n=1..40:       [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10]
+      one char = one token for all n: False
+  (a) tokens for (' '+symbol)*n, n=1..40: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+      one ' sym' = one token for all n: True
+  rule A negative_control             (b) OK  iterations= 3  n range=313..313  (d) marker merged at sites: none
+  rule A definition_replacement       (b) OK  iterations= 4  n range=122..288  (d) marker merged at sites: none
+  rule A example_replacement          (b) OK  iterations= 4  n range=4..94  (d) marker merged at sites: none
+  rule A exclusion_rule_replacement   (b) OK  iterations= 4  n range=13..84  (d) marker merged at sites: none
+  rule B negative_control             (b) OK  iterations= 1  n range=79..79  (d) marker merged at sites: none
+  rule B definition_replacement       (b) OK  iterations= 1  n range=31..73  (d) marker merged at sites: none
+  rule B example_replacement          (b) OK  iterations= 1  n range=2..24  (d) marker merged at sites: none
+  rule B exclusion_rule_replacement   (b) OK  iterations= 1  n range=5..22  (d) marker merged at sites: none
+
+========================================================================
+Symbol '%'
+  (a) tokens for symbol*n, n=1..40:       [1, 1, 1, 1, 2, 2, 2, 1, 2, 2, 2, 2, 3, 3, 3, 1, 2, 2, 2, 2, 3, 3, 3, 2, 3, 3, 3, 3, 4, 4, 4, 1, 2, 2, 2, 2, 3, 3, 3, 2]
+      one char = one token for all n: False
+  (a) tokens for (' '+symbol)*n, n=1..40: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+      one ' sym' = one token for all n: True
+  rule A negative_control             (b) OK  iterations= 6  n range=2481..2481  (d) marker merged at sites: none
+  rule A definition_replacement       (b) OK  iterations=10  n range=916..2305  (d) marker merged at sites: none
+  rule A example_replacement          (b) OK  iterations=12  n range=3..693  (d) marker merged at sites: none
+  rule A exclusion_rule_replacement   (b) OK  iterations=12  n range=28..619  (d) marker merged at sites: none
+  rule B negative_control             (b) OK  iterations= 1  n range=79..79  (d) marker merged at sites: none
+  rule B definition_replacement       (b) OK  iterations= 1  n range=31..73  (d) marker merged at sites: none
+  rule B example_replacement          (b) OK  iterations= 1  n range=2..24  (d) marker merged at sites: none
+  rule B exclusion_rule_replacement   (b) OK  iterations= 1  n range=5..22  (d) marker merged at sites: none
+
+========================================================================
+Symbol '^'
+  (a) tokens for symbol*n, n=1..40:       [1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 5]
+      one char = one token for all n: False
+  (a) tokens for (' '+symbol)*n, n=1..40: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+      one ' sym' = one token for all n: True
+  rule A negative_control             (b) OK  iterations= 4  n range=614..614  (d) marker merged at sites: none
+  rule A definition_replacement       (b) OK  iterations= 6  n range=233..570  (d) marker merged at sites: none
+  rule A example_replacement          (b) FAIL after 9 iterations
+        site 15 (line 37): cannot reach count=11 next=600; last n=71 gave count=12 next=601; tried n=[11, 30, 47, 57, 59, 64, 65, 70, 71]
+        site 22 (line 47): cannot reach count=11 next=707; last n=71 gave count=12 next=709; tried n=[11, 30, 47, 57, 59, 64, 65, 70, 71]
+        site 26 (line 53): cannot reach count=11 next=824; last n=71 gave count=12 next=827; tried n=[11, 30, 47, 57, 59, 64, 65, 70, 71]
+        site 40 (line 69): cannot reach count=11 next=1010; last n=71 gave count=12 next=1014; tried n=[11, 30, 47, 57, 59, 64, 65, 70, 71]
+        site 44 (line 76): cannot reach count=11 next=1139; last n=71 gave count=12 next=1144; tried n=[11, 30, 47, 57, 59, 64, 65, 70, 71]
+  rule A exclusion_rule_replacement   (b) OK  iterations= 9  n range=8..155  (d) marker merged at sites: none
+  rule B negative_control             (b) OK  iterations= 1  n range=79..79  (d) marker merged at sites: none
+  rule B definition_replacement       (b) OK  iterations= 1  n range=31..73  (d) marker merged at sites: none
+  rule B example_replacement          (b) OK  iterations= 1  n range=2..24  (d) marker merged at sites: none
+  rule B exclusion_rule_replacement   (b) OK  iterations= 2  n range=5..22  (d) marker merged at sites: none
+
+========================================================================
+Symbol ';'
+  (a) tokens for symbol*n, n=1..40:       [1, 1, 1, 1, 2, 2, 2, 1, 2, 2, 2, 2, 3, 3, 3, 1, 2, 2, 2, 2, 3, 3, 3, 2, 3, 3, 3, 3, 4, 4, 4, 2, 3, 3, 3, 3, 4, 4, 4, 3]
+      one char = one token for all n: False
+  (a) tokens for (' '+symbol)*n, n=1..40: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+      one ' sym' = one token for all n: True
+  rule A negative_control             (b) OK  iterations= 4  n range=1223..1223  (d) marker merged at sites: none
+  rule A definition_replacement       (b) OK  iterations= 5  n range=456..1134  (d) marker merged at sites: none
+  rule A example_replacement          (b) OK  iterations=13  n range=3..361  (d) marker merged at sites: none
+  rule A exclusion_rule_replacement   (b) OK  iterations= 8  n range=17..300  (d) marker merged at sites: none
+  rule B negative_control             (b) OK  iterations= 1  n range=79..79  (d) marker merged at sites: none
+  rule B definition_replacement       (b) OK  iterations= 1  n range=31..73  (d) marker merged at sites: none
+  rule B example_replacement          (b) OK  iterations= 1  n range=2..24  (d) marker merged at sites: none
+  rule B exclusion_rule_replacement   (b) OK  iterations= 1  n range=5..22  (d) marker merged at sites: none
+
+========================================================================
+Symbol ':'
+  (a) tokens for symbol*n, n=1..40:       [1, 1, 1, 1, 2, 2, 2, 1, 2, 2, 2, 2, 3, 3, 3, 1, 2, 2, 2, 2, 3, 3, 3, 2, 3, 3, 3, 3, 4, 4, 4, 2, 3, 3, 3, 3, 4, 4, 4, 3]
+      one char = one token for all n: False
+  (a) tokens for (' '+symbol)*n, n=1..40: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+      one ' sym' = one token for all n: True
+  rule A negative_control             (b) OK  iterations= 4  n range=1223..1223  (d) marker merged at sites: none
+  rule A definition_replacement       (b) OK  iterations= 5  n range=456..1134  (d) marker merged at sites: none
+  rule A example_replacement          (b) OK  iterations=12  n range=4..361  (d) marker merged at sites: none
+  rule A exclusion_rule_replacement   (b) OK  iterations= 7  n range=20..313  (d) marker merged at sites: none
+  rule B negative_control             (b) OK  iterations= 1  n range=79..79  (d) marker merged at sites: none
+  rule B definition_replacement       (b) OK  iterations= 1  n range=31..73  (d) marker merged at sites: none
+  rule B example_replacement          (b) OK  iterations= 1  n range=2..24  (d) marker merged at sites: none
+  rule B exclusion_rule_replacement   (b) OK  iterations= 1  n range=5..22  (d) marker merged at sites: none
+
+========================================================================
+Symbol '@'
+  (a) tokens for symbol*n, n=1..40:       [1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 5]
+      one char = one token for all n: False
+  (a) tokens for (' '+symbol)*n, n=1..40: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+      one ' sym' = one token for all n: True
+  rule A negative_control             (b) OK  iterations= 4  n range=614..614  (d) marker merged at sites: none
+  rule A definition_replacement       (b) OK  iterations= 4  n range=236..572  (d) marker merged at sites: none
+  rule A example_replacement          (b) OK  iterations= 7  n range=2..175  (d) marker merged at sites: none
+  rule A exclusion_rule_replacement   (b) OK  iterations= 7  n range=21..153  (d) marker merged at sites: none
+  rule B negative_control             (b) OK  iterations= 2  n range=78..78  (d) marker merged at sites: none
+  rule B definition_replacement       (b) OK  iterations= 2  n range=30..72  (d) marker merged at sites: none
+  rule B example_replacement          (b) OK  iterations= 2  n range=1..23  (d) marker merged at sites: none
+  rule B exclusion_rule_replacement   (b) OK  iterations= 2  n range=4..21  (d) marker merged at sites: none
+
+========================================================================
+Symbol '&'
+  (a) tokens for symbol*n, n=1..40:       [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20]
+      one char = one token for all n: False
+  (a) tokens for (' '+symbol)*n, n=1..40: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+      one ' sym' = one token for all n: True
+  rule A negative_control             (b) OK  iterations= 2  n range=156..156  (d) marker merged at sites: none
+  rule A definition_replacement       (b) OK  iterations= 3  n range=60..144  (d) marker merged at sites: none
+  rule A example_replacement          (b) OK  iterations= 3  n range=3..46  (d) marker merged at sites: none
+  rule A exclusion_rule_replacement   (b) OK  iterations= 3  n range=8..42  (d) marker merged at sites: none
+  rule B negative_control             (b) OK  iterations= 1  n range=79..79  (d) marker merged at sites: none
+  rule B definition_replacement       (b) OK  iterations= 1  n range=31..73  (d) marker merged at sites: none
+  rule B example_replacement          (b) OK  iterations= 1  n range=2..24  (d) marker merged at sites: none
+  rule B exclusion_rule_replacement   (b) OK  iterations= 2  n range=5..22  (d) marker merged at sites: none
+
+========================================================================
+Symbol '?'
+  (a) tokens for symbol*n, n=1..40:       [1, 1, 1, 1, 2, 2, 2, 1, 2, 2, 2, 2, 3, 3, 3, 2, 3, 3, 3, 3, 4, 4, 4, 3, 4, 4, 4, 4, 5, 5, 5, 4, 5, 5, 5, 5, 6, 6, 6, 5]
+      one char = one token for all n: False
+  (a) tokens for (' '+symbol)*n, n=1..40: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+      one ' sym' = one token for all n: True
+  rule A negative_control             (b) OK  iterations= 3  n range=622..622  (d) marker merged at sites: none
+  rule A definition_replacement       (b) OK  iterations= 4  n range=237..572  (d) marker merged at sites: none
+  rule A example_replacement          (b) OK  iterations= 7  n range=4..185  (d) marker merged at sites: none
+  rule A exclusion_rule_replacement   (b) OK  iterations= 6  n range=21..163  (d) marker merged at sites: none
+  rule B negative_control             (b) OK  iterations= 1  n range=79..79  (d) marker merged at sites: none
+  rule B definition_replacement       (b) OK  iterations= 1  n range=31..73  (d) marker merged at sites: none
+  rule B example_replacement          (b) OK  iterations= 1  n range=2..24  (d) marker merged at sites: none
+  rule B exclusion_rule_replacement   (b) OK  iterations= 1  n range=5..22  (d) marker merged at sites: none
+
+========================================================================
+Summary (symbol, rule, passes b+d for all four conditions):
+  '.' rule A: PASS
+  '.' rule B: PASS
+  '~' rule A: PASS
+  '~' rule B: PASS
+  '=' rule A: PASS
+  '=' rule B: PASS
+  '|' rule A: PASS
+  '|' rule B: PASS
+  '%' rule A: PASS
+  '%' rule B: PASS
+  '^' rule A: FAIL  -- example_replacement: site 15 (line 37): cannot reach count=11 next=600; last n=71 gave count=12 next=601; tried n=[11, 30, 47, 57, 59, 64, 65, 70, 71]; site 22 (line 47): cannot reach count=11 next=707; last n=71 gave count=12 next=709; tried n=[11, 30, 47, 57, 59, 64, 65, 70, 71]; site 26 (line 53): cannot reach count=11 next=824; last n=71 gave count=12 next=827; tried n=[11, 30, 47, 57, 59, 64, 65, 70, 71]
+  '^' rule B: PASS
+  ';' rule A: PASS
+  ';' rule B: PASS
+  ':' rule A: PASS
+  ':' rule B: PASS
+  '@' rule A: PASS
+  '@' rule B: PASS
+  '&' rule A: PASS
+  '&' rule B: PASS
+  '?' rule A: PASS
+  '?' rule B: PASS
