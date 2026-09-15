@@ -1,0 +1,154 @@
+Manual transcription and inventory check -- notes
+=================================================
+
+Source: TalkMoves coding manual PDF ("Talk Move Coding Manual for Public
+Release"), Chapter 1 (pages 2-7). Chapter 2, table of contents,
+references, and page numbers are excluded (3.1.1).
+
+Transcription method
+--------------------
+Automatic extraction with pdftotext (poppler), pages 2-7, non-layout
+mode, followed by rule-based correction and manual comparison against
+the PDF. Symbols U+27A2 (arrow), U+25A0 (square), curly quotes, and the
+ellipsis U+2026 were extracted as-is; no character substitution was
+needed.
+
+Line structure (rule B): one segmentation unit per line -- section
+heading, move heading, paragraph, arrow item, square item, numbered
+sub-item (1.1) -- with S:/T: speaker lines inside an example on
+separate lines as in the PDF. No blank lines between units.
+
+Definition of source fidelity used here: text content, symbols, item
+order, and paragraph/item boundaries are preserved exactly. PDF layout
+line-ends (line wraps produced by page width) are not preserved; they
+are not part of the manual's structure. Source irregularities are kept
+unchanged: "Teacher Talk Move Pressing for Reasoning" (no colon, 1.2),
+"coded as Press for Reasoning" (1.5), "7/2 ?" (1.3), straight
+apostrophes in "students' attention" (1.3) and "It's Company B because
+that's" (1.5) alongside curly apostrophes elsewhere.
+
+Verification of the transcription: after removing the five page-number
+lines, the whitespace-split token sequence of the raw pdftotext output
+is identical to that of manual/chapter1.txt (1382 tokens). Line
+structure is the only difference.
+
+Corrections applied to the raw extraction (40)
+----------------------------------------------
+Two kinds only: (1) page-number lines removed, (2) wrapped layout lines
+joined to the preceding unit with a single space. Raw line numbers
+refer to the pdftotext output of pages 2-7.
+
+raw line 4: joined wrapped line into previous unit -> 'al., 2008; 2010). Teacher talk moves ref...'
+raw line 5: joined wrapped line into previous unit -> 'promote students’ equitable participatio...'
+raw line 6: joined wrapped line into previous unit -> 'moves encourage students to contribute a...'
+raw line 7: joined wrapped line into previous unit -> 'content, and dig deeply into their own r...'
+raw line 10: joined wrapped line into previous unit -> 'whether they actually do elicit a respon...'
+raw line 12: joined wrapped line into previous unit -> 'contributions....'
+raw line 16: joined wrapped line into previous unit -> 'community, accountability to content kno...'
+raw line 17: joined wrapped line into previous unit -> 'This manual includes our definitions for...'
+raw line 18: joined wrapped line into previous unit -> 'categories....'
+raw line 32: removed page number '2'
+raw line 34: joined wrapped line into previous unit -> 'Together. This code is used for yes/no q...'
+raw line 35: joined wrapped line into previous unit -> 'attention, keeping students on task, ask...'
+raw line 36: joined wrapped line into previous unit -> 'call-and-response, and asking students t...'
+raw line 55: joined wrapped line into previous unit -> 'utterance:...'
+raw line 62: joined wrapped line into previous unit -> 'said:...'
+raw line 67: removed page number '3'
+raw line 71: joined wrapped line into previous unit -> 'contribution are coded as Getting Studen...'
+raw line 72: joined wrapped line into previous unit -> 'asking a student to repeat another stude...'
+raw line 73: joined wrapped line into previous unit -> 'ask students to comment on or to agree/d...'
+raw line 81: joined wrapped line into previous unit -> 'relation to that of another student in t...'
+raw line 89: joined wrapped line into previous unit -> 'anything or changing any of the wording,...'
+raw line 101: joined wrapped line into previous unit -> 'math-related answer are coded as Pressin...'
+raw line 102: joined wrapped line into previous unit -> 'students to walk through problem-solving...'
+raw line 103: joined wrapped line into previous unit -> 'define elements of a problem. This code ...'
+raw line 105: removed page number '4'
+raw line 107: joined wrapped line into previous unit -> 'students to write their answers at the b...'
+raw line 115: joined wrapped line into previous unit -> 'variations on a problem:...'
+raw line 130: joined wrapped line into previous unit -> 'any way is coded as Revoicing. This incl...'
+raw line 131: joined wrapped line into previous unit -> 'when a teacher repeats a student’s utter...'
+raw line 139: joined wrapped line into previous unit -> 'minute. (Revoicing)...'
+raw line 141: removed page number '5'
+raw line 148: joined wrapped line into previous unit -> 'thinking behind a decision are coded as ...'
+raw line 149: joined wrapped line into previous unit -> 'prompting for students to connect concep...'
+raw line 157: joined wrapped line into previous unit -> 'related to the problem:...'
+raw line 168: joined wrapped line into previous unit -> 'part of a student contribution....'
+raw line 170: joined wrapped line into previous unit -> 'before or after a lesson)....'
+raw line 172: joined wrapped line into previous unit -> 'transcript is blank)....'
+raw line 176: joined wrapped line into previous unit -> 'categories....'
+raw line 179: removed page number '6'
+raw line 184: joined wrapped line into previous unit -> 'this street?”...'
+
+Notes on the inventory check
+----------------------------
+- The 1.2 lead paragraph ("Accountable talk theory includes three broad
+  categories...") is arrow-marked in the source. 1.2 therefore contains
+  7 arrow lines: the lead paragraph + 6 "Teacher Talk Move" items. The
+  3.1.3 type-c count (paragraph 1 + square 3 + arrow 6) is consistent
+  with this once the lead paragraph is classified as a paragraph.
+- Types b and c are not replaced in any condition (3.1.6); they are
+  printed as INFO reference counts and do not affect PASS/FAIL.
+- The 16 arrow sub-heading lines in 1.3-1.5 (excluding the two
+  "Examples:" lines) are printed as INFO; their 3.1.3 type is not
+  checked by this script.
+- Negative test: deleting one square item ("Shelly?") and one
+  "(Revoicing)" tag from a copy of the file produced 3 FAIL lines and
+  exit status 1, confirming the checks are sensitive to omissions.
+
+Script output
+-------------
+File: /Users/jeobnida/coding-manual-ablation/manual/chapter1.txt
+Lines: 132
+
+PASS  no blank lines: observed=0 expected=0
+PASS  section heading present exactly once: '1.1 Introduction to Teacher Talk Moves': observed=1 expected=1
+PASS  section heading present exactly once: '1.2 Categories and Talk Moves': observed=1 expected=1
+PASS  section heading present exactly once: '1.3 Accountability to the Learning Community': observed=1 expected=1
+PASS  section heading present exactly once: '1.4 Accountability to Content Knowledge': observed=1 expected=1
+PASS  section heading present exactly once: '1.5 Accountability to Rigorous Thinking': observed=1 expected=1
+PASS  section heading present exactly once: '1.6 What is not coded': observed=1 expected=1
+PASS  move heading present exactly once: 'Keeping Everyone Together': observed=1 expected=1
+PASS  move heading present exactly once: 'Getting Students to Relate to Another’s Ideas': observed=1 expected=1
+PASS  move heading present exactly once: 'Restating': observed=1 expected=1
+PASS  move heading present exactly once: 'Pressing for Accuracy': observed=1 expected=1
+PASS  move heading present exactly once: 'Revoicing': observed=1 expected=1
+PASS  move heading present exactly once: 'Pressing for Reasoning': observed=1 expected=1
+PASS  move headings in document order: observed=True expected=True
+PASS  all move headings inside 1.3-1.5: observed=True expected=True
+PASS  definition paragraph directly under 'Keeping Everyone Together': observed=True expected=True
+PASS  square items under 'Keeping Everyone Together': observed=19 expected=19
+PASS  definition paragraph directly under 'Getting Students to Relate to Another’s Ideas': observed=True expected=True
+PASS  square items under 'Getting Students to Relate to Another’s Ideas': observed=10 expected=10
+PASS  definition paragraph directly under 'Restating': observed=True expected=True
+PASS  square items under 'Restating': observed=3 expected=3
+PASS  definition paragraph directly under 'Pressing for Accuracy': observed=True expected=True
+PASS  square items under 'Pressing for Accuracy': observed=13 expected=13
+PASS  definition paragraph directly under 'Revoicing': observed=True expected=True
+PASS  square items under 'Revoicing': observed=5 expected=5
+PASS  definition paragraph directly under 'Pressing for Reasoning': observed=True expected=True
+PASS  square items under 'Pressing for Reasoning': observed=11 expected=11
+PASS  square items total in 1.3-1.5: observed=61 expected=61
+PASS  arrow items in 1.6 (exclusion rules): observed=11 expected=11
+PASS  no square items in 1.6: observed=0 expected=0
+PASS  all non-heading lines in 1.6 are arrow items: observed=True expected=True
+PASS  1.6 lines containing inline quoted examples: observed=3 expected=3
+PASS  all inline quoted examples in 1.6 are inside arrow items: observed=True expected=True
+INFO  1.6 quoted strings total: observed=5
+PASS  '➢ Examples:' lines: observed=2 expected=2
+PASS  '(Restating)' occurrences: observed=3 expected=3
+PASS  '(Revoicing)' occurrences: observed=5 expected=5
+PASS  S:/T: speaker pairs: observed=9 expected=9
+PASS  every bare S:/T: line follows a square item line: observed=0 expected=0
+PASS  1.1 first line is a paragraph (not a marked item): observed=True expected=True
+PASS  background paragraph sentence count: observed=3 expected=3
+
+INFO  1.1 arrow items (type b): observed=1 reference=1
+INFO  1.1 numbered sub-items (type b): observed=2 reference=2
+INFO  1.2 square items (type c): observed=3 reference=3
+INFO  1.2 arrow lines total (lead paragraph is arrow-marked in the source): observed=7
+INFO  1.2 move-list arrow items (type c): observed=6 reference=6
+INFO  arrow sub-heading lines in 1.3-1.5 (excluding '➢ Examples:'): observed=16
+INFO  arrow lines in whole file: observed=37
+INFO  square lines in whole file: observed=64
+
+RESULT: 40 PASS, 0 FAIL
