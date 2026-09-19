@@ -6,9 +6,11 @@ what counts as a valid label.
 
 * validate_body   -- 5.4.4 normalization, 5.4.5 validity, 5.6.7 invalid_reason
                      order (first match wins).
-* classify_http_status / error_code_from_body -- 5.4.6 as revised 2026-09-18:
-                     429 is retryable unless its body error code marks a quota
-                     or billing condition; other 4xx are fatal; 5xx retryable.
+* classify_http_status / error_code_from_body / error_type_from_body --
+                     5.4.6 as revised 2026-09-19: 429 is retryable unless its
+                     body error.code is in NON_RETRYABLE_429_CODES or its
+                     error.type is "insufficient_quota"; other 4xx are fatal;
+                     5xx retryable.
 * parse_retry_after -- Retry-After header as seconds (delta-seconds or HTTP
                      date); None when absent or unparseable.
 
@@ -36,13 +38,19 @@ INVALID_REASONS = (
     "label_not_in_enum",
 )
 
-# 429 codes that waiting does not resolve (5.4.6 revised 2026-09-18).
-# Unknown or missing codes are retryable.
+# 429 error.code values that waiting does not resolve (5.4.6 revised 2026-09-19).
+# Source: OpenAI Help Center, "Troubleshooting API rate limits and 429 errors",
+# checked 2026-09-19. Unknown or missing codes are retryable.
 NON_RETRYABLE_429_CODES = frozenset({
     "insufficient_quota",
-    "billing_hard_limit_reached",
-    "billing_not_active",
+    "credit_balance_exhausted",
+    "organization_usage_limit_exceeded",
+    "organization_spend_limit_exceeded",
+    "project_spend_limit_exceeded",
 })
+# Same source: billing-related errors may carry this error.type regardless of
+# error.code, so a 429 with this type is non-retryable whatever its code.
+NON_RETRYABLE_429_TYPE = "insufficient_quota"
 
 
 @dataclass(frozen=True)
@@ -114,8 +122,8 @@ def validate_body(body_text: str) -> ValidationResult:
                             response_model, system_fingerprint, usage)
 
 
-def error_code_from_body(body_text: str | None) -> str | None:
-    """Return the error code from an OpenAI error body, or None."""
+def _error_field_from_body(body_text: str | None, key: str) -> str | None:
+    """Return the string field ``key`` of an OpenAI error body, or None."""
     if not body_text:
         return None
     try:
@@ -125,19 +133,34 @@ def error_code_from_body(body_text: str | None) -> str | None:
     if not isinstance(body, dict):
         return None
     err = body.get("error")
-    if isinstance(err, dict):
-        code = err.get("code")
-    else:
-        code = body.get("code")
-    return code if isinstance(code, str) else None
+    value = err.get(key) if isinstance(err, dict) else body.get(key)
+    return value if isinstance(value, str) else None
 
 
-def classify_http_status(status_code: int | None, error_code: str | None) -> str:
-    """Return "retryable_error" or "fatal_error" for a non-200 status (5.4.6 revised)."""
+def error_code_from_body(body_text: str | None) -> str | None:
+    """Return error.code from an OpenAI error body, or None."""
+    return _error_field_from_body(body_text, "code")
+
+
+def error_type_from_body(body_text: str | None) -> str | None:
+    """Return error.type from an OpenAI error body, or None."""
+    return _error_field_from_body(body_text, "type")
+
+
+def classify_http_status(status_code: int | None, error_code: str | None,
+                         error_type: str | None = None) -> str:
+    """Return "retryable_error" or "fatal_error" for a non-200 status (5.4.6 revised 2026-09-19).
+
+    A 429 is fatal when error.code is in NON_RETRYABLE_429_CODES or error.type
+    equals NON_RETRYABLE_429_TYPE; any other, missing or unknown code/type is
+    retryable.
+    """
     if status_code is None:            # no HTTP response: connection error / timeout
         return "retryable_error"
     if status_code == 429:
-        return "fatal_error" if error_code in NON_RETRYABLE_429_CODES else "retryable_error"
+        non_retryable = (error_code in NON_RETRYABLE_429_CODES
+                         or error_type == NON_RETRYABLE_429_TYPE)
+        return "fatal_error" if non_retryable else "retryable_error"
     if status_code >= 500:
         return "retryable_error"
     return "fatal_error"

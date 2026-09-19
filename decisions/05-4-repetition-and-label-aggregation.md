@@ -54,13 +54,20 @@ Invalid responses and the substantive category `Not coded` answer different ques
 
 ### 5.4.6 Retryable errors
 
-The following outcomes are retried as a new attempt within the same repeat, with exponential backoff: network errors, timeouts, HTTP 5xx, and HTTP 429 whose response-body error code is `rate_limit_exceeded` or is missing or unknown. An invalid response under 5.4.5 is also treated as "no label obtained" and retried under the same rule.
+The following outcomes are retried as a new attempt within the same repeat, with exponential backoff: network errors, timeouts, HTTP 5xx, and HTTP 429 not matched by the non-retryable rule below (i.e., whose response-body `error.code` is `rate_limit_exceeded`, missing, or unknown, and whose `error.type` is not `insufficient_quota`). An invalid response under 5.4.5 is also treated as "no label obtained" and retried under the same rule.
 
-HTTP 429 whose response-body error code is `insufficient_quota` or a billing/spend-limit code (`billing_hard_limit_reached`, `billing_not_active`) is not retried; the run is halted and the error is reported. Code names other than rate_limit_exceeded and insufficient_quota are to be verified against OpenAI's error documentation before the main run; unknown codes are treated as retryable. HTTP 4xx responses other than 429 (e.g., authentication errors, malformed requests) are likewise not retried; the run is halted and the error is reported.
+HTTP 429 is not retried, and the run is halted with the error reported, when the response body satisfies either of the following:
+
+* `error.code` is one of `insufficient_quota`, `credit_balance_exhausted`, `organization_usage_limit_exceeded`, `organization_spend_limit_exceeded`, `project_spend_limit_exceeded`; or
+* `error.type` is `insufficient_quota`, regardless of `error.code`.
+
+Codes taken from the OpenAI Help Center article 'Troubleshooting API rate limits and 429 errors', checked 2026-09-19. The code for a temporary rate limit is not named there; rate_limit_exceeded is assumed, and any unknown code or type is treated as retryable. HTTP 4xx responses other than 429 (e.g., authentication errors, malformed requests) are likewise not retried; the run is halted and the error is reported.
 
 Transient transport and rate-limit failures do not carry information about the utterance or the condition, so retrying them is appropriate. Client-side 4xx errors indicate a configuration or request defect that would affect all subsequent calls, so continuing the run would produce systematically compromised records.
 
 Revised 2026-09-18: some 429 responses (quota/billing) are not resolved by waiting, so 429 is classified by error code.
+
+Revised 2026-09-19: the non-retryable code list is replaced with the five codes named in the OpenAI Help Center article (`billing_hard_limit_reached` and `billing_not_active` removed as undocumented), and classification by `error.type` is added. Implemented in `scripts/validation.py` (`NON_RETRYABLE_429_CODES`, `NON_RETRYABLE_429_TYPE`, `classify_http_status`).
 
 ### 5.4.7 Maximum attempts per repeat
 

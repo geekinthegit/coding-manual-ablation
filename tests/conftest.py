@@ -50,9 +50,9 @@ class FakeRaw:
 
 
 def status_error(status: int, code: str | None = None, retry_after: str | None = None,
-                 request_id: str = "req_err") -> openai.APIStatusError:
+                 request_id: str = "req_err", error_type: str = "synthetic") -> openai.APIStatusError:
     """A real openai exception of the class the SDK would raise for ``status``."""
-    body = {"error": {"message": "synthetic", "type": "synthetic", "param": None, "code": code}}
+    body = {"error": {"message": "synthetic", "type": error_type, "param": None, "code": code}}
     headers = {"x-request-id": request_id}
     if retry_after is not None:
         headers["retry-after"] = retry_after

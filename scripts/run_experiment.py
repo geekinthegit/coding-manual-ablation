@@ -57,7 +57,8 @@ from parse_attempts import (
 )
 from test_api_request import MODEL, request_params
 from validation import (
-    classify_http_status, error_code_from_body, parse_retry_after, validate_body,
+    classify_http_status, error_code_from_body, error_type_from_body, parse_retry_after,
+    validate_body,
 )
 
 RUNS_DIR = REPO_ROOT / "runs"
@@ -432,7 +433,8 @@ class Runner:
         from test_api_request import build_request
 
         base = {"invalid_reason": None, "http_status": None, "openai_request_id": None,
-                "openai_error_code": None, "response_model": None, "system_fingerprint": None,
+                "openai_error_code": None, "openai_error_type": None,
+                "response_model": None, "system_fingerprint": None,
                 "finish_reason": None, "usage": None, "raw_response": None, "error": None,
                 "retry_after": None}
         try:
@@ -441,11 +443,14 @@ class Runner:
             resp = e.response
             body_text = resp.text if resp is not None else None
             code = error_code_from_body(body_text) or getattr(e, "code", None)
+            err_type = error_type_from_body(body_text) or getattr(e, "type", None)
             status = e.status_code
             ra_header = resp.headers.get("retry-after") if resp is not None else None
-            return {**base, "outcome": classify_http_status(status, code), "http_status": status,
+            return {**base, "outcome": classify_http_status(status, code, err_type),
+                    "http_status": status,
                     "openai_request_id": resp.headers.get("x-request-id") if resp is not None else None,
-                    "openai_error_code": code, "raw_response": body_text,
+                    "openai_error_code": code, "openai_error_type": err_type,
+                    "raw_response": body_text,
                     "error": {"type": type(e).__name__, "message": str(e), "retry_after": ra_header},
                     "retry_after": parse_retry_after(ra_header, self.now()) if status == 429 else None}
         except openai.APIConnectionError as e:          # includes APITimeoutError

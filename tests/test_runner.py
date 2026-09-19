@@ -3,6 +3,8 @@
 import threading
 import time
 
+import pytest
+
 import run_experiment as rx
 from tests.conftest import (
     Clock, FakeRaw, connection_error, make_runner, ok_body, read_records, status_error,
@@ -71,6 +73,7 @@ def test_retry_after_within_max_is_honoured(tmp_path):
     first = by_event(read_records(path), "attempt_completed")[0]
     assert first["outcome"] == "retryable_error" and first["http_status"] == 429
     assert first["openai_error_code"] == "rate_limit_exceeded"
+    assert first["openai_error_type"] == "synthetic"          # unknown type: still retryable
     assert first["planned_wait_sec"] == 5.0 and first["wait_source"] == "retry_after"
     assert first["error"]["retry_after"] == "5" and first["openai_request_id"] == "req_err"
     assert sleeps[0] == 5.0
@@ -104,6 +107,52 @@ def test_429_quota_code_is_fatal_and_stops(tmp_path):
     c = by_event(recs, "attempt_completed")[0]
     assert c["outcome"] == "fatal_error" and c["openai_error_code"] == "insufficient_quota"
     assert recs[-1]["event"] == "run_stopped" and recs[-1]["reason"] == "fatal_error"
+
+
+@pytest.mark.parametrize("code", ["credit_balance_exhausted", "organization_usage_limit_exceeded",
+                                  "organization_spend_limit_exceeded", "project_spend_limit_exceeded"])
+def test_429_spend_limit_codes_are_fatal_and_stop(tmp_path, code):
+    runner, path, _ = make_runner(tmp_path, lambda p, n: (_ for _ in ()).throw(status_error(429, code=code)))
+    runner.run()
+    recs = read_records(path)
+    c = by_event(recs, "attempt_completed")[0]
+    assert c["outcome"] == "fatal_error" and c["openai_error_code"] == code
+    assert recs[-1]["event"] == "run_stopped" and recs[-1]["reason"] == "fatal_error"
+
+
+def test_429_insufficient_quota_type_with_unrelated_code_is_fatal(tmp_path):
+    def handler(prompt, n):
+        raise status_error(429, code="rate_limit_exceeded", error_type="insufficient_quota")
+    runner, path, _ = make_runner(tmp_path, handler)
+    runner.run()
+    recs = read_records(path)
+    c = by_event(recs, "attempt_completed")[0]
+    assert c["outcome"] == "fatal_error"
+    assert c["openai_error_code"] == "rate_limit_exceeded" and c["openai_error_type"] == "insufficient_quota"
+    assert recs[-1]["event"] == "run_stopped" and recs[-1]["reason"] == "fatal_error"
+
+
+def test_429_unknown_code_and_type_is_retried(tmp_path):
+    def handler(prompt, n):
+        if n == 0:
+            raise status_error(429, code="something_new", error_type="something_else")
+        return FakeRaw(ok_body())
+    runner, path, _ = make_runner(tmp_path, handler)
+    runner.run()
+    recs = read_records(path)
+    assert recs[-1]["event"] != "run_stopped"                 # not fatal: run completes
+    completed = by_event(recs, "attempt_completed")
+    # handler counts per prompt, and repeats share a prompt: the first call of each of
+    # the 6 conditions gets one 429 and is retried; every call ends in success.
+    retried = [c for c in completed if c["outcome"] == "retryable_error"]
+    assert len(retried) == 6 and {c["condition"] for c in retried} == set(rx.CONDITIONS)
+    for c in retried:
+        assert c["attempt"] == 1 and c["http_status"] == 429 and c["wait_source"] == "backoff"
+        assert c["openai_error_code"] == "something_new" and c["openai_error_type"] == "something_else"
+    successes = [c for c in completed if c["outcome"] == "success"]
+    assert len(successes) == 6 * 3
+    assert all(c["openai_error_code"] is None and c["openai_error_type"] is None for c in successes)
+    assert sum(c["attempt"] == 2 for c in successes) == 6      # exactly the retried calls needed attempt 2
 
 
 def test_non_429_4xx_is_fatal(tmp_path):

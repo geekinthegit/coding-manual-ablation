@@ -97,11 +97,11 @@ Truncated-last-line rule: if only the final record is incomplete and fails JSON 
 
 `attempt_started` fields: `event`, `run_id`, `pass`, `order_index`, `utterance_id`, `condition`, `repeat`, `attempt`, `started_at`, `actual_wait_sec`, `prompt_sha256`, `request_params`. `actual_wait_sec` is the elapsed time from the same call's previous `attempt_completed.completed_at` to this `started_at`; it is null when there is no such previous record (attempt 1, or the previous attempt was interrupted without a completed record).
 
-`attempt_completed` fields: `event`, `run_id`, `pass`, `order_index`, `utterance_id`, `condition`, `repeat`, `attempt`, `completed_seq`, `completed_at`, `outcome`, `invalid_reason`, `http_status`, `openai_request_id`, `openai_error_code`, `response_model`, `system_fingerprint`, `finish_reason`, `usage`, `raw_response`, `error` {`type`, `message`, `retry_after`}, `planned_wait_sec`, `wait_source`.
+`attempt_completed` fields: `event`, `run_id`, `pass`, `order_index`, `utterance_id`, `condition`, `repeat`, `attempt`, `completed_seq`, `completed_at`, `outcome`, `invalid_reason`, `http_status`, `openai_request_id`, `openai_error_code`, `openai_error_type`, `response_model`, `system_fingerprint`, `finish_reason`, `usage`, `raw_response`, `error` {`type`, `message`, `retry_after`}, `planned_wait_sec`, `wait_source`.
 
 `run_stopped` fields: `event`, `run_id`, `pass`, `stopped_at`, `reason` ∈ {`failure_threshold`, `fatal_error`, `retry_after_exceeds_max`}, `completed_seq_at_stop`, `triggering` (`order_index`, `attempt`).
 
-`raw_response` is the HTTP response body as a string, obtained through the SDK's `with_raw_response` interface (also for error responses that carry a body); `openai_request_id` comes from the response headers and is null when no response was received; `openai_error_code` is the error code from the response body when present. `response_model`, `system_fingerprint`, `finish_reason` and `usage` are extracted from the body for convenience.
+`raw_response` is the HTTP response body as a string, obtained through the SDK's `with_raw_response` interface (also for error responses that carry a body); `openai_request_id` comes from the response headers and is null when no response was received; `openai_error_code` and `openai_error_type` are `error.code` and `error.type` from the response body when present (both used by the 429 rule in 5.4.6; added `openai_error_type` 2026-09-19). `response_model`, `system_fingerprint`, `finish_reason` and `usage` are extracted from the body for convenience.
 
 `outcome` ∈ {`success`, `invalid_response`, `retryable_error`, `fatal_error`}.
 
