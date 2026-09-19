@@ -33,6 +33,8 @@ Structure overview. Each section links to its own file under `decisions/`.
 - 6.2 Estimation and uncertainty of Δκ
 - 6.3 Non-independence
 - 6.4 Robustness checks
+- 6.5 Descriptive reporting and condition roles
+- 6.6 Scorer validation specification
 
 ## [7. Interpretive Boundaries](decisions/07-interpretive-boundaries.md)
 - 7.1 Underdetermined causes of near-zero Δκ

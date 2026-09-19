@@ -1,6 +1,6 @@
 ## 4.2 Repeated-call reliability
 
-[proposed 2026-09-17]
+[proposed 2026-09-17; the reporting additions in 4.2.5 were decided 2026-09-19]
 
 This section defines the descriptive indicators used to report the stability of repeated calls under the repetition and aggregation procedure in 5.4. All indicators are reported per condition as descriptive statistics only. No inferential test, interval, or between-condition contrast is computed on them, and they are not part of the primary estimand (Δκ). Their role is to document how the final labels were produced, so that agreement results can be read together with the observed stability of the label-generation procedure.
 
@@ -8,7 +8,7 @@ Terms follow 5.4: "item" means one item-condition, "valid repeat" means a repeat
 
 ### 4.2.1 Unanimity rate
 
-The proportion of items in which all R valid repeats carry the same label. The denominator is the number of items that have all R = 3 planned repeats valid; items with any invalid repeat are excluded from this indicator and are counted under 4.2.4 or reported separately. Items that required tie-break calls have three valid but non-identical repeats and therefore count as non-unanimous.
+The proportion of items in which all R valid repeats carry the same label. The denominator is the number of items that have all R = 3 planned repeats valid; items with any invalid repeat are excluded from this indicator and are counted under 4.2.4 or reported separately. Among items in this denominator, those requiring tie-break calls have three valid but non-identical repeats and count as non-unanimous. A tie among only two valid initial repeats (5.4.8) is outside this denominator.
 
 ### 4.2.2 Mean agreement with the final label
 
@@ -21,3 +21,11 @@ The number of items in which a tie occurred under 5.4.3, and the total number of
 ### 4.2.4 Items without a final label
 
 The number of items that received no final label, broken down by reason: `unresolved tie` (5.4.3) and `insufficient valid repeats` (5.4.8). Reported per condition, consistent with the completeness report under roadmap step 15.
+
+### 4.2.5 Additional descriptive reporting
+
+[decided 2026-09-19] Retain 4.2.1–4.2.4 and their descriptive-only scope; this addition does not promote their proposed status or change the aggregation procedure.
+
+Per condition, report the number of item-conditions with all three initial valid labels and, within that denominator, counts and percentages of 3/3, 2/1, and 1/1/1 patterns. Report items lacking all three initial valid labels separately; an invalid response is not a substantive disagreement category. If the denominator is zero, report the count and mark percentages as unavailable.
+
+Report counts requiring the fourth and fifth logical calls separately, alongside the existing total additional-call count and terminal unresolved-tie/insufficient-valid-repeat counts. Logical calls are repeats, not attempts: exhausted tie-break calls still consume a repeat under 5.4.3. Use `labels.csv` and execution records under 5.6.8 for initial patterns and call history; `final_labels.csv` alone does not contain the initial patterns. These are descriptive diagnostics, not new inferential contrasts. Analysis-set completeness and agreement diagnostics are specified in [6.1.2 and 6.5](06-analysis.md).
