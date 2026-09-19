@@ -4,3 +4,5 @@ data/
 .DS_Store
 __pycache__/
 manual/
+runs/*
+!runs/README.md

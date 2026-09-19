@@ -27,6 +27,7 @@ Structure overview. Each section links to its own file under `decisions/`.
 * [5.3 Call unit and API request](https://github.com/geekinthegit/coding-manual-ablation/blob/main/decisions/05-3-call-unit-and-api-request.md)
 - [5.4 Repetition and label aggregation](decisions/05-4-repetition-and-label-aggregation.md)
 - [5.5 Role of the pilot](https://github.com/geekinthegit/coding-manual-ablation/blob/main/decisions/05-5-role-of-the-pilot.md)
+- [5.6 Execution order and run records](decisions/05-6-execution-order-and-run-records.md)
 ## [6. Analysis](decisions/06-analysis.md)
 - 6.1 Estimation of condition-specific κ
 - 6.2 Estimation and uncertainty of Δκ

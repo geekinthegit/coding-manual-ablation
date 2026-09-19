@@ -30,6 +30,8 @@ A fixed cap on tie-break calls bounds the cost per item-condition and prevents o
 
 Tie-break calls are executed in a second pass after all scheduled repeats have completed, in an order shuffled across all tied item-conditions with a recorded seed. Their placement within the run is recorded as pass 2. Concurrency and retry placement follow the runner specification (roadmap 7).
 
+A tie-resolution call whose 3 attempts are all exhausted counts as one of the two additional calls; if the pair is still tied, it proceeds to the next round if any. Revised 2026-09-19 to match the implemented behavior.
+
 ### 5.4.4 Parser normalization
 
 The parser reads the `category` value from the response JSON, strips leading and trailing whitespace, and requires a case-sensitive exact match against one of the seven canonical category names defined in `scripts/tags.py` (listed in 5.3.4). No other transformation (case folding, punctuation removal, fuzzy matching, synonym mapping) is applied.
@@ -52,11 +54,13 @@ Invalid responses and the substantive category `Not coded` answer different ques
 
 ### 5.4.6 Retryable errors
 
-The following outcomes are retried as a new attempt within the same repeat, with exponential backoff: network errors, timeouts, HTTP 429, and HTTP 5xx. An invalid response under 5.4.5 is also treated as "no label obtained" and retried under the same rule.
+The following outcomes are retried as a new attempt within the same repeat, with exponential backoff: network errors, timeouts, HTTP 5xx, and HTTP 429 whose response-body error code is `rate_limit_exceeded` or is missing or unknown. An invalid response under 5.4.5 is also treated as "no label obtained" and retried under the same rule.
 
-HTTP 4xx responses other than 429 (e.g., authentication errors, malformed requests) are not retried; the run is halted and the error is reported.
+HTTP 429 whose response-body error code is `insufficient_quota` or a billing/spend-limit code (`billing_hard_limit_reached`, `billing_not_active`) is not retried; the run is halted and the error is reported. Code names other than rate_limit_exceeded and insufficient_quota are to be verified against OpenAI's error documentation before the main run; unknown codes are treated as retryable. HTTP 4xx responses other than 429 (e.g., authentication errors, malformed requests) are likewise not retried; the run is halted and the error is reported.
 
 Transient transport and rate-limit failures do not carry information about the utterance or the condition, so retrying them is appropriate. Client-side 4xx errors indicate a configuration or request defect that would affect all subsequent calls, so continuing the run would produce systematically compromised records.
+
+Revised 2026-09-18: some 429 responses (quota/billing) are not resolved by waiting, so 429 is classified by error code.
 
 ### 5.4.7 Maximum attempts per repeat
 

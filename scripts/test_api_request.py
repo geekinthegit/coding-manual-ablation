@@ -61,6 +61,29 @@ S: Test line four.
 Output instruction: Respond with one category name from the allowed list."""
 
 
+def build_request(prompt: str) -> dict:
+    """Return the Chat Completions request for one prompt (5.3.2-5.3.5).
+
+    This is the exact request layout verified in 5.3.9. run_experiment.py
+    imports it so that the main run cannot drift from the tested request.
+    """
+    return {
+        "model": MODEL,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0,
+        "reasoning_effort": "none",
+        # Parameter name is itself under test: if openai 3.8.0 rejects it,
+        # create() raises and the traceback is the test record.
+        "max_completion_tokens": OUTPUT_TOKEN_LIMIT,
+        "response_format": {"type": "json_schema", "json_schema": SCHEMA},
+    }
+
+
+def request_params(prompt: str = "") -> dict:
+    """Return the request without message content, for manifests and logs."""
+    return {k: v for k, v in build_request(prompt).items() if k != "messages"}
+
+
 def main() -> int:
     # Environment record required by 5.2.3 for every calling script.
     env_line = (
@@ -72,16 +95,7 @@ def main() -> int:
     # Project key only; never the default OPENAI_API_KEY (course key).
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY_ABLATION"])
 
-    request = {
-        "model": MODEL,
-        "messages": [{"role": "user", "content": SYNTHETIC_PROMPT}],
-        "temperature": 0,
-        "reasoning_effort": "none",
-        # Parameter name is itself under test: if openai 3.8.0 rejects it,
-        # create() raises and the traceback is the test record.
-        "max_completion_tokens": OUTPUT_TOKEN_LIMIT,
-        "response_format": {"type": "json_schema", "json_schema": SCHEMA},
-    }
+    request = build_request(SYNTHETIC_PROMPT)
 
     called_at = datetime.now(timezone.utc).isoformat()
     # Any rejected parameter raises here; reaching the next line means
