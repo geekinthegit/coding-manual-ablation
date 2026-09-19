@@ -86,7 +86,22 @@ def read_jsonl_strict(path: Path) -> list[dict]:
 
 
 def labels_from_records(records: list[dict]) -> list[dict]:
-    """One label row per attempt_completed; re-derive validity from raw_response."""
+    """One label row per attempt_completed, validity re-derived (5.6.8).
+
+    5.6.8 requires the parser to re-derive outcome, invalid_reason and category
+    from raw_response with the same function the runner used, and to refuse to
+    write when the result differs from what was recorded. The refusal is not a
+    way of correcting the record. A disagreement means the runner and the parser
+    applied different validity rules (5.4.4, 5.4.5), so no label in the file
+    could be attributed to a known rule; raising here prevents the derived files
+    from existing at all and leaves the attempts JSONL as the only source of
+    truth. Silently preferring either side would hide exactly the defect that
+    re-derivation exists to detect.
+
+    An outcome of success or invalid_response without an HTTP 200 body is
+    refused for the same reason: 5.4.5 defines both only on a 200 body, so such
+    a record cannot have been produced by the specified rule.
+    """
     rows = []
     for rec in records:
         if rec.get("event") != "attempt_completed":
@@ -186,7 +201,13 @@ def tie_pairs(rows: list[dict]) -> list[tuple[int, str]]:
 
 
 def final_rows(rows: list[dict], run_id: str) -> list[dict]:
-    """final_labels.csv rows (FINAL_COLUMNS order) from label rows."""
+    """final_labels.csv rows in the column order 5.6.8 fixes.
+
+    Flattens aggregate() into the file's columns. A pair with no final label
+    gets the empty string, never a category, so that the 5.4.8 cases stay
+    distinguishable from the substantive label Not coded; the reason is carried
+    by status, which is why status is written even when a label exists.
+    """
     out = []
     for (uid, cond), res in aggregate(rows).items():
         out.append({"run_id": run_id, "utterance_id": uid, "condition": cond,
@@ -216,7 +237,15 @@ def read_final_labels(path: Path) -> list[dict]:
 
 
 def tie_pending_pairs(path: Path) -> list[tuple[int, str]]:
-    """(utterance_id, condition) with status tie_pending, read from final_labels.csv."""
+    """(utterance_id, condition) with status tie_pending, from final_labels.csv (5.6.8).
+
+    5.6.8 makes the written file, not an in-memory aggregation, the source of
+    the pass 2 and pass 3 call lists (5.4.3), so this reads back what was
+    written; tie_pairs() serves callers that already hold the rows. Going
+    through the file keeps the selection auditable afterwards and lets the
+    manifest record that file's sha256 (5.6.2), which resume verification then
+    checks.
+    """
     return sorted((r["utterance_id"], r["condition"]) for r in read_final_labels(path)
                   if r["status"] == "tie_pending")
 
@@ -226,10 +255,19 @@ def attempts_files(run_dir: Path) -> list[Path]:
 
 
 def parse_run(run_dir: Path, run_id: str | None = None) -> tuple[list[dict], list[dict]]:
-    """Read every attempts file present, write labels.csv and final_labels.csv, return both row lists.
+    """Read every attempts file present and write the two derived files (5.6.8).
 
-    Raises TruncatedLastLine / CorruptedFile from the attempts files unchanged
-    and ValueError when no attempts file exists or a record disagrees with its body.
+    Deterministic and re-runnable as 5.6.8 requires: the attempts files are
+    never modified, and re-running after a later pass only widens the input set.
+    That is how the pass 2 and pass 3 tie lists (5.4.3) are produced and why
+    5.6.8 has the parser run once more after the last pass before any analysis.
+    Reading all passes together, rather than one file at a time, is what lets
+    repeats 4 and 5 be aggregated with repeats 1 to 3 for the same pair.
+
+    Errors from the attempts files (TruncatedLastLine, CorruptedFile) propagate
+    unchanged so the caller can apply the 5.6.7 repair rule. ValueError marks a
+    missing attempts file or a record that disagrees with its own body; repair
+    must not touch the latter, since it is not damage to the file.
     """
     files = attempts_files(run_dir)
     if not files:

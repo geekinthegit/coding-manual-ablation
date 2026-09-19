@@ -138,12 +138,27 @@ def _error_field_from_body(body_text: str | None, key: str) -> str | None:
 
 
 def error_code_from_body(body_text: str | None) -> str | None:
-    """Return error.code from an OpenAI error body, or None."""
+    """Return error.code from an OpenAI error body, or None (input to 5.4.6).
+
+    5.4.6 defines the 429 rule on the response body rather than on the SDK
+    exception, so the code is read from the same body text that 5.6.7 stores in
+    the attempt record; the classification can then be re-checked afterwards
+    from the record alone. A body that is missing, not JSON, or carrying a
+    non-string code yields None, which 5.4.6 treats as unknown and therefore
+    retryable: inferring a code from an unreadable body would turn a transport
+    problem into a halt the decision does not authorise.
+    """
     return _error_field_from_body(body_text, "code")
 
 
 def error_type_from_body(body_text: str | None) -> str | None:
-    """Return error.type from an OpenAI error body, or None."""
+    """Return error.type from an OpenAI error body, or None (input to 5.4.6).
+
+    5.4.6 makes error.type = "insufficient_quota" non-retryable whatever
+    error.code says, because billing conditions may arrive under codes this
+    project has not enumerated. Read separately from error_code_from_body so
+    that either field on its own can decide the outcome.
+    """
     return _error_field_from_body(body_text, "type")
 
 
@@ -167,7 +182,19 @@ def classify_http_status(status_code: int | None, error_code: str | None,
 
 
 def parse_retry_after(value: str | None, now: datetime | None = None) -> float | None:
-    """Return Retry-After as non-negative seconds, or None if absent/unparseable."""
+    """Return Retry-After as non-negative seconds, or None (5.6.4 wait source).
+
+    Under 5.6.4 a parseable Retry-After is the wait before the next attempt
+    (wait_source "retry_after") and backoff applies only when the header is
+    absent or unparseable. An unreadable header must therefore be reported as
+    None and not as 0.0, which would retry immediately. Both the delta-seconds
+    and the HTTP-date form are accepted because either may be sent, and a date
+    already past gives 0.0 rather than a negative wait.
+
+    The value is deliberately not capped here: 5.6.4 requires a Retry-After
+    above backoff_max to be recorded unclipped and to stop the run, so the
+    comparison belongs to the caller, not to the parser.
+    """
     if value is None:
         return None
     text = value.strip()

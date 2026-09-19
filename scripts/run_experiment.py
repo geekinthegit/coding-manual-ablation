@@ -117,6 +117,16 @@ class Settings:
     failure_threshold: int
 
     def as_manifest(self) -> dict:
+        """The settings as the manifest records them (5.6.2).
+
+        5.6.4 leaves timeout, the backoff values and the failure threshold to
+        the pilot and gives the runner no defaults, so the values a pass ran
+        under are recoverable only from its manifest. max_retries = 0 is
+        recorded although it is not a Settings field, because 5.6.4 requires the
+        SDK's own retrying to be off: every attempt must be one this runner
+        decided on and wrote a record for. The jitter formula is spelled out
+        instead of named so the manifest stays readable without this source file.
+        """
         return {
             "sdk_settings": {"max_retries": 0, "timeout": self.timeout},
             "concurrency": self.concurrency,
@@ -127,6 +137,13 @@ class Settings:
 
     @classmethod
     def from_manifest(cls, m: dict) -> "Settings":
+        """The settings a pass started under, read back for resume (5.6.6).
+
+        Resume compares the values given on the command line against these.
+        5.6.4 fixes the operational values for the whole pass, so a resume that
+        quietly adopted new ones would leave the manifest an inaccurate record
+        of how part of the attempts file was produced.
+        """
         return cls(int(m["concurrency"]), float(m["sdk_settings"]["timeout"]),
                    float(m["backoff"]["initial"]), float(m["backoff"]["max"]),
                    int(m["failure_threshold"]))
@@ -137,7 +154,16 @@ class Settings:
 # --------------------------------------------------------------------------
 
 def plan_pass1(ids: list[int], seed: int) -> list[dict]:
-    """Three blocks (repeat 1, 2, 3), each a seeded shuffle of all pairs."""
+    """Ordered pass 1 call list: one block per repeat, shuffled within (5.6.1).
+
+    5.6.1 blocks by repeat instead of shuffling all calls at once so that a run
+    interrupted at any point still leaves complete "all utterances x all
+    conditions" units for the repeats that finished, and so that every condition
+    stays interleaved within each period of execution time. order_index runs
+    across the concatenated blocks and is what the records refer to; the seed is
+    stored too, but 5.6.2 makes the stored list, not the seed, the reference for
+    reproduction.
+    """
     pairs = [(uid, cond) for uid in ids for cond in CONDITIONS]
     rng = random.Random(seed)
     calls: list[dict] = []
@@ -151,7 +177,15 @@ def plan_pass1(ids: list[int], seed: int) -> list[dict]:
 
 
 def plan_tiebreak(pairs: list[tuple[int, str]], pass_no: int) -> list[dict]:
-    """One block of tie-break calls (repeat 4 for pass 2, 5 for pass 3), seeded shuffle."""
+    """Ordered tie-break call list for pass 2 or pass 3 (5.6.1, 5.4.3).
+
+    A single block, because a tie-break pass carries exactly one repeat under
+    5.4.3 (4 for pass 2, 5 for pass 3). The pairs are sorted before the seeded
+    shuffle so the order is a function of the seed and the set of tied pairs
+    alone, not of the order the caller happened to collect them in; 5.6.6
+    check 1 recomputes this list and compares it with the manifest, which only
+    works if the result is reproducible.
+    """
     block = sorted(pairs)
     random.Random(PASS_SEEDS[pass_no]).shuffle(block)
     return [{"order_index": i, "utterance_id": uid, "condition": cond, "repeat": PASS_REPEAT[pass_no]}
@@ -159,7 +193,15 @@ def plan_tiebreak(pairs: list[tuple[int, str]], pass_no: int) -> list[dict]:
 
 
 def write_prompts(path: Path, pairs: list[tuple[int, str]], builder=build_prompt) -> dict:
-    """Write prompts.jsonl (sorted pairs) and return {(uid, cond): (prompt, sha)}."""
+    """Write prompts.jsonl and return {(uid, cond): (prompt, sha)} (5.6.3).
+
+    5.6.3 keeps the complete user message exactly as sent, once per unique
+    (utterance, condition) pair, so attempt records need carry only
+    prompt_sha256 while the text stays recoverable. Pairs are sorted and
+    de-duplicated so the file is a function of the pair set alone: execution
+    order belongs to the manifest call list (5.6.1), and pass 2 and pass 3 reuse
+    this same file rather than rebuilding prompts.
+    """
     out: dict[tuple[int, str], tuple[str, str]] = {}
     with path.open("w", encoding="utf-8") as f:
         for uid, cond in sorted(set(pairs)):
@@ -185,6 +227,13 @@ def load_prompts(path: Path) -> dict:
 
 
 def environment_record() -> dict:
+    """Git commit and interpreter versions for the manifest (5.6.2).
+
+    5.6.2 records the runner commit and the openai and Python versions with
+    every pass, and 5.6.6 check 5 refuses a resume whose commit differs or whose
+    working tree is dirty. Together these are what tie a set of attempt records
+    to the code that produced them.
+    """
     import openai  # local import: parse/validation paths do not need the SDK
     return {"git_commit": git_commit_hash(), "openai_version": openai.__version__,
             "python_version": platform.python_version()}
@@ -192,6 +241,17 @@ def environment_record() -> dict:
 
 def build_manifest(run_id: str, pass_no: int, calls: list[dict], settings: Settings,
                    prompts_sha: str, input_file: Path, input_sha: str, extra: dict | None = None) -> dict:
+    """Assemble manifest_pass{N}.json (5.6.2).
+
+    Carries everything 5.6.6 verifies before a resume: model, request_params and
+    the ordered call list (check 1), the prompts file sha256 (check 2), the
+    input file path and sha256 (check 4) and the environment (check 5). `extra`
+    holds the fields only tie-break manifests have, namely the previous pass's
+    attempts sha256, the final_labels.csv sha256 and the parser commit, which is
+    what makes the tie selection of pass 2 and pass 3 reproducible. `calls` is
+    added last so the long ordered list ends the file and the settings stay
+    visible at the top.
+    """
     m = {
         "run_id": run_id, "pass": pass_no, "created_at": iso(utc_now()),
         "seed": PASS_SEEDS[pass_no], "model": MODEL, "request_params": request_params(),
@@ -229,7 +289,20 @@ class CallState:
 
 
 def scan_attempts(records: list[dict], calls: list[dict]) -> tuple[dict[int, CallState], int]:
-    """Per-call state from the attempts file; also the highest completed_seq."""
+    """Per-call resume state and the highest completed_seq (5.6.6).
+
+    5.6.6 makes a pass's attempts file the single source of progress; there is
+    no checkpoint, so the state is rebuilt by reading the records. An attempt is
+    consumed as soon as attempt_started is durably on disk, so next_attempt
+    counts started and completed attempts alike: an interrupted attempt is never
+    reissued under its own number, and whether that request reached the server
+    is deliberately not assessed. A call is terminated by a success or by
+    reaching the attempt cap (5.4.7).
+
+    An order_index absent from the manifest means the attempts file and the
+    manifest belong to different plans, which 5.6.6 treats as a failed resume
+    rather than something to skip over.
+    """
     states = {c["order_index"]: CallState() for c in calls}
     started: dict[int, set[int]] = {c["order_index"]: set() for c in calls}
     completed: dict[int, dict[int, dict]] = {c["order_index"]: {} for c in calls}
@@ -299,7 +372,19 @@ class Runner:
             return True
 
     def record_completed(self, rec: dict, stop_reason: str | None = None) -> int:
-        """Assign completed_seq, write, update the failure counter, decide stop."""
+        """Write attempt_completed, count failures, decide the stop (5.6.5, 5.6.7).
+
+        5.6.5 requires completed_seq to be assigned and the consecutive-failure
+        counter to be evaluated in that same order, so both happen inside the one
+        lock 5.6.7 already requires for the append. That is why the counter is
+        global rather than per worker: with concurrency, only the write order
+        gives a well-defined sequence to count in.
+
+        A stop_reason supplied by the caller (a fatal outcome, or a Retry-After
+        above backoff_max) takes precedence over the threshold, and _stop keeps
+        whichever reason arrives first, since 5.6.5 makes the stopped state
+        sticky for the rest of the session.
+        """
         with self.cond:
             self.completed_seq += 1
             rec["completed_seq"] = self.completed_seq
@@ -324,6 +409,16 @@ class Runner:
                               "triggering": {"order_index": rec["order_index"], "attempt": rec["attempt"]}}
 
     def write_run_stopped(self) -> dict:
+        """Append the run_stopped event that closes a stopped pass (5.6.5).
+
+        5.6.5 has the runner start no new attempts, wait for the in-flight ones
+        to be recorded, and only then write this event, so run() writes it after
+        the workers have joined rather than the worker that triggered the stop
+        writing it immediately. completed_seq_at_stop and the triggering attempt
+        come from stop_info, captured when the decision was taken, while
+        stopped_at is the time of this write; the two differ by the time the
+        in-flight attempts needed to finish.
+        """
         with self.lock:
             rec = {"event": "run_stopped", "run_id": self.run_id, "pass": self.pass_no,
                    "stopped_at": iso(self.now()), **self.stop_info}
@@ -332,6 +427,20 @@ class Runner:
 
     # ---- scheduling with the block boundary (5.6.1) ----
     def next_call(self) -> dict | None:
+        """Take the next call, holding the block boundary of 5.6.1.
+
+        The call list is already in the order 5.6.1 fixes, but with several
+        workers a fast one would otherwise start the next repeat block while
+        slow calls from the current block are still in flight. That would
+        destroy the property the blocking exists for: each repeat is a complete
+        unit executed within its own period of time, so that time-of-execution
+        effects fall on all conditions alike rather than on one repeat. A worker
+        therefore waits while any in-flight call has a lower repeat than the
+        next one due.
+
+        Returns None when the run is stopped or the list is exhausted, which is
+        how workers learn to exit (5.6.5).
+        """
         with self.cond:
             while True:
                 if self.stopped or not self.remaining:
@@ -361,10 +470,37 @@ class Runner:
 
     # ---- one call: attempts, waits, retries (5.6.4) ----
     def backoff(self, attempt: int) -> float:
+        """Wait before the next attempt, with the equal jitter fixed in 5.6.4.
+
+        5.6.4 specifies both parts: the base is backoff_initial * 2^(attempt-1)
+        capped at backoff_max, and the wait is half that base plus a uniform
+        draw over the other half, so it lies in [base/2, base]. The random half
+        separates workers that failed at the same moment and would otherwise
+        retry together; the fixed half keeps a guaranteed minimum distance
+        between attempts of the same call.
+        """
         base = min(self.settings.backoff_max, self.settings.backoff_initial * 2 ** (attempt - 1))
         return base / 2 + self.rng.random() * base / 2
 
     def process_call(self, call: dict) -> None:
+        """Carry one call to termination: attempts, waits, retries (5.6.4, 5.6.5).
+
+        Implements together the per-call rules the decision log states in
+        separate sections: at most MAX_ATTEMPTS attempts per repeat (5.4.7);
+        a retry after retryable_error and after invalid_response, which 5.4.6
+        treats alike as "no label obtained"; the wait taken from Retry-After
+        when 5.6.4 gives a usable one and from backoff() otherwise; and no new
+        attempt at all, plus a stop of the run, when Retry-After exceeds
+        backoff_max, with the header value recorded unclipped as
+        planned_wait_sec. A call ends on a success, on a fatal outcome (5.4.6),
+        at the attempt cap, or because the run has stopped (5.6.5).
+
+        planned_wait_sec is written on the attempt that precedes the wait rather
+        than on the one that follows it, so that a resume can compute what is
+        left of an interrupted wait from the record alone (5.6.6). That
+        carried-over remainder is applied once, before this session's first
+        attempt for the call.
+        """
         idx = call["order_index"]
         st = self.states[idx]
         prompt, prompt_sha = self.prompts[(call["utterance_id"], call["condition"])]
@@ -429,6 +565,23 @@ class Runner:
 
     # ---- one SDK call via with_raw_response ----
     def execute(self, prompt: str) -> dict:
+        """Make one API request and return its record fields (5.4.6, 5.6.7).
+
+        The request goes through with_raw_response so that raw_response is the
+        body exactly as the server sent it, for error responses as well as
+        successful ones. 5.6.7 stores that text and 5.6.8 re-derives the label
+        from it later, so keeping a parsed object instead would discard what the
+        record exists to preserve. The client is built with max_retries = 0
+        (5.6.4), which is what makes one call here exactly one attempt.
+
+        Error outcomes are classified by classify_http_status from the body's
+        error.code and error.type (5.4.6). The body is preferred over the SDK
+        exception's attributes, which serve only as a fallback, so that the
+        classification can be re-checked afterwards from the stored record
+        rather than depending on SDK behaviour at the time of the call.
+        Connection errors and timeouts have no body and no status, and are
+        retryable under 5.4.6 for that reason.
+        """
         import openai
         from test_api_request import build_request
 
@@ -466,6 +619,15 @@ class Runner:
 
     # ---- run all workers; write run_stopped after in-flight attempts are recorded ----
     def run(self) -> dict:
+        """Run the workers to exhaustion, then close the pass (5.6.5).
+
+        5.6.5 requires every in-flight attempt to be recorded before a stopped
+        run ends, so run_stopped is written here, once all workers have joined,
+        instead of when the stop was decided. The attempts file is closed only
+        after that event so it ends complete, which is the condition 5.6.6
+        resume and the 5.6.7 truncation rule are stated against. The returned
+        counts say how many calls are terminated, not how many succeeded.
+        """
         threads = [threading.Thread(target=self.worker, name=f"worker-{i}", daemon=True)
                    for i in range(self.settings.concurrency)]
         for t in threads:
@@ -483,8 +645,21 @@ class Runner:
 # --------------------------------------------------------------------------
 
 def verify_for_resume(run_dir: Path, pass_no: int, manifest: dict, cli_settings: dict) -> dict:
-    """Return loaded prompts if every check passes; raise Refused listing all failures."""
+    """Run the 5.6.6 resume checks; return the prompts or refuse to start.
+
+    5.6.6 requires all of these to pass before a pass may be resumed, so every
+    check is evaluated and the failures are reported together rather than at the
+    first one. A report that stopped early would be worked through one restart
+    at a time, and each restart is another chance to begin a pass against a
+    manifest that no longer describes it.
+
+    The numbered comments below are the check numbers as 5.6.6 lists them. The
+    closing comparison of command-line settings with the manifest is not one of
+    those five; it enforces the 5.6.4 rule that these values have no defaults
+    and stay fixed for the whole pass.
+    """
     problems: list[str] = []
+    # Check 1, first part: the request is the one the manifest describes.
     if manifest.get("model") != MODEL:
         problems.append(f"model {manifest.get('model')} != {MODEL}")
     if manifest.get("request_params") != request_params():
@@ -492,12 +667,18 @@ def verify_for_resume(run_dir: Path, pass_no: int, manifest: dict, cli_settings:
     if manifest.get("seed") != PASS_SEEDS[pass_no]:
         problems.append(f"seed {manifest.get('seed')} != {PASS_SEEDS[pass_no]}")
 
+    # Check 4: the input file is unchanged. Verified before the call list because
+    # check 1 recomputes that list from this file, so a changed input would
+    # otherwise be reported only as a mismatched call list.
     input_path = Path(manifest["input_file"]["path"])
     if not input_path.exists():
         problems.append(f"input file missing: {input_path}")
     elif sha256_file(input_path) != manifest["input_file"]["sha256"]:
         problems.append("input file sha256 differs from manifest")
     else:
+        # Check 1, second part: the ordered call list is recomputed and compared.
+        # The manifest list is the reference for reproduction (5.6.2); recomputing
+        # it here shows that the seed and the inputs still generate that same list.
         if pass_no == 1:
             expected = plan_pass1(read_ids(input_path), PASS_SEEDS[1])
         else:
@@ -517,6 +698,9 @@ def verify_for_resume(run_dir: Path, pass_no: int, manifest: dict, cli_settings:
         if expected is not None and expected != manifest["calls"]:
             problems.append("ordered call list differs from the list recomputed from seed and input")
 
+    # Check 2: load_prompts recomputes the sha256 of every prompt body, and the
+    # file's own sha256 must match the manifest. The first catches an edited
+    # prompt, the second an added or removed line.
     prompts_path = run_dir / "prompts.jsonl"
     prompts = {}
     try:
@@ -526,18 +710,25 @@ def verify_for_resume(run_dir: Path, pass_no: int, manifest: dict, cli_settings:
     else:
         if sha256_file(prompts_path) != manifest.get("prompts_sha256"):
             problems.append("prompts.jsonl sha256 differs from manifest")
+        # Check 3: equality of the pair sets for pass 1; for tie-break passes only
+        # a subset, since those schedule the tied pairs alone (5.4.3).
         pairs = manifest_pairs(manifest)
         if pass_no == 1 and pairs != set(prompts):
             problems.append("(utterance_id, condition) set differs between manifest and prompts.jsonl")
         if pass_no >= 2 and not pairs <= set(prompts):
             problems.append(f"manifest_pass{pass_no} has pairs absent from prompts.jsonl")
 
+    # Check 5: same commit as the manifest and a clean tree, so the records of a
+    # pass can be attributed to one state of the code.
     commit = git_commit_hash()
     if commit.endswith("-dirty"):
         problems.append("working tree is dirty")
     if commit.split("-")[0] != str(manifest.get("git_commit", "")).split("-")[0]:
         problems.append(f"git commit {commit} != manifest {manifest.get('git_commit')}")
 
+    # Not one of the five checks: 5.6.4 fixes the operational values for the whole
+    # pass, so a value given on the command line may repeat the manifest but not
+    # change it. None means the flag was not given and the manifest value stands.
     stored = Settings.from_manifest(manifest)
     for name, value in cli_settings.items():
         if value is not None and value != getattr(stored, name):
@@ -549,6 +740,18 @@ def verify_for_resume(run_dir: Path, pass_no: int, manifest: dict, cli_settings:
 
 
 def acquire_lock(run_dir: Path) -> Path:
+    """Create run.lock exclusively, or refuse to start (5.6.6).
+
+    5.6.6 uses the lock to keep two processes off one run: both would append to
+    the same attempts file and hand out overlapping completed_seq values, which
+    would make the sequence 5.6.5 counts in meaningless. O_EXCL makes the test
+    and the creation a single step, so two runners starting together cannot both
+    succeed.
+
+    A stale lock is removed manually after inspection, by decision, so this never
+    deletes or takes over an existing one: nothing here can tell a dead process
+    from a running one, and guessing wrong would corrupt a live run.
+    """
     lock = run_dir / "run.lock"
     try:
         fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
@@ -594,6 +797,14 @@ def repair(run_dir: Path, pass_no: int, now=utc_now) -> int:
 
 def prepare_pass1(run_dir: Path, run_id: str, input_path: Path, settings: Settings,
                   builder=build_prompt) -> dict:
+    """Write prompts.jsonl and manifest_pass1.json before any call (5.6.2, 5.6.3).
+
+    Both files are written before the first request, so the plan a pass is later
+    judged against exists independently of its results. Prompts are built once
+    per (utterance, condition) pair, while the manifest call list repeats each
+    pair once per repeat block (5.6.1); the manifest stores the prompts file's
+    sha256, which 5.6.6 check 2 verifies on resume.
+    """
     ids = read_ids(input_path)
     calls = plan_pass1(ids, PASS_SEEDS[1])
     prompts_path = run_dir / "prompts.jsonl"
