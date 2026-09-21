@@ -34,6 +34,10 @@ Use paired utterance-level bootstrap with two-sided 95% pointwise percentile int
 
 Each replicate draws 300 utterance indices with replacement from the complete original 300-record table. Carry the human label, all condition final labels, and all missingness states together, including repeated occurrences of a sampled index. Use the same draw for every condition. Within each replicate, apply 6.1.1 for standalone κ and 6.1.2 for each paired κ/Δκ; paired n can vary across replicates. Do not independently resample conditions, prefilter the shared table to six-condition complete cases, or bootstrap calls as independent observations.
 
+Reproducibility of the draws. The replicate indices are generated once per scorer run, before any statistic is computed, as a 10,000 × n integer array `numpy.random.default_rng(20260919).integers(0, n, size=(10000, n))`, where n is the number of records in the original table (300 in the main run). Row r is replicate r, and every condition and every statistic (standalone κ, paired κ, Δκ) uses the same array. Percentiles are computed with `numpy.percentile(values, [2.5, 97.5], method="linear")`. NumPy does not guarantee that `default_rng` yields the same stream across NumPy versions, so the seed reproduces the intervals only together with the NumPy version: the scorer records `numpy.__version__` in its report header, and the version is fixed in 5.2.3.
+
+Revision note (2026-09-21): The generator, the order in which the draws are produced, the percentile method and the NumPy version record were not specified in this section. They were added before any scorer code for the bootstrap was written and before any data were collected. No other rule in this section was changed.
+
 #### 6.2.2 Undefined statistics
 
 κ is undefined when the analysis set is empty or P_e = 1. If an original-set κ is undefined, report that κ and any Δκ depending on it as `not estimable`; retain available descriptive information (n, raw agreement, marginals, confusion matrix). For an empty set, raw agreement is also not estimable. Do not replace undefined values with zero.

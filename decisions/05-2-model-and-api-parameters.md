@@ -76,6 +76,7 @@ The record will include:
 - generation parameters;
 - Python version;
 - `tiktoken` version;
+- NumPy version;
 - tokenizer encoding;
 - data-collection dates.
 
@@ -91,15 +92,18 @@ Current verified values:
 | Reasoning effort | `none` |
 | Python version | `3.13.9` |
 | `openai` SDK version | `3.8.0` |
+| NumPy version | `2.3.5` |
 
 [decided 2026-09-10]
-The experiment is run in the conda base environment (Anaconda). Python, `openai`, and `tiktoken` are not upgraded or otherwise changed until data collection is complete.
+The experiment is run in the conda base environment (Anaconda). Python, `openai`, and `tiktoken` are not upgraded or otherwise changed until data collection is complete. `numpy` is likewise not upgraded or otherwise changed until the analysis in 6 is complete, because the bootstrap draws depend on its version (6.2.1).
 
 API keys are not stored in the repository. The project API key is accessed through a local environment variable.
 
 Package versions are re-verified immediately before data collection. The calling script records the openai SDK and Python versions in each run manifest (5.6.2). The tiktoken version and tokenizer encoding are recorded in the token-verification reports produced by `scripts/check_token_matching.py`, which is re-run on every sampled source_id before data collection (3.2.3).
 
 Revision note (2026-09-21): The previous sentence stated that the calling script records the openai and tiktoken versions with every run log. A document–code comparison on 2026-09-21 found that `scripts/run_experiment.py` does not import tiktoken and that the run manifest (5.6.2) records the openai and Python versions only. tiktoken is used by the input-construction and token-verification scripts, whose reports already record its version. The sentence was revised to state where each version is recorded. No code was changed.
+
+Revision note (2026-09-21, NumPy): NumPy was added to the environment record and to the upgrade freeze because the bootstrap intervals in 6.2.1 are reproducible only with a fixed NumPy version. The version shown was read from the conda base environment on 2026-09-21.
 
 ### 5.2.4 Final input construction and token verification
 
