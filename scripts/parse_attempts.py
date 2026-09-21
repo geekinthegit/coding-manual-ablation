@@ -101,6 +101,13 @@ def labels_from_records(records: list[dict]) -> list[dict]:
     An outcome of success or invalid_response without an HTTP 200 body is
     refused for the same reason: 5.4.5 defines both only on a 200 body, so such
     a record cannot have been produced by the specified rule.
+
+    Exception (5.6.8, added 2026-09-21): a record whose recorded outcome is
+    fatal_error is not re-derived even when it carries an HTTP 200 body, and
+    yields a row with no category and valid False. Such a record comes from an
+    unexpected exception after the response was received (5.6.5); the runner
+    did not establish validity at call time, so the body is kept in the record
+    for inspection and is not counted as a label.
     """
     rows = []
     for rec in records:
@@ -108,7 +115,9 @@ def labels_from_records(records: list[dict]) -> list[dict]:
             continue
         outcome = rec["outcome"]
         category = None
-        if rec.get("http_status") == 200 and rec.get("raw_response") is not None:
+        if outcome == "fatal_error":
+            pass                                    # never re-derived (5.6.8, 2026-09-21)
+        elif rec.get("http_status") == 200 and rec.get("raw_response") is not None:
             derived = validate_body(rec["raw_response"])
             if (derived.outcome, derived.invalid_reason) != (outcome, rec.get("invalid_reason")):
                 raise ValueError(

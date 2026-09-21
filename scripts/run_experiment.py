@@ -355,6 +355,7 @@ class Runner:
         self.stop_info: dict | None = None
         self.remaining = [c["order_index"] for c in calls if not states[c["order_index"]].terminated]
         self.in_flight: set[int] = set()
+        self.last_started: dict[int, int] = {}    # order_index -> attempt of the last attempt_started written
         self.fh = attempts_path.open("ab")
 
     # ---- record writing: append + flush + fsync, caller holds self.lock ----
@@ -369,6 +370,7 @@ class Runner:
             if self.stopped:
                 return False
             self._append(rec)
+            self.last_started[rec["order_index"]] = rec["attempt"]
             return True
 
     def record_completed(self, rec: dict, stop_reason: str | None = None) -> int:
@@ -465,8 +467,33 @@ class Runner:
                 return
             try:
                 self.process_call(call)
+            except Exception as e:                  # noqa: BLE001 - see stop_unrecorded
+                self.stop_unrecorded(call, e)
             finally:
                 self.finish_call(call)
+
+    def stop_unrecorded(self, call: dict, exc: Exception) -> None:
+        """Stop the run after an exception that left no attempt_completed (5.6.5).
+
+        The 5.6.5 paragraph on unexpected exceptions (added 2026-09-21) covers the
+        case where an exception escapes process_call itself, typically because
+        the attempt_completed record could not be written: the run enters the
+        stopped state with reason fatal_error so that no worker starts a new
+        attempt, and the attempt that was in progress stays interrupted in the
+        sense of 5.6.6 (its attempt_started is on disk, nothing completes it).
+        completed_seq_at_stop is the last sequence number actually assigned and
+        the triggering attempt is the last attempt_started written for this
+        call, or 0 if none was written in this session. The exception is
+        reported on stderr because no record can carry it.
+        """
+        idx = call["order_index"]
+        attempt = self.last_started.get(idx, 0)
+        print(f"worker: unrecorded {type(exc).__name__} on order_index {idx} attempt {attempt}: {exc}",
+              file=sys.stderr)
+        with self.cond:
+            self._stop("fatal_error", {"completed_seq": self.completed_seq, "order_index": idx,
+                                       "attempt": attempt})
+            self.cond.notify_all()
 
     # ---- one call: attempts, waits, retries (5.6.4) ----
     def backoff(self, attempt: int) -> float:
@@ -581,6 +608,15 @@ class Runner:
         rather than depending on SDK behaviour at the time of the call.
         Connection errors and timeouts have no body and no status, and are
         retryable under 5.4.6 for that reason.
+
+        Any other exception, raised by the request or while the response is
+        read and validated, is returned as outcome fatal_error (5.6.5 and 5.6.7,
+        added 2026-09-21): error.type and error.message carry the exception
+        class and message, and http_status, openai_request_id and raw_response
+        carry whatever had been received before the exception, null otherwise.
+        The caller then records it and stops the run through the same path as a
+        non-retryable HTTP error. KeyboardInterrupt and SystemExit are not
+        caught.
         """
         import openai
         from test_api_request import build_request
@@ -590,32 +626,40 @@ class Runner:
                 "response_model": None, "system_fingerprint": None,
                 "finish_reason": None, "usage": None, "raw_response": None, "error": None,
                 "retry_after": None}
+        status = request_id = body_text = None      # what was received before an unexpected exception
         try:
-            raw = self.client.chat.completions.with_raw_response.create(**build_request(prompt))
-        except openai.APIStatusError as e:
-            resp = e.response
-            body_text = resp.text if resp is not None else None
-            code = error_code_from_body(body_text) or getattr(e, "code", None)
-            err_type = error_type_from_body(body_text) or getattr(e, "type", None)
-            status = e.status_code
-            ra_header = resp.headers.get("retry-after") if resp is not None else None
-            return {**base, "outcome": classify_http_status(status, code, err_type),
-                    "http_status": status,
-                    "openai_request_id": resp.headers.get("x-request-id") if resp is not None else None,
-                    "openai_error_code": code, "openai_error_type": err_type,
-                    "raw_response": body_text,
-                    "error": {"type": type(e).__name__, "message": str(e), "retry_after": ra_header},
-                    "retry_after": parse_retry_after(ra_header, self.now()) if status == 429 else None}
-        except openai.APIConnectionError as e:          # includes APITimeoutError
-            return {**base, "outcome": "retryable_error",
-                    "error": {"type": type(e).__name__, "message": str(e), "retry_after": None}}
+            try:
+                raw = self.client.chat.completions.with_raw_response.create(**build_request(prompt))
+            except openai.APIStatusError as e:
+                resp = e.response
+                body_text = resp.text if resp is not None else None
+                code = error_code_from_body(body_text) or getattr(e, "code", None)
+                err_type = error_type_from_body(body_text) or getattr(e, "type", None)
+                status = e.status_code
+                ra_header = resp.headers.get("retry-after") if resp is not None else None
+                return {**base, "outcome": classify_http_status(status, code, err_type),
+                        "http_status": status,
+                        "openai_request_id": resp.headers.get("x-request-id") if resp is not None else None,
+                        "openai_error_code": code, "openai_error_type": err_type,
+                        "raw_response": body_text,
+                        "error": {"type": type(e).__name__, "message": str(e), "retry_after": ra_header},
+                        "retry_after": parse_retry_after(ra_header, self.now()) if status == 429 else None}
+            except openai.APIConnectionError as e:          # includes APITimeoutError
+                return {**base, "outcome": "retryable_error",
+                        "error": {"type": type(e).__name__, "message": str(e), "retry_after": None}}
 
-        body_text = raw.text
-        v = validate_body(body_text)
-        return {**base, "outcome": v.outcome, "invalid_reason": v.invalid_reason,
-                "http_status": raw.status_code, "openai_request_id": raw.headers.get("x-request-id"),
-                "response_model": v.response_model, "system_fingerprint": v.system_fingerprint,
-                "finish_reason": v.finish_reason, "usage": v.usage, "raw_response": body_text}
+            status = raw.status_code
+            request_id = raw.headers.get("x-request-id")
+            body_text = raw.text
+            v = validate_body(body_text)
+            return {**base, "outcome": v.outcome, "invalid_reason": v.invalid_reason,
+                    "http_status": status, "openai_request_id": request_id,
+                    "response_model": v.response_model, "system_fingerprint": v.system_fingerprint,
+                    "finish_reason": v.finish_reason, "usage": v.usage, "raw_response": body_text}
+        except Exception as e:                          # noqa: BLE001 - 5.6.5 unexpected exceptions
+            return {**base, "outcome": "fatal_error", "http_status": status,
+                    "openai_request_id": request_id, "raw_response": body_text,
+                    "error": {"type": type(e).__name__, "message": str(e), "retry_after": None}}
 
     # ---- run all workers; write run_stopped after in-flight attempts are recorded ----
     def run(self) -> dict:
@@ -634,7 +678,14 @@ class Runner:
             t.start()
         for t in threads:
             t.join()
-        stopped_rec = self.write_run_stopped() if self.stopped else None
+        stopped_rec = None
+        if self.stopped:
+            try:
+                stopped_rec = self.write_run_stopped()
+            except Exception as e:                      # noqa: BLE001 - report, keep the stop visible
+                print(f"run_stopped could not be written: {type(e).__name__}: {e}", file=sys.stderr)
+                stopped_rec = {"event": "run_stopped", "run_id": self.run_id, "pass": self.pass_no,
+                               **self.stop_info, "written": False}
         self.fh.close()
         n_term = sum(1 for st in self.states.values() if st.terminated)
         return {"terminated": n_term, "total": len(self.states), "stopped": stopped_rec}
