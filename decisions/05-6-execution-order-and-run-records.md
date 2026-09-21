@@ -122,6 +122,8 @@ The targets of pass 2 and pass 3 are the `tie_pending` rows of `final_labels.csv
 
 Exhaustion of a tie-break call. Per 5.4.3 (sentence added 2026-09-19), a tie-resolution call whose 3 attempts are all exhausted counts as one of the two additional calls, and a still-tied pair proceeds to the next round if any. In the implementation this holds because `repeats_used` is the highest repeat number present in `labels.csv`, valid or not: an exhausted repeat 4 gives `repeats_used = 4` with the valid counts unchanged, the pair stays `tie_pending`, and pass 3 sends repeat 5 for it; an exhausted repeat 5 gives `repeats_used = 5` and the pair becomes `unresolved_tie`.
 
+Known limitation (recorded 2026-09-21): a pair whose nine attempts (3 repeats × 3 attempts) are all interrupted has terminated calls but no `attempt_completed` record, so it has no row in `final_labels.csv`, and the scorer refuses the run (6.1.1). This requires all nine attempts of one pair to end without an `attempt_completed` record (a process interruption, or an exception in the runner that is not recorded as an outcome) and is not handled further; see `tests/test_scorer_entry.py`.
+
 After the last pass has terminated, run `python scripts/parse_attempts.py --run-id <run_id>` once more so labels.csv and final_labels.csv reflect all passes. Analysis reads final_labels.csv only after this step.
 
 ### 5.6.9 Directory layout
