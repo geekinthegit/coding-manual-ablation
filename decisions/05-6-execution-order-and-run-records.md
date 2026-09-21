@@ -65,6 +65,8 @@ Each `attempt_completed` record receives a global sequence number `completed_seq
 
 Once stopped (threshold reached, a fatal error, or `retry_after_exceeds_max`), the state does not revert in that session; late successes do not cancel it. The runner starts no new attempts or retries, waits for in-flight attempts to complete and be recorded, writes a `run_stopped` event, and exits. On resume the counter starts at 0.
 
+Unexpected exceptions (added 2026-09-21). An exception raised while an attempt is executed, other than the SDK status and connection errors classified in 5.4.6, is recorded as an `attempt_completed` with `outcome = fatal_error` (5.6.7) and stops the run. If an exception escapes after `attempt_started` was written and no `attempt_completed` can be written (for example, the record itself cannot be written), the worker puts the run in the stopped state with reason `fatal_error`, so that no new attempt starts; that attempt stays interrupted in the sense of 5.6.6.
+
 ### 5.6.6 Resume
 
 [proposed 2026-09-18]
@@ -105,6 +107,8 @@ Truncated-last-line rule: if only the final record is incomplete and fails JSON 
 
 `outcome` ∈ {`success`, `invalid_response`, `retryable_error`, `fatal_error`}.
 
+`fatal_error` covers non-retryable HTTP errors (5.4.6) and, as of 2026-09-21, any unexpected exception during an attempt (5.6.5). For an unexpected exception, `error.type` and `error.message` hold the exception class name and message, and `http_status`, `openai_request_id` and `raw_response` hold whatever had been received before the exception (null otherwise).
+
 `invalid_reason` (only when `outcome = invalid_response`, else null) ∈ {`refusal`, `truncated`, `finish_reason_other`, `malformed_json`, `schema_mismatch`, `label_not_in_enum`}. Classification order, first match wins: `refusal` field present (non-null) → `refusal`; `finish_reason = length` → `truncated`; `finish_reason` ∉ {`stop`, `length`} → `finish_reason_other`; message content not parseable as JSON → `malformed_json`; missing or extra fields, or a non-string `category` → `schema_mismatch`; `category` not an exact, case-sensitive match to one of the seven names in `scripts/tags.py` after whitespace strip → `label_not_in_enum`. This makes the 5.4.5 invalid-response definition operational; 5.4.5 itself is not changed.
 
 `planned_wait_sec` is the value passed to sleep before the next attempt (null on success or when no retry follows); `wait_source` ∈ {`retry_after`, `backoff`, null}.
@@ -115,6 +119,8 @@ Truncated-last-line rule: if only the final record is incomplete and fails JSON 
 
 `scripts/parse_attempts.py` reads every attempts JSONL file present in the run directory (`attempts_pass1.jsonl`, and `attempts_pass2.jsonl`, `attempts_pass3.jsonl` when they exist) without modifying them and writes two files. It is deterministic and re-runnable. The parser re-derives `outcome`, `invalid_reason` and `category` from `raw_response` with the same validation function the runner used (`scripts/validation.py`) and refuses to write if the re-derived values differ from the recorded ones.
 
+Exception to re-derivation (added 2026-09-21): a record whose recorded `outcome` is `fatal_error` is not re-derived, even when it carries an HTTP 200 body, and yields a row with no category and `valid` false. Such a record arises only from an unexpected exception after the response was received (5.6.5); the runner did not establish validity at call time, so the body is kept for inspection and is not counted as a label.
+
 * `labels.csv`: one row per `attempt_completed` (`run_id`, `pass`, `utterance_id`, `condition`, `repeat`, `attempt`, `category`, `valid`).
 * `final_labels.csv`: one row per (`utterance_id`, `condition`) with `run_id`, `utterance_id`, `condition`, `final_label` (empty when none), `status` ∈ {`resolved`, `tie_pending`, `unresolved_tie`, `insufficient_valid_repeats`}, `valid_repeats`, `repeats_used`. This is the 5.4 aggregation result: `resolved` when one label has the largest count among valid repeats (5.4.2); `tie_pending` when the largest count is shared and fewer than 5 repeats have been used, so a further tie-break call is allowed (5.4.3); `unresolved_tie` when the tie remains at 5 repeats (5.4.3); `insufficient_valid_repeats` when fewer than 2 repeats are valid (5.4.8).
 
@@ -122,7 +128,7 @@ The targets of pass 2 and pass 3 are the `tie_pending` rows of `final_labels.csv
 
 Exhaustion of a tie-break call. Per 5.4.3 (sentence added 2026-09-19), a tie-resolution call whose 3 attempts are all exhausted counts as one of the two additional calls, and a still-tied pair proceeds to the next round if any. In the implementation this holds because `repeats_used` is the highest repeat number present in `labels.csv`, valid or not: an exhausted repeat 4 gives `repeats_used = 4` with the valid counts unchanged, the pair stays `tie_pending`, and pass 3 sends repeat 5 for it; an exhausted repeat 5 gives `repeats_used = 5` and the pair becomes `unresolved_tie`.
 
-Known limitation (recorded 2026-09-21): a pair whose nine attempts (3 repeats × 3 attempts) are all interrupted has terminated calls but no `attempt_completed` record, so it has no row in `final_labels.csv`, and the scorer refuses the run (6.1.1). This requires all nine attempts of one pair to end without an `attempt_completed` record (a process interruption, or an exception in the runner that is not recorded as an outcome) and is not handled further; see `tests/test_scorer_entry.py`.
+Known limitation (recorded 2026-09-21): a pair whose nine attempts (3 repeats × 3 attempts) are all interrupted has terminated calls but no `attempt_completed` record, so it has no row in `final_labels.csv`, and the scorer refuses the run (6.1.1). This requires all nine attempts of one pair to end without an `attempt_completed` record (a process interruption, or a failure that prevents the record from being written; see 5.6.5) and is not handled further; see `tests/test_scorer_entry.py`.
 
 After the last pass has terminated, run `python scripts/parse_attempts.py --run-id <run_id>` once more so labels.csv and final_labels.csv reflect all passes. Analysis reads final_labels.csv only after this step.
 
