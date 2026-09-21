@@ -97,7 +97,9 @@ The experiment is run in the conda base environment (Anaconda). Python, `openai`
 
 API keys are not stored in the repository. The project API key is accessed through a local environment variable.
 
-Package versions are re-verified immediately before data collection, and the calling script records the openai and tiktoken versions with every run log.
+Package versions are re-verified immediately before data collection. The calling script records the openai SDK and Python versions in each run manifest (5.6.2). The tiktoken version and tokenizer encoding are recorded in the token-verification reports produced by `scripts/check_token_matching.py`, which is re-run on every sampled source_id before data collection (3.2.3).
+
+Revision note (2026-09-21): The previous sentence stated that the calling script records the openai and tiktoken versions with every run log. A document–code comparison on 2026-09-21 found that `scripts/run_experiment.py` does not import tiktoken and that the run manifest (5.6.2) records the openai and Python versions only. tiktoken is used by the input-construction and token-verification scripts, whose reports already record its version. The sentence was revised to state where each version is recorded. No code was changed.
 
 ### 5.2.4 Final input construction and token verification
 
