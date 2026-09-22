@@ -1,9 +1,12 @@
-"""Scorer: run-completeness check (6.1.1) and point estimates of κ and Δκ (6.1, 6.2.2).
+"""Scorer: run-completeness check (6.1.1), point estimates of κ and Δκ (6.1, 6.2.2)
+and the paired utterance-level bootstrap (6.2.1, 6.2.2, 6.2.3, 2.3.7).
 
-This module holds require_run_complete() and the point-estimate functions
-make_table(), kappa(), standalone() and paired(). The bootstrap, the report,
-the CLI and the reading of a run directory into a table are not implemented
-here yet. Nothing under the run directory is written by this module.
+This module holds require_run_complete(), the point-estimate functions
+make_table(), kappa(), standalone() and paired(), and the bootstrap functions
+draw_indices(), bootstrap_replicates() and summarize_replicates(). The
+report, the CLI and the reading of a run directory into a table are not
+implemented here yet. Nothing under the run directory is written by this
+module.
 
 What is reused, never re-implemented
 ------------------------------------
@@ -14,6 +17,8 @@ What is reused, never re-implemented
 * Condition identifiers (3.1.7, 3.3): build_inputs.CONDITIONS.
 * Category names (6.1.1): tags.TAG_TO_CATEGORY.
 * Final-label statuses (5.6.8): parse_attempts.STATUSES.
+* κ inside the bootstrap: the same standalone() and paired() as the point
+  estimates, called on each resampled table. There is one κ implementation.
 """
 
 import json
@@ -21,6 +26,8 @@ import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
+
+import numpy as np
 
 from build_inputs import CONDITIONS
 from parse_attempts import (
@@ -49,6 +56,13 @@ TIE_PENDING = "tie_pending"
 # final label and is excluded from the analysis set of that condition.
 MISSING_STATUSES: tuple[str, ...] = ("unresolved_tie", "insufficient_valid_repeats")
 assert set((RESOLVED, TIE_PENDING, *MISSING_STATUSES)) == set(STATUSES)
+
+# Bootstrap specification (6.2.1): 10,000 replicates, seed 20260919, two-sided
+# 95% percentile intervals. Other values may be passed to the functions for
+# tests only; the values actually used are carried in the results.
+N_REPLICATES = 10_000
+BOOTSTRAP_SEED = 20260919
+PERCENTILES = (2.5, 97.5)
 
 
 def present_passes(run_dir: Path) -> list[int]:
@@ -389,3 +403,202 @@ def paired(table: list[Record], condition: str) -> PairedResult:
                         neither=neither, missing_baseline=missing_baseline,
                         missing_condition=missing_condition, discordant=discordant,
                         baseline=k_base, result=k_cond, delta_kappa=delta)
+
+
+# ---------------------------------------------------------------------------
+# Paired utterance-level bootstrap (6.2.1, 6.2.2, 6.2.3, 2.3.7)
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class Draws:
+    """The replicate index array of one scorer run and its reproducibility conditions (6.2.1).
+
+    indices has shape (n_replicates, n): row r holds the n 0-based row numbers
+    of the table that make up replicate r. n, n_replicates, seed and
+    numpy_version are the values actually used, so the array can be
+    regenerated only under the same NumPy version (6.2.1; 5.2.3).
+    """
+    n: int
+    n_replicates: int
+    seed: int
+    numpy_version: str
+    indices: np.ndarray
+
+
+@dataclass(frozen=True)
+class Replicates:
+    """Replicate values of every bootstrap statistic (6.2.1, 6.2.2).
+
+    values maps a statistic key (see bootstrap_replicates) to a list of
+    length n_replicates whose entries are floats or None (undefined in that
+    replicate). n_records is the size of the original table.
+    """
+    n_records: int
+    n_replicates: int
+    seed: int
+    numpy_version: str
+    values: dict[str, list[float | None]]
+
+
+@dataclass(frozen=True)
+class IntervalSummary:
+    """Percentile-interval summary of one statistic's replicates (6.2.2, 6.2.3).
+
+    undefined_count and undefined_proportion are reported for every
+    statistic. lower and upper are the interval bounds or both None when the
+    interval is withheld, in which case withheld_reason says why. degenerate
+    is True when an interval was produced and its two bounds are equal: a
+    defined but degenerate interval, which is a different state from an
+    undefined statistic.
+    """
+    n_replicates: int
+    undefined_count: int
+    undefined_proportion: float
+    lower: float | None
+    upper: float | None
+    withheld_reason: str | None
+    degenerate: bool
+
+
+def draw_indices(n: int, n_replicates: int = N_REPLICATES, seed: int = BOOTSTRAP_SEED) -> Draws:
+    """Generate the replicate indices once, before any statistic is computed (6.2.1).
+
+    The array is numpy.random.Generator(numpy.random.PCG64(seed)).integers(
+    0, n, size=(n_replicates, n)): the bit generator is named explicitly,
+    not taken from default_rng, and the whole array is produced in one call
+    so that the order of the draws is fixed. Row r is replicate r; an entry i
+    refers to the i-th Record of the table that make_table built, which is
+    ordered by utterance_id ascending. Every condition and every statistic
+    uses this one array. NumPy does not guarantee the same values across its
+    versions, so numpy.__version__ is carried with the array (6.2.1; 5.2.3).
+
+    n is the number of records in the original table (300 in the main run).
+    n < 1 or n_replicates < 1 raises ValueError.
+    """
+    if n < 1:
+        raise ValueError(f"n must be at least 1, got {n}")
+    if n_replicates < 1:
+        raise ValueError(f"n_replicates must be at least 1, got {n_replicates}")
+    rng = np.random.Generator(np.random.PCG64(seed))
+    indices = rng.integers(0, n, size=(n_replicates, n))
+    return Draws(n=n, n_replicates=n_replicates, seed=seed, numpy_version=np.__version__,
+                 indices=indices)
+
+
+def standalone_key(condition: str) -> str:
+    """Key of the standalone κ of `condition` in Replicates.values."""
+    return f"standalone:{condition}"
+
+
+def paired_baseline_key(condition: str) -> str:
+    """Key of the paired-set baseline κ of the contrast against `condition`."""
+    return f"paired_baseline:{condition}"
+
+
+def paired_key(condition: str) -> str:
+    """Key of the paired-set κ of `condition` in its contrast against baseline."""
+    return f"paired:{condition}"
+
+
+def delta_key(condition: str) -> str:
+    """Key of Δκ = κ_condition − κ_baseline on the paired set of `condition`."""
+    return f"delta:{condition}"
+
+
+def statistic_keys() -> list[str]:
+    """The 18 statistic keys in the order bootstrap_replicates fills them.
+
+    Six standalone keys, one per condition in CONDITIONS, then for each
+    condition in PAIRED_CONDITIONS its paired-baseline, paired and delta key.
+    """
+    keys = [standalone_key(c) for c in CONDITIONS]
+    for c in PAIRED_CONDITIONS:
+        keys.extend([paired_baseline_key(c), paired_key(c), delta_key(c)])
+    return keys
+
+
+def bootstrap_replicates(table: list[Record], draws: Draws) -> Replicates:
+    """Apply 6.1.1 and 6.1.2 to every resampled table (6.2.1, 6.2.2, 2.3.7).
+
+    Replicate r is the table [table[i] for i in draws.indices[r]]. Each drawn
+    Record is carried whole: its human label and the final label and status
+    of all six conditions travel together, and a Record drawn k times appears
+    k times. Resampling the same utterances together in every condition
+    preserves the within-item pairing and the item-level covariance between
+    conditions (2.3.7). Conditions are not resampled independently, calls
+    are not resampled, and the table is not prefiltered to six-condition
+    complete cases (6.2.1); the row order of `table` is used as it is.
+
+    On every replicate the point-estimate functions are called unchanged:
+    standalone() for each condition in CONDITIONS, and paired() for each
+    condition in PAIRED_CONDITIONS, whose paired set may differ in size from
+    one replicate to the next. The 18 statistics are stored under the keys
+    of statistic_keys(): "standalone:<condition>" for the six standalone κ;
+    "paired_baseline:<condition>", "paired:<condition>" and
+    "delta:<condition>" for the paired-set baseline κ, the paired-set κ of
+    the condition and Δκ of each of the four contrasts.
+
+    A κ that is undefined in a replicate is recorded as None: it is not
+    dropped, not replaced by zero and not redrawn (6.2.2). Δκ is None when
+    either paired-set κ is None, as paired() already returns it. Every list
+    has length draws.n_replicates. draws.n must equal len(table), otherwise
+    ValueError.
+    """
+    if draws.n != len(table):
+        raise ValueError(f"draws were generated for n={draws.n} but the table has {len(table)} records")
+    values: dict[str, list[float | None]] = {k: [] for k in statistic_keys()}
+    for row in draws.indices:
+        rep = [table[i] for i in row.tolist()]
+        for c in CONDITIONS:
+            values[standalone_key(c)].append(standalone(rep, c).result.kappa)
+        for c in PAIRED_CONDITIONS:
+            p = paired(rep, c)
+            values[paired_baseline_key(c)].append(p.baseline.kappa)
+            values[paired_key(c)].append(p.result.kappa)
+            values[delta_key(c)].append(p.delta_kappa)
+    return Replicates(n_records=len(table), n_replicates=draws.n_replicates, seed=draws.seed,
+                      numpy_version=draws.numpy_version, values=values)
+
+
+def summarize_replicates(values: list[float | None], point_estimate: float | None) -> IntervalSummary:
+    """Percentile interval and undefined accounting for one statistic (6.2.2, 6.2.3).
+
+    values are that statistic's replicate values (floats or None) and
+    point_estimate is its original-set value (float, or None when not
+    estimable). The undefined count and proportion (count / number of
+    replicates) are always reported.
+
+    The interval is withheld, with lower and upper None and withheld_reason
+    set, when at least one replicate is undefined or when the original-set
+    statistic is not estimable (6.2.2). Otherwise the two-sided 95% interval
+    is numpy.percentile(values, [2.5, 97.5], method="linear") (6.2.1). When
+    an interval is produced and its bounds are equal it is returned as it is
+    with degenerate=True: a defined but degenerate interval such as [0, 0],
+    which is not an undefined statistic (6.2.3, 2.3.7) and is interpreted
+    with its paired n and condition-discordant count by the caller.
+
+    No random numbers are used, so the function can be applied to a
+    synthetic list of replicate values without running the bootstrap. An
+    empty list raises ValueError.
+    """
+    n_rep = len(values)
+    if n_rep == 0:
+        raise ValueError("no replicate values")
+    undefined = sum(1 for v in values if v is None)
+    proportion = undefined / n_rep
+    if undefined > 0:
+        reason = f"{undefined} of {n_rep} replicates undefined"
+    elif point_estimate is None:
+        reason = "original-set statistic not estimable"
+    else:
+        reason = None
+    if reason is not None:
+        return IntervalSummary(n_replicates=n_rep, undefined_count=undefined,
+                               undefined_proportion=proportion, lower=None, upper=None,
+                               withheld_reason=reason, degenerate=False)
+    lower, upper = np.percentile(np.asarray(values, dtype=float), list(PERCENTILES), method="linear")
+    lower, upper = float(lower), float(upper)
+    return IntervalSummary(n_replicates=n_rep, undefined_count=undefined,
+                           undefined_proportion=proportion, lower=lower, upper=upper,
+                           withheld_reason=None, degenerate=(lower == upper))
