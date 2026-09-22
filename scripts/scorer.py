@@ -2,11 +2,11 @@
 and the paired utterance-level bootstrap (6.2.1, 6.2.2, 6.2.3, 2.3.7).
 
 This module holds require_run_complete(), the point-estimate functions
-make_table(), kappa(), standalone() and paired(), and the bootstrap functions
-draw_indices(), bootstrap_replicates() and summarize_replicates(). The
-report, the CLI and the reading of a run directory into a table are not
-implemented here yet. Nothing under the run directory is written by this
-module.
+make_table(), kappa(), standalone() and paired(), the bootstrap functions
+draw_indices(), bootstrap_replicates() and summarize_replicates(), and
+load_table(), which reads a completed run directory and the human labels
+into the point-estimate table. The report and the CLI are not implemented
+here yet. Nothing under the run directory is written by this module.
 
 What is reused, never re-implemented
 ------------------------------------
@@ -23,19 +23,24 @@ What is reused, never re-implemented
 
 import json
 import tempfile
+from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
 import numpy as np
+import pandas as pd
 
 from build_inputs import CONDITIONS
 from parse_attempts import (
     PASSES, STATUSES, final_rows, labels_from_records, read_final_labels, read_jsonl_strict,
     write_final_labels,
 )
-from run_experiment import Refused, manifest_pairs, require_pass_terminated
+from run_experiment import Refused, manifest_pairs, require_pass_terminated, sha256_file
 from tags import TAG_TO_CATEGORY
+
+# Columns of data/scoring_labels.csv as build_frame.py writes it (2.1.2, 2.2).
+SCORING_LABEL_COLUMNS = ("source_id", "source_row_id", "Tag")
 
 # The seven canonical categories in tag order (6.1.1; tags.py). "Not coded" is
 # a substantive category, never a stand-in for a missing final label.
@@ -289,6 +294,82 @@ def make_table(human_labels: dict[int, str], final_labels: Iterable[dict]) -> li
                             labels={c: conds[c][0] for c in CONDITIONS},
                             statuses={c: conds[c][1] for c in CONDITIONS}))
     return table
+
+
+@dataclass(frozen=True)
+class LoadedTable:
+    """The point-estimate table of one run with the identity of its two input files (6.1.1, 5.2.3).
+
+    final_labels_sha256 and scoring_labels_sha256 are the sha256 of the
+    final_labels.csv under run_dir and of the scoring-labels file, for the
+    report header.
+    """
+    run_dir: Path
+    table: list[Record]
+    final_labels_sha256: str
+    scoring_labels_sha256: str
+
+
+def read_human_labels(scoring_labels_path: Path, utterance_ids: list[int]) -> dict[int, str]:
+    """Human category name per utterance from data/scoring_labels.csv (6.1.1; tags.py).
+
+    The file is read as check_frame_outputs.py reads it (keep_default_na=False,
+    na_values=[""]) so that only an empty field is missing. utterance_id is
+    source_id (run_experiment reads the sample's source_id column as
+    utterance ids). Tag is mapped through tags.TAG_TO_CATEGORY, the only
+    category mapping (6.1.1). Raises ValueError when a required column is
+    absent, a source_id is duplicated anywhere in the file, an utterance has
+    no row, or its Tag is not an integer key of TAG_TO_CATEGORY.
+    """
+    df = pd.read_csv(scoring_labels_path, keep_default_na=False, na_values=[""])
+    absent = [c for c in SCORING_LABEL_COLUMNS if c not in df.columns]
+    if absent:
+        raise ValueError(f"{scoring_labels_path}: missing columns {absent}")
+    source_ids = [int(x) for x in df["source_id"]]
+    dup = sorted(s for s, k in Counter(source_ids).items() if k > 1)
+    if dup:
+        raise ValueError(f"{scoring_labels_path}: duplicated source_id {dup[:5]} ({len(dup)} total)")
+    tag_by_id = dict(zip(source_ids, df["Tag"]))
+    human: dict[int, str] = {}
+    for uid in utterance_ids:
+        if uid not in tag_by_id:
+            raise ValueError(f"utterance {uid} has no row in {scoring_labels_path}")
+        raw = tag_by_id[uid]
+        try:
+            tag = int(raw)
+            if tag != float(raw):
+                raise ValueError
+        except (TypeError, ValueError):
+            raise ValueError(f"utterance {uid}: Tag {raw!r} is not an integer") from None
+        if tag not in TAG_TO_CATEGORY:
+            raise ValueError(f"utterance {uid}: Tag {tag} is not in tags.TAG_TO_CATEGORY")
+        human[uid] = TAG_TO_CATEGORY[tag]
+    return human
+
+
+def load_table(run_dir: Path, scoring_labels_path: Path) -> LoadedTable:
+    """Read a completed run into the point-estimate table (6.1.1, 5.6.8, 5.2.3).
+
+    Steps, in order: require_run_complete(run_dir) (its Refused propagates);
+    the utterance list is the set of utterance_id in the pass 1 manifest's
+    (utterance_id, condition) pairs; final_labels.csv is read with
+    parse_attempts.read_final_labels; the human labels come from
+    read_human_labels; make_table joins them (utterance_id ascending). The
+    sha256 of both input files is returned for the report header. Nothing
+    under run_dir is written.
+    """
+    run_dir = Path(run_dir)
+    scoring_labels_path = Path(scoring_labels_path)
+    require_run_complete(run_dir)
+    manifest = json.loads((run_dir / "manifest_pass1.json").read_text(encoding="utf-8"))
+    utterance_ids = sorted({uid for uid, _ in manifest_pairs(manifest)})
+    final_path = run_dir / "final_labels.csv"
+    finals = read_final_labels(final_path)
+    human = read_human_labels(scoring_labels_path, utterance_ids)
+    table = make_table(human, finals)
+    return LoadedTable(run_dir=run_dir, table=table,
+                       final_labels_sha256=sha256_file(final_path),
+                       scoring_labels_sha256=sha256_file(scoring_labels_path))
 
 
 def kappa(human: list[str], predicted: list[str]) -> KappaResult:
