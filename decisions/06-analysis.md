@@ -74,9 +74,11 @@ Retain three substantive baseline-referenced Δκ estimates, condition-specific 
 
 ### 6.6 Scorer validation specification
 
-The following are synthetic, hand-checkable examples, not research observations. The point-estimate checks below are implemented in `tests/test_scorer_kappa.py` and passed on 2026-09-21 (commit `bdfac6a`). The CI-policy fixtures in the last paragraph of this section are not implemented yet; they belong to the bootstrap checks.
+The following are synthetic, hand-checkable examples, not research observations. The point-estimate checks below are implemented in `tests/test_scorer_kappa.py` and passed on 2026-09-21 (commit `bdfac6a`). The CI-policy fixtures in the last paragraph of this section are implemented in `tests/test_scorer_bootstrap.py` and passed on 2026-09-22 (commit `df0963f`).
 
 Revision note (2026-09-21): The previous text stated that scorer implementation and execution of these checks remained pending. The expected values in this section were not changed.
+
+Revision note (2026-09-22): The previous text stated that the CI-policy fixtures were not implemented yet. The expected values in this section were not changed.
 
 First verify all canonical mappings against `scripts/tags.py`: 0 = Not coded; 1 = Keeping Everyone Together; 2 = Getting Students to Relate; 3 = Restating; 4 = Revoicing; 5 = Pressing for Accuracy; 6 = Pressing for Reasoning. In the examples, A = Not coded (0), B = Keeping Everyone Together (1); all unused categories have zero counts. A dash represents an empty final label with the stated status, never category A.
 
