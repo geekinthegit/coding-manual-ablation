@@ -8,7 +8,7 @@ Terms follow 5.4: "item" means one item-condition, "valid repeat" means a repeat
 
 ### 4.2.1 Unanimity rate
 
-The proportion of items in which all R valid repeats carry the same label. The denominator is the number of items that have all R = 3 planned repeats valid; items with any invalid repeat are excluded from this indicator and are counted under 4.2.4 or reported separately. Among items in this denominator, those requiring tie-break calls have three valid but non-identical repeats and count as non-unanimous. A tie among only two valid initial repeats (5.4.8) is outside this denominator.
+The proportion of items in which all R valid repeats carry the same label. The denominator is the number of items that have all R = 3 planned repeats valid; items with any invalid repeat are excluded from this indicator and are counted under 4.2.4 or reported separately. Among items in this denominator, those requiring tie-break calls have three valid but non-identical repeats and count as non-unanimous. A tie among only two valid initial repeats (5.4.8) is outside this denominator. The planned repeats are the initial repeats 1–3 (added 2026-09-22): tie-break calls (repeats 4 and 5) are not part of this denominator or numerator, consistent with the initial-pattern reporting in 4.2.5.
 
 ### 4.2.2 Mean agreement with the final label
 
@@ -16,7 +16,7 @@ For each item that has a final label, the ratio (number of valid repeats whose l
 
 ### 4.2.3 Ties and additional calls
 
-The number of items in which a tie occurred under 5.4.3, and the total number of additional tie-break calls made. Both are reported per condition.
+The number of items in which a tie occurred under 5.4.3, and the total number of additional tie-break calls made. Both are reported per condition. An item counts as having a tie when a repeat 4 exists for it in `labels.csv` (added 2026-09-22), which covers both the three-way 1/1/1 case and the two-valid-repeat 1/1 case of 5.4.8; the additional-call count is the number of distinct (item, repeat) pairs with repeat 4 or 5 in `labels.csv`, exhausted or not, since that file has one row per attempt and a logical call is a repeat (4.2.5).
 
 ### 4.2.4 Items without a final label
 
