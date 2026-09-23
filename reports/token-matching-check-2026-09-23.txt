@@ -1,0 +1,76 @@
+Token matching check (Decision Log 3.2.3)
+Generated at: 2026-09-23T19:51:18+09:00
+Script commit: 0d4298949f02bafd79fae086354af183fd1017ee
+tiktoken 0.14.0, encoding o200k_base
+source_ids: [0, 7, 9340, 15952, 23541, 28650, 37242, 59121, 61884, 72131, 97832, 157587, 160076, 167853, 191127, 198479, 202369]
+
+PASS  source_id=0 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2093 vs baseline 2093
+PASS  source_id=0 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2093 vs baseline 2093
+PASS  source_id=0 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2093 vs baseline 2093
+PASS  source_id=0 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2093 vs baseline 2093
+PASS  source_id=7 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2202 vs baseline 2202
+PASS  source_id=7 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2202 vs baseline 2202
+PASS  source_id=7 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2202 vs baseline 2202
+PASS  source_id=7 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2202 vs baseline 2202
+PASS  source_id=9340 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2102 vs baseline 2102
+PASS  source_id=9340 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2102 vs baseline 2102
+PASS  source_id=9340 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2102 vs baseline 2102
+PASS  source_id=9340 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2102 vs baseline 2102
+PASS  source_id=15952 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2035 vs baseline 2035
+PASS  source_id=15952 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2035 vs baseline 2035
+PASS  source_id=15952 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2035 vs baseline 2035
+PASS  source_id=15952 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2035 vs baseline 2035
+PASS  source_id=23541 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2054 vs baseline 2054
+PASS  source_id=23541 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2054 vs baseline 2054
+PASS  source_id=23541 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2054 vs baseline 2054
+PASS  source_id=23541 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2054 vs baseline 2054
+PASS  source_id=28650 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2080 vs baseline 2080
+PASS  source_id=28650 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2080 vs baseline 2080
+PASS  source_id=28650 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2080 vs baseline 2080
+PASS  source_id=28650 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2080 vs baseline 2080
+PASS  source_id=37242 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2173 vs baseline 2173
+PASS  source_id=37242 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2173 vs baseline 2173
+PASS  source_id=37242 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2173 vs baseline 2173
+PASS  source_id=37242 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2173 vs baseline 2173
+PASS  source_id=59121 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2077 vs baseline 2077
+PASS  source_id=59121 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2077 vs baseline 2077
+PASS  source_id=59121 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2077 vs baseline 2077
+PASS  source_id=59121 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2077 vs baseline 2077
+PASS  source_id=61884 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2097 vs baseline 2097
+PASS  source_id=61884 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2097 vs baseline 2097
+PASS  source_id=61884 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2097 vs baseline 2097
+PASS  source_id=61884 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2097 vs baseline 2097
+PASS  source_id=72131 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2053 vs baseline 2053
+PASS  source_id=72131 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2053 vs baseline 2053
+PASS  source_id=72131 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2053 vs baseline 2053
+PASS  source_id=72131 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2053 vs baseline 2053
+PASS  source_id=97832 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2113 vs baseline 2113
+PASS  source_id=97832 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2113 vs baseline 2113
+PASS  source_id=97832 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2113 vs baseline 2113
+PASS  source_id=97832 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2113 vs baseline 2113
+PASS  source_id=157587 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2068 vs baseline 2068
+PASS  source_id=157587 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2068 vs baseline 2068
+PASS  source_id=157587 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2068 vs baseline 2068
+PASS  source_id=157587 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2068 vs baseline 2068
+PASS  source_id=160076 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2087 vs baseline 2087
+PASS  source_id=160076 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2087 vs baseline 2087
+PASS  source_id=160076 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2087 vs baseline 2087
+PASS  source_id=160076 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2087 vs baseline 2087
+PASS  source_id=167853 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2073 vs baseline 2073
+PASS  source_id=167853 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2073 vs baseline 2073
+PASS  source_id=167853 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2073 vs baseline 2073
+PASS  source_id=167853 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2073 vs baseline 2073
+PASS  source_id=191127 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2096 vs baseline 2096
+PASS  source_id=191127 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2096 vs baseline 2096
+PASS  source_id=191127 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2096 vs baseline 2096
+PASS  source_id=191127 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2096 vs baseline 2096
+PASS  source_id=198479 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2089 vs baseline 2089
+PASS  source_id=198479 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2089 vs baseline 2089
+PASS  source_id=198479 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2089 vs baseline 2089
+PASS  source_id=198479 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2089 vs baseline 2089
+PASS  source_id=202369 negative_control             sites= 1 (1)(2) mismatches=0  (3) total 2068 vs baseline 2068
+PASS  source_id=202369 definition_replacement       sites= 6 (1)(2) mismatches=0  (3) total 2068 vs baseline 2068
+PASS  source_id=202369 example_replacement          sites=72 (1)(2) mismatches=0  (3) total 2068 vs baseline 2068
+PASS  source_id=202369 exclusion_rule_replacement   sites=11 (1)(2) mismatches=0  (3) total 2068 vs baseline 2068
+
+RESULT: 0 failing condition/source_id pairs; 1530 site checks run
