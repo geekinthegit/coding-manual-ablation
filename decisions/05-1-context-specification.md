@@ -10,7 +10,7 @@ Basis: in the original study using this dataset, a window of seven preceding and
 
 ### 5.1.2 Boundary handling
 
-[proposed 2026-09-10] Near the beginning or end of a transcript, fewer than seven utterances may exist on one side. Only the available utterances are included; no empty-string padding is used. The original study prepended empty strings, but that choice served the fixed-input-shape requirement of an encoder model. An LLM prompt has no such requirement, and explicitly inserting empty utterances would show the model an artifact absent from the original situation. As a consequence, utterances near transcript boundaries receive less context than others; this is recorded here. This item moves to [decided] after prompt generation is checked during tool validation.
+[decided 2026-09-23; proposed 2026-09-10] Near the beginning or end of a transcript, fewer than seven utterances may exist on one side. Only the available utterances are included; no empty-string padding is used. The original study prepended empty strings, but that choice served the fixed-input-shape requirement of an encoder model. An LLM prompt has no such requirement, and explicitly inserting empty utterances would show the model an artifact absent from the original situation. As a consequence, utterances near transcript boundaries receive less context than others; this is recorded here. Confirmed during tool validation on source_id 0 (first row of a transcript) and 23541 (empty-text row inside the window); see reports/tool-validation-record-2026-09-23.md §4 and §9.
 
 ### 5.1.3 Difference from the original study
 
@@ -27,16 +27,15 @@ Condition identifiers used in code follow 3.1.7 and 3.3: `baseline`, `definition
 
 The model answers with a category name, not a tag number. The prompt does not expose the tag-number system; tag numbers are used only in parsing and scoring. The seven category-name strings are identical to the label set in `scripts/tags.py` (3.3, decided 2026-09-10). Variants appearing in the manual text are preserved as written, so canonical label strings and manual-internal wording variants may coexist in the prompt. The frequency of model answers outside the canonical label set is a pilot check item.
 
-### 5.1.6 Unresolved wording
 ### 5.1.6 Serialisation, target marking, and instruction wording
 
-[proposed 2026-09-15] The following four items were previously [unresolved]. They are implemented in `scripts/build_inputs.py` and checked by `scripts/check_inputs.py`; they move to [decided] after tool validation.
+[decided 2026-09-23; proposed 2026-09-15] The following four items were previously [unresolved]. They are implemented in `scripts/build_inputs.py` and checked by `scripts/check_inputs.py`. Confirmed during tool validation without change to any of the four items; see reports/tool-validation-record-2026-09-23.md §4 and §9.
 
 (a) Target marker. The target row is prefixed with the string `[TARGET] ` (marker, space), e.g. `[TARGET] T: Okay`. This format was accepted in the technical test of the API request (5.3.9).
 
 (b) Serialisation. Each row is written as `T: <text>` for a teacher row or `S: <text>` for a student row. Rows are separated by a single newline. The block is preceded by one header line, `Context:`. Prompt sections (task instruction, manual, context block, output instruction) are separated by one blank line; the manual section is introduced by the line `Coding manual:`.
 
-(c) Empty text in context rows. A context row whose `Sentence` is missing in the source file is rendered as the speaker marker alone (`S:` or `T:`). The row is not skipped, so the ±7 count of 5.1.1 is unchanged, and no stand-in such as `nan` or `[MISSING]` is inserted. Basis: the human coders' transcript also had that row empty (2.1.3(d)), and inserting a marker would show the model an artefact absent from the original situation, the same reasoning as 5.1.2. A target row with missing `Sentence` cannot occur because such rows are ineligible (2.1.2).
+(c) Empty text in context rows. A context row whose `Sentence` is missing in the source file is rendered as the speaker marker alone (`S:` or `T:`). The row is not skipped, so the ±7 count of 5.1.1 is unchanged, and no stand-in such as `nan` or `[MISSING]` is inserted. Basis: the source file has no text for that row (2.1.3(d)), and no inference is drawn about the materials used by the human coders, and inserting a marker would show the model an artefact absent from the original situation, the same reasoning as 5.1.2. A target row with missing `Sentence` cannot occur because such rows are ineligible (2.1.2).
 
 (d) Instruction wording, draft. Task instruction:
 
@@ -46,8 +45,10 @@ Output instruction:
 
 > Output: respond with a JSON object with a single key "category" whose value is exactly one of the following strings: "Not coded", "Keeping Everyone Together", "Getting Students to Relate", "Restating", "Revoicing", "Pressing for Accuracy", "Pressing for Reasoning". Do not include anything else.
 
-The same seven strings are the enum of the structured-output schema (5.3). Whether the task instruction wording needs adjustment is a tool-validation item.
+The same seven strings are the enum of the structured-output schema (5.3). The wording was read on assembled prompts during tool validation and kept unchanged.
 
-Implementation record. The context is built from `data/rows_all.csv` (all source rows, no label columns; written by `build_frame.py`) and target candidates from `data/frame.csv`. `check_inputs.py` verifies, for given `source_id`s and all six conditions: no label column in either input file; exactly one `[TARGET]` line, a teacher line, at the expected position; window size equal to min(7, rows available before) + 1 + min(7, rows available after), computed independently; every line carrying a speaker marker; no `Tag`, tag-number pattern, category name, or empty-text stand-in in the task instruction or context block; each category name exactly once in the output instruction; byte-identical context blocks across conditions. Example prompts for `source_id` 0 (transcript start, no rows before), 7 (full window on both sides), and 23541 (window containing a row with missing text) are in `reports/input-examples-2026-09-15.txt`; all checks passed. These three `source_id`s remain in the sampling frame for the main experiment.
+Implementation record. The context is built from `data/rows_all.csv` (all source rows, no label columns; written by `build_frame.py`) and target candidates from `data/frame.csv`. `check_inputs.py` verifies, for given `source_id`s and all six conditions: no label column in either input file; exactly one `[TARGET]` line, a teacher line, at the expected position; window size equal to min(7, rows available before) + 1 + min(7, rows available after), computed independently; every line carrying a speaker marker; no `Tag`, tag-number pattern, category name, or empty-text stand-in in the task instruction or context block; each category name exactly once in the output instruction; byte-identical context blocks across conditions. Example prompts for `source_id` 0 (transcript start, no rows before), 7 (full window on both sides), and 23541 (window containing a row with missing text) are in `reports/input-examples-2026-09-15.txt`; all checks passed. These three `source_id`s are development targets (5.7.2) and are excluded from main-experiment target selection (2.3, revision of 2026-09-23).
 
 Observation recorded at this step: `rows_all.csv` contains 503 contiguous `Transcript` blocks, equal to the number of distinct `Transcript` values, so the boundary rule of 5.1.2 operates on adjacent rows.
+
+Revision note (2026-09-23): 5.1.2 and 5.1.6 (a)–(d) were moved from [proposed] to [decided] after the prompts generated for tool validation were checked (reports/tool-validation-record-2026-09-23.md §4 and §9). The basis sentence of 5.1.6 (c) was narrowed to what 2.1.3(d) supports, namely that the source file has no text for the row, without an inference about the materials used by the human coders (independent audit, non-blocking item 4.3). No prompt wording was changed.
