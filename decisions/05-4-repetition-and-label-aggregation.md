@@ -1,6 +1,6 @@
 ## 5.4 Repetition and label aggregation
 
-[proposed 2026-09-17]
+[decided 2026-09-24; proposed 2026-09-17]
 
 This section defines how repeated API calls for one item-condition are executed, how their outputs are validated, and how they are aggregated into one final label. An item-condition is one sampled utterance under one of the six prompt conditions (baseline, three component replacements, negative control, names-only reference). The rules below apply identically to all six conditions. Rationales are procedural and resource-based; no rule was chosen with reference to a desired agreement outcome.
 
@@ -14,7 +14,7 @@ Terminology used in this section:
 
 R = 3 independent calls per item-condition.
 
-With `temperature = 0` and `reasoning_effort = none` (5.3.5), the proposed R = 3 plus adaptive tie-resolution procedure is a prespecified, resource-constrained label-construction rule, not an increase in sample size. Three initial calls allow a non-unanimous winner supported by more than one response. This rationale does not establish final-label stability or optimality; plurality is not claimed to eliminate stochastic noise or recover a true/stable model label. The planned number of calls, excluding retries and tie-break calls, is 300 utterances × 6 conditions × 3 repeats = 5,400. The magnitude of repeat-to-repeat variation actually observed is checked in the procedural pilot (5.5), not assumed here. Interpretation clarified 2026-09-19; R and the adaptive procedure remain proposed and unchanged.
+With `temperature = 0` and `reasoning_effort = none` (5.3.5), the R = 3 plus adaptive tie-resolution procedure is a prespecified, resource-constrained label-construction rule, not an increase in sample size. Three initial calls allow a non-unanimous winner supported by more than one response. This rationale does not establish final-label stability or optimality; plurality is not claimed to eliminate stochastic noise or recover a true/stable model label. The planned number of calls, excluding retries and tie-break calls, is 300 utterances × 6 conditions × 3 repeats = 5,400. The magnitude of repeat-to-repeat variation actually observed in the procedural pilot (5.5) was 94 item-conditions with three identical labels and 8 with a 2/1 split, out of 102 (reports/procedural-pilot-record-2026-09-24.md §6); it is not assumed here. Interpretation clarified 2026-09-19; R and the adaptive procedure were decided 2026-09-24 without change to the procedure.
 
 ### 5.4.2 Aggregation rule
 
@@ -84,4 +84,4 @@ If a repeat has no valid response after 3 attempts, that repeat is recorded as i
 
 An item-condition without a final label is never converted to `Not coded` and is never silently dropped from analysis. All such cases are reported, by condition and by reason, in the completeness report produced under roadmap step 15.
 
-Requiring at least 2 valid repeats keeps the final label a product of aggregation rather than a single call, so the same procedure defines every final label. This section fixes only the recording and reporting of missing final labels. Their analysis treatment is specified in [6.1.2](06-analysis.md) [decided 2026-09-19] and applied during roadmap step 15; that analysis decision does not change the proposed aggregation rules here.
+Requiring at least 2 valid repeats keeps the final label a product of aggregation rather than a single call, so the same procedure defines every final label. This section fixes only the recording and reporting of missing final labels. Their analysis treatment is specified in [6.1.2](06-analysis.md) [decided 2026-09-19] and applied during roadmap step 15; that analysis decision does not change the aggregation rules here.

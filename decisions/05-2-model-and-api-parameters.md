@@ -56,9 +56,9 @@ The test API call returned a valid response from `gpt-5.5-2026-04-23`, with `rea
 
 `reasoning_effort = "none"` is used because the task is constrained classification rather than open-ended reasoning. The setting is held constant across all conditions.
 
-Other generation parameters used in the final calling script will be fixed before the pilot and applied identically across baseline, replacement conditions, the negative control, and the names-only diagnostic.
+Other generation parameters used in the calling script are fixed in 5.3 and applied identically across baseline, replacement conditions, the negative control, and the names-only diagnostic.
 
-The final API endpoint and output-format method remain to be fixed. [unresolved]
+The API endpoint and output-format method are fixed in 5.3. [decided 2026-09-24; previously unresolved, undated]
 
 
 ### 5.2.3 Environment record
@@ -107,17 +107,17 @@ Revision note (2026-09-21, NumPy): NumPy was added to the environment record and
 
 ### 5.2.4 Final input construction and token verification
 
-[proposed 2026-09-11]
+[decided 2026-09-24; proposed 2026-09-11]
 
-Before experimental data collection, the API endpoint, message structure, output-format configuration, and all other request-level settings will be fixed and applied identically across conditions.
+Before experimental data collection, the API endpoint, message structure, output-format configuration, and all other request-level settings are fixed in 5.3 and applied identically across conditions.
 
-Verification will then be performed on the actual researcher-constructed text inputs used for the baseline and replacement conditions. For every replacement instance, the verification script will confirm the replacement token count, the token index of the first retained content following the replacement, and the total token count of the constructed text input relative to baseline.
+Verification was performed on the actual researcher-constructed text inputs of the 17 development targets (5.7.2) during tool validation: `scripts/check_inputs.py` passed all 102 target × condition checks, and `scripts/check_token_matching.py` ran 1,530 site checks with 0 mismatches, confirming for every replacement instance the replacement token count, the token index of the first retained content following the replacement, and the total token count of the constructed text input relative to baseline (reports/tool-validation-record-2026-09-23.md). The same scripts are run on the 300 main-sample inputs before the first main-run call.
 
 The verification concerns the text representation under direct control of the study. Provider-internal serialization tokens that are not exposed through the local tokenizer are not treated as directly observed. Request structure outside the manipulated text is instead controlled by holding the endpoint, message arrangement, output-format configuration, and other fixed API settings constant across conditions.
 
-The verification script and per-instance results will be retained in the repository.
+The verification scripts (`scripts/check_inputs.py`, `scripts/check_token_matching.py`) and their results under `reports/` are retained in the repository.
 
-Status: final verification pending completion of the unresolved endpoint, output-format, and placeholder specifications.
+Status: verified on the development targets (5.7.2); the main-sample inputs are verified with the same scripts before the first main-run call.
 
 
 Sources:

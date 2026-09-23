@@ -1,6 +1,6 @@
 ## 5.1 Context specification
 
-[proposed 2026-09-10]
+[decided 2026-09-24; proposed 2026-09-10]
 
 ### 5.1.1 Context window
 
@@ -25,7 +25,7 @@ Condition identifiers used in code follow 3.1.7 and 3.3: `baseline`, `definition
 
 ### 5.1.5 Output instruction
 
-The model answers with a category name, not a tag number. The prompt does not expose the tag-number system; tag numbers are used only in parsing and scoring. The seven category-name strings are identical to the label set in `scripts/tags.py` (3.3, decided 2026-09-10). Variants appearing in the manual text are preserved as written, so canonical label strings and manual-internal wording variants may coexist in the prompt. The frequency of model answers outside the canonical label set is a pilot check item.
+The model answers with a category name, not a tag number. The prompt does not expose the tag-number system; tag numbers are used only in parsing and scoring. The seven category-name strings are identical to the label set in `scripts/tags.py` (3.3, decided 2026-09-10). Variants appearing in the manual text are preserved as written, so canonical label strings and manual-internal wording variants may coexist in the prompt. In the tool validation run and the procedural pilot run (306 calls each), no model answer fell outside the canonical label set: every row of `labels.csv` is `valid` in both runs (reports/tool-validation-record-2026-09-23.md; reports/procedural-pilot-record-2026-09-24.md).
 
 ### 5.1.6 Serialisation, target marking, and instruction wording
 

@@ -1,6 +1,6 @@
 ## 6. Analysis
 
-[decided 2026-09-19] The analysis rules below were adopted before main-experiment results. They retain the sampling and estimand decisions in [2.3](02-3-sampling-design.md), the replacement and negative-control roles in [3.1.7](03-1-manual-component-definition.md), and the names-only role in [3.3](03-3-names-only-diagnostic.md). They do not promote the proposed repetition or execution specifications to decided status.
+[decided 2026-09-19] The analysis rules below were adopted before main-experiment results. They retain the sampling and estimand decisions in [2.3](02-3-sampling-design.md), the replacement and negative-control roles in [3.1.7](03-1-manual-component-definition.md), and the names-only role in [3.3](03-3-names-only-diagnostic.md). They do not promote the proposed repetition or execution specifications to decided status (status at 2026-09-19; promoted to [decided] 2026-09-24 at the protocol freeze).
 
 ### 6.1 Estimation of condition-specific κ
 
@@ -64,7 +64,7 @@ The bootstrap approximates sampling uncertainty for κ and Δκ from the observe
 
 ### 6.4 Robustness checks and alternatives
 
-High-repeat auxiliary study: considered but not adopted for this study. It addresses an additional measurement/reliability question and is not required for the current agreement-change research question. Its omission does not establish the stability of the proposed R = 3 procedure.
+High-repeat auxiliary study: considered but not adopted for this study. It addresses an additional measurement/reliability question and is not required for the current agreement-change research question. Its omission does not establish the stability of the R = 3 procedure.
 
 Single-repeat sensitivity analysis: optional and unresolved, not adopted by this specification. No repeat-specific κ/Δκ analysis is silently added. Any later adoption must be explicit and respect the existing prohibition on new primary/auxiliary inferential contrasts. No new sensitivity method is specified here.
 

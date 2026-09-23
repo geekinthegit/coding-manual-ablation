@@ -74,7 +74,7 @@ Notes:
 
 ### 3.1.5 Relevance judgment
 
-[proposed 2026-09-04] Replacement targets are selected by task-relevance. The criterion comes from Harding and Sharadin's CAMA framework: a model's output is directed at a task when it is sensitive to task-relevant input features and insensitive to task-irrelevant ones. This study adopts the criterion only, not their capability analysis or rejection sampling.
+[decided 2026-09-24; proposed 2026-09-04] Replacement targets are selected by task-relevance. The criterion comes from Harding and Sharadin's CAMA framework: a model's output is directed at a task when it is sensitive to task-relevant input features and insensitive to task-irrelevant ones. This study adopts the criterion only, not their capability analysis or rejection sampling.
 
 A component is task-relevant if its content bears on the assignment of an utterance to a move or to not-coded.
 
@@ -99,7 +99,7 @@ Judged by the author alone, from the manual text, before seeing any results.
 
 ### 3.1.6 Selection of replacement targets
 
-[proposed 2026-09-04] Four types are selected. Relevant conditions: e (definitions), g (examples), h (exclusion rules). Negative control: a (background sentences). With the baseline (unmodified manual), the experiment has five conditions.
+[decided 2026-09-24; proposed 2026-09-04] Four types are selected. Relevant conditions: e (definitions), g (examples), h (exclusion rules). Negative control: a (background sentences). With the baseline (unmodified manual), the experiment has five conditions.
 
 Why e, g, and h:
 
@@ -157,7 +157,7 @@ Revision note (2026-09-11): The previous interpretation rules classified one pos
 
 ### 3.1.8 Assignment rulings
 
-[proposed 2026-09-04] Two cases required a ruling when assigning formatting units to types; they are recorded here. All other text maps one-to-one from formatting unit to type, so no ruling was needed.
+[decided 2026-09-24; proposed 2026-09-04] Two cases required a ruling when assigning formatting units to types; they are recorded here. All other text maps one-to-one from formatting unit to type, so no ruling was needed.
 
 1. The boundary inside 1.1: the theoretical background sentences (a) and the inclusion rule (b) are separated by the paragraph break and the ➢ symbol. The first paragraph is a; the ➢ item and its numbered sub-items are b.
 

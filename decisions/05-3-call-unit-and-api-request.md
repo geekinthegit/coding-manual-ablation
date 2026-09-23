@@ -72,7 +72,7 @@ The test verified:
 2. The specified model snapshot is accessible and is returned unchanged in the response.
 3. `temperature = 0` is accepted.
 4. `reasoning_effort = none` is accepted.
-5. Structured output with the proposed schema is accepted.
+5. Structured output with the schema of 5.3 is accepted.
 6. Structured output and `reasoning_effort = none` operate successfully in the same request.
 7. The returned response satisfies the seven-category schema.
 8. The planned parser extracts the category without ambiguity.
@@ -109,7 +109,7 @@ Full record: `reports/api-request-test-2026-09-15.txt`.
 
 ### 5.3.10 Call unit, request independence, and call order
 
-[proposed 2026-09-15]
+[decided 2026-09-24; proposed 2026-09-15]
 
 One utterance per call. Each API call codes exactly one target utterance. Multiple targets are not batched into one request, because labels produced within one response are not independent of each other and the repetition procedure (5.4) is defined per utterance.
 

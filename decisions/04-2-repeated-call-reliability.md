@@ -1,6 +1,6 @@
 ## 4.2 Repeated-call reliability
 
-[proposed 2026-09-17; the reporting additions in 4.2.5 were decided 2026-09-19]
+[decided 2026-09-24; proposed 2026-09-17; the reporting additions in 4.2.5 were decided 2026-09-19]
 
 This section defines the descriptive indicators used to report the stability of repeated calls under the repetition and aggregation procedure in 5.4. All indicators are reported per condition as descriptive statistics only. No inferential test, interval, or between-condition contrast is computed on them, and they are not part of the primary estimand (Δκ). Their role is to document how the final labels were produced, so that agreement results can be read together with the observed stability of the label-generation procedure.
 
@@ -24,7 +24,7 @@ The number of items that received no final label, broken down by reason: `unreso
 
 ### 4.2.5 Additional descriptive reporting
 
-[decided 2026-09-19] Retain 4.2.1–4.2.4 and their descriptive-only scope; this addition does not promote their proposed status or change the aggregation procedure.
+[decided 2026-09-19] Retain 4.2.1–4.2.4 and their descriptive-only scope; this addition does not promote their proposed status or change the aggregation procedure (status at 2026-09-19; promoted to [decided] 2026-09-24 at the protocol freeze).
 
 Per condition, report the number of item-conditions with all three initial valid labels and, within that denominator, counts and percentages of 3/3, 2/1, and 1/1/1 patterns. Report items lacking all three initial valid labels separately; an invalid response is not a substantive disagreement category. If the denominator is zero, report the count and mark percentages as unavailable.
 

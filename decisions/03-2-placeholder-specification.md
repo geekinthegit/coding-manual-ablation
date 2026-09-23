@@ -1,7 +1,7 @@
 ## 3.2 Placeholder specification
 ### 3.2.1 Purpose and scope of placeholder replacement
 
-[proposed 2026-09-07] A placeholder is a string inserted in place of a manual-component instance and designed not to provide information relevant to the coding decision. Target components are replaced rather than deleted for two reasons.
+[decided 2026-09-24; proposed 2026-09-07] A placeholder is a string inserted in place of a manual-component instance and designed not to provide information relevant to the coding decision. Target components are replaced rather than deleted for two reasons.
 
 First, placeholder replacement is used to control prompt length across conditions. In this study, prompt length is measured by the number of input tokens because LLMs process inputs as tokens and context length is defined in token units (Park, 2026). Changes in input length can affect model performance (Levy, Jacoby, & Goldberg, 2024). Deleting a manual-component instance would therefore change both its information content and the length of the prompt. To avoid this confound, each replaced component instance is matched locally with a placeholder containing the same number of tokens. Local matching also preserves the total input token count across conditions.
 
@@ -92,7 +92,7 @@ Sources:
 
 ### 3.2.3 Token count matching procedure
 
-[proposed 2026-09-08; scope clarified 2026-09-11] Token-count matching is performed separately for each replaced component instance using the tokenizer corresponding to the model used in the experiment. The procedure is defined at the token level because the model receives token IDs produced by the tokenizer rather than raw text directly, and tokenization differs across models (Lee, 2026, pp. 23–28).
+[decided 2026-09-24; proposed 2026-09-08; scope clarified 2026-09-11] Token-count matching is performed separately for each replaced component instance using the tokenizer corresponding to the model used in the experiment. The procedure is defined at the token level because the model receives token IDs produced by the tokenizer rather than raw text directly, and tokenization differs across models (Lee, 2026, pp. 23–28).
 
 The selected model and tokenizer are specified in Section 5.2.1.
 
@@ -106,7 +106,7 @@ After replacement, the complete researcher-constructed text input is tokenized a
 2. the token index, within the researcher-constructed text input, of the first unchanged content following each replacement;
 3. the total token count of the researcher-constructed text input against the baseline.
 
-These checks establish condition-to-condition matching within the text content controlled by the study. They do not claim direct observation or reconstruction of the provider's complete internal API serialization or the absolute token positions of all request-structure tokens. The API endpoint, message structure, and output-format configuration will therefore be held identical across experimental conditions so that any request-level structure outside the manipulated text is not intentionally varied between conditions.
+These checks establish condition-to-condition matching within the text content controlled by the study. They do not claim direct observation or reconstruction of the provider's complete internal API serialization or the absolute token positions of all request-structure tokens. The API endpoint, message structure, and output-format configuration are fixed in 5.3 and are applied identically across experimental conditions, so that any request-level structure outside the manipulated text is not varied between conditions.
 
 For each replacement instance, the original token count, replacement token count, and verification result are recorded. Resolved (2026-09-15): the original counts and span boundaries are in data/replacement_manifest.csv (git-ignored; contains manual text; summary in reports/replacement-manifest-summary-<date>.txt), the per-site filler in data/placeholder_plan.csv (git-ignored), and the verification result per condition and source_id in reports/token-matching-check-<date>.txt, produced by scripts/check_token_matching.py, which is re-run on every sampled source_id before data collection.
 
@@ -121,7 +121,7 @@ Sources:
 
 ### 3.2.4 Interpretation rules fixed in advance
 
-[proposed 2026-09-08] Condition-specific rules are fixed in 3.1.7.
+[decided 2026-09-24; proposed 2026-09-08] Condition-specific rules are fixed in 3.1.7.
 
 1. Results are interpreted as effects of the implemented replacement condition, not as pure estimates of the semantic contribution of the replaced component.
 2. Token matching controls input length and downstream token positions, but does not establish that the placeholder is behaviorally or computationally neutral.

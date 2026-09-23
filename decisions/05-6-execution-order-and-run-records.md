@@ -1,6 +1,6 @@
 ## 5.6 Execution order and run records
 
-[proposed 2026-09-18]
+[decided 2026-09-24; proposed 2026-09-18]
 
 This section fixes how the calls defined in 5.3 (request structure), 5.3.10 (call unit and independence) and 5.4 (repeats, validity, retry, aggregation) are scheduled, executed, recorded and resumed. It does not restate those rules; where a term below is defined there, that definition applies.
 
@@ -14,7 +14,7 @@ Terms used in this section:
 
 ### 5.6.1 Execution order
 
-[proposed 2026-09-18]
+[decided 2026-09-24; proposed 2026-09-18]
 
 The 5,400 planned calls (300 utterances × 6 conditions × R = 3, per 5.4.1) are split into three blocks by repeat number; each block holds all 1,800 (utterance, condition) pairs. Within-block order is a seeded shuffle; block order is fixed 1 → 2 → 3. The next block starts only after every call of the previous block is terminated; while the previous block's last retries are in flight, no call from the next block is sent.
 
@@ -26,7 +26,7 @@ Rejected alternatives: a full shuffle of all 5,400 calls, because a partial run 
 
 ### 5.6.2 Manifests
 
-[proposed 2026-09-18]
+[decided 2026-09-24; proposed 2026-09-18]
 
 Before pass 1, the runner writes `manifest_pass1.json` containing: `run_id`, `pass`, `created_at`, `seed`, the complete ordered call list (`order_index`, `utterance_id`, `condition`, `repeat`), `request_params` (from 5.3, i.e., every request field except the message content), SDK settings (`max_retries = 0`, `timeout`), `concurrency`, the consecutive-failure threshold, backoff settings, the sha256 of `prompts.jsonl`, the path and sha256 of the utterance input file, the runner git commit, the openai SDK version and the Python version. The stored list, not the seed, is the reference for reproduction.
 
@@ -36,13 +36,13 @@ Before pass 1, the runner writes `manifest_pass1.json` containing: `run_id`, `pa
 
 ### 5.6.3 Prompts file
 
-[proposed 2026-09-18]
+[decided 2026-09-24; proposed 2026-09-18]
 
 Before pass 1 the runner writes `prompts.jsonl`: one line per unique (`utterance_id`, `condition`), 1,800 lines, holding the complete user-message string exactly as sent (`build_inputs.build_prompt`) and its sha256. Attempt records carry only `prompt_sha256`. Pass 2 uses the same file. A test asserts that building the same prompt twice yields identical strings.
 
 ### 5.6.4 Concurrency and retry
 
-[proposed 2026-09-18]
+[decided 2026-09-24; proposed 2026-09-18]
 
 Concurrency is a CLI argument recorded in the manifest. The pilot starts at 4. The main-run value is fixed from pilot operational metrics only (429 rate, latency, timeout occurrence, throughput), never from κ or labels, and is recorded in this section before the main run. Main-run concurrency = 4 [decided 2026-09-24]. This is the record the previous sentence requires. In the procedural pilot (`run_id` `pilot-2026-09-24`, 306 calls at concurrency 4; `reports/procedural-pilot-record-2026-09-24.md`) there were 0 HTTP 429 responses and 0 timeouts; the sum of attempt latencies was 326.6 s over an elapsed time of 82.8 s (326.6 / 82.8 ≈ 3.94 attempts in flight on average), and the maximum number of concurrent attempts was 4.
 
@@ -59,7 +59,7 @@ Values fixed after the procedural pilot [decided 2026-09-24; unresolved since 20
 
 ### 5.6.5 Stop rules
 
-[proposed 2026-09-18]
+[decided 2026-09-24; proposed 2026-09-18]
 
 Each `attempt_completed` record receives a global sequence number `completed_seq` assigned inside the write lock (5.6.7). The consecutive-failure counter is evaluated in `completed_seq` order: +1 for `retryable_error` and `invalid_response`, reset to 0 on `success`. The stop decision and the permission to start a new attempt are taken under the same lock: a worker writes `attempt_started` only if the run is not in the stopped state.
 
@@ -69,7 +69,7 @@ Unexpected exceptions (added 2026-09-21). An exception raised while an attempt i
 
 ### 5.6.6 Resume
 
-[proposed 2026-09-18]
+[decided 2026-09-24; proposed 2026-09-18]
 
 For each pass of a run, the single source of truth for progress is that pass's attempts JSONL file; there is no separate checkpoint. Each attempt produces an `attempt_started` and an `attempt_completed` record. An attempt is consumed the moment `attempt_started` is durably on disk (flush and fsync before the API call). On resume, an `attempt_started` with no matching `attempt_completed` is an interrupted attempt; the next attempt number is used, and whether the request reached the server is not assessed.
 
@@ -91,7 +91,7 @@ Operational note. Because the manifest records the runner's git commit and the w
 
 ### 5.6.7 Record format and write rules
 
-[proposed 2026-09-18]
+[decided 2026-09-24; proposed 2026-09-18]
 
 Attempts are JSONL, one file per pass. The runner uses the file append-only and never modifies or deletes existing records; this is a runner rule, not a property of the format. Append, flush, fsync of one record and the assignment of `completed_seq` happen inside one lock; both `attempt_started` and `attempt_completed` are fsynced.
 
@@ -115,7 +115,7 @@ Truncated-last-line rule: if only the final record is incomplete and fails JSON 
 
 ### 5.6.8 Parsing
 
-[proposed 2026-09-18]
+[decided 2026-09-24; proposed 2026-09-18]
 
 `scripts/parse_attempts.py` reads every attempts JSONL file present in the run directory (`attempts_pass1.jsonl`, and `attempts_pass2.jsonl`, `attempts_pass3.jsonl` when they exist) without modifying them and writes two files. It is deterministic and re-runnable. The parser re-derives `outcome`, `invalid_reason` and `category` from `raw_response` with the same validation function the runner used (`scripts/validation.py`) and refuses to write if the re-derived values differ from the recorded ones.
 
@@ -134,7 +134,7 @@ After the last pass has terminated, run `python scripts/parse_attempts.py --run-
 
 ### 5.6.9 Directory layout
 
-[proposed 2026-09-18]
+[decided 2026-09-24; proposed 2026-09-18]
 
 ```
 runs/<run_id>/
@@ -155,6 +155,6 @@ runs/<run_id>/
 
 ### 5.6.10 Status
 
-[proposed 2026-09-18]
+[decided 2026-09-24; proposed 2026-09-18]
 
-All subsections are [proposed 2026-09-18]. Promotion to [decided] happens at the roadmap 11 protocol freeze together with 5.3.10 and 5.4. After that, changes are made only when a test reveals a specification conflict or an execution failure.
+All subsections are [decided 2026-09-24; proposed 2026-09-18], fixed at the roadmap 11 protocol freeze together with 5.3.10 and 5.4. After the protocol freeze, any change is handled only under 5.7.3.
