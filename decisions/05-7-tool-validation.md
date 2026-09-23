@@ -74,7 +74,7 @@ Basis: on 17 items the analysis-set marginals are sparse, so κ is often undefin
 
 `run_id` prefixes: `validation-`, `pilot-`, `main-`. A dry run and a real run use different `run_id`s (`validation-<date>-dryrun`, `validation-<date>`) because `scripts/run_experiment.py` refuses a re-run when `manifest_pass1.json` exists.
 
-Provisional operational settings for validation: concurrency 4, timeout 60, backoff-initial 2, backoff-max 60, failure-threshold 10. Source: the usage example in `scripts/run_experiment.py`; these are not validated values. Only concurrency = 4 coincides with the pilot starting value in 5.6.4. The final values are fixed in the procedural pilot (Roadmap 10); the items marked [unresolved — pilot operational setting] in 5.6.4 remain open until then.
+Provisional operational settings for validation: concurrency 4, timeout 60, backoff-initial 2, backoff-max 60, failure-threshold 10. Source: the usage example in `scripts/run_experiment.py`; these are not validated values. Only concurrency = 4 coincides with the pilot starting value in 5.6.4. The final values were fixed in the procedural pilot of 2026-09-24 (Roadmap 10; `reports/procedural-pilot-record-2026-09-24.md`) and are recorded in 5.6.4 as [decided 2026-09-24]; this sentence was updated on 2026-09-24 as a consequential consistency update following that decision, not as a new decision.
 
 The input file for both the static checks and the validation run is `samples/dev_targets.csv`.
 

@@ -44,7 +44,7 @@ Before pass 1 the runner writes `prompts.jsonl`: one line per unique (`utterance
 
 [proposed 2026-09-18]
 
-Concurrency is a CLI argument recorded in the manifest. The pilot starts at 4. The main-run value is fixed from pilot operational metrics only (429 rate, latency, timeout occurrence, throughput), never from κ or labels, and is recorded in this section before the main run.
+Concurrency is a CLI argument recorded in the manifest. The pilot starts at 4. The main-run value is fixed from pilot operational metrics only (429 rate, latency, timeout occurrence, throughput), never from κ or labels, and is recorded in this section before the main run. Main-run concurrency = 4 [decided 2026-09-24]. This is the record the previous sentence requires. In the procedural pilot (`run_id` `pilot-2026-09-24`, 306 calls at concurrency 4; `reports/procedural-pilot-record-2026-09-24.md`) there were 0 HTTP 429 responses and 0 timeouts; the sum of attempt latencies was 326.6 s over an elapsed time of 82.8 s (326.6 / 82.8 ≈ 3.94 attempts in flight on average), and the maximum number of concurrent attempts was 4.
 
 The OpenAI client is constructed with `max_retries = 0` and an explicit timeout, so that one runner attempt is exactly one SDK call and every retry appears in the run records.
 
@@ -55,7 +55,7 @@ Retryable outcomes (5.4.6 as revised 2026-09-18) are retried in the same worker 
 
 If `Retry-After` exceeds `backoff_max`, the runner does not clip it: the attempt is recorded as `retryable_error` with the header value as `planned_wait_sec`, no new attempt is started, and the runner stops normally with `run_stopped` reason `retry_after_exceeds_max`. Resumption is manual (5.6.6).
 
-Values left to the pilot [unresolved — pilot operational setting]: `timeout`, `backoff_initial`, `backoff_max`, consecutive-failure threshold. The runner has no defaults for these; each must be given on the command line and is recorded in the manifest.
+Values fixed after the procedural pilot [decided 2026-09-24; unresolved since 2026-09-18]: `timeout` = 60 s, `backoff_initial` = 2 s, `backoff_max` = 60 s, consecutive-failure threshold = 10. These are the provisional settings of 5.7.5 taken over unchanged. In the procedural pilot (`run_id` `pilot-2026-09-24`, 306 calls) no 429, no timeout, no retry and no consecutive failure occurred, so none of the four values was exercised. Under the rule fixed before the pilot results were seen, provisional values are confirmed as they stand when no failure occurs, and only the value corresponding to an observed failure is reconsidered (429 → concurrency and backoff, timeout → `timeout`, threshold reached → threshold). The runner has no defaults for these; each must be given on the command line and is recorded in the manifest.
 
 ### 5.6.5 Stop rules
 
