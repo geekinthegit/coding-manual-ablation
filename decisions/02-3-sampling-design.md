@@ -1,6 +1,6 @@
 ## 2.3 Sampling design
 
-[decided 2026-09-10; population references updated 2026-09-15 to the eligible target population defined in 2.1.2]
+[decided 2026-09-10; population references updated 2026-09-15 to the eligible target population defined in 2.1.2; sampling frame revised 2026-09-23 to exclude the development targets of 5.7.2]
 
 ### 2.3.1 Target Population and Primary Estimand
 
@@ -9,6 +9,8 @@ The inferential population is the eligible target population defined in 2.1.2 (d
 ### 2.3.2 Sampling Design and Agreement Metric
 
 The main experimental sample will consist of 300 utterances selected by simple random sampling without replacement from the eligible target population (2.1.2). The same 300 utterances will be used in the baseline, all replacement conditions, and the names-only condition. The random seed and sampling script will be retained in the repository. Because the coding categories are nominal, agreement will be measured using ordinary (unweighted) Cohen's κ; subsequent references to κ in the analysis will use "unweighted Cohen's κ" to distinguish it from design weighting or ordinal weighted κ.
+
+Revision note (2026-09-23): The sampling frame for the main experiment is the eligible target population (2.1.2) minus the development targets D listed in 5.7.2 (`samples/dev_targets.csv`, 17 utterances): 150,644 − 17 = 150,627. D is excluded at the target level only. The development-target list is fixed and committed before the main sample is drawn; the main sample is drawn from the reduced frame by the method above, not drawn first and then replaced on overlap. The random seed and sampling script for the main draw are not yet fixed and will be added when the sample is drawn (Roadmap 12).
 
 ### 2.3.3 Alternative Considered: Disproportionate Stratification Without Population Weighting
 
