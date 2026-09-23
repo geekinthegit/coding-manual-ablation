@@ -1,0 +1,36 @@
+Development targets (Roadmap 9 tool validation, Roadmap 10 procedural pilot)
+Generated at: 2026-09-23T18:26:35+09:00
+Script commit: fc5f61bfb6874fe02419888fd5fe3efa5e553913
+Seed: 20260923 (numpy.random.default_rng)
+Rule: 2 per Tag drawn from eligible rows, plus boundary cases [0, 7, 23541]
+
+Eligible labelled rows: 150,644
+Tag 0 | Not coded | eligible 101,201
+Tag 1 | Keeping Everyone Together | eligible 19,704
+Tag 2 | Getting Students to Relate | eligible 2,556
+Tag 3 | Restating | eligible 2,145
+Tag 4 | Revoicing | eligible 3,431
+Tag 5 | Pressing for Accuracy | eligible 19,848
+Tag 6 | Pressing for Reasoning | eligible 1,759
+
+Selected rows (source_id | Tag | selection_reason):
+0 | 0 | boundary_first_row
+7 | 0 | boundary_full_window
+9340 | 4 | category_random
+15952 | 0 | category_random
+23541 | 5 | boundary_empty_text_in_window
+28650 | 5 | category_random
+37242 | 2 | category_random
+59121 | 3 | category_random
+61884 | 5 | category_random
+72131 | 3 | category_random
+97832 | 1 | category_random
+157587 | 6 | category_random
+160076 | 2 | category_random
+167853 | 6 | category_random
+191127 | 4 | category_random
+198479 | 1 | category_random
+202369 | 0 | category_random
+
+Final count: 17
+Overlap between random draw and boundary cases: no
