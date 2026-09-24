@@ -14,19 +14,19 @@ Structure overview. Each section links to its own file under `decisions/`.
 ## 3. Experimental Design
 - [3.1 Manual-component definition](decisions/03-1-manual-component-definition.md)
 - [3.2 Placeholder specification](decisions/03-2-placeholder-specification.md)
-- [3.3 Names-only diagnostic](https://github.com/geekinthegit/coding-manual-ablation/blob/main/decisions/03-3-names-only-diagnostic.md)
+- [3.3 Names-only diagnostic](decisions/03-3-names-only-diagnostic.md)
 
-## [4. Measurement](decisions/04-measurement.md)
+## 4. Measurement
 - 4.1 Human–LLM agreement
 - [4.2 Repeated-call reliability](decisions/04-2-repeated-call-reliability.md)
 - 4.3 Primary contrast / Δκ
 
-## [5. Procedure](decisions/05-procedure.md)
-- [5.1 Context specification](https://github.com/geekinthegit/coding-manual-ablation/blob/main/decisions/05-1-context-specification.md)
+## 5. Procedure
+- [5.1 Context specification](decisions/05-1-context-specification.md)
 - [5.2 Model and API parameters](decisions/05-2-model-and-api-parameters.md)
-* [5.3 Call unit and API request](https://github.com/geekinthegit/coding-manual-ablation/blob/main/decisions/05-3-call-unit-and-api-request.md)
+- [5.3 Call unit and API request](decisions/05-3-call-unit-and-api-request.md)
 - [5.4 Repetition and label aggregation](decisions/05-4-repetition-and-label-aggregation.md)
-- [5.5 Role of the pilot](https://github.com/geekinthegit/coding-manual-ablation/blob/main/decisions/05-5-role-of-the-pilot.md)
+- [5.5 Role of the pilot](decisions/05-5-role-of-the-pilot.md)
 - [5.6 Execution order and run records](decisions/05-6-execution-order-and-run-records.md)
 - [5.7 Tool validation](decisions/05-7-tool-validation.md)
 ## [6. Analysis](decisions/06-analysis.md)
@@ -37,11 +37,11 @@ Structure overview. Each section links to its own file under `decisions/`.
 - 6.5 Descriptive reporting and condition roles
 - 6.6 Scorer validation specification
 
-## [7. Interpretive Boundaries](decisions/07-interpretive-boundaries.md)
+## 7. Interpretive Boundaries
 - 7.1 Underdetermined causes of near-zero Δκ
 - 7.2 Direction of development-set bias
 - 7.3 Remaining threats / unresolved alternatives
 
-## [8. Repository](decisions/08-repository.md)
+## 8. Repository
 - 8.1 Repository name and local structure
 - 8.2 Data exclusion and licensing

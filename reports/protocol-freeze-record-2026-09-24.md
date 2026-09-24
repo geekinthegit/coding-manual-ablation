@@ -174,3 +174,16 @@ Appended 2026-09-24. This section continues the numbered entries of "Post-freeze
    - `reports/completeness-report-2026-09-24.md` — 19,055 B, sha256 eabacaa2527969d16053b2864cfd7940e1246d4a92cb6199358cbbf58e6392e7
    - `analysis-inputs/main-2026-09-24/labels.csv` — 365,089 B, sha256 13bbc66526a1c686a96eb33f08a20217fa73f25e5dba5e6485d5617a0cfbe5d1
    - `analysis-inputs/main-2026-09-24/final_labels.csv` — 125,338 B, sha256 c1e7af7cc1ec3b3608b40218ab67cc37305f4bc99580821eed696c16bfd24110
+
+## Post-freeze documentation updates (no protocol change)
+
+Appended 2026-09-24. Documentation-only changes made after the main-run analysis inputs were sealed and before main-study scoring. No protocol rule, input, sample, run artifact or code was changed.
+
+1. `decisions/02-2-development-and-held-out-sets.md`: Revision note appended linking the held-out omission decision; the text of 2.2.3 is unchanged. sha256 bdd79cd7cc819f4f99b4ff5a233821514a647f7feb5d5055e582d87d74001887 → d08d81a3b3d795b131977a391bbf839aa792b8eed810b93916dbab8b670800f6.
+2. `DECISIONS.md`: table of contents clean-up (section-title links to non-existent files removed, absolute URLs replaced by repository-relative links, one list marker unified). sha256 7016fcc278e710cd6a2d4b4b19fd32ddf08fc66d47b3bb048a92797ceb7eb427 → 97a1dbf6847302ff2ecd9c652f7c9453fdc2a6297d130cd980a22ce37b80fc03.
+3. Privacy redaction only (local absolute path replaced by `<local path>`); numerical and verification content unchanged:
+   - `reports/frame-summary-2026-09-14.txt` — sha256 08ff86c5af5ee135ba92d84673db230167388603064de75724a137a13705b1fd → 7c862bcc2f13f3bcec04b0997454baedd0a492bc27551e2d45f158ddf28dfa99
+   - `reports/frame-summary-2026-09-15.txt` — sha256 f9ba577005b4d94d0051477ac66bb17c97a7a0dafc745cc9b002c5bbe6d6291a → 47d7a2e0e6b662d2c000ed2ee8a20e26d37535f76468fb3eaa0bea2d71990ee7
+   - `reports/heldout-structure-check-2026-09-15.txt` — sha256 c1d87dc57a5cce801f216c297ccd2d47c148febe42fd0e2f2ac3efcbb7164dbd → 440b29286a8925e70f1c90c8f872507aadbd24b02345cf3141a7186b96b905f3
+   - `reports/manual-inventory-check-2026-09-15.txt` — sha256 054a3146e1ac595a4da811affe8cb8c563703a92e0f30e6434dbfe54ee4eb9b6 → 8673dd255ad57f5da4f3feffc69255f07f15ba8283f578e92556b58784daad8d
+4. `reports/documentation-errata-2026-09-24.md` added: 7,141 B, sha256 ed15ca5309d893fedafb7f1da8ea9da81d57e541dcd4d54cc7d62d45329cc5cf.

@@ -1,5 +1,5 @@
 Structure check: heldout file
-Source file: /Users/jeobnida/talkmoves-project/TalkMoves/data/test_data_63.xlsx
+Source file: <local path>/test_data_63.xlsx
 Rows (all speakers): 30,401
 
 Teacher rows: 23,250

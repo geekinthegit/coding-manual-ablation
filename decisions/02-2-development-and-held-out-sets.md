@@ -28,3 +28,5 @@
   modification. Not touched before that point.
 - Boundary: The pilot is a separate stage and is not the
   development run.
+
+Revision note (2026-09-24): Held-out evaluation, planned in 2.2.3 above as a single final evaluation, was omitted by a post-freeze decision recorded after main-run data collection and before any main-study agreement result was computed or examined. See `reports/heldout-evaluation-decision-2026-09-24.md` and the section "Post-freeze deviation: held-out evaluation omitted" of `reports/protocol-freeze-record-2026-09-24.md`. The text of 2.2.3 above is unchanged.

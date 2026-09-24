@@ -2,7 +2,7 @@ Frame and scoring-label build summary
 Generated at: 2026-09-15T14:49:10+09:00
 Script: scripts/build_frame.py
 Script commit: 1d64aa3c356c3cf1298c64a2b97480ac3dd90a66-dirty
-Source file: /Users/jeobnida/talkmoves-project/TalkMoves/data/train_data_504.xlsx
+Source file: <local path>/train_data_504.xlsx
 Source rows (all speakers): 203,601
 Provider-ID gaps in source file: 49 (first gap at row position 2286)
 

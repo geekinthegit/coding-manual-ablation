@@ -97,7 +97,7 @@ Notes on the inventory check
 
 Script output
 -------------
-File: /Users/jeobnida/coding-manual-ablation/manual/chapter1.txt
+File: <local path>/chapter1.txt
 Lines: 132
 
 PASS  no blank lines: observed=0 expected=0
