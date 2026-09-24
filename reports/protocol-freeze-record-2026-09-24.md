@@ -159,3 +159,9 @@ Appended 2026-09-24. The entries below record implementation artifacts added aft
      - `reports/input-verification-2026-09-24.md` — sha256 8c3875b0eba0878c7a5cc71439c8b2356ea0ab677e0a049318005c67119b42fa
      - `reports/check-inputs-main-2026-09-24.txt` — sha256 26f8f3715ec5e4480353fc3b6718c14adf4dfdee1e673b826080404a90f682eb
      - `reports/token-matching-check-2026-09-24.txt` — sha256 476dc2e44d0dc3b41a025e0f1b0780df09711bf82bc8ae3af66ed35065aaa171
+
+## Post-freeze deviation: held-out evaluation omitted
+
+Appended 2026-09-24. This section records a decision that departs from a frozen plan; it is kept separate from the "Post-freeze implementation artifacts (no protocol change)" section above.
+
+1. Held-out evaluation, planned in `decisions/02-2-development-and-held-out-sets.md` §2.2.3 (line 26) as a single final evaluation, is omitted. Section 5.7.3 does not specify a procedure for changes to Section 2.2, so the decision is recorded as a post-freeze deviation. It was made after main-run data collection (`main-2026-09-24`) was complete and before any main-study agreement result was computed or examined. Decision record: `reports/heldout-evaluation-decision-2026-09-24.md`, sha256 2e1057b9484597727948f44c94ad31ef8b03e38ac8da947771c6807137f624be. `decisions/02-2` is unchanged (sha256 bdd79cd7cc819f4f99b4ff5a233821514a647f7feb5d5055e582d87d74001887).
