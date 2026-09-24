@@ -24,4 +24,5 @@ SCORING_LABELS_FILE = DATA_DIR / "scoring_labels.csv"
 # Sampled target lists and reports (committed).
 SAMPLES_DIR = REPO_ROOT / "samples"
 DEV_TARGETS_FILE = SAMPLES_DIR / "dev_targets.csv"
+MAIN_TARGETS_FILE = SAMPLES_DIR / "main_targets.csv"
 REPORTS_DIR = REPO_ROOT / "reports"
