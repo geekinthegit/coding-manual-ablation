@@ -141,3 +141,13 @@ Roadmaps 12–14 execute the frozen protocol rather than reopen design choices; 
 Post-freeze changes under §5.7.3 are appended to this record as dated revision notes with the new hashes. The original freeze record is never edited; revision notes are append-only.
 
 The following later artifacts are compared against the hashes in section 4: the Roadmap 12 sample manifest (source data version and the sampling script), the Roadmap 13 input-verification report on the 300 sampled inputs (`check_inputs.py`, `check_token_matching.py`, the `manual/` and `data/` files used), and the Roadmap 14 main-run `manifest_pass1.json` (`git_commit`, `input_file.sha256`, `prompts_sha256`).
+
+## Post-freeze implementation artifacts (no protocol change)
+
+Appended 2026-09-24. The entries below record implementation artifacts added after the freeze commit ed13ec2 to execute the frozen sampling rule (02-3). No frozen specification was changed, so none of these entries is a change under §5.7.3.
+
+1. `scripts/build_main_sample.py` and `tests/test_main_sample.py` added at commit 095110b to implement the frozen sampling rule (SRS without replacement, n = 300, from the eligible population minus D = 150,627). The manifest path representation was changed to repository-relative paths at commit eaa155d (no change to the draw, the checks or the output file). Final script sha256: 1e0c34a8339dc129a4254c4213173b7f5bb0d195a2181d9ddd8ea76b86db9ec0.
+
+2. First draw (seed 20260924) was run at commit 095110b and produced `samples/main_targets.csv` with sha256 18ec7cd05b472fb26cbf64c983a9f84614a58dc26a7ec7f4f5b7329fd19553fe. Its manifest was not committed because it recorded absolute local paths. After the change at eaa155d the script was re-run with the same seed; the output file was byte-identical (same sha256). Committed manifest: `reports/main-sample-manifest-2026-09-24.json` (sha256 96445393cc0bd634c16681c29838d237e243bb6a7ce15ed6ea3473d52b4969d9, run commit eaa155d). No sampling rule was changed.
+
+3. `decisions/02-3-sampling-design.md`: a Revision note (2026-09-24) records the seed and script name as announced in the 2026-09-23 note. Sampling rule unchanged. New sha256 of 02-3: 74873baa59c0396291d1d15c057289bd47eda41690b0e1d61d092d83f80561a4.

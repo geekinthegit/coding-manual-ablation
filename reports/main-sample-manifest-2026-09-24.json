@@ -1,0 +1,38 @@
+{
+  "frame_file": "data/frame.csv",
+  "frame_sha256": "39506e9cb60fe4786057e8993f713127d8f89ca5ffbd8f9344ffed1aea333154",
+  "dev_targets_file": "samples/dev_targets.csv",
+  "dev_targets_sha256": "13893677cf2073624331a0068cb2b224120d1c929ad46fbaa0213475dfd00d21",
+  "dev_targets_count": 17,
+  "dev_targets_not_in_eligible": [],
+  "eligible_count": 150644,
+  "frame_size": 150627,
+  "sampling_rule": "SRS without replacement, n=300, from eligible population minus development targets D (02-3 revision note 2026-09-23)",
+  "seed": 20260924,
+  "rng": {
+    "generator": "numpy.random.Generator",
+    "bit_generator": "PCG64"
+  },
+  "choice": {
+    "size": 300,
+    "replace": false,
+    "shuffle": true
+  },
+  "numpy_version": "2.3.5",
+  "python_version": "3.13.9",
+  "freeze_commit": "ed13ec2",
+  "script_path": "scripts/build_main_sample.py",
+  "script_sha256": "1e0c34a8339dc129a4254c4213173b7f5bb0d195a2181d9ddd8ea76b86db9ec0",
+  "run_commit": "eaa155dea130f82df6f48b0b5b72a6b771d56ed5",
+  "working_tree_clean": true,
+  "output_file": "samples/main_targets.csv",
+  "output_sha256": "18ec7cd05b472fb26cbf64c983a9f84614a58dc26a7ec7f4f5b7329fd19553fe",
+  "output_count": 300,
+  "checks": {
+    "len_drawn_equals_n": true,
+    "drawn_ids_unique": true,
+    "drawn_subset_of_eligible": true,
+    "drawn_disjoint_from_dev_targets": true
+  },
+  "created_at": "2026-09-24T03:10:20+00:00"
+}
