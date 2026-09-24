@@ -151,3 +151,11 @@ Appended 2026-09-24. The entries below record implementation artifacts added aft
 2. First draw (seed 20260924) was run at commit 095110b and produced `samples/main_targets.csv` with sha256 18ec7cd05b472fb26cbf64c983a9f84614a58dc26a7ec7f4f5b7329fd19553fe. Its manifest was not committed because it recorded absolute local paths. After the change at eaa155d the script was re-run with the same seed; the output file was byte-identical (same sha256). Committed manifest: `reports/main-sample-manifest-2026-09-24.json` (sha256 96445393cc0bd634c16681c29838d237e243bb6a7ce15ed6ea3473d52b4969d9, run commit eaa155d). No sampling rule was changed.
 
 3. `decisions/02-3-sampling-design.md`: a Revision note (2026-09-24) records the seed and script name as announced in the 2026-09-23 note. Sampling rule unchanged. New sha256 of 02-3: 74873baa59c0396291d1d15c057289bd47eda41690b0e1d61d092d83f80561a4.
+
+4. 2026-09-24 (after the Roadmap 14-0 read-only integrity audit): the audit found that three post-freeze artifacts were not recorded in this section with their hashes. This entry completes the record. No file content, protocol rule, input, or code is changed by this entry.
+   - `scripts/paths.py` (listed in the freeze table above, section 4): changed in commit 095110b by adding the constant `MAIN_TARGETS_FILE` (one line) for the main-sample draw script. sha256 at freeze (ed13ec2): 01e47fa90f3b04e6e9ec9e6984d0c301948e52906e66777f1afa38b9f85dff1a. sha256 after 095110b (unchanged since): a4a471fc321fdd18cb77bbf56810aa063df8c9ce2010a48d6456f3fdbf672099. No frozen protocol rule is affected.
+   - `tests/test_main_sample.py`: added in commit 095110b as the test file for the sampling implementation (`scripts/build_main_sample.py`). sha256: 522571fe3c59065781332e0977ab3df4f5ade363384097c027ea0541c0c0fe1b.
+   - Roadmap 13 input-verification evidence artifacts, added in commit d0bd38f. These files record verification results only; they do not change protocol, inputs, or code.
+     - `reports/input-verification-2026-09-24.md` — sha256 8c3875b0eba0878c7a5cc71439c8b2356ea0ab677e0a049318005c67119b42fa
+     - `reports/check-inputs-main-2026-09-24.txt` — sha256 26f8f3715ec5e4480353fc3b6718c14adf4dfdee1e673b826080404a90f682eb
+     - `reports/token-matching-check-2026-09-24.txt` — sha256 476dc2e44d0dc3b41a025e0f1b0780df09711bf82bc8ae3af66ed35065aaa171
