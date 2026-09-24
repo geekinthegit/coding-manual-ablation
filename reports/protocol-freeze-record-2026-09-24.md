@@ -165,3 +165,12 @@ Appended 2026-09-24. The entries below record implementation artifacts added aft
 Appended 2026-09-24. This section records a decision that departs from a frozen plan; it is kept separate from the "Post-freeze implementation artifacts (no protocol change)" section above.
 
 1. Held-out evaluation, planned in `decisions/02-2-development-and-held-out-sets.md` §2.2.3 (line 26) as a single final evaluation, is omitted. Section 5.7.3 does not specify a procedure for changes to Section 2.2, so the decision is recorded as a post-freeze deviation. It was made after main-run data collection (`main-2026-09-24`) was complete and before any main-study agreement result was computed or examined. Decision record: `reports/heldout-evaluation-decision-2026-09-24.md`, sha256 2e1057b9484597727948f44c94ad31ef8b03e38ac8da947771c6807137f624be. `decisions/02-2` is unchanged (sha256 bdd79cd7cc819f4f99b4ff5a233821514a647f7feb5d5055e582d87d74001887).
+
+## Post-freeze implementation artifacts (no protocol change), continued
+
+Appended 2026-09-24. This section continues the numbered entries of "Post-freeze implementation artifacts (no protocol change)" above; it is placed here because this record is append-only.
+
+5. 2026-09-24 (after the Roadmap 15 completeness verification): verification evidence artifacts added; no protocol change. The completeness report records the checks on `runs/main-2026-09-24/` (git-ignored). The two files under `analysis-inputs/main-2026-09-24/` are verbatim archival snapshots of `runs/main-2026-09-24/labels.csv` and `runs/main-2026-09-24/final_labels.csv`; the Roadmap 16 scorer reads `runs/main-2026-09-24/`, not these snapshots. None of these files is modified or regenerated after this entry.
+   - `reports/completeness-report-2026-09-24.md` — 19,055 B, sha256 eabacaa2527969d16053b2864cfd7940e1246d4a92cb6199358cbbf58e6392e7
+   - `analysis-inputs/main-2026-09-24/labels.csv` — 365,089 B, sha256 13bbc66526a1c686a96eb33f08a20217fa73f25e5dba5e6485d5617a0cfbe5d1
+   - `analysis-inputs/main-2026-09-24/final_labels.csv` — 125,338 B, sha256 c1e7af7cc1ec3b3608b40218ab67cc37305f4bc99580821eed696c16bfd24110
