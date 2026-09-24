@@ -147,11 +147,27 @@ def write_manifest(manifest: dict, manifest_path: Path) -> None:
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
 
+def rel(path: Path, base_dir: Path) -> str:
+    """Repository-relative form of `path` for the manifest (no personal absolute paths in git).
+
+    Returns the path relative to base_dir when it lies under base_dir, else the
+    path as given. Used only for the manifest strings; file I/O keeps the Path.
+    """
+    p = Path(path).resolve()
+    b = Path(base_dir).resolve()
+    return str(p.relative_to(b)) if p.is_relative_to(b) else str(path)
+
+
 def run(seed: int, date: str, *, frame_path: Path = FRAME_FILE, dev_path: Path = DEV_TARGETS_FILE,
         out_path: Path = MAIN_TARGETS_FILE, manifest_dir: Path = REPORTS_DIR,
         expected_frame_size: int = EXPECTED_FRAME_SIZE, n: int = N_SAMPLE,
-        status_fn=git_status_porcelain, head_fn=git_head, script_path: Path | None = None) -> dict:
-    """Steps 1-9 in order; returns the manifest. Raises SampleError before any write on failure."""
+        status_fn=git_status_porcelain, head_fn=git_head, script_path: Path | None = None,
+        base_dir: Path = REPO_ROOT) -> dict:
+    """Steps 1-9 in order; returns the manifest. Raises SampleError before any write on failure.
+
+    base_dir is the directory that the manifest's frame_file, dev_targets_file
+    and output_file are written relative to (default: the repository root).
+    """
     require_clean_tree(status_fn())
     manifest_path = manifest_dir / f"main-sample-manifest-{date}.json"
     if out_path.exists():
@@ -171,8 +187,8 @@ def run(seed: int, date: str, *, frame_path: Path = FRAME_FILE, dev_path: Path =
     write_targets(drawn, out_path)
     script_path = Path(script_path or __file__).resolve()
     manifest = {
-        "frame_file": str(frame_path), "frame_sha256": sha256_file(frame_path),
-        "dev_targets_file": str(dev_path), "dev_targets_sha256": sha256_file(dev_path),
+        "frame_file": rel(frame_path, base_dir), "frame_sha256": sha256_file(frame_path),
+        "dev_targets_file": rel(dev_path, base_dir), "dev_targets_sha256": sha256_file(dev_path),
         "dev_targets_count": len(dev_set),
         "dev_targets_not_in_eligible": dev_not_eligible,
         "eligible_count": len(eligible), "frame_size": len(frame_ids),
@@ -186,7 +202,7 @@ def run(seed: int, date: str, *, frame_path: Path = FRAME_FILE, dev_path: Path =
         "script_path": str(script_path.relative_to(REPO_ROOT)) if script_path.is_relative_to(REPO_ROOT) else str(script_path),
         "script_sha256": sha256_file(script_path),
         "run_commit": head_fn(), "working_tree_clean": True,
-        "output_file": str(out_path), "output_sha256": sha256_file(out_path), "output_count": len(drawn),
+        "output_file": rel(out_path, base_dir), "output_sha256": sha256_file(out_path), "output_count": len(drawn),
         "checks": checks,
         "created_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
     }

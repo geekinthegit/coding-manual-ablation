@@ -125,3 +125,29 @@ def test_manifest_contents(tmp_path):
     assert on_disk["run_commit"] == "deadbeef" and on_disk["working_tree_clean"] is True
     assert on_disk["freeze_commit"] == "ed13ec2"
     assert len(on_disk["script_sha256"]) == 64
+
+
+def test_manifest_paths_are_relative(tmp_path):
+    """The four path keys are written relative to base_dir (REPO_ROOT in a real run), never absolute.
+
+    Inputs and outputs here live under tmp_path, which is outside the repository,
+    so base_dir=tmp_path stands in for REPO_ROOT; script_path stays relative to
+    the repository root as in a real run.
+    """
+    import os
+    frame_path, dev_path = make_inputs(tmp_path)
+    out_dir = tmp_path / "out"
+    bms.run(3, "2026-09-24", frame_path=frame_path, dev_path=dev_path,
+            out_path=out_dir / "main_targets.csv", manifest_dir=out_dir,
+            expected_frame_size=EXPECTED_FRAME, n=N,
+            status_fn=lambda: "", head_fn=lambda: "deadbeef", base_dir=tmp_path)
+    on_disk = json.loads((out_dir / "main-sample-manifest-2026-09-24.json").read_text(encoding="utf-8"))
+    for key in ("frame_file", "dev_targets_file", "output_file", "script_path"):
+        assert not os.path.isabs(on_disk[key]), key
+        assert "/Users/" not in on_disk[key], key
+    assert on_disk["frame_file"] == "frame.csv"
+    assert on_disk["dev_targets_file"] == "dev_targets.csv"
+    assert on_disk["output_file"] == "out/main_targets.csv"
+    assert on_disk["script_path"] == "scripts/build_main_sample.py"
+    # Default base_dir is the repository root.
+    assert bms.rel(bms.REPO_ROOT / "data" / "frame.csv", bms.REPO_ROOT) == "data/frame.csv"
