@@ -187,3 +187,9 @@ Appended 2026-09-24. Documentation-only changes made after the main-run analysis
    - `reports/heldout-structure-check-2026-09-15.txt` — sha256 c1d87dc57a5cce801f216c297ccd2d47c148febe42fd0e2f2ac3efcbb7164dbd → 440b29286a8925e70f1c90c8f872507aadbd24b02345cf3141a7186b96b905f3
    - `reports/manual-inventory-check-2026-09-15.txt` — sha256 054a3146e1ac595a4da811affe8cb8c563703a92e0f30e6434dbfe54ee4eb9b6 → 8673dd255ad57f5da4f3feffc69255f07f15ba8283f578e92556b58784daad8d
 4. `reports/documentation-errata-2026-09-24.md` added: 7,141 B, sha256 ed15ca5309d893fedafb7f1da8ea9da81d57e541dcd4d54cc7d62d45329cc5cf.
+
+## Post-scoring documentation updates (no protocol change)
+
+Appended 2026-09-25, after main-study scoring. This section is kept separate from the "Post-freeze documentation updates (no protocol change)" section above, which was written before scoring.
+
+1. `reports/documentation-errata-post-scoring-2026-09-25.md` added: 2,509 B, sha256 8bfb151d78e911a77b14f3b31bda6cef3ff00c5723766c28498505a0299a9f9f.
