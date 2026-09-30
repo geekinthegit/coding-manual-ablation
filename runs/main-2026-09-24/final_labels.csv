@@ -1,0 +1,1801 @@
+run_id,utterance_id,condition,final_label,status,valid_repeats,repeats_used
+main-2026-09-24,302,baseline,Not coded,resolved,3,3
+main-2026-09-24,302,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,302,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,302,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,302,names_only,Not coded,resolved,3,3
+main-2026-09-24,302,negative_control,Not coded,resolved,3,3
+main-2026-09-24,848,baseline,Not coded,resolved,3,3
+main-2026-09-24,848,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,848,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,848,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,848,names_only,Not coded,resolved,3,3
+main-2026-09-24,848,negative_control,Not coded,resolved,3,3
+main-2026-09-24,1024,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,1024,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,1024,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,1024,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,1024,names_only,Restating,resolved,3,3
+main-2026-09-24,1024,negative_control,Restating,resolved,3,3
+main-2026-09-24,1079,baseline,Not coded,resolved,3,3
+main-2026-09-24,1079,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,1079,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,1079,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,1079,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,1079,negative_control,Not coded,resolved,3,3
+main-2026-09-24,2294,baseline,Not coded,resolved,3,3
+main-2026-09-24,2294,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,2294,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,2294,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,2294,names_only,Getting Students to Relate,resolved,3,3
+main-2026-09-24,2294,negative_control,Not coded,resolved,3,3
+main-2026-09-24,4821,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,4821,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,4821,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,4821,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,4821,names_only,Restating,resolved,3,3
+main-2026-09-24,4821,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,6991,baseline,Not coded,resolved,3,3
+main-2026-09-24,6991,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,6991,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,6991,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,6991,names_only,Not coded,resolved,3,3
+main-2026-09-24,6991,negative_control,Not coded,resolved,3,3
+main-2026-09-24,7121,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,7121,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,7121,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,7121,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,7121,names_only,Not coded,resolved,3,3
+main-2026-09-24,7121,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,7301,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,7301,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,7301,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,7301,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,7301,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,7301,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,8400,baseline,Not coded,resolved,3,3
+main-2026-09-24,8400,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,8400,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,8400,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,8400,names_only,Not coded,resolved,3,3
+main-2026-09-24,8400,negative_control,Not coded,resolved,3,3
+main-2026-09-24,8495,baseline,Not coded,resolved,3,3
+main-2026-09-24,8495,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,8495,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,8495,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,8495,names_only,Not coded,resolved,3,3
+main-2026-09-24,8495,negative_control,Not coded,resolved,3,3
+main-2026-09-24,9354,baseline,Not coded,resolved,3,3
+main-2026-09-24,9354,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,9354,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,9354,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,9354,names_only,Not coded,resolved,3,3
+main-2026-09-24,9354,negative_control,Not coded,resolved,3,3
+main-2026-09-24,10673,baseline,Not coded,resolved,3,3
+main-2026-09-24,10673,definition_replacement,Restating,resolved,3,3
+main-2026-09-24,10673,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,10673,exclusion_rule_replacement,Restating,resolved,3,3
+main-2026-09-24,10673,names_only,Restating,resolved,3,3
+main-2026-09-24,10673,negative_control,Not coded,resolved,3,3
+main-2026-09-24,11028,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,11028,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,11028,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,11028,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,11028,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,11028,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,11052,baseline,Not coded,resolved,3,3
+main-2026-09-24,11052,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,11052,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,11052,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,11052,names_only,Not coded,resolved,3,3
+main-2026-09-24,11052,negative_control,Not coded,resolved,3,3
+main-2026-09-24,11360,baseline,Not coded,resolved,3,3
+main-2026-09-24,11360,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,11360,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,11360,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,11360,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,11360,negative_control,Not coded,resolved,3,3
+main-2026-09-24,14298,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,14298,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,14298,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,14298,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,14298,names_only,Not coded,resolved,3,3
+main-2026-09-24,14298,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,14501,baseline,Not coded,resolved,3,3
+main-2026-09-24,14501,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,14501,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,14501,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,14501,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,14501,negative_control,Not coded,resolved,3,3
+main-2026-09-24,14917,baseline,Not coded,resolved,3,3
+main-2026-09-24,14917,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,14917,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,14917,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,14917,names_only,Not coded,resolved,3,3
+main-2026-09-24,14917,negative_control,Not coded,resolved,3,3
+main-2026-09-24,14938,baseline,Not coded,resolved,3,3
+main-2026-09-24,14938,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,14938,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,14938,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,14938,names_only,Not coded,resolved,3,3
+main-2026-09-24,14938,negative_control,Not coded,resolved,3,3
+main-2026-09-24,15050,baseline,Not coded,resolved,3,3
+main-2026-09-24,15050,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,15050,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,15050,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,15050,names_only,Not coded,resolved,3,3
+main-2026-09-24,15050,negative_control,Not coded,resolved,3,3
+main-2026-09-24,15077,baseline,Not coded,resolved,3,3
+main-2026-09-24,15077,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,15077,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,15077,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,15077,names_only,Restating,resolved,3,3
+main-2026-09-24,15077,negative_control,Not coded,resolved,3,3
+main-2026-09-24,15215,baseline,Not coded,resolved,3,3
+main-2026-09-24,15215,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,15215,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,15215,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,15215,names_only,Not coded,resolved,3,3
+main-2026-09-24,15215,negative_control,Not coded,resolved,3,3
+main-2026-09-24,15298,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,15298,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,15298,example_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,15298,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,15298,names_only,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,15298,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,15871,baseline,Not coded,resolved,3,3
+main-2026-09-24,15871,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,15871,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,15871,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,15871,names_only,Not coded,resolved,3,3
+main-2026-09-24,15871,negative_control,Not coded,resolved,3,3
+main-2026-09-24,15915,baseline,Not coded,resolved,3,3
+main-2026-09-24,15915,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,15915,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,15915,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,15915,names_only,Not coded,resolved,3,3
+main-2026-09-24,15915,negative_control,Not coded,resolved,3,3
+main-2026-09-24,16408,baseline,Not coded,resolved,3,3
+main-2026-09-24,16408,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,16408,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,16408,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,16408,names_only,Not coded,resolved,3,3
+main-2026-09-24,16408,negative_control,Not coded,resolved,3,3
+main-2026-09-24,17190,baseline,Revoicing,resolved,3,3
+main-2026-09-24,17190,definition_replacement,Revoicing,resolved,3,3
+main-2026-09-24,17190,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,17190,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,17190,names_only,Revoicing,resolved,3,3
+main-2026-09-24,17190,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,17443,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,17443,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,17443,example_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,17443,exclusion_rule_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,17443,names_only,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,17443,negative_control,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,17658,baseline,Revoicing,resolved,3,3
+main-2026-09-24,17658,definition_replacement,Restating,resolved,3,3
+main-2026-09-24,17658,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,17658,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,17658,names_only,Restating,resolved,3,3
+main-2026-09-24,17658,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,17917,baseline,Revoicing,resolved,3,3
+main-2026-09-24,17917,definition_replacement,Restating,resolved,3,3
+main-2026-09-24,17917,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,17917,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,17917,names_only,Restating,resolved,3,3
+main-2026-09-24,17917,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,19401,baseline,Not coded,resolved,3,3
+main-2026-09-24,19401,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,19401,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,19401,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,19401,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,19401,negative_control,Not coded,resolved,3,3
+main-2026-09-24,20658,baseline,Not coded,resolved,3,3
+main-2026-09-24,20658,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,20658,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,20658,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,20658,names_only,Not coded,resolved,3,3
+main-2026-09-24,20658,negative_control,Not coded,resolved,3,3
+main-2026-09-24,21420,baseline,Not coded,resolved,3,3
+main-2026-09-24,21420,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,21420,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,21420,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,21420,names_only,Not coded,resolved,3,3
+main-2026-09-24,21420,negative_control,Not coded,resolved,3,3
+main-2026-09-24,23105,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,23105,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,23105,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,23105,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,23105,names_only,Not coded,resolved,3,3
+main-2026-09-24,23105,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,23373,baseline,Not coded,resolved,3,3
+main-2026-09-24,23373,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,23373,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,23373,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,23373,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,23373,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,23452,baseline,Not coded,resolved,3,3
+main-2026-09-24,23452,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,23452,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,23452,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,23452,names_only,Not coded,resolved,3,3
+main-2026-09-24,23452,negative_control,Not coded,resolved,3,3
+main-2026-09-24,23893,baseline,Restating,resolved,3,3
+main-2026-09-24,23893,definition_replacement,Restating,resolved,3,3
+main-2026-09-24,23893,example_replacement,Restating,resolved,3,3
+main-2026-09-24,23893,exclusion_rule_replacement,Restating,resolved,3,3
+main-2026-09-24,23893,names_only,Restating,resolved,3,3
+main-2026-09-24,23893,negative_control,Restating,resolved,3,3
+main-2026-09-24,24222,baseline,Not coded,resolved,3,3
+main-2026-09-24,24222,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,24222,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,24222,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,24222,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,24222,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,25671,baseline,Not coded,resolved,3,3
+main-2026-09-24,25671,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,25671,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,25671,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,25671,names_only,Not coded,resolved,3,3
+main-2026-09-24,25671,negative_control,Not coded,resolved,3,3
+main-2026-09-24,25718,baseline,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,25718,definition_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,25718,example_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,25718,exclusion_rule_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,25718,names_only,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,25718,negative_control,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,25981,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,25981,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,25981,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,25981,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,25981,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,25981,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,27546,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,27546,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,27546,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,27546,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,27546,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,27546,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,27992,baseline,Not coded,resolved,3,3
+main-2026-09-24,27992,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,27992,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,27992,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,27992,names_only,Not coded,resolved,3,3
+main-2026-09-24,27992,negative_control,Not coded,resolved,3,3
+main-2026-09-24,28267,baseline,Not coded,resolved,3,3
+main-2026-09-24,28267,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,28267,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,28267,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,28267,names_only,Not coded,resolved,3,3
+main-2026-09-24,28267,negative_control,Not coded,resolved,3,3
+main-2026-09-24,31516,baseline,Not coded,resolved,3,3
+main-2026-09-24,31516,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,31516,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,31516,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,31516,names_only,Not coded,resolved,3,3
+main-2026-09-24,31516,negative_control,Not coded,resolved,3,3
+main-2026-09-24,31766,baseline,Revoicing,resolved,3,3
+main-2026-09-24,31766,definition_replacement,Revoicing,resolved,3,3
+main-2026-09-24,31766,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,31766,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,31766,names_only,Revoicing,resolved,3,3
+main-2026-09-24,31766,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,32728,baseline,Revoicing,resolved,3,3
+main-2026-09-24,32728,definition_replacement,Revoicing,resolved,3,3
+main-2026-09-24,32728,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,32728,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,32728,names_only,Restating,resolved,3,3
+main-2026-09-24,32728,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,32920,baseline,Not coded,resolved,3,3
+main-2026-09-24,32920,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,32920,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,32920,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,32920,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,32920,negative_control,Not coded,resolved,3,3
+main-2026-09-24,33032,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,33032,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,33032,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,33032,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,33032,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,33032,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,33814,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,33814,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,33814,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,33814,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,33814,names_only,Not coded,resolved,3,3
+main-2026-09-24,33814,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,33931,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,33931,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,33931,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,33931,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,33931,names_only,Not coded,resolved,3,3
+main-2026-09-24,33931,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,34042,baseline,Not coded,resolved,3,3
+main-2026-09-24,34042,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,34042,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,34042,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,34042,names_only,Not coded,resolved,3,3
+main-2026-09-24,34042,negative_control,Not coded,resolved,3,3
+main-2026-09-24,34796,baseline,Not coded,resolved,3,3
+main-2026-09-24,34796,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,34796,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,34796,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,34796,names_only,Not coded,resolved,3,3
+main-2026-09-24,34796,negative_control,Not coded,resolved,3,3
+main-2026-09-24,35993,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,35993,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,35993,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,35993,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,35993,names_only,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,35993,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,36050,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,36050,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,36050,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,36050,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,36050,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,36050,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,37287,baseline,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,37287,definition_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,37287,example_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,37287,exclusion_rule_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,37287,names_only,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,37287,negative_control,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,37587,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,37587,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,37587,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,37587,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,37587,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,37587,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,38218,baseline,Not coded,resolved,3,3
+main-2026-09-24,38218,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,38218,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,38218,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,38218,names_only,Not coded,resolved,3,3
+main-2026-09-24,38218,negative_control,Not coded,resolved,3,3
+main-2026-09-24,38443,baseline,Restating,resolved,3,3
+main-2026-09-24,38443,definition_replacement,Restating,resolved,3,3
+main-2026-09-24,38443,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,38443,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,38443,names_only,Restating,resolved,3,3
+main-2026-09-24,38443,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,38847,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,38847,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,38847,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,38847,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,38847,names_only,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,38847,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,40591,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,40591,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,40591,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,40591,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,40591,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,40591,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,40770,baseline,Restating,resolved,3,3
+main-2026-09-24,40770,definition_replacement,Restating,resolved,3,3
+main-2026-09-24,40770,example_replacement,Restating,resolved,3,3
+main-2026-09-24,40770,exclusion_rule_replacement,Restating,resolved,3,3
+main-2026-09-24,40770,names_only,Restating,resolved,3,3
+main-2026-09-24,40770,negative_control,Restating,resolved,3,3
+main-2026-09-24,41446,baseline,Not coded,resolved,3,3
+main-2026-09-24,41446,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,41446,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,41446,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,41446,names_only,Not coded,resolved,3,3
+main-2026-09-24,41446,negative_control,Not coded,resolved,3,3
+main-2026-09-24,43070,baseline,Not coded,resolved,3,3
+main-2026-09-24,43070,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,43070,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,43070,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,43070,names_only,Not coded,resolved,3,3
+main-2026-09-24,43070,negative_control,Not coded,resolved,3,3
+main-2026-09-24,45010,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,45010,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,45010,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,45010,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,45010,names_only,Not coded,resolved,3,3
+main-2026-09-24,45010,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,45372,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,45372,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,45372,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,45372,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,45372,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,45372,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,45919,baseline,Getting Students to Relate,resolved,3,3
+main-2026-09-24,45919,definition_replacement,Getting Students to Relate,resolved,3,3
+main-2026-09-24,45919,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,45919,exclusion_rule_replacement,Getting Students to Relate,resolved,3,3
+main-2026-09-24,45919,names_only,Getting Students to Relate,resolved,3,3
+main-2026-09-24,45919,negative_control,Getting Students to Relate,resolved,3,3
+main-2026-09-24,46381,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,46381,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,46381,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,46381,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,46381,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,46381,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,46777,baseline,Not coded,resolved,3,3
+main-2026-09-24,46777,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,46777,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,46777,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,46777,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,46777,negative_control,Not coded,resolved,3,3
+main-2026-09-24,49457,baseline,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,49457,definition_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,49457,example_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,49457,exclusion_rule_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,49457,names_only,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,49457,negative_control,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,54107,baseline,Not coded,resolved,3,3
+main-2026-09-24,54107,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,54107,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,54107,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,54107,names_only,Not coded,resolved,3,3
+main-2026-09-24,54107,negative_control,Not coded,resolved,3,3
+main-2026-09-24,54297,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,54297,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,54297,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,54297,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,54297,names_only,Not coded,resolved,4,4
+main-2026-09-24,54297,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,55737,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,55737,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,55737,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,55737,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,55737,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,55737,negative_control,Not coded,resolved,3,3
+main-2026-09-24,57582,baseline,Not coded,resolved,3,3
+main-2026-09-24,57582,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,57582,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,57582,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,57582,names_only,Not coded,resolved,3,3
+main-2026-09-24,57582,negative_control,Not coded,resolved,3,3
+main-2026-09-24,57608,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,57608,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,57608,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,57608,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,57608,names_only,Not coded,resolved,3,3
+main-2026-09-24,57608,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,57992,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,57992,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,57992,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,57992,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,57992,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,57992,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,58728,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,58728,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,58728,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,58728,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,58728,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,58728,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,59102,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,59102,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,59102,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,59102,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,59102,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,59102,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,59477,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,59477,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,59477,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,59477,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,59477,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,59477,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,60904,baseline,Not coded,resolved,3,3
+main-2026-09-24,60904,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,60904,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,60904,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,60904,names_only,Not coded,resolved,3,3
+main-2026-09-24,60904,negative_control,Not coded,resolved,3,3
+main-2026-09-24,61167,baseline,Not coded,resolved,3,3
+main-2026-09-24,61167,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,61167,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,61167,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,61167,names_only,Not coded,resolved,3,3
+main-2026-09-24,61167,negative_control,Not coded,resolved,3,3
+main-2026-09-24,62230,baseline,Not coded,resolved,3,3
+main-2026-09-24,62230,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,62230,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,62230,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,62230,names_only,Not coded,resolved,3,3
+main-2026-09-24,62230,negative_control,Not coded,resolved,3,3
+main-2026-09-24,62701,baseline,Not coded,resolved,3,3
+main-2026-09-24,62701,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,62701,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,62701,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,62701,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,62701,negative_control,Not coded,resolved,3,3
+main-2026-09-24,63159,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,63159,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,63159,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,63159,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,63159,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,63159,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,63193,baseline,Not coded,resolved,3,3
+main-2026-09-24,63193,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,63193,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,63193,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,63193,names_only,Not coded,resolved,3,3
+main-2026-09-24,63193,negative_control,Not coded,resolved,3,3
+main-2026-09-24,63732,baseline,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,63732,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,63732,example_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,63732,exclusion_rule_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,63732,names_only,Not coded,resolved,3,3
+main-2026-09-24,63732,negative_control,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,64836,baseline,Not coded,resolved,3,3
+main-2026-09-24,64836,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,64836,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,64836,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,64836,names_only,Not coded,resolved,3,3
+main-2026-09-24,64836,negative_control,Not coded,resolved,3,3
+main-2026-09-24,65613,baseline,Not coded,resolved,3,3
+main-2026-09-24,65613,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,65613,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,65613,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,65613,names_only,Not coded,resolved,3,3
+main-2026-09-24,65613,negative_control,Not coded,resolved,3,3
+main-2026-09-24,65942,baseline,Not coded,resolved,3,3
+main-2026-09-24,65942,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,65942,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,65942,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,65942,names_only,Not coded,resolved,3,3
+main-2026-09-24,65942,negative_control,Not coded,resolved,3,3
+main-2026-09-24,65977,baseline,Not coded,resolved,3,3
+main-2026-09-24,65977,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,65977,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,65977,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,65977,names_only,Not coded,resolved,3,3
+main-2026-09-24,65977,negative_control,Not coded,resolved,3,3
+main-2026-09-24,66094,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,66094,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,66094,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,66094,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,66094,names_only,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,66094,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,66433,baseline,Not coded,resolved,3,3
+main-2026-09-24,66433,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,66433,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,66433,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,66433,names_only,Restating,resolved,3,3
+main-2026-09-24,66433,negative_control,Not coded,resolved,3,3
+main-2026-09-24,67676,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,67676,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,67676,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,67676,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,67676,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,67676,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,67751,baseline,Not coded,resolved,3,3
+main-2026-09-24,67751,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,67751,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,67751,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,67751,names_only,Not coded,resolved,3,3
+main-2026-09-24,67751,negative_control,Not coded,resolved,3,3
+main-2026-09-24,67905,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,67905,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,67905,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,67905,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,67905,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,67905,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,68068,baseline,Not coded,resolved,3,3
+main-2026-09-24,68068,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,68068,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,68068,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,68068,names_only,Not coded,resolved,3,3
+main-2026-09-24,68068,negative_control,Not coded,resolved,3,3
+main-2026-09-24,69259,baseline,Revoicing,resolved,3,3
+main-2026-09-24,69259,definition_replacement,Revoicing,resolved,3,3
+main-2026-09-24,69259,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,69259,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,69259,names_only,Restating,resolved,3,3
+main-2026-09-24,69259,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,69317,baseline,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,69317,definition_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,69317,example_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,69317,exclusion_rule_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,69317,names_only,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,69317,negative_control,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,69631,baseline,Not coded,resolved,3,3
+main-2026-09-24,69631,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,69631,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,69631,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,69631,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,69631,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,69771,baseline,Not coded,resolved,3,3
+main-2026-09-24,69771,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,69771,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,69771,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,69771,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,69771,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,69978,baseline,Not coded,resolved,3,3
+main-2026-09-24,69978,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,69978,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,69978,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,69978,names_only,Not coded,resolved,3,3
+main-2026-09-24,69978,negative_control,Not coded,resolved,3,3
+main-2026-09-24,70158,baseline,Not coded,resolved,3,3
+main-2026-09-24,70158,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,70158,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,70158,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,70158,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,70158,negative_control,Not coded,resolved,3,3
+main-2026-09-24,70496,baseline,Not coded,resolved,3,3
+main-2026-09-24,70496,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,70496,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,70496,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,70496,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,70496,negative_control,Not coded,resolved,3,3
+main-2026-09-24,71148,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,71148,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,71148,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,71148,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,71148,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,71148,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,71327,baseline,Not coded,resolved,3,3
+main-2026-09-24,71327,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,71327,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,71327,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,71327,names_only,Not coded,resolved,3,3
+main-2026-09-24,71327,negative_control,Not coded,resolved,3,3
+main-2026-09-24,72680,baseline,Not coded,resolved,3,3
+main-2026-09-24,72680,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,72680,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,72680,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,72680,names_only,Not coded,resolved,3,3
+main-2026-09-24,72680,negative_control,Not coded,resolved,3,3
+main-2026-09-24,73388,baseline,Not coded,resolved,3,3
+main-2026-09-24,73388,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,73388,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,73388,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,73388,names_only,Getting Students to Relate,resolved,3,3
+main-2026-09-24,73388,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,74399,baseline,Not coded,resolved,3,3
+main-2026-09-24,74399,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,74399,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,74399,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,74399,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,74399,negative_control,Not coded,resolved,3,3
+main-2026-09-24,75229,baseline,Not coded,resolved,3,3
+main-2026-09-24,75229,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,75229,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,75229,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,75229,names_only,Not coded,resolved,3,3
+main-2026-09-24,75229,negative_control,Not coded,resolved,3,3
+main-2026-09-24,75963,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,75963,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,75963,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,75963,exclusion_rule_replacement,Getting Students to Relate,resolved,3,3
+main-2026-09-24,75963,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,75963,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,76252,baseline,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,76252,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,76252,example_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,76252,exclusion_rule_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,76252,names_only,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,76252,negative_control,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,77783,baseline,Not coded,resolved,3,3
+main-2026-09-24,77783,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,77783,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,77783,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,77783,names_only,Not coded,resolved,3,3
+main-2026-09-24,77783,negative_control,Not coded,resolved,3,3
+main-2026-09-24,78215,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,78215,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,78215,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,78215,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,78215,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,78215,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,79309,baseline,Not coded,resolved,3,3
+main-2026-09-24,79309,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,79309,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,79309,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,79309,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,79309,negative_control,Not coded,resolved,3,3
+main-2026-09-24,79990,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,79990,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,79990,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,79990,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,79990,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,79990,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,80098,baseline,Not coded,resolved,3,3
+main-2026-09-24,80098,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,80098,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,80098,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,80098,names_only,Not coded,resolved,3,3
+main-2026-09-24,80098,negative_control,Not coded,resolved,3,3
+main-2026-09-24,80422,baseline,Not coded,resolved,3,3
+main-2026-09-24,80422,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,80422,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,80422,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,80422,names_only,Not coded,resolved,3,3
+main-2026-09-24,80422,negative_control,Not coded,resolved,3,3
+main-2026-09-24,81246,baseline,Restating,resolved,3,3
+main-2026-09-24,81246,definition_replacement,Restating,resolved,3,3
+main-2026-09-24,81246,example_replacement,Restating,resolved,3,3
+main-2026-09-24,81246,exclusion_rule_replacement,Restating,resolved,3,3
+main-2026-09-24,81246,names_only,Restating,resolved,3,3
+main-2026-09-24,81246,negative_control,Restating,resolved,3,3
+main-2026-09-24,81372,baseline,Not coded,resolved,3,3
+main-2026-09-24,81372,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,81372,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,81372,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,81372,names_only,Not coded,resolved,3,3
+main-2026-09-24,81372,negative_control,Not coded,resolved,3,3
+main-2026-09-24,83584,baseline,Not coded,resolved,3,3
+main-2026-09-24,83584,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,83584,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,83584,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,83584,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,83584,negative_control,Not coded,resolved,3,3
+main-2026-09-24,84540,baseline,Not coded,resolved,3,3
+main-2026-09-24,84540,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,84540,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,84540,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,84540,names_only,Not coded,resolved,3,3
+main-2026-09-24,84540,negative_control,Not coded,resolved,3,3
+main-2026-09-24,85745,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,85745,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,85745,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,85745,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,85745,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,85745,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,86284,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,86284,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,86284,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,86284,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,86284,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,86284,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,86347,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,86347,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,86347,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,86347,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,86347,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,86347,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,86973,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,86973,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,86973,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,86973,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,86973,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,86973,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,88679,baseline,Not coded,resolved,3,3
+main-2026-09-24,88679,definition_replacement,Revoicing,resolved,3,3
+main-2026-09-24,88679,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,88679,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,88679,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,88679,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,88922,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,88922,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,88922,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,88922,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,88922,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,88922,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,90657,baseline,Not coded,resolved,3,3
+main-2026-09-24,90657,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,90657,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,90657,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,90657,names_only,Restating,resolved,3,3
+main-2026-09-24,90657,negative_control,Not coded,resolved,3,3
+main-2026-09-24,91312,baseline,Not coded,resolved,3,3
+main-2026-09-24,91312,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,91312,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,91312,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,91312,names_only,Not coded,resolved,3,3
+main-2026-09-24,91312,negative_control,Not coded,resolved,3,3
+main-2026-09-24,91691,baseline,Not coded,resolved,3,3
+main-2026-09-24,91691,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,91691,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,91691,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,91691,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,91691,negative_control,Not coded,resolved,3,3
+main-2026-09-24,93194,baseline,Not coded,resolved,3,3
+main-2026-09-24,93194,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,93194,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,93194,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,93194,names_only,Not coded,resolved,3,3
+main-2026-09-24,93194,negative_control,Not coded,resolved,3,3
+main-2026-09-24,93780,baseline,Not coded,resolved,3,3
+main-2026-09-24,93780,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,93780,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,93780,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,93780,names_only,Not coded,resolved,3,3
+main-2026-09-24,93780,negative_control,Not coded,resolved,3,3
+main-2026-09-24,94458,baseline,Not coded,resolved,3,3
+main-2026-09-24,94458,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,94458,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,94458,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,94458,names_only,Not coded,resolved,3,3
+main-2026-09-24,94458,negative_control,Not coded,resolved,3,3
+main-2026-09-24,94772,baseline,Not coded,resolved,3,3
+main-2026-09-24,94772,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,94772,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,94772,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,94772,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,94772,negative_control,Not coded,resolved,3,3
+main-2026-09-24,96618,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,96618,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,96618,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,96618,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,96618,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,96618,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,96658,baseline,Not coded,resolved,3,3
+main-2026-09-24,96658,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,96658,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,96658,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,96658,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,96658,negative_control,Not coded,resolved,3,3
+main-2026-09-24,96865,baseline,Not coded,resolved,3,3
+main-2026-09-24,96865,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,96865,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,96865,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,96865,names_only,Not coded,resolved,3,3
+main-2026-09-24,96865,negative_control,Not coded,resolved,3,3
+main-2026-09-24,98257,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,98257,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,98257,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,98257,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,98257,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,98257,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,98928,baseline,Not coded,resolved,3,3
+main-2026-09-24,98928,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,98928,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,98928,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,98928,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,98928,negative_control,Not coded,resolved,3,3
+main-2026-09-24,99014,baseline,Not coded,resolved,3,3
+main-2026-09-24,99014,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,99014,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,99014,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,99014,names_only,Not coded,resolved,3,3
+main-2026-09-24,99014,negative_control,Not coded,resolved,3,3
+main-2026-09-24,99291,baseline,Not coded,resolved,3,3
+main-2026-09-24,99291,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,99291,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,99291,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,99291,names_only,Not coded,resolved,3,3
+main-2026-09-24,99291,negative_control,Not coded,resolved,3,3
+main-2026-09-24,99529,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,99529,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,99529,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,99529,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,99529,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,99529,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,100019,baseline,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,100019,definition_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,100019,example_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,100019,exclusion_rule_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,100019,names_only,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,100019,negative_control,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,101407,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,101407,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,101407,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,101407,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,101407,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,101407,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,101410,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,101410,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,101410,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,101410,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,101410,names_only,Restating,resolved,3,3
+main-2026-09-24,101410,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,101625,baseline,Not coded,resolved,3,3
+main-2026-09-24,101625,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,101625,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,101625,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,101625,names_only,Not coded,resolved,3,3
+main-2026-09-24,101625,negative_control,Not coded,resolved,3,3
+main-2026-09-24,101753,baseline,Getting Students to Relate,resolved,3,3
+main-2026-09-24,101753,definition_replacement,Getting Students to Relate,resolved,3,3
+main-2026-09-24,101753,example_replacement,Getting Students to Relate,resolved,3,3
+main-2026-09-24,101753,exclusion_rule_replacement,Getting Students to Relate,resolved,3,3
+main-2026-09-24,101753,names_only,Getting Students to Relate,resolved,3,3
+main-2026-09-24,101753,negative_control,Getting Students to Relate,resolved,3,3
+main-2026-09-24,102774,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,102774,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,102774,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,102774,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,102774,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,102774,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,102868,baseline,Not coded,resolved,3,3
+main-2026-09-24,102868,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,102868,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,102868,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,102868,names_only,Not coded,resolved,3,3
+main-2026-09-24,102868,negative_control,Not coded,resolved,3,3
+main-2026-09-24,103725,baseline,Not coded,resolved,3,3
+main-2026-09-24,103725,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,103725,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,103725,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,103725,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,103725,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,105291,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,105291,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,105291,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,105291,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,105291,names_only,Restating,resolved,3,3
+main-2026-09-24,105291,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,106804,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,106804,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,106804,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,106804,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,106804,names_only,Not coded,resolved,3,3
+main-2026-09-24,106804,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,107234,baseline,Not coded,resolved,3,3
+main-2026-09-24,107234,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,107234,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,107234,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,107234,names_only,Getting Students to Relate,resolved,3,3
+main-2026-09-24,107234,negative_control,Not coded,resolved,3,3
+main-2026-09-24,107755,baseline,Not coded,resolved,3,3
+main-2026-09-24,107755,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,107755,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,107755,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,107755,names_only,Not coded,resolved,3,3
+main-2026-09-24,107755,negative_control,Not coded,resolved,3,3
+main-2026-09-24,108616,baseline,Not coded,resolved,3,3
+main-2026-09-24,108616,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,108616,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,108616,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,108616,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,108616,negative_control,Not coded,resolved,3,3
+main-2026-09-24,109198,baseline,Not coded,resolved,3,3
+main-2026-09-24,109198,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,109198,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,109198,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,109198,names_only,Not coded,resolved,3,3
+main-2026-09-24,109198,negative_control,Not coded,resolved,3,3
+main-2026-09-24,109273,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,109273,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,109273,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,109273,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,109273,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,109273,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,111725,baseline,Not coded,resolved,3,3
+main-2026-09-24,111725,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,111725,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,111725,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,111725,names_only,Getting Students to Relate,resolved,3,3
+main-2026-09-24,111725,negative_control,Not coded,resolved,3,3
+main-2026-09-24,111838,baseline,Not coded,resolved,3,3
+main-2026-09-24,111838,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,111838,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,111838,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,111838,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,111838,negative_control,Not coded,resolved,3,3
+main-2026-09-24,112143,baseline,Not coded,resolved,3,3
+main-2026-09-24,112143,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,112143,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,112143,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,112143,names_only,Not coded,resolved,3,3
+main-2026-09-24,112143,negative_control,Not coded,resolved,3,3
+main-2026-09-24,113024,baseline,Not coded,resolved,3,3
+main-2026-09-24,113024,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,113024,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,113024,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,113024,names_only,Not coded,resolved,3,3
+main-2026-09-24,113024,negative_control,Not coded,resolved,3,3
+main-2026-09-24,114429,baseline,Not coded,resolved,3,3
+main-2026-09-24,114429,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,114429,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,114429,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,114429,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,114429,negative_control,Not coded,resolved,3,3
+main-2026-09-24,114952,baseline,Not coded,resolved,3,3
+main-2026-09-24,114952,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,114952,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,114952,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,114952,names_only,Not coded,resolved,3,3
+main-2026-09-24,114952,negative_control,Not coded,resolved,3,3
+main-2026-09-24,115044,baseline,Not coded,resolved,3,3
+main-2026-09-24,115044,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,115044,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,115044,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,115044,names_only,Not coded,resolved,3,3
+main-2026-09-24,115044,negative_control,Not coded,resolved,3,3
+main-2026-09-24,115165,baseline,Not coded,resolved,3,3
+main-2026-09-24,115165,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,115165,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,115165,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,115165,names_only,Not coded,resolved,3,3
+main-2026-09-24,115165,negative_control,Not coded,resolved,3,3
+main-2026-09-24,115367,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,115367,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,115367,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,115367,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,115367,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,115367,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,115888,baseline,Not coded,resolved,3,3
+main-2026-09-24,115888,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,115888,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,115888,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,115888,names_only,Not coded,resolved,3,3
+main-2026-09-24,115888,negative_control,Not coded,resolved,3,3
+main-2026-09-24,116741,baseline,Not coded,resolved,3,3
+main-2026-09-24,116741,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,116741,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,116741,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,116741,names_only,Not coded,resolved,3,3
+main-2026-09-24,116741,negative_control,Not coded,resolved,3,3
+main-2026-09-24,116887,baseline,Not coded,resolved,3,3
+main-2026-09-24,116887,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,116887,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,116887,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,116887,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,116887,negative_control,Not coded,resolved,3,3
+main-2026-09-24,116987,baseline,Not coded,resolved,3,3
+main-2026-09-24,116987,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,116987,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,116987,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,116987,names_only,Not coded,resolved,3,3
+main-2026-09-24,116987,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,117067,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,117067,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,117067,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,117067,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,117067,names_only,Not coded,resolved,3,3
+main-2026-09-24,117067,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,117278,baseline,Not coded,resolved,3,3
+main-2026-09-24,117278,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,117278,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,117278,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,117278,names_only,Getting Students to Relate,resolved,3,3
+main-2026-09-24,117278,negative_control,Not coded,resolved,3,3
+main-2026-09-24,118002,baseline,Not coded,resolved,3,3
+main-2026-09-24,118002,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,118002,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,118002,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,118002,names_only,Not coded,resolved,3,3
+main-2026-09-24,118002,negative_control,Not coded,resolved,3,3
+main-2026-09-24,118309,baseline,Not coded,resolved,3,3
+main-2026-09-24,118309,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,118309,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,118309,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,118309,names_only,Not coded,resolved,3,3
+main-2026-09-24,118309,negative_control,Not coded,resolved,3,3
+main-2026-09-24,118454,baseline,Not coded,resolved,3,3
+main-2026-09-24,118454,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,118454,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,118454,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,118454,names_only,Not coded,resolved,3,3
+main-2026-09-24,118454,negative_control,Not coded,resolved,3,3
+main-2026-09-24,118586,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,118586,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,118586,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,118586,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,118586,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,118586,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,118849,baseline,Not coded,resolved,3,3
+main-2026-09-24,118849,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,118849,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,118849,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,118849,names_only,Not coded,resolved,3,3
+main-2026-09-24,118849,negative_control,Not coded,resolved,3,3
+main-2026-09-24,119426,baseline,Not coded,resolved,3,3
+main-2026-09-24,119426,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,119426,example_replacement,Restating,resolved,3,3
+main-2026-09-24,119426,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,119426,names_only,Not coded,resolved,3,3
+main-2026-09-24,119426,negative_control,Not coded,resolved,3,3
+main-2026-09-24,119832,baseline,Not coded,resolved,3,3
+main-2026-09-24,119832,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,119832,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,119832,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,119832,names_only,Not coded,resolved,3,3
+main-2026-09-24,119832,negative_control,Not coded,resolved,3,3
+main-2026-09-24,120311,baseline,Not coded,resolved,3,3
+main-2026-09-24,120311,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,120311,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,120311,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,120311,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,120311,negative_control,Not coded,resolved,3,3
+main-2026-09-24,120994,baseline,Not coded,resolved,3,3
+main-2026-09-24,120994,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,120994,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,120994,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,120994,names_only,Restating,resolved,3,3
+main-2026-09-24,120994,negative_control,Not coded,resolved,3,3
+main-2026-09-24,121042,baseline,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,121042,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,121042,example_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,121042,exclusion_rule_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,121042,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,121042,negative_control,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,121882,baseline,Not coded,resolved,3,3
+main-2026-09-24,121882,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,121882,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,121882,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,121882,names_only,Not coded,resolved,3,3
+main-2026-09-24,121882,negative_control,Not coded,resolved,3,3
+main-2026-09-24,121902,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,121902,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,121902,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,121902,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,121902,names_only,Not coded,resolved,3,3
+main-2026-09-24,121902,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,122033,baseline,Not coded,resolved,3,3
+main-2026-09-24,122033,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,122033,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,122033,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,122033,names_only,Not coded,resolved,3,3
+main-2026-09-24,122033,negative_control,Not coded,resolved,3,3
+main-2026-09-24,122128,baseline,Not coded,resolved,3,3
+main-2026-09-24,122128,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,122128,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,122128,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,122128,names_only,Restating,resolved,3,3
+main-2026-09-24,122128,negative_control,Not coded,resolved,3,3
+main-2026-09-24,123919,baseline,Not coded,resolved,3,3
+main-2026-09-24,123919,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,123919,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,123919,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,123919,names_only,Not coded,resolved,3,3
+main-2026-09-24,123919,negative_control,Not coded,resolved,3,3
+main-2026-09-24,124018,baseline,Not coded,resolved,3,3
+main-2026-09-24,124018,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,124018,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,124018,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,124018,names_only,Not coded,resolved,3,3
+main-2026-09-24,124018,negative_control,Not coded,resolved,3,3
+main-2026-09-24,125564,baseline,Not coded,resolved,3,3
+main-2026-09-24,125564,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,125564,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,125564,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,125564,names_only,Not coded,resolved,3,3
+main-2026-09-24,125564,negative_control,Not coded,resolved,3,3
+main-2026-09-24,125588,baseline,Not coded,resolved,3,3
+main-2026-09-24,125588,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,125588,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,125588,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,125588,names_only,Not coded,resolved,3,3
+main-2026-09-24,125588,negative_control,Not coded,resolved,3,3
+main-2026-09-24,126397,baseline,Not coded,resolved,3,3
+main-2026-09-24,126397,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,126397,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,126397,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,126397,names_only,Not coded,resolved,3,3
+main-2026-09-24,126397,negative_control,Not coded,resolved,3,3
+main-2026-09-24,127330,baseline,Not coded,resolved,3,3
+main-2026-09-24,127330,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,127330,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,127330,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,127330,names_only,Not coded,resolved,3,3
+main-2026-09-24,127330,negative_control,Not coded,resolved,3,3
+main-2026-09-24,128166,baseline,Not coded,resolved,3,3
+main-2026-09-24,128166,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,128166,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,128166,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,128166,names_only,Not coded,resolved,3,3
+main-2026-09-24,128166,negative_control,Not coded,resolved,3,3
+main-2026-09-24,128481,baseline,Not coded,resolved,3,3
+main-2026-09-24,128481,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,128481,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,128481,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,128481,names_only,Not coded,resolved,3,3
+main-2026-09-24,128481,negative_control,Not coded,resolved,3,3
+main-2026-09-24,128942,baseline,Revoicing,resolved,3,3
+main-2026-09-24,128942,definition_replacement,Revoicing,resolved,3,3
+main-2026-09-24,128942,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,128942,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,128942,names_only,Restating,resolved,3,3
+main-2026-09-24,128942,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,130014,baseline,Not coded,resolved,3,3
+main-2026-09-24,130014,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,130014,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,130014,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,130014,names_only,Not coded,resolved,3,3
+main-2026-09-24,130014,negative_control,Not coded,resolved,3,3
+main-2026-09-24,130140,baseline,Revoicing,resolved,3,3
+main-2026-09-24,130140,definition_replacement,Revoicing,resolved,3,3
+main-2026-09-24,130140,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,130140,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,130140,names_only,Restating,resolved,3,3
+main-2026-09-24,130140,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,130708,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,130708,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,130708,example_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,130708,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,130708,names_only,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,130708,negative_control,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,131176,baseline,Not coded,resolved,3,3
+main-2026-09-24,131176,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,131176,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,131176,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,131176,names_only,Not coded,resolved,3,3
+main-2026-09-24,131176,negative_control,Not coded,resolved,3,3
+main-2026-09-24,131223,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,131223,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,131223,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,131223,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,131223,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,131223,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,131671,baseline,Not coded,resolved,3,3
+main-2026-09-24,131671,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,131671,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,131671,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,131671,names_only,Not coded,resolved,3,3
+main-2026-09-24,131671,negative_control,Not coded,resolved,3,3
+main-2026-09-24,131742,baseline,Not coded,resolved,3,3
+main-2026-09-24,131742,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,131742,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,131742,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,131742,names_only,Not coded,resolved,3,3
+main-2026-09-24,131742,negative_control,Not coded,resolved,3,3
+main-2026-09-24,132927,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,132927,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,132927,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,132927,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,132927,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,132927,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,133345,baseline,Not coded,resolved,3,3
+main-2026-09-24,133345,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,133345,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,133345,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,133345,names_only,Not coded,resolved,3,3
+main-2026-09-24,133345,negative_control,Not coded,resolved,3,3
+main-2026-09-24,134244,baseline,Revoicing,resolved,3,3
+main-2026-09-24,134244,definition_replacement,Revoicing,resolved,3,3
+main-2026-09-24,134244,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,134244,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,134244,names_only,Restating,resolved,3,3
+main-2026-09-24,134244,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,135186,baseline,Not coded,resolved,3,3
+main-2026-09-24,135186,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,135186,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,135186,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,135186,names_only,Not coded,resolved,3,3
+main-2026-09-24,135186,negative_control,Not coded,resolved,3,3
+main-2026-09-24,135221,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,135221,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,135221,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,135221,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,135221,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,135221,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,135299,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,135299,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,135299,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,135299,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,135299,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,135299,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,136118,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,136118,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,136118,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,136118,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,136118,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,136118,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,136126,baseline,Not coded,resolved,3,3
+main-2026-09-24,136126,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,136126,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,136126,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,136126,names_only,Not coded,resolved,3,3
+main-2026-09-24,136126,negative_control,Not coded,resolved,3,3
+main-2026-09-24,137110,baseline,Not coded,resolved,3,3
+main-2026-09-24,137110,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,137110,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,137110,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,137110,names_only,Not coded,resolved,3,3
+main-2026-09-24,137110,negative_control,Not coded,resolved,3,3
+main-2026-09-24,137982,baseline,Not coded,resolved,3,3
+main-2026-09-24,137982,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,137982,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,137982,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,137982,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,137982,negative_control,Not coded,resolved,3,3
+main-2026-09-24,138564,baseline,Not coded,resolved,3,3
+main-2026-09-24,138564,definition_replacement,Getting Students to Relate,resolved,3,3
+main-2026-09-24,138564,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,138564,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,138564,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,138564,negative_control,Not coded,resolved,3,3
+main-2026-09-24,138928,baseline,Not coded,resolved,3,3
+main-2026-09-24,138928,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,138928,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,138928,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,138928,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,138928,negative_control,Not coded,resolved,3,3
+main-2026-09-24,140028,baseline,Not coded,resolved,3,3
+main-2026-09-24,140028,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,140028,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,140028,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,140028,names_only,Not coded,resolved,3,3
+main-2026-09-24,140028,negative_control,Not coded,resolved,3,3
+main-2026-09-24,140324,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,140324,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,140324,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,140324,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,140324,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,140324,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,140822,baseline,Not coded,resolved,3,3
+main-2026-09-24,140822,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,140822,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,140822,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,140822,names_only,Not coded,resolved,3,3
+main-2026-09-24,140822,negative_control,Not coded,resolved,3,3
+main-2026-09-24,140939,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,140939,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,140939,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,140939,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,140939,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,140939,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,141316,baseline,Not coded,resolved,3,3
+main-2026-09-24,141316,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,141316,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,141316,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,141316,names_only,Not coded,resolved,3,3
+main-2026-09-24,141316,negative_control,Not coded,resolved,3,3
+main-2026-09-24,141594,baseline,Not coded,resolved,3,3
+main-2026-09-24,141594,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,141594,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,141594,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,141594,names_only,Not coded,resolved,3,3
+main-2026-09-24,141594,negative_control,Not coded,resolved,3,3
+main-2026-09-24,141951,baseline,Not coded,resolved,3,3
+main-2026-09-24,141951,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,141951,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,141951,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,141951,names_only,Not coded,resolved,3,3
+main-2026-09-24,141951,negative_control,Not coded,resolved,3,3
+main-2026-09-24,141954,baseline,Not coded,resolved,3,3
+main-2026-09-24,141954,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,141954,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,141954,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,141954,names_only,Not coded,resolved,3,3
+main-2026-09-24,141954,negative_control,Not coded,resolved,3,3
+main-2026-09-24,143070,baseline,Not coded,resolved,3,3
+main-2026-09-24,143070,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,143070,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,143070,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,143070,names_only,Not coded,resolved,3,3
+main-2026-09-24,143070,negative_control,Not coded,resolved,3,3
+main-2026-09-24,143193,baseline,Not coded,resolved,3,3
+main-2026-09-24,143193,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,143193,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,143193,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,143193,names_only,Not coded,resolved,3,3
+main-2026-09-24,143193,negative_control,Not coded,resolved,3,3
+main-2026-09-24,143568,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,143568,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,143568,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,143568,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,143568,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,143568,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,145868,baseline,Not coded,resolved,3,3
+main-2026-09-24,145868,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,145868,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,145868,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,145868,names_only,Restating,resolved,3,3
+main-2026-09-24,145868,negative_control,Not coded,resolved,3,3
+main-2026-09-24,146929,baseline,Not coded,resolved,3,3
+main-2026-09-24,146929,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,146929,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,146929,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,146929,names_only,Restating,resolved,3,3
+main-2026-09-24,146929,negative_control,Not coded,resolved,3,3
+main-2026-09-24,147804,baseline,Not coded,resolved,3,3
+main-2026-09-24,147804,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,147804,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,147804,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,147804,names_only,Not coded,resolved,3,3
+main-2026-09-24,147804,negative_control,Not coded,resolved,3,3
+main-2026-09-24,148368,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,148368,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,148368,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,148368,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,148368,names_only,Not coded,resolved,3,3
+main-2026-09-24,148368,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,148550,baseline,Not coded,resolved,3,3
+main-2026-09-24,148550,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,148550,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,148550,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,148550,names_only,Restating,resolved,3,3
+main-2026-09-24,148550,negative_control,Not coded,resolved,3,3
+main-2026-09-24,149508,baseline,Not coded,resolved,3,3
+main-2026-09-24,149508,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,149508,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,149508,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,149508,names_only,Not coded,resolved,3,3
+main-2026-09-24,149508,negative_control,Not coded,resolved,3,3
+main-2026-09-24,150756,baseline,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,150756,definition_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,150756,example_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,150756,exclusion_rule_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,150756,names_only,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,150756,negative_control,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,151277,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,151277,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,151277,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,151277,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,151277,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,151277,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,151312,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,151312,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,151312,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,151312,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,151312,names_only,Not coded,resolved,3,3
+main-2026-09-24,151312,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,151707,baseline,Not coded,resolved,3,3
+main-2026-09-24,151707,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,151707,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,151707,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,151707,names_only,Not coded,resolved,3,3
+main-2026-09-24,151707,negative_control,Not coded,resolved,3,3
+main-2026-09-24,154046,baseline,Not coded,resolved,3,3
+main-2026-09-24,154046,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,154046,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,154046,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,154046,names_only,Not coded,resolved,3,3
+main-2026-09-24,154046,negative_control,Not coded,resolved,3,3
+main-2026-09-24,154512,baseline,Not coded,resolved,3,3
+main-2026-09-24,154512,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,154512,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,154512,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,154512,names_only,Not coded,resolved,3,3
+main-2026-09-24,154512,negative_control,Not coded,resolved,3,3
+main-2026-09-24,154579,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,154579,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,154579,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,154579,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,154579,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,154579,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,155607,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,155607,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,155607,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,155607,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,155607,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,155607,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,155644,baseline,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,155644,definition_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,155644,example_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,155644,exclusion_rule_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,155644,names_only,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,155644,negative_control,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,156833,baseline,Not coded,resolved,3,3
+main-2026-09-24,156833,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,156833,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,156833,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,156833,names_only,Restating,resolved,3,3
+main-2026-09-24,156833,negative_control,Not coded,resolved,3,3
+main-2026-09-24,157997,baseline,Not coded,resolved,3,3
+main-2026-09-24,157997,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,157997,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,157997,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,157997,names_only,Restating,resolved,3,3
+main-2026-09-24,157997,negative_control,Not coded,resolved,3,3
+main-2026-09-24,158065,baseline,Not coded,resolved,3,3
+main-2026-09-24,158065,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,158065,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,158065,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,158065,names_only,Not coded,resolved,3,3
+main-2026-09-24,158065,negative_control,Not coded,resolved,3,3
+main-2026-09-24,158118,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,158118,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,158118,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,158118,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,158118,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,158118,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,159559,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,159559,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,159559,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,159559,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,159559,names_only,Not coded,resolved,3,3
+main-2026-09-24,159559,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,159815,baseline,Not coded,resolved,3,3
+main-2026-09-24,159815,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,159815,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,159815,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,159815,names_only,Not coded,resolved,3,3
+main-2026-09-24,159815,negative_control,Not coded,resolved,3,3
+main-2026-09-24,160065,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,160065,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,160065,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,160065,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,160065,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,160065,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,162236,baseline,Not coded,resolved,3,3
+main-2026-09-24,162236,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,162236,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,162236,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,162236,names_only,Not coded,resolved,3,3
+main-2026-09-24,162236,negative_control,Not coded,resolved,3,3
+main-2026-09-24,162299,baseline,Revoicing,resolved,3,3
+main-2026-09-24,162299,definition_replacement,Revoicing,resolved,3,3
+main-2026-09-24,162299,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,162299,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,162299,names_only,Not coded,resolved,3,3
+main-2026-09-24,162299,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,162699,baseline,Not coded,resolved,3,3
+main-2026-09-24,162699,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,162699,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,162699,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,162699,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,162699,negative_control,Not coded,resolved,3,3
+main-2026-09-24,162728,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,162728,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,162728,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,162728,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,162728,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,162728,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,163573,baseline,Revoicing,resolved,3,3
+main-2026-09-24,163573,definition_replacement,Revoicing,resolved,3,3
+main-2026-09-24,163573,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,163573,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,163573,names_only,Revoicing,resolved,3,3
+main-2026-09-24,163573,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,164305,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,164305,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,164305,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,164305,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,164305,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,164305,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,165022,baseline,Not coded,resolved,3,3
+main-2026-09-24,165022,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,165022,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,165022,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,165022,names_only,Not coded,resolved,3,3
+main-2026-09-24,165022,negative_control,Not coded,resolved,3,3
+main-2026-09-24,166290,baseline,Not coded,resolved,3,3
+main-2026-09-24,166290,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,166290,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,166290,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,166290,names_only,Not coded,resolved,3,3
+main-2026-09-24,166290,negative_control,Not coded,resolved,3,3
+main-2026-09-24,167783,baseline,Not coded,resolved,3,3
+main-2026-09-24,167783,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,167783,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,167783,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,167783,names_only,Not coded,resolved,3,3
+main-2026-09-24,167783,negative_control,Not coded,resolved,3,3
+main-2026-09-24,167922,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,167922,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,167922,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,167922,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,167922,names_only,Not coded,resolved,3,3
+main-2026-09-24,167922,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,168821,baseline,Not coded,resolved,3,3
+main-2026-09-24,168821,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,168821,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,168821,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,168821,names_only,Not coded,resolved,3,3
+main-2026-09-24,168821,negative_control,Not coded,resolved,3,3
+main-2026-09-24,169761,baseline,Not coded,resolved,3,3
+main-2026-09-24,169761,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,169761,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,169761,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,169761,names_only,Not coded,resolved,3,3
+main-2026-09-24,169761,negative_control,Not coded,resolved,3,3
+main-2026-09-24,171520,baseline,Not coded,resolved,3,3
+main-2026-09-24,171520,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,171520,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,171520,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,171520,names_only,Not coded,resolved,3,3
+main-2026-09-24,171520,negative_control,Not coded,resolved,3,3
+main-2026-09-24,171792,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,171792,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,171792,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,171792,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,171792,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,171792,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,171992,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,171992,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,171992,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,171992,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,171992,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,171992,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,172963,baseline,Not coded,resolved,3,3
+main-2026-09-24,172963,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,172963,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,172963,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,172963,names_only,Not coded,resolved,3,3
+main-2026-09-24,172963,negative_control,Not coded,resolved,3,3
+main-2026-09-24,176569,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,176569,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,176569,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,176569,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,176569,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,176569,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,177396,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,177396,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,177396,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,177396,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,177396,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,177396,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,178063,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,178063,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,178063,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,178063,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,178063,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,178063,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,179524,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,179524,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,179524,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,179524,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,179524,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,179524,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,180417,baseline,Not coded,resolved,3,3
+main-2026-09-24,180417,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,180417,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,180417,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,180417,names_only,Not coded,resolved,3,3
+main-2026-09-24,180417,negative_control,Not coded,resolved,3,3
+main-2026-09-24,181808,baseline,Not coded,resolved,3,3
+main-2026-09-24,181808,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,181808,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,181808,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,181808,names_only,Not coded,resolved,3,3
+main-2026-09-24,181808,negative_control,Not coded,resolved,3,3
+main-2026-09-24,182635,baseline,Not coded,resolved,3,3
+main-2026-09-24,182635,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,182635,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,182635,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,182635,names_only,Not coded,resolved,3,3
+main-2026-09-24,182635,negative_control,Not coded,resolved,3,3
+main-2026-09-24,182930,baseline,Not coded,resolved,3,3
+main-2026-09-24,182930,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,182930,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,182930,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,182930,names_only,Not coded,resolved,3,3
+main-2026-09-24,182930,negative_control,Not coded,resolved,3,3
+main-2026-09-24,183175,baseline,Not coded,resolved,3,3
+main-2026-09-24,183175,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,183175,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,183175,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,183175,names_only,Not coded,resolved,3,3
+main-2026-09-24,183175,negative_control,Not coded,resolved,3,3
+main-2026-09-24,183236,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,183236,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,183236,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,183236,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,183236,names_only,Not coded,resolved,3,3
+main-2026-09-24,183236,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,184129,baseline,Not coded,resolved,3,3
+main-2026-09-24,184129,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,184129,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,184129,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,184129,names_only,Not coded,resolved,3,3
+main-2026-09-24,184129,negative_control,Not coded,resolved,3,3
+main-2026-09-24,184718,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,184718,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,184718,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,184718,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,184718,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,184718,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,185221,baseline,Not coded,resolved,3,3
+main-2026-09-24,185221,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,185221,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,185221,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,185221,names_only,Not coded,resolved,3,3
+main-2026-09-24,185221,negative_control,Not coded,resolved,3,3
+main-2026-09-24,186087,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,186087,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,186087,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,186087,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,186087,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,186087,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,186595,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,186595,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,186595,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,186595,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,186595,names_only,Not coded,resolved,3,3
+main-2026-09-24,186595,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,186656,baseline,Not coded,resolved,3,3
+main-2026-09-24,186656,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,186656,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,186656,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,186656,names_only,Not coded,resolved,3,3
+main-2026-09-24,186656,negative_control,Not coded,resolved,3,3
+main-2026-09-24,187611,baseline,Not coded,resolved,3,3
+main-2026-09-24,187611,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,187611,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,187611,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,187611,names_only,Restating,resolved,3,3
+main-2026-09-24,187611,negative_control,Not coded,resolved,3,3
+main-2026-09-24,187917,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,187917,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,187917,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,187917,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,187917,names_only,Not coded,resolved,3,3
+main-2026-09-24,187917,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,189451,baseline,Not coded,resolved,3,3
+main-2026-09-24,189451,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,189451,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,189451,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,189451,names_only,Not coded,resolved,3,3
+main-2026-09-24,189451,negative_control,Not coded,resolved,3,3
+main-2026-09-24,190247,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,190247,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,190247,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,190247,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,190247,names_only,Not coded,resolved,3,3
+main-2026-09-24,190247,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,190413,baseline,Not coded,resolved,3,3
+main-2026-09-24,190413,definition_replacement,Revoicing,resolved,3,3
+main-2026-09-24,190413,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,190413,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,190413,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,190413,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,191358,baseline,Not coded,resolved,3,3
+main-2026-09-24,191358,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,191358,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,191358,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,191358,names_only,Not coded,resolved,3,3
+main-2026-09-24,191358,negative_control,Not coded,resolved,3,3
+main-2026-09-24,191387,baseline,Not coded,resolved,3,3
+main-2026-09-24,191387,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,191387,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,191387,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,191387,names_only,Not coded,resolved,3,3
+main-2026-09-24,191387,negative_control,Not coded,resolved,3,3
+main-2026-09-24,192937,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,192937,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,192937,example_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,192937,exclusion_rule_replacement,Pressing for Reasoning,resolved,3,3
+main-2026-09-24,192937,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,192937,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,195001,baseline,Not coded,resolved,3,3
+main-2026-09-24,195001,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,195001,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,195001,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,195001,names_only,Not coded,resolved,3,3
+main-2026-09-24,195001,negative_control,Not coded,resolved,3,3
+main-2026-09-24,196285,baseline,Revoicing,resolved,3,3
+main-2026-09-24,196285,definition_replacement,Revoicing,resolved,3,3
+main-2026-09-24,196285,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,196285,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,196285,names_only,Restating,resolved,3,3
+main-2026-09-24,196285,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,197059,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,197059,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,197059,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,197059,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,197059,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,197059,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,198222,baseline,Not coded,resolved,3,3
+main-2026-09-24,198222,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,198222,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,198222,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,198222,names_only,Not coded,resolved,3,3
+main-2026-09-24,198222,negative_control,Not coded,resolved,3,3
+main-2026-09-24,198378,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,198378,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,198378,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,198378,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,198378,names_only,Not coded,resolved,3,3
+main-2026-09-24,198378,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,199633,baseline,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,199633,definition_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,199633,example_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,199633,exclusion_rule_replacement,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,199633,names_only,Not coded,resolved,3,3
+main-2026-09-24,199633,negative_control,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,199808,baseline,Not coded,resolved,3,3
+main-2026-09-24,199808,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,199808,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,199808,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,199808,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,199808,negative_control,Not coded,resolved,3,3
+main-2026-09-24,200190,baseline,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,200190,definition_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,200190,example_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,200190,exclusion_rule_replacement,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,200190,names_only,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,200190,negative_control,Keeping Everyone Together,resolved,3,3
+main-2026-09-24,201086,baseline,Revoicing,resolved,3,3
+main-2026-09-24,201086,definition_replacement,Revoicing,resolved,3,3
+main-2026-09-24,201086,example_replacement,Revoicing,resolved,3,3
+main-2026-09-24,201086,exclusion_rule_replacement,Revoicing,resolved,3,3
+main-2026-09-24,201086,names_only,Restating,resolved,3,3
+main-2026-09-24,201086,negative_control,Revoicing,resolved,3,3
+main-2026-09-24,201432,baseline,Not coded,resolved,3,3
+main-2026-09-24,201432,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,201432,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,201432,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,201432,names_only,Not coded,resolved,3,3
+main-2026-09-24,201432,negative_control,Not coded,resolved,3,3
+main-2026-09-24,201856,baseline,Not coded,resolved,3,3
+main-2026-09-24,201856,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,201856,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,201856,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,201856,names_only,Restating,resolved,3,3
+main-2026-09-24,201856,negative_control,Not coded,resolved,3,3
+main-2026-09-24,202414,baseline,Not coded,resolved,3,3
+main-2026-09-24,202414,definition_replacement,Not coded,resolved,3,3
+main-2026-09-24,202414,example_replacement,Not coded,resolved,3,3
+main-2026-09-24,202414,exclusion_rule_replacement,Not coded,resolved,3,3
+main-2026-09-24,202414,names_only,Pressing for Accuracy,resolved,3,3
+main-2026-09-24,202414,negative_control,Not coded,resolved,3,3

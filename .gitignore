@@ -3,6 +3,15 @@ __pycache__/
 data/
 .DS_Store
 __pycache__/
-manual/
+manual/*
+!manual/chapter1.txt
+!manual/chapter1_*.txt
+!manual/chapter1-extraction-corrections.txt
 runs/*
 !runs/README.md
+!runs/main-2026-09-24/
+runs/main-2026-09-24/run.lock
+runs/main-2026-09-24/recovery_log.jsonl
+runs/main-2026-09-24/*.bak-*
+runs/main-2026-09-24/score_report.txt
+runs/main-2026-09-24/score_summary.json
