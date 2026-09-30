@@ -7,10 +7,10 @@ This file lists the sub-steps of each roadmap of the study. The tools used and t
 The researcher made or approved all research and methodological decisions, finalized decision clauses, and made every commit and push. AI tools drafted, reviewed, implemented, executed, or audited work within the scope the researcher assigned. Sub-steps below are listed without names; the roles are as follows.
 
 | Role | Carried out by |
-|---|---|
+|:---:|:---:|
 | Research and methodological decisions, approval of decision clauses, commit and push | Researcher |
 | Running the experimental API calls (pilot and main run) | Researcher |
-| Decision drafting, methodological discussion, interpretation, and prompt preparation | Claude (claude.ai chat) |
+| Decision drafting, methodological discussion, interpretation, and prompt preparation | Claude |
 | Repository checks, read-only inspection, reporting, execution of checks, and drafting of code and documents | Claude Code |
 | Independent audit of the scoring record | Claude Code |
 | Implementation of API-facing code, the scorer, and the main scoring run | Codex |

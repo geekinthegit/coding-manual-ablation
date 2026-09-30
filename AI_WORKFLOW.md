@@ -7,8 +7,8 @@ Research decisions and their rationale are documented in [DECISIONS.md](DECISION
 ## 1. Tools used
 
 | Tool | Underlying model / version | Window | Main use |
-|---|---|---|---|
-| Claude (claude.ai chat) | Claude Fable 5.1; Claude Opus 5.5 for part of the study | Main window, decision windows | Decision drafting, methodological discussion, prompt preparation, result review and cross-review |
+|:---:|:---:|:---:|:---|
+| Claude | Claude Fable 5.1; Claude Opus 5.5 for part of the study | Main window, decision windows | Decision drafting, methodological discussion, prompt preparation, result review and cross-review |
 | Claude Code | Claude Fable 5.1; Claude Opus 5.5 for part of the study | Work window | Repository-based code and document work, execution, source verification and audits |
 | Codex | GPT-6 Astra | Work window | Independent audits, OpenAI-API-facing implementation, and main scoring execution and verification |
 | ChatGPT | GPT-5.6 Sol; GPT-6 Astra only for the statistical-analysis proposal | Separate chat | Prompt review, methodological cross-checking, interpretation review and the statistical-analysis proposal |
