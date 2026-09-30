@@ -1,12 +1,13 @@
+
 # Instructions provided to coding agents
 
-English translation of the local `CLAUDE.md` and `AGENTS.md`, with personal information removed. The original files are written in Korean and are not committed. See [AI_WORKFLOW.md](../AI_WORKFLOW.md), Section 3.
+This file is an English translation of `CLAUDE.md` and `AGENTS.md`, the instruction files given to Claude Code and Codex, with personal information removed. The original files are written in Korean and are not committed to the repository. See [AI_WORKFLOW.md](../AI_WORKFLOW.md), Section 3.
 
 # Research Context Prompt
 
 Use the context below to assist with my research and implementation. Help me understand and explain both the implementation and the methodology.
 
-## [1. Current Project]
+## 1. Current Project
 
 Research question: **“How does replacing specific components of a coding manual with placeholders change an LLM’s agreement with human dialogue coding?”**
 
@@ -23,26 +24,26 @@ The following is a design summary provided for context. If it conflicts with the
 
 The claims of this study concern changes in agreement with human labels resulting from manipulations of coding instructions. Do not classify the study as an evaluation of psychological constructs merely because it evaluates an LLM in the ordinary sense. Do not extend the results into evidence about human-like cognitive processes in the LLM or about the independent or internal mechanisms of individual coding-manual components.
 
-## [1-1. Local Working Environment and Paths]
+## 1-1. Local Working Environment and Paths
 
 The following are working paths on my Mac.
 
-- Raw-data repository:
-- Environment variable:
-- Data files:
-- Experimental repository:
-- Experimental scripts directory:
+- Raw-data repository: [personal information removed]
+- Environment variable: [personal information removed]
+- Data files: [personal information removed]
+- Experimental repository: [personal information removed]
+- Experimental scripts directory: [personal information removed]
 - Read the existing scripts in the `scripts` directory first. Reuse the path handling in `paths.py` and the label mapping in `tags.py`. Do not infer functions, variables, or implementation details from filenames alone.
 
 These paths refer to files on my local Mac. If your execution environment cannot access them directly, do not assume that it can. Request only the file contents or local verification results that are necessary for the task.
 
-## [1-2. Environment to Protect: macOS, zsh, Anaconda]
+## 1-2. Environment to Protect: macOS, zsh, Anaconda
 
 1. In the conda base environment, preserve the following versions: **Python 3.13.9, openai 3.8.0, and tiktoken 0.14.0**. These versions are recorded in the research documentation, so do not make changes that would cause the actual environment to diverge from the record. In particular, the experiment’s token validation depends on `tiktoken`. Before suggesting or executing any package installation or modification command, verify the target environment. Dependencies needed for coursework or other tasks should be managed in a separate environment so that these versions remain unchanged.
 2. `~/.zshrc` contains the environment variables `TALKMOVES_DIR` and `OPENAI_API_KEY_ABLATION`. Do not modify this file or change the configuration of either variable. Experimental scripts read only `OPENAI_API_KEY_ABLATION` (the default `OPENAI_API_KEY` is used for coursework).
 3. The research repository is `~/coding-manual-ablation`. Do not clone other repositories or create coursework files inside this directory. Coursework should be done in a separate directory outside the research repository.
 
-## [2. Principles for Assisting with the Research]
+## 2. Principles for Assisting with the Research
 
 - Follow the dependency structure **research goal → validation of measurement/coding procedure → experimental design → execution and record keeping → analysis → reporting**. Understand which stage the current task belongs to, but do not repeat the entire workflow in every response.
 - Match validation requirements to the actual level of the claim. Do not automatically impose requirements from psychological scale research—such as repeated administrations, internal consistency, or factor analysis—on this classification task.
@@ -51,7 +52,7 @@ These paths refer to files on my local Mac. If your execution environment cannot
 - Distinguish between conversational AI used to assist the research and LLM calls used to generate experimental data. Experimental calls must follow the specified API protocol, and records should preserve the accessible model identifier, settings, call time, actual input, raw response, and post-processing.
 - Distinguish observed results, possible explanations, and explanations that were not tested. Limit generalization and interpretation to the data, conditions, and model that were actually evaluated.
 
-## [3. Principles for Assisting with Code]
+## 3. Principles for Assisting with Code
 
 - Before implementation, briefly clarify the purpose, input, expected output, constraints, and success criteria of the task. Do not reopen decisions that have already been settled.
 - Break implementation into small steps that I can review, beginning with only the changes required for the requested scope. Do not silently change methodological decisions inside the code.
@@ -64,7 +65,7 @@ These paths refer to files on my local Mac. If your execution environment cannot
 - Report-generation scripts should record the generation time and `git_commit_hash()` in the header, and should report only the versions of libraries that the script actually imports and uses (for example, a token-validation script should record the `tiktoken` version and encoding).
 - Validation-script reports should be saved under `reports/`. Run outputs (`attempts`, `labels`, `final_labels`, `score_report`, `score_summary`) should be saved under `runs/<run_id>/` and should not be tracked by Git.
 
-## [4. Current State and Interaction Style]
+## 4. Current State and Interaction Style
 
 Treat the latest files I provide as the source of truth for the current state. Do not assume that suggestions from earlier conversations have been incorporated into the files. Before making a change, read the actual relevant section. When necessary, distinguish between what the documentation specifies and what the code currently implements.
 
@@ -85,7 +86,7 @@ When a conversation becomes long and I move to a new chat, summarize only the cu
 
 If this base prompt is provided by itself, briefly confirm that you understand the context and wait for a specific task request. If a task request is provided with it, begin directly with that task using the supplied materials and settled decisions.
 
-## [5. Rules When Direct Repository Access Is Available]
+## 5. Rules When Direct Repository Access Is Available
 
 If the environment allows you to read repository files and execute commands directly, follow these rules:
 
