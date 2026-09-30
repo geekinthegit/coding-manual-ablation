@@ -81,3 +81,33 @@ No external pre-registration (for example, on OSF) was made. The following proce
 - No factorial design crossing the manipulation with formatting variations.
 
 Records: [01](../decisions/01-research-question.md), [03-1](../decisions/03-1-manual-component-definition.md), [03-2](../decisions/03-2-placeholder-specification.md), [03-3](../decisions/03-3-names-only-diagnostic.md), [05-2](../decisions/05-2-model-and-api-parameters.md), [05-3](../decisions/05-3-call-unit-and-api-request.md), [05-6](../decisions/05-6-execution-order-and-run-records.md), [05-7](../decisions/05-7-tool-validation.md), [06-analysis](../decisions/06-analysis.md), [protocol freeze record](../reports/protocol-freeze-record-2026-09-24.md), [held-out decision record](../reports/heldout-evaluation-decision-2026-09-24.md), [main-run record](../reports/main-run-record-2026-09-24.md)
+
+## Stage 4. Execute and document the experiment
+
+The paper requires that the computational environment be documented (model endpoint, parameters, collection date and time, pre- and post-processing, API version), that the pre-registered protocol be executed faithfully with any deviation reported alongside the original plan, and that the raw data be preserved in full: the prompts as sent, the raw model outputs before parsing, all metadata, and the processing code, in a standard format and deposited in a public repository.
+
+### Environment specification
+
+- **Fixed in the decision documents.** Model snapshot `gpt-5.5-2026-04-23`, tokenizer encoding `o200k_base`, temperature 0, reasoning_effort "none" (05-2 §5.2.1–5.2.2); `max_completion_tokens` 64 and the structured-output schema (05-3); Python 3.13.9, openai 3.8.0, tiktoken 0.14.0, NumPy 2.3.5, with upgrades prohibited until the analysis was complete (05-2 §5.2.3). `top_p` is not included in the request and the API default applies; the decision documents do not mention it, and the manifest `request_params` confirm its absence.
+- **Recorded at execution.** Each run manifest records `run_id`, `pass`, `created_at`, `seed`, the complete ordered call list, `request_params` (model, temperature, reasoning_effort, max_completion_tokens, response_format), SDK settings (`max_retries` 0, `timeout`), concurrency, failure threshold, backoff settings, the sha256 of `prompts.jsonl`, the path and sha256 of the input file, the runner git commit, and the openai SDK and Python versions (05-6 §5.6.2; `runs/main-2026-09-24/manifest_pass1.json`). The tiktoken version and encoding are recorded in the token-verification report; the NumPy version in the scoring record (05-2 §5.2.3; 06 §6.2.1; token-matching check; scoring record §3).
+- **Timing.** The first main-run call started at 2026-09-24T05:43:31Z; every attempt carries `started_at` and `completed_at` timestamps (main-run record §7; 05-6 §5.6.7).
+
+### Execution of the protocol
+
+- **Pre-execution audit.** A read-only integrity audit by Codex at HEAD `d0bd38f` returned NOT READY with three blocking items, all omissions in the freeze record. They were corrected by an append-only commit `beb3ef9` (1 file, 8 insertions), and a recheck at that commit returned READY (main-run record §2).
+- **Execution.** Run `main-2026-09-24` was executed at commit `beb3ef9` with concurrency 4, timeout 60 s, backoff 2/60 s, and failure threshold 10 (main-run record §1, §4). All 5,400 pass-1 calls returned HTTP 200 with outcome `success`; pass 2 made one call to resolve the single remaining tie; pass 3 was not needed and made no call. Total: 5,401 calls (§4–5).
+- **No change during collection.** "No script, prompt template, condition file, decision document, sample or operational setting was changed between the precheck dry run and the completion of data collection" (main-run record §9). The operational settings were not changed between passes (§7).
+- **Deviations reported with the original plan.** The one departure from the frozen plan, the omission of the held-out evaluation, is recorded in a separate decision record and a separate freeze-record section; the original plan in 02-2 §2.2.3 is unchanged and carries a revision note (Stage 2). Documentation corrections found after the freeze are listed in two errata files, each item with its location, current wording, the fact that holds, and the basis; no sentence in a frozen document was edited (documentation errata; errata post-scoring).
+
+### Data preservation
+
+- **What is preserved.** For every attempt, the runner writes `attempt_started` (12 fields, including `prompt_sha256` and `request_params`) and `attempt_completed` (24 fields, including `http_status`, `openai_request_id`, `finish_reason`, `usage`, and `raw_response`, the HTTP response body as a string before any parsing); token counts including `cached_tokens` are under `usage` (05-6 §5.6.7). The prompts exactly as sent are in `prompts.jsonl`. The parsing and scoring code is under `scripts/`.
+- **Format and location.** JSONL and CSV. The prompts, both manifests, both attempts files, `labels.csv`, and `final_labels.csv` for the main run are committed under `runs/main-2026-09-24/`; the manual text, including the four replacement-condition versions and the extraction corrections, is committed under `manual/`. These derived files are shared under the licence of the source dataset, CC BY-NC-SA 4.0 (`LICENSE-DATA`). The scorer output files `score_report.txt` and `score_summary.json` are not committed because they contain local absolute paths and their hashes are sealed in the scoring record; their content is reproduced in the scoring record.
+- **Sealed analysis inputs.** The label files used for scoring are snapshotted under `analysis-inputs/` with their hashes registered in the freeze record (Roadmap 15).
+
+### Where this study differs from the workflow
+
+- No deposit in an external public repository such as Zenodo or Figshare. The raw data are in this GitHub repository only.
+- The scorer output files are not published (see above). The values they contain are in the scoring record.
+
+Records: [05-2](../decisions/05-2-model-and-api-parameters.md), [05-3](../decisions/05-3-call-unit-and-api-request.md), [05-6](../decisions/05-6-execution-order-and-run-records.md), [06-analysis](../decisions/06-analysis.md), [main-run record](../reports/main-run-record-2026-09-24.md), [scoring record](../reports/main-scoring-record-2026-09-24.md), [token-matching check](../reports/token-matching-check-2026-09-24.txt), [protocol freeze record](../reports/protocol-freeze-record-2026-09-24.md), [documentation errata](../reports/documentation-errata-2026-09-24.md), [errata post-scoring](../reports/documentation-errata-post-scoring-2026-09-25.md), [run files](../runs/main-2026-09-24/), [manual text](../manual/), [LICENSE-DATA](../LICENSE-DATA)
