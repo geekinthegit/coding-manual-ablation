@@ -1,5 +1,5 @@
 
-This project used the workflow in [*From prompts to constructs: a dual-validity framework for large language model research in psychology*](https://www.annualreviews.org/content/journals/10.1146/annurev-psych-100925-034807) as its overall structure, with adaptations for the study’s specific design. This document links each stage to the relevant study records.
+This project used the six-stage workflow in [Lin (2026), *A validity-guided workflow for robust large language model research in psychology*](https://doi.org/10.3758/s13428-026-03073-2) as its overall structure, with adaptations for the study's specific design. This document links each stage to the relevant study records.
 
 ## Stage 1. Define the research goal
 
