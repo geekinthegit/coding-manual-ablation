@@ -13,3 +13,8 @@ This document was written on 2026-09-25, after main-study scoring. It is separat
    - Current wording: "These quantities will be reproduced in a repository script using the corresponding hypergeometric calculation (`scripts/[filename].py`)."
    - Current fact: the placeholder `scripts/[filename].py` was not replaced by an actual script file name. No repository script performing this hypergeometric calculation was created.
    - Basis: `git grep -n -i "hypergeom" 187a25245f1ab90acb40e5d569b67ab02d942553` returns one match, `187a25245f1ab90acb40e5d569b67ab02d942553:decisions/02-3-sampling-design.md:31`; `git grep -n -i -E "hypergeom|math\.comb|scipy|binom" 187a25245f1ab90acb40e5d569b67ab02d942553 -- scripts tests` returns no match (exit status 1).
+   
+3. `decisions/05-1-context-specification.md:40`
+   - Current wording: "(d) Instruction wording, draft. Task instruction:"
+   - Current fact: the label retains the word "draft", but 5.1.6 (a)–(d) were moved from [proposed] to [decided] on 2026-09-23 (Revision note at line 54: "No prompt wording was changed"). The word is a residual label from the proposal stage and does not indicate an unsettled status. The text of 05-1 is unchanged.
+   - Basis: `grep -n "draft" decisions/05-1-context-specification.md` returns line 40 only; `grep -n "5.1.6" decisions/05-1-context-specification.md` returns lines 30 and 54, and line 54 records the move to [decided].

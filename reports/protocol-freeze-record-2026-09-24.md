@@ -193,3 +193,4 @@ Appended 2026-09-24. Documentation-only changes made after the main-run analysis
 Appended 2026-09-25, after main-study scoring. This section is kept separate from the "Post-freeze documentation updates (no protocol change)" section above, which was written before scoring.
 
 1. `reports/documentation-errata-post-scoring-2026-09-25.md` added: 2,509 B, sha256 8bfb151d78e911a77b14f3b31bda6cef3ff00c5723766c28498505a0299a9f9f.
+2. `reports/documentation-errata-post-scoring-2026-09-25.md` revised 2026-09-30 (item 3 added; no existing item changed): 3,169 B, sha256 8c2b3c1420b2eb3fd691be712e40c44a2b30ef6833ba8f7b164ae07c510cff7d.
