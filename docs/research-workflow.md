@@ -151,3 +151,41 @@ The paper requires data-quality and assumption checks before analysis, explicit 
 - Conceptual robustness is limited to the two reference conditions.
 
 Records: [02-3](../decisions/02-3-sampling-design.md), [03-1](../decisions/03-1-manual-component-definition.md), [03-3](../decisions/03-3-names-only-diagnostic.md), [04-2](../decisions/04-2-repeated-call-reliability.md), [05-3](../decisions/05-3-call-unit-and-api-request.md), [05-4](../decisions/05-4-repetition-and-label-aggregation.md), [06-analysis](../decisions/06-analysis.md), [tool-validation record](../reports/tool-validation-record-2026-09-23.md), [main-run record](../reports/main-run-record-2026-09-24.md), [completeness report](../reports/completeness-report-2026-09-24.md), [scoring record](../reports/main-scoring-record-2026-09-24.md)
+
+## Stage 6. Report and reconceptualize
+
+The paper requires transparent reporting that follows an AI reporting guideline (TRIPOD-LLM or MI-CLEAR-LLM) and a public replication package covering the model and environment, the handling of stochasticity, the prompts and their use, and a statement on data contamination; claims constrained to the evidence, without anthropomorphic language and with observed performance distinguished from inferred competence; use of the findings to refine tools or constructs; and a limitations section that addresses generalization across model versions and the ethical implications.
+
+### Reporting
+
+- **Replication package.** The elements the paper lists are in this repository: model and environment (05-2; run manifests), stochasticity handling (three calls per item-condition, plurality aggregation, tie resolution; 05-4, 06), the prompts exactly as sent and how they were assembled (`runs/main-2026-09-24/prompts.jsonl`; 05-1), the code (`scripts/`), the sealed analysis inputs (`analysis-inputs/`), and the execution, scoring, and verification records (`reports/`). Raw responses and the manual text are published under the source dataset's licence (Stage 4).
+- **Final report.** `reports/final-research-report-2026-09-25.md`, headed "Status: first draft; not independently audited" (Roadmap 18-3, corrected in 18-4). No audit of the report has been committed since.
+- **Data exposure.** The only statement on prior model exposure is the interpretation boundary of the names-only reference: "Prior model exposure to TalkMoves or related material remains possible" (03-3; cited in the final report §4.5, §13.3, §15). There is no contamination statement covering the baseline and replacement conditions, and the training-data cutoff of `gpt-5.5-2026-04-23` is not recorded anywhere in the repository.
+- **Not done.** No reporting guideline (TRIPOD-LLM, MI-CLEAR-LLM) was followed. The reproducibility checklist named in the Roadmap 18 title was planned (18-1) but no checklist file was produced; `docs/reproduction.md` is the intended location. No external deposit (Stage 4).
+
+### Claims constrained to evidence
+
+- The claim boundaries were fixed before data collection (01 §1.2) and the interpretation statements in the report were checked against the frozen documents (Roadmap 16-5). What is reported is agreement with the human labels under one prompt, one model snapshot, and one setting; Δκ "is not taken as evidence about what the LLM understands or what human coders relied on" (01, cited in the final report §3). Agreement is a claim about outputs only (01 §1.2.2).
+- A search of the final report for anthropomorphic verbs with the model as subject (understand, know, reason, believe, think, intend, decide) found no affirmative use; the single occurrence is the negated boundary sentence above.
+- Results are reported for the configuration used only: "All calls used one dated snapshot, `gpt-5.5-2026-04-23`, with temperature 0 and reasoning effort none; results are reported for this configuration only" (final report §15, Single model, single setting). The reason for fixing the snapshot is stated in 05-2 §5.2.1: provider-side model updates can alter behaviour and threaten replicability.
+
+### Use of the findings
+
+- This study measures no psychological construct in the model, so the paper's reconceptualization step, replacing a human-centric construct that fails validation with a computationally grounded one, has no object here.
+- What the paper says for a tool-development goal is that the findings inform more robust instruments. In this study that role is limited and stated in advance: the study is "a methodological pre-study for a later human–AI interaction study, examining whether LLM-assisted coding can be used there" (01 §1.2.3). The results on TalkMoves do not transfer to the later study's coding manual; what transfers is the methodological premise that a manual developed for human coders should not be assumed, without validation, to function equivalently as an LLM prompt (01 §1.2.3; final report §14.4). Further directions are listed as questions for new designs, not as findings (final report §14.2).
+
+### Limitations and ethical implications
+
+- **Limitations.** The final report §15 lists thirteen items: rare categories and scope of inference, negative-control volume, placeholder neutrality, scope of token verification, uncertainty scope, label construction, context condition, single model and single setting, reference standard, names-only reference, held-out evaluation, generalization, and documentation.
+- **Generalization across model versions.** Addressed by fixing one dated snapshot and reporting for that configuration only (final report §15; 05-2 §5.2.1). No statement generalizes the result to other versions of the model.
+- **Ethical implications.** Not addressed. Neither the decision documents nor the final report discusses the consequences of misclassification or the risks of applying the tool (see the Consequential evidence row in Stage 1). The data are publicly licensed classroom transcripts from the TalkMoves corpus; no new human-participant data were collected.
+
+### Where this study differs from the workflow
+
+- No reporting guideline followed; no reproducibility checklist file; no external deposit.
+- The final report is a first draft that has not been independently audited.
+- No contamination statement for the substantive conditions and no training-data cutoff recorded.
+- Ethical and social implications not discussed.
+- No reconceptualization step, because no construct in the model is measured.
+
+Records: [01](../decisions/01-research-question.md), [03-3](../decisions/03-3-names-only-diagnostic.md), [05-1](../decisions/05-1-context-specification.md), [05-2](../decisions/05-2-model-and-api-parameters.md), [05-4](../decisions/05-4-repetition-and-label-aggregation.md), [06-analysis](../decisions/06-analysis.md), [final report](../reports/final-research-report-2026-09-25.md), [scoring record](../reports/main-scoring-record-2026-09-24.md), [run files](../runs/main-2026-09-24/), [analysis inputs](../analysis-inputs/)
