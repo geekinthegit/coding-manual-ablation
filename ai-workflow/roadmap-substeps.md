@@ -99,6 +99,8 @@ Note: From Roadmap 6, where the rules began to govern actual API calls, repeated
 
 ### Roadmap 7. Implement the execution order and run-record system
 
+**Attribution note:** Codex implemented the runner, response validation, and the parser, added the decision-clause references to the docstrings, and implemented the fatal-error handling for unexpected exceptions.
+
 - 7-1 Fix the execution order and seeds
 - 7-2 Fix concurrency and retry rules
 - 7-3 Fix interruption and resume rules
@@ -111,6 +113,8 @@ Note: From Roadmap 6, where the rules began to govern actual API calls, repeated
 - 7-10 Record unexpected exceptions as fatal errors and stop the run
 
 ### Roadmap 8. Fix the analysis specification and verify the scorer
+
+**Attribution note:** The proposed statistical rules were audited with ChatGPT and Codex. Codex designed and implemented the scorer, including the point estimates, the bootstrap, and the reporting, and verified them.
 
 - 8-1 Audit the proposed statistical rules
   - a. Audit the proposal against the existing decisions
@@ -141,6 +145,8 @@ Note: From Roadmap 6, where the rules began to govern actual API calls, repeated
   - d. Implement the text and JSON reports and the command-line entry point
 
 ### Roadmap 9. Complete tool/task validation
+
+**Attribution note:** The pre-validation independent audit was performed by Codex. Claude Code handled the repository checks, the development-target script, the tool-validation decision document, and the static checks. The validation run was carried out by the researcher together with Claude Code.
 
 - 9-1 Prepare and run the independent audit
   - a. Compare the local instruction files
@@ -267,6 +273,7 @@ Note: From Roadmap 6, where the rules began to govern actual API calls, repeated
 ### Roadmap 14. Run the main experiment
 
 Note: Steps in this roadmap are numbered from 14-0 to match the numbering used in the repository records.
+**Attribution note:** The pre-execution integrity audit and its recheck were performed by Codex. The experimental API calls were run by the researcher. Claude Code handled the read-only runner checks, the pre-run dry run, the freeze-record correction, parsing, aggregation, and drafting of the main-run record.
 
 - 14-0 Run the independent integrity audit before execution
   - a. Run the read-only audit
@@ -331,6 +338,7 @@ Note: Steps in this roadmap are numbered from 14-0 to match the numbering used i
 ### Roadmap 16. Score the main experiment
 
 Note: Steps in this roadmap are numbered from 16-0 to match the numbering used in the repository records.
+**Attribution note:** Codex ran the preflight, the scorer, the integrity check, and the independent recomputation of the point estimates, reported the results, and wrote the scoring record. ChatGPT wrote the preflight and recomputation prompts. Claude Code checked the interpretation statements and cited values against the frozen documents and independently audited the scoring record.
 
 - 16-0 Run the read-only preflight before scoring
   - a. Write the preflight scope and prompt
