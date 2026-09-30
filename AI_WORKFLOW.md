@@ -7,7 +7,7 @@ Research decisions and their rationale are documented in [DECISIONS.md](DECISION
 ## 1. Tools used
 
 | Tool | Underlying model / version | Window | Main use |
-|:---:|:---:|:---:|:---|
+|:---|:---|:---|:---|
 | Claude | Claude Fable 5.1; Claude Opus 5.5 for part of the study | Main window, decision windows | Decision drafting, methodological discussion, prompt preparation, result review and cross-review |
 | Claude Code | Claude Fable 5.1; Claude Opus 5.5 for part of the study | Work window | Repository-based code and document work, execution, source verification and audits |
 | Codex | GPT-6 Astra | Work window | Independent audits, OpenAI-API-facing implementation, and main scoring execution and verification |
@@ -20,7 +20,7 @@ The model queried in the experiment, `gpt-5.5-2026-04-23`, is the object of the 
 The researcher made or approved all research and methodological decisions, finalized decision clauses, and made every commit and push. AI tools drafted, reviewed, implemented, executed, or audited work within the scope the researcher assigned. Coding agents were instructed not to change research decisions, expand the assigned scope, or commit repository changes. The researcher specified each unit of work and adjudicated audit findings.
 
 | Role | Carried out by |
-|:---:|:---:|
+|:---|:---|
 | Research and methodological decisions, approval of decision clauses, commit and push | Researcher |
 | Running the experimental API calls (pilot and main run) | Researcher |
 | Decision drafting, methodological discussion, interpretation, and prompt preparation | Claude |
