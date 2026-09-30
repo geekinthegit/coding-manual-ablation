@@ -1,5 +1,6 @@
 
 This project used the six-stage workflow in [Lin (2026), *A validity-guided workflow for robust large language model research in psychology*](https://doi.org/10.3758/s13428-026-03073-2) as its overall structure, with adaptations for the study's specific design. This document links each stage to the relevant study records.
+The decision documents cite the earlier arXiv version of this paper as Lin (2025); this document cites the published version.
 
 ## Stage 1. Define the research goal
 
@@ -46,3 +47,37 @@ For this pathway, the paper's central claim is that the LLM can serve as a relia
 - **Validation was scoped to procedure.** The purpose of the study is not to validate the tool as a replacement for human coders but to measure how replacing manual components changes agreement. Tool validation was accordingly focused on whether the procedure ran as designed.
 
 Records: [05-1](../decisions/05-1-context-specification.md), [05-3](../decisions/05-3-call-unit-and-api-request.md), [05-5](../decisions/05-5-role-of-the-pilot.md), [05-6](../decisions/05-6-execution-order-and-run-records.md), [05-7](../decisions/05-7-tool-validation.md), [02-2](../decisions/02-2-development-and-held-out-sets.md), [dev-targets report](../reports/dev-targets-2026-09-23.txt), [tool-validation record](../reports/tool-validation-record-2026-09-23.md), [procedural pilot record](../reports/procedural-pilot-record-2026-09-24.md), [protocol freeze record](../reports/protocol-freeze-record-2026-09-24.md), [input verification](../reports/input-verification-2026-09-24.md), [held-out decision record](../reports/heldout-evaluation-decision-2026-09-24.md), [main-run record](../reports/main-run-record-2026-09-24.md)
+
+## Stage 3. Design the experiment
+
+The paper requires that the manipulation instantiate the cause, that the outcome be the instrument validated in Stage 2, that the design withstand the four threats to causal validity, and that the design, technical parameters, analysis plan, and claim boundaries be pre-registered before data collection, in two stages if the instrument is developed iteratively.
+
+### Manipulation and outcome
+
+- **Manipulation.** Replacement of manual components by a placeholder. Each condition is defined by two lists, what is replaced and what remains (03-1 §3.1.5–3.1.7). Component types e, g, and h (definitions, examples, exclusion rules) are the replacement targets; type a (background sentences) is the negative-control target (03-1 §3.1.5–3.1.6). The placeholder symbol and construction rule preserve token count and position (03-2 §3.2.2).
+- **Outcome.** Unweighted Cohen's κ against the human labels, obtained with the same prompt and request format as in Stage 2, and Δκ = κ_replacement − κ_baseline on paired sets (06 §6.1.1–6.1.2).
+- **Reference conditions.** The negative control replaces task-irrelevant background sentences by the same procedure and reports whether agreement changes; it is context only and is not subtracted from, used to adjust, or used as a pass/fail criterion for the substantive estimates (03-1 §3.1.6–3.1.7; 03-2 §3.2.4). The names-only reference reports agreement obtained under a prompt in which no substantive manual text is supplied; it is a supplementary descriptive reference, not a chance baseline or a lower bound, and it is excluded from the primary Δκ comparisons (03-3).
+
+### Validity threats
+
+Which threats apply to a research-tool study, how each was controlled, and what was not controlled are recorded in the Stage 1 table (rows Internal validity, External validity, Construct validity of the manipulation, Statistical conclusion validity). Two items that the paper lists and this study did not address are noted there: no factorial crossing of formatting variations was run, and the neutrality of the placeholder itself was not established.
+
+### Fixing the protocol before data collection
+
+No external pre-registration (for example, on OSF) was made. The following procedures fixed the design inside the repository, with timing shown by commit history rather than by a third-party timestamp.
+
+- **Model and parameters.** The model snapshot `gpt-5.5-2026-04-23` and tokenizer encoding were decided on 2026-09-09; temperature 0 and reasoning_effort "none" on 2026-09-09; the request format on 2026-09-15 (05-2 §5.2.1–5.2.2; 05-3).
+- **Analysis rules.** The κ and Δκ definitions, the paired-set rule, the bootstrap (10,000 replicates, seed 20260919, percentile intervals), and the handling of undefined κ and degenerate intervals are in 06, adopted 2026-09-19 and promoted to [decided] at the protocol freeze on 2026-09-24 (06, file-level tag). The file has not changed since the freeze commit `ed13ec2`.
+- **Claim boundaries.** What the study does and does not claim is fixed in 01 §1.2.
+- **Protocol freeze.** Before the main run, the sha256 of every decision document, input file, and script was recorded (protocol freeze record §3–4). The freeze commit `ed13ec2` (2026-09-24T08:10:35+09:00) precedes the first main-run call (2026-09-24T14:43:31+09:00; main-run record §7, recorded there in UTC). Roadmaps 12–14 executed the frozen protocol without reopening design choices (freeze record §5).
+- **Post-freeze changes.** Changes after the freeze are handled only under 05-7 §5.7.3, which permits a short list of implementation-level changes only when a defect is confirmed from raw responses and prohibits changes to component boundaries, the placeholder rule, the condition list, the model and parameters, the repetition and aggregation rules, the execution order, the scorer and bootstrap rules, and the sampling design (05-6 §5.6.10; freeze record §5). Changes under §5.7.3 are appended to the freeze record with new hashes; the original record is never edited. A change outside §5.7.3, the omission of the held-out evaluation, was recorded as a separate post-freeze deviation section (held-out decision record; freeze record).
+- **Decision dating.** Every decision carries a [proposed] and [decided] date; later changes are added as revision notes that leave the original text in place.
+- **Separation of validation and main run.** Tool validation (Roadmap 9) treated κ as diagnostic information, not a pass criterion, and the procedural pilot (Roadmap 10) computed no agreement statistic (Stage 2). The freeze sits between validation and the main run, which follows the two-stage order the paper recommends.
+
+### Where this study differs from the workflow
+
+- No external pre-registration. The freeze record and commit history show when each rule was fixed, but they are not a third-party timestamp.
+- No prompt variations were registered because none were run (Stage 2).
+- No factorial design crossing the manipulation with formatting variations.
+
+Records: [01](../decisions/01-research-question.md), [03-1](../decisions/03-1-manual-component-definition.md), [03-2](../decisions/03-2-placeholder-specification.md), [03-3](../decisions/03-3-names-only-diagnostic.md), [05-2](../decisions/05-2-model-and-api-parameters.md), [05-3](../decisions/05-3-call-unit-and-api-request.md), [05-6](../decisions/05-6-execution-order-and-run-records.md), [05-7](../decisions/05-7-tool-validation.md), [06-analysis](../decisions/06-analysis.md), [protocol freeze record](../reports/protocol-freeze-record-2026-09-24.md), [held-out decision record](../reports/heldout-evaluation-decision-2026-09-24.md), [main-run record](../reports/main-run-record-2026-09-24.md)
