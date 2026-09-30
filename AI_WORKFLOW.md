@@ -20,10 +20,10 @@ The model queried in the experiment, `gpt-5.5-2026-04-23`, is the object of the 
 The researcher made or approved all research and methodological decisions, finalized decision clauses, and made every commit and push. AI tools drafted, reviewed, implemented, executed, or audited work within the scope the researcher assigned. Coding agents were instructed not to change research decisions, expand the assigned scope, or commit repository changes. The researcher specified each unit of work and adjudicated audit findings.
 
 | Role | Carried out by |
-|---|---|
+|:---:|:---:|
 | Research and methodological decisions, approval of decision clauses, commit and push | Researcher |
 | Running the experimental API calls (pilot and main run) | Researcher |
-| Decision drafting, methodological discussion, interpretation, and prompt preparation | Claude (claude.ai chat) |
+| Decision drafting, methodological discussion, interpretation, and prompt preparation | Claude |
 | Repository checks, read-only inspection, reporting, execution of checks, and drafting of code and documents | Claude Code |
 | Independent audit of the scoring record | Claude Code |
 | Implementation of API-facing code, the scorer, and the main scoring run | Codex |
