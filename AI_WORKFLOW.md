@@ -34,7 +34,7 @@ From Roadmap 17 onward, planning and repository file work were primarily delegat
 
 ## 3. Instructions provided to coding agents
 
-Two local files, `CLAUDE.md` and `AGENTS.md`, were provided to Claude Code and Codex respectively at the start of each session. They are not committed to the repository. The original files are written in Korean. Personal information was removed from them, and the redacted text is reproduced in English translation in [docs/agent-context/agent-context-files.md](docs/agent-context/agent-context-files.md).
+Two local files, `CLAUDE.md` and `AGENTS.md`, were provided to Claude Code and Codex respectively at the start of each session. They are not committed to the repository. The original files are written in Korean. Personal information was removed from them, and the redacted text is reproduced in English translation in [docs/agent-context.md](docs/agent-context.md).
 
 ## 4. Roadmap sub-steps
 

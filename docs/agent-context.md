@@ -1,7 +1,7 @@
 
 # Instructions provided to coding agents
 
-This file is an English translation of `CLAUDE.md` and `AGENTS.md`, the instruction files given to Claude Code and Codex, with personal information removed. The original files are written in Korean and are not committed to the repository. See [AI_WORKFLOW.md](../../AI_WORKFLOW.md), Section 3.
+This file is an English translation of `CLAUDE.md` and `AGENTS.md`, the instruction files given to Claude Code and Codex, with personal information removed. The original files are written in Korean and are not committed to the repository. See [AI_WORKFLOW.md](../AI_WORKFLOW.md), Section 3.
 
 # Research Context Prompt
 
