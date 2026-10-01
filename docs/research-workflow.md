@@ -1,5 +1,5 @@
 
-This project used the six-stage workflow in [Lin (2026), *A validity-guided workflow for robust large language model research in psychology*](https://doi.org/10.3758/s13428-026-03073-2) as its overall structure, with adaptations for the study's specific design. This document links each stage to the relevant study records.
+This project used the six-stage workflow in [Lin (2026), *A validity-guided workflow for robust large language model research in psychology*](https://doi.org/10.3758/s13428-026-03073-2) as its overall structure with adaptations for the study's specific design. This document links each stage to the relevant study records.
 The decision documents cite the earlier arXiv version of this paper as Lin (2025); this document cites the published version.
 
 ## Stage 1. Define the research goal
@@ -42,39 +42,78 @@ Lin (2026) treats a classification tool's central claim as functional: the LLM c
 | Input verification | All 300 main-sample inputs checked for target utterance, context, and replacement sites | [input verification report](../reports/input-verification-2026-09-24.md) |
 | Output format | Structured output restricted to the seven category names | [05-3](../decisions/05-3-call-unit-and-api-request.md); [main-run record](../reports/main-run-record-2026-09-24.md) |
 
-## Stage 3. Design the experiment
+## Stage 3: Design Experiment
 
-The paper requires that the manipulation instantiate the cause, that the outcome be the instrument validated in Stage 2, that the design withstand the four threats to causal validity, and that the design, technical parameters, analysis plan, and claim boundaries be pre-registered before data collection, in two stages if the instrument is developed iteratively.
+### 1. Operationalize the Manipulation and Outcome
 
-### Manipulation and outcome
+In this study, the manipulated object was the coding instruction itself, not a psychological construct.
 
-- **Manipulation.** Replacement of manual components by a placeholder. Each condition is defined by two lists, what is replaced and what remains (03-1 §3.1.5–3.1.7). Component types e, g, and h (definitions, examples, exclusion rules) are the replacement targets; type a (background sentences) is the negative-control target (03-1 §3.1.5–3.1.6). The placeholder symbol and construction rule preserve token count and position (03-2 §3.2.2).
-- **Outcome.** Unweighted Cohen's κ against the human labels, obtained with the same prompt and request format as in Stage 2, and Δκ = κ_replacement − κ_baseline on paired sets (06 §6.1.1–6.1.2).
-- **Reference conditions.** The negative control replaces task-irrelevant background sentences by the same procedure and reports whether agreement changes; it is context only and is not subtracted from, used to adjust, or used as a pass/fail criterion for the substantive estimates (03-1 §3.1.6–3.1.7; 03-2 §3.2.4). The names-only reference reports agreement obtained under a prompt in which no substantive manual text is supplied; it is a supplementary descriptive reference, not a chance baseline or a lower bound, and it is excluded from the primary Δκ comparisons (03-3).
+| Item | This study | Where documented |
+|---|---|---|
+| Independent variable | Manual condition, with six levels:<br>1. Full-manual baseline<br>2. Definitions replaced with placeholders<br>3. Examples replaced with placeholders<br>4. Exclusion rules replaced with placeholders<br>5. Negative control (Task-irrelevant background passage replaced with placeholders)<br>6. Names-only reference condition | 03-1; 03-3 |
+| Dependent outcome | Agreement with fixed human labels, measured by unweighted Cohen's κ. Δκ was prespecified as the difference between each replacement condition and baseline; names-only was excluded from these comparisons | 06; 02-3 |
+| Manipulation | In the four replacement conditions, specified manual passages were replaced in place with placeholders matched in token count. | 03-1; 03-2 |
+| Resulting claim | How the implemented replacements changed agreement under the tested conditions, not psychological mechanisms or the independent contribution or intrinsic importance of individual manual components | main scoring record (claim boundary) |
 
-### Validity threats
+### 2. Control Four Categories of Validity Threats
+#### 2.1 Internal validity
 
-Which threats apply to a research-tool study, how each was controlled, and what was not controlled are recorded in the Stage 1 table (rows Internal validity, External validity, Construct validity of the manipulation, Statistical conclusion validity). Two items that the paper lists and this study did not address are noted there: no factorial crossing of formatting variations was run, and the neutrality of the placeholder itself was not established.
+Applies under Table 1, Note 6 because the experiment manipulated the coding tool itself.
 
-### Fixing the protocol before data collection
+##### 2.1.1 Prompt-level confounds
 
-No external pre-registration (for example, on OSF) was made. The following procedures fixed the design inside the repository, with timing shown by commit history rather than by a third-party timestamp.
+| Item | This study | Where documented |
+|---|---|---|
+| Control positional effects | Replacement conditions preserved token count and position relative to baseline. Positions were held fixed rather than randomized | 03-2; input verification |
+| Control formatting artifacts | Output schema and label format were held constant across conditions. Label variations were not tested | 05-3 |
+| Address scenario reconstruction | The same utterances and byte-identical context blocks were used across conditions. This controlled supplied context; model-inferred background assumptions were not directly tested | 05-1; input verification |
+| Keep causal claims within the implemented manipulation | Placeholder neutrality was not established. Claims concern the specified replacements, not the independent contribution of individual manual components | 01; 03-2 |
 
-- **Model and parameters.** The model snapshot `gpt-5.5-2026-04-23` and tokenizer encoding were decided on 2026-09-09; temperature 0 and reasoning_effort "none" on 2026-09-09; the request format on 2026-09-15 (05-2 §5.2.1–5.2.2; 05-3).
-- **Analysis rules.** The κ and Δκ definitions, the paired-set rule, the bootstrap (10,000 replicates, seed 20260919, percentile intervals), and the handling of undefined κ and degenerate intervals are in 06, adopted 2026-09-19 and promoted to [decided] at the protocol freeze on 2026-09-24 (06, file-level tag). The file has not changed since the freeze commit `ed13ec2`.
-- **Claim boundaries.** What the study does and does not claim is fixed in 01 §1.2.
-- **Protocol freeze.** Before the main run, the sha256 of every decision document, input file, and script was recorded (protocol freeze record §3–4). The freeze commit `ed13ec2` (2026-09-24T08:10:35+09:00) precedes the first main-run call (2026-09-24T14:43:31+09:00; main-run record §7, recorded there in UTC). Roadmaps 12–14 executed the frozen protocol without reopening design choices (freeze record §5).
-- **Post-freeze changes.** Changes after the freeze are handled only under 05-7 §5.7.3, which permits a short list of implementation-level changes only when a defect is confirmed from raw responses and prohibits changes to component boundaries, the placeholder rule, the condition list, the model and parameters, the repetition and aggregation rules, the execution order, the scorer and bootstrap rules, and the sampling design (05-6 §5.6.10; freeze record §5). Changes under §5.7.3 are appended to the freeze record with new hashes; the original record is never edited. A change outside §5.7.3, the omission of the held-out evaluation, was recorded as a separate post-freeze deviation section (held-out decision record; freeze record).
-- **Decision dating.** Every decision carries a [proposed] and [decided] date; later changes are added as revision notes that leave the original text in place.
-- **Separation of validation and main run.** Tool validation (Roadmap 9) treated κ as diagnostic information, not a pass criterion, and the procedural pilot (Roadmap 10) computed no agreement statistic (Stage 2). The freeze sits between validation and the main run, which follows the two-stage order the paper recommends.
+##### 2.1.2 Technical confounds
 
-### Where this study differs from the workflow
+| Item | This study | Where documented |
+|---|---|---|
+| Use and record a fixed model snapshot | The same dated OpenAI API model snapshot (gpt-5.5-2026-04-23) was requested across conditions. The returned model identifier was checked on every response | 05-2; main-run record |
+| Hold API parameters constant | Temperature was set to 0, reasoning effort to none, and the same output schema was used across conditions | 05-2; 05-3; main-run record |
+| Record collection dates | Collection dates were recorded | main-run record |
+| Prevent context accumulation | Each call contained a single user message, with no conversation history or prior output passed into subsequent calls | 05-3 §5.3.10 |
 
-- No external pre-registration. The freeze record and commit history show when each rule was fixed, but they are not a third-party timestamp.
-- No prompt variations were registered because none were run (Stage 2).
-- No factorial design crossing the manipulation with formatting variations.
 
-Records: [01](../decisions/01-research-question.md), [03-1](../decisions/03-1-manual-component-definition.md), [03-2](../decisions/03-2-placeholder-specification.md), [03-3](../decisions/03-3-names-only-diagnostic.md), [05-2](../decisions/05-2-model-and-api-parameters.md), [05-3](../decisions/05-3-call-unit-and-api-request.md), [05-6](../decisions/05-6-execution-order-and-run-records.md), [05-7](../decisions/05-7-tool-validation.md), [06-analysis](../decisions/06-analysis.md), [protocol freeze record](../reports/protocol-freeze-record-2026-09-24.md), [held-out decision record](../reports/heldout-evaluation-decision-2026-09-24.md), [main-run record](../reports/main-run-record-2026-09-24.md)
+#### 2.2 External validity
+
+N/A in Table 1's research-tool pathway. Claims are limited to the eligible target population of the TalkMoves development set and to the tested model and settings.
+
+#### 2.3 Construct validity
+
+N/A in Table 1's research-tool pathway. The study manipulated coding instructions, not a psychological construct, and makes no claims about psychological mechanisms or the independent contribution of individual manual components.
+
+#### 2.3 Statistical conclusion validity
+
+| Item | This study | Where documented |
+|---|---|---|
+| Do not count repeated responses as independent observations | Repeated calls were used to form the final label and were not counted as additional samples | 05-4 |
+| Account for dependence in the data | Condition results for the same utterance were compared as paired sets and resampled with an utterance-level paired bootstrap | 06 |
+| Keep inference within what the analysis supports | Missing final labels were not imputed; prespecified comparison rules were applied | 06 |
+| | Rules for ties and insufficient valid repeats were set in advance | 05-4 |
+| | κ, Δκ, and bootstrap confidence intervals were reported | 06; main scoring record |
+| | Intervals were stated to be per-statistic, not simultaneous | 06; main scoring record |
+| | Rules were set for undefined κ and degenerate intervals | 06 |
+| | The sample of 300 was stated as a prespecified evaluation size set under resource constraints | 02-3 |
+| | The bootstrap was stated to approximate sampling uncertainty only | 06; main scoring record |
+| Do not overstate results because of low variability | Magnitudes and intervals of κ and Δκ were reported and interpreted together | 06; main scoring record |
+
+### 3. Develop Pre-registration Plan
+
+The study was not registered on a public registry. Instead, the protocol was frozen in the repository before sampling, and every later change was recorded with its date and reason.
+
+| Item | This study | Where documented |
+|---|---|---|
+| Prompt variations | Six manual conditions and their replacement spans were fixed before the freeze | 03-1; 03-3; protocol freeze record |
+| Technical parameters | Model snapshot, temperature, reasoning effort, and output schema were fixed before the freeze | 05-2; 05-3; protocol freeze record |
+| Analysis plan | κ, paired Δκ, bootstrap procedure, and missing-label rules were adopted before main-experiment results | 06 |
+| Robustness checks | Robustness analyses were outside the study's scope and were not performed. Findings are limited to the tested model snapshot, parameter settings, prompt format, and parsing rules | — |
+| Boundary conditions | Population-level inference, no category-level conclusions, and no between-condition contrasts were set in advance | 02-3; 06 |
+| Deviations after the freeze | The omission of held-out evaluation was recorded as a post-freeze deviation, after data collection and before scoring | held-out decision record; protocol freeze record |
 
 ## Stage 4. Execute and document the experiment
 
