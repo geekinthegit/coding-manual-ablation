@@ -1,12 +1,15 @@
 
 This project used the six-stage workflow in [Lin (2026), *A validity-guided workflow for robust large language model research in psychology*](https://doi.org/10.3758/s13428-026-03073-2) as its overall structure with adaptations for the study's specific design. This document links each stage to the relevant study records.
-The decision documents cite the earlier arXiv version of this paper as Lin (2025); this document cites the published version.
+The decision documents cite the earlier arXiv version of this paper as Lin (2025). This document cites the published version.
 
 ## Stage 1. Define the research goal
 
 **Classification: LLM as a research tool** (Lin, Table 1).
 
-This study uses an LLM as a coding tool and tests how replacing coding-manual components with placeholders changes its agreement with human labels. Two notes in Table 1 apply: note 4 because the reference is an existing standard—human coders’ labels from TalkMoves—and note 6 because the study experiments on the tool itself, as in the paper’s example of prompting strategies affecting classification accuracy.
+This study uses an LLM as a coding tool and tests how replacing coding-manual components with placeholders changes its agreement with human labels. Two notes in Table 1 applied.
+
+- note 4: the reference is an existing standard—human coders' labels from TalkMoves
+- note 6: the study experiments on the tool itself as in the paper's example of prompting strategies affecting classification accuracy.
 
 The study does not assess psychological constructs in the model. Its findings provide no evidence about human cognition, human-like processes in the model, or the internal mechanisms of individual manual components.
 
@@ -31,7 +34,7 @@ The study does not assess psychological constructs in the model. Its findings pr
 
 **Pathway A: Research tool—classification and coding**
 
-Lin (2026) treats a classification tool's central claim as functional: the LLM can stand in for human coders. This study did not make that claim. Its target was the change in agreement with human labels under specified manual replacements, not the performance of an optimized prompt on new data. The study therefore did not perform iterative performance-based prompt refinement or held-out predictive validation. The manual replacements themselves tested sensitivity to instruction content; sensitivity to phrasing was outside the study's scope and is noted as a limitation. Validation was scoped to whether the procedure ran as designed:
+Lin (2026) treats a classification tool's central claim as functional: the LLM can stand in for human coders. This study did not make that claim. Its target was the change in agreement with human labels under specified manual replacements, not the performance of an optimized prompt on new data. The study therefore did not perform iterative performance-based prompt refinement or held-out predictive validation. Validation was scoped to whether the procedure ran as designed:
 
 | Item | This study | Where documented |
 |:---|:---|:---|
@@ -85,7 +88,7 @@ N/A in Table 1's research-tool pathway. Claims are limited to the eligible targe
 
 #### 2.3 Construct validity
 
-N/A in Table 1's research-tool pathway. The study manipulated coding instructions, not a psychological construct, and makes no claims about psychological mechanisms or the independent contribution of individual manual components.
+N/A in Table 1's research-tool pathway. The study manipulated coding instructions not a psychological construct. It makes no claims about psychological mechanisms or each component’s independent contribution.
 
 #### 2.3 Statistical conclusion validity
 
@@ -104,7 +107,7 @@ N/A in Table 1's research-tool pathway. The study manipulated coding instruction
 
 ### 3. Develop Pre-registration Plan
 
-The study was not registered on a public registry. Instead, the protocol was frozen in the repository before sampling, and every later change was recorded with its date and reason.
+The study was not registered on a public registry. Instead, the protocol was frozen in the repository before sampling. Every later change was recorded with its date and reason.
 
 | Item | This study | Where documented |
 |---|---|---|
@@ -117,33 +120,43 @@ The study was not registered on a public registry. Instead, the protocol was fro
 
 ## Stage 4. Execute and document the experiment
 
-The paper requires that the computational environment be documented (model endpoint, parameters, collection date and time, pre- and post-processing, API version), that the pre-registered protocol be executed faithfully with any deviation reported alongside the original plan, and that the raw data be preserved in full: the prompts as sent, the raw model outputs before parsing, all metadata, and the processing code, in a standard format and deposited in a public repository.
+### 1. Specify and Document the Environment
 
-### Environment specification
+The study used API access only; the web-interface requirements do not apply.
 
-- **Fixed in the decision documents.** Model snapshot `gpt-5.5-2026-04-23`, tokenizer encoding `o200k_base`, temperature 0, reasoning_effort "none" (05-2 §5.2.1–5.2.2); `max_completion_tokens` 64 and the structured-output schema (05-3); Python 3.13.9, openai 3.8.0, tiktoken 0.14.0, NumPy 2.3.5, with upgrades prohibited until the analysis was complete (05-2 §5.2.3). `top_p` is not included in the request and the API default applies; the decision documents do not mention it, and the manifest `request_params` confirm its absence.
-- **Recorded at execution.** Each run manifest records `run_id`, `pass`, `created_at`, `seed`, the complete ordered call list, `request_params` (model, temperature, reasoning_effort, max_completion_tokens, response_format), SDK settings (`max_retries` 0, `timeout`), concurrency, failure threshold, backoff settings, the sha256 of `prompts.jsonl`, the path and sha256 of the input file, the runner git commit, and the openai SDK and Python versions (05-6 §5.6.2; `runs/main-2026-09-24/manifest_pass1.json`). The tiktoken version and encoding are recorded in the token-verification report; the NumPy version in the scoring record (05-2 §5.2.3; 06 §6.2.1; token-matching check; scoring record §3).
-- **Timing.** The first main-run call started at 2026-09-24T05:43:31Z; every attempt carries `started_at` and `completed_at` timestamps (main-run record §7; 05-6 §5.6.7).
+| Item | This study | Where documented |
+|---|---|---|
+| Model endpoint | Model snapshot `gpt-5.5-2026-04-23` | 05-2 §5.2.1 |
+| Technical parameters | Temperature 0, reasoning_effort "none", `max_completion_tokens` 64, and a structured-output schema. `top_p` was not included in the request, so the API default applied | 05-2 §5.2.2; 05-3; run manifest `request_params` |
+| Date and time of data collection | The first main-run call started at 2026-09-24T05:43:31Z; every attempt carries `started_at` and `completed_at` timestamps | main-run record §7; 05-6 §5.6.7 |
+| Preprocessing and postprocessing | Inputs were serialized with the target utterance marked; responses were parsed into one of seven labels and combined into a final label by plurality | 05-1; 05-4 |
+| API version and system specifications | Python 3.13.9, openai SDK 3.8.0, tiktoken 0.14.0 (`o200k_base`), NumPy 2.3.5, with upgrades prohibited until the analysis was complete | 05-2 §5.2.3 |
+| Execution record | Each run manifest records the run ID, call list, request parameters, SDK and retry settings, input and prompt hashes, and the runner git commit | 05-6 §5.6.2; `runs/main-2026-09-24/manifest_pass1.json` |
 
-### Execution of the protocol
+### 2. Execute the Protocol with Transparency
 
-- **Pre-execution audit.** A read-only integrity audit by Codex at HEAD `d0bd38f` returned NOT READY with three blocking items, all omissions in the freeze record. They were corrected by an append-only commit `beb3ef9` (1 file, 8 insertions), and a recheck at that commit returned READY (main-run record §2).
-- **Execution.** Run `main-2026-09-24` was executed at commit `beb3ef9` with concurrency 4, timeout 60 s, backoff 2/60 s, and failure threshold 10 (main-run record §1, §4). All 5,400 pass-1 calls returned HTTP 200 with outcome `success`; pass 2 made one call to resolve the single remaining tie; pass 3 was not needed and made no call. Total: 5,401 calls (§4–5).
-- **No change during collection.** "No script, prompt template, condition file, decision document, sample or operational setting was changed between the precheck dry run and the completion of data collection" (main-run record §9). The operational settings were not changed between passes (§7).
-- **Deviations reported with the original plan.** The one departure from the frozen plan, the omission of the held-out evaluation, is recorded in a separate decision record and a separate freeze-record section; the original plan in 02-2 §2.2.3 is unchanged and carries a revision note (Stage 2). Documentation corrections found after the freeze are listed in two errata files, each item with its location, current wording, the fact that holds, and the basis; no sentence in a frozen document was edited (documentation errata; errata post-scoring).
+| Item | This study | Where documented |
+|---|---|---|
+| Follow the frozen plan | A read-only audit by Codex at `d0bd38f` returned NOT READY with three omissions in the freeze record. They were corrected by an append-only commit, and a recheck at `beb3ef9` returned READY. The main run was executed at `beb3ef9` | main-run record §1–2 |
+| Execution | 5,400 pass-1 calls all returned HTTP 200; pass 2 made one call to resolve the single remaining tie; pass 3 made no call. Total: 5,401 calls | main-run record §4–5 |
+| No change during collection | No script, prompt template, condition file, decision document, sample, or operational setting was changed between the precheck and the completion of data collection | main-run record §7, §9 |
+| Document and justify deviations | The one departure from the frozen plan, the omission of held-out evaluation, is recorded in a separate decision record. The original plan in 02-2 §2.2.3 is unchanged and carries a revision note. The reason is given in Stage 2 of this document | held-out decision record; protocol freeze record; 02-2 §2.2.3 |
+| Report the original analysis alongside any revision | No analysis was revised. The held-out evaluation was omitted rather than replaced, so there is no revised analysis to report alongside it | held-out decision record |
+| Documentation corrections | Errors found after the freeze are listed in two errata files with location, current wording, the correct fact, and its basis; no sentence in a frozen document was edited | documentation errata; errata post-scoring |
 
-### Data preservation
+### 3. Ensure Data Preservation
 
-- **What is preserved.** For every attempt, the runner writes `attempt_started` (12 fields, including `prompt_sha256` and `request_params`) and `attempt_completed` (24 fields, including `http_status`, `openai_request_id`, `finish_reason`, `usage`, and `raw_response`, the HTTP response body as a string before any parsing); token counts including `cached_tokens` are under `usage` (05-6 §5.6.7). The prompts exactly as sent are in `prompts.jsonl`. The parsing and scoring code is under `scripts/`.
-- **Format and location.** JSONL and CSV. The prompts, both manifests, both attempts files, `labels.csv`, and `final_labels.csv` for the main run are committed under `runs/main-2026-09-24/`; the manual text, including the four replacement-condition versions and the extraction corrections, is committed under `manual/`. These derived files are shared under the licence of the source dataset, CC BY-NC-SA 4.0 (`LICENSE-DATA`). The scorer output files `score_report.txt` and `score_summary.json` are not committed because they contain local absolute paths and their hashes are sealed in the scoring record; their content is reproduced in the scoring record.
-- **Sealed analysis inputs.** The label files used for scoring are snapshotted under `analysis-inputs/` with their hashes registered in the freeze record (Roadmap 15).
+| Item | This study | Where documented |
+|---|---|---|
+| Full prompts as sent | Every prompt exactly as sent is stored in `prompts.jsonl`; each attempt also records its `prompt_sha256` and `request_params` | 05-6 §5.6.7; `runs/main-2026-09-24/` |
+| Raw outputs before parsing | Each attempt stores `raw_response`, the HTTP response body as a string before any parsing | 05-6 §5.6.7 |
+| Metadata | Each attempt records `started_at`, `completed_at`, `http_status`, `openai_request_id`, `finish_reason`, and token counts including `cached_tokens` | 05-6 §5.6.7 |
+| Pre- and post-processing code | Input construction, parsing, and scoring code is committed under `scripts/` | `scripts/` |
+| Standardized format | JSONL and CSV | `runs/main-2026-09-24/` |
+| Sealed analysis inputs | The label files used for scoring are snapshotted with their hashes registered in the freeze record | `analysis-inputs/`; protocol freeze record |
+| Public deposit | The data, code, manual texts, and documentation are in a public GitHub repository under CC BY-NC-SA 4.0, the licence of the source dataset. No archival deposit (e.g., Zenodo) has been made | `LICENSE-DATA` |
+| Files not committed | `score_report.txt` and `score_summary.json` contain local absolute paths and are not committed; their hashes are sealed and their content is reproduced in the scoring record | main scoring record |
 
-### Where this study differs from the workflow
-
-- No deposit in an external public repository such as Zenodo or Figshare. The raw data are in this GitHub repository only.
-- The scorer output files are not published (see above). The values they contain are in the scoring record.
-
-Records: [05-2](../decisions/05-2-model-and-api-parameters.md), [05-3](../decisions/05-3-call-unit-and-api-request.md), [05-6](../decisions/05-6-execution-order-and-run-records.md), [06-analysis](../decisions/06-analysis.md), [main-run record](../reports/main-run-record-2026-09-24.md), [scoring record](../reports/main-scoring-record-2026-09-24.md), [token-matching check](../reports/token-matching-check-2026-09-24.txt), [protocol freeze record](../reports/protocol-freeze-record-2026-09-24.md), [documentation errata](../reports/documentation-errata-2026-09-24.md), [errata post-scoring](../reports/documentation-errata-post-scoring-2026-09-25.md), [run files](../runs/main-2026-09-24/), [manual text](../manual/), [LICENSE-DATA](../LICENSE-DATA)
 
 ## Stage 5. Analyze and interpret results
 
