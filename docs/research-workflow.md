@@ -4,7 +4,7 @@ The decision documents cite the earlier arXiv version of this paper as Lin (2025
 
 ## Stage 1. Define the research goal
 
-**Classification: LLM as a research tool** (Lin, Table 1).
+### 1.1 Classification: LLM as a research tool
 
 This study uses an LLM as a coding tool and tests how replacing coding-manual components with placeholders changes its agreement with human labels. Two notes in Table 1 applied.
 
@@ -14,7 +14,7 @@ This study uses an LLM as a coding tool and tests how replacing coding-manual co
 The study does not assess psychological constructs in the model. Its findings provide no evidence about human cognition, human-like processes in the model, or the internal mechanisms of individual manual components.
 
 
-### Required validity evidence for a research tool
+### 1.2 Required validity evidence for a research tool
 
 | Validity evidence | Table 1 requirement (Research Tool) | Application to this study | Where documented |
 |:---|:---|:---|:---|
@@ -45,7 +45,7 @@ Lin (2026) treats a classification tool's central claim as functional: the LLM c
 | Input verification | All 300 main-sample inputs checked for target utterance, context, and replacement sites | [input verification report](../reports/input-verification-2026-09-24.md) |
 | Output format | Structured output restricted to the seven category names | [05-3](../decisions/05-3-call-unit-and-api-request.md); [main-run record](../reports/main-run-record-2026-09-24.md) |
 
-## Stage 3: Design Experiment
+## Stage 3. Design Experiment
 
 ### 3.1. Operationalize the Manipulation and Outcome
 
@@ -58,7 +58,7 @@ In this study, the manipulated object was the coding instruction itself, not a p
 | Manipulation | In the four replacement conditions, specified manual passages were replaced in place with placeholders matched in token count. | 03-1; 03-2 |
 | Resulting claim | How the implemented replacements changed agreement under the tested conditions, not psychological mechanisms or the independent contribution or intrinsic importance of individual manual components | main scoring record (claim boundary) |
 
-### 3.2. Control Four Categories of Validity Threats
+### 3.2 Control Four Categories of Validity Threats
 #### 3.2.1 Internal validity
 
 Applies under Table 1, Note 6 because the experiment manipulated the coding tool itself.
@@ -90,7 +90,7 @@ N/A in Table 1's research-tool pathway. Claims are limited to the eligible targe
 
 N/A in Table 1's research-tool pathway. The study manipulated coding instructions not a psychological construct. It makes no claims about psychological mechanisms or each component’s independent contribution.
 
-### 3.2.4 Statistical conclusion validity
+#### 3.2.4 Statistical conclusion validity
 
 | Item | This study | Where documented |
 |---|---|---|
@@ -105,7 +105,7 @@ N/A in Table 1's research-tool pathway. The study manipulated coding instruction
 | | The bootstrap was stated to approximate sampling uncertainty only | 06; main scoring record |
 | Do not overstate results because of low variability | Magnitudes and intervals of κ and Δκ were reported and interpreted together | 06; main scoring record |
 
-### 3.3. Develop Pre-registration Plan
+### 3.3 Develop Pre-registration Plan
 
 The study was not registered on a public registry. Instead, the protocol was frozen in the repository before sampling. Every later change was recorded with its date and reason.
 
@@ -118,9 +118,9 @@ The study was not registered on a public registry. Instead, the protocol was fro
 | Boundary conditions | Population-level inference, no category-level conclusions, and no between-condition contrasts were set in advance | 02-3; 06 |
 | Deviations after the freeze | The omission of held-out evaluation was recorded as a post-freeze deviation, after data collection and before scoring | held-out decision record; protocol freeze record |
 
-## Stage 4. Execute and document the experiment
+## Stage 4 Execute and document the experiment
 
-### 4.1. Specify and Document the Environment
+### 4.1 Specify and Document the Environment
 
 The study used API access only; the web-interface requirements do not apply.
 
@@ -133,7 +133,7 @@ The study used API access only; the web-interface requirements do not apply.
 | API version and system specifications | Python 3.13.9, openai SDK 3.8.0, tiktoken 0.14.0 (`o200k_base`), NumPy 2.3.5, with upgrades prohibited until the analysis was complete | 05-2 §5.2.3 |
 | Execution record | Each run manifest records the run ID, call list, request parameters, SDK and retry settings, input and prompt hashes, and the runner git commit | 05-6 §5.6.2; `runs/main-2026-09-24/manifest_pass1.json` |
 
-### 4.2. Execute the Protocol with Transparency
+### 4.2 Execute the Protocol with Transparency
 
 | Item | This study | Where documented |
 |---|---|---|
@@ -144,7 +144,7 @@ The study used API access only; the web-interface requirements do not apply.
 | Report the original analysis alongside any revision | No analysis was revised. The held-out evaluation was omitted rather than replaced, so there is no revised analysis to report alongside it | held-out decision record |
 | Documentation corrections | Errors found after the freeze are listed in two errata files with location, current wording, the correct fact, and its basis; no sentence in a frozen document was edited | documentation errata; errata post-scoring |
 
-### 4.3. Ensure Data Preservation
+### 4.3 Ensure Data Preservation
 
 | Item | This study | Where documented |
 |---|---|---|
@@ -158,7 +158,7 @@ The study used API access only; the web-interface requirements do not apply.
 | Files not committed | `score_report.txt` and `score_summary.json` contain local absolute paths and are not committed; their hashes are sealed and their content is reproduced in the scoring record | main scoring record |
 
 
-## Stage 5: Analyze and Interpret Results
+## Stage 5. Analyze and Interpret Results
 
 ### 5.1 Perform Data Quality and Assumption Checks
 
@@ -198,40 +198,33 @@ The study used API access only; the web-interface requirements do not apply.
 | Significance with large non-independent samples | No significance tests were used. κ, Δκ, and bootstrap intervals were reported and interpreted together. A small Δκ or an interval containing zero was prespecified not to be read as evidence of no effect or equivalence | 06; 03-1 §3.1.7; 02-3 §2.3.7 |
 | Consistency across robustness checks | Robustness checks were not conducted (5.3), so consistency across them could not be assessed. Interpretation is limited to the observed decreases under the tested configuration, without ranking components or claiming mechanisms | main scoring record (claim boundary) |
 
-## Stage 6. Report and reconceptualize
+## Stage 6 Report and Reconceptualize
 
-The paper requires transparent reporting that follows an AI reporting guideline (TRIPOD-LLM or MI-CLEAR-LLM) and a public replication package covering the model and environment, the handling of stochasticity, the prompts and their use, and a statement on data contamination; claims constrained to the evidence, without anthropomorphic language and with observed performance distinguished from inferred competence; use of the findings to refine tools or constructs; and a limitations section that addresses generalization across model versions and the ethical implications.
+### 6.1 Ensure Transparent and Accessible Reporting
 
-### Reporting
+| Item | This study | Where documented |
+|---|---|---|
+| Reporting guideline | No reporting guideline (TRIPOD-LLM, MI-CLEAR-LLM) was followed | — |
+| Replication package | Data, code, prompts, raw responses, sealed analysis inputs, and execution and scoring records are in a public GitHub repository. No archival deposit (e.g., Zenodo) has been made | Stage 4 (4.3) |
+| Model and environment | OpenAI `gpt-5.5-2026-04-23`; querying began on 2026-09-24. The model's training-data cutoff is not recorded | 05-2; main-run record §7 |
+| Handling of stochasticity | Three calls per utterance-condition, aggregated by plurality, with up to two additional calls only to break ties; temperature 0, reasoning effort none | 05-4; 05-2 |
+| Prompt documentation | The exact text of every prompt as sent, and the rules by which prompts were assembled | `runs/main-2026-09-24/prompts.jsonl`; 05-1 |
+| Data contamination | TalkMoves is a public dataset, so prior model exposure to its transcripts or coding manual cannot be excluded for any condition, including the baseline and replacement conditions | 03-3; final report §15 |
 
-- **Replication package.** The elements the paper lists are in this repository: model and environment (05-2; run manifests), stochasticity handling (three calls per item-condition, plurality aggregation, tie resolution; 05-4, 06), the prompts exactly as sent and how they were assembled (`runs/main-2026-09-24/prompts.jsonl`; 05-1), the code (`scripts/`), the sealed analysis inputs (`analysis-inputs/`), and the execution, scoring, and verification records (`reports/`). Raw responses and the manual text are published under the source dataset's licence (Stage 4).
-- **Final report.** `reports/final-research-report-2026-09-25.md`, headed "Status: first draft; not independently audited" (Roadmap 18-3, corrected in 18-4). No audit of the report has been committed since.
-- **Data exposure.** The only statement on prior model exposure is the interpretation boundary of the names-only reference: "Prior model exposure to TalkMoves or related material remains possible" (03-3; cited in the final report §4.5, §13.3, §15). There is no contamination statement covering the baseline and replacement conditions, and the training-data cutoff of `gpt-5.5-2026-04-23` is not recorded anywhere in the repository.
-- **Not done.** No reporting guideline (TRIPOD-LLM, MI-CLEAR-LLM) was followed. The reproducibility checklist named in the Roadmap 18 title was planned (18-1) but no checklist file was produced; `docs/reproduction.md` is the intended location. No external deposit (Stage 4).
+### 6.2 Constrain Claims to Evidence
 
-### Claims constrained to evidence
+| Item | This study | Where documented |
+|---|---|---|
+| Frame conclusions within the study's boundaries | Claim boundaries were fixed before data collection, and results are reported for one model snapshot and one setting only | 01 §1.2; final report §15 |
+| Avoid anthropomorphic language | The final report contains no affirmative use of verbs such as understand, know, reason, or believe with the model as subject | final report |
+| Distinguish observed performance from inferred competence | Agreement is treated as a claim about outputs only; Δκ is not taken as evidence about what the model understands or what human coders relied on | 01 §1.2.2; final report §3 |
 
-- The claim boundaries were fixed before data collection (01 §1.2) and the interpretation statements in the report were checked against the frozen documents (Roadmap 16-5). What is reported is agreement with the human labels under one prompt, one model snapshot, and one setting; Δκ "is not taken as evidence about what the LLM understands or what human coders relied on" (01, cited in the final report §3). Agreement is a claim about outputs only (01 §1.2.2).
-- A search of the final report for anthropomorphic verbs with the model as subject (understand, know, reason, believe, think, intend, decide) found no affirmative use; the single occurrence is the negated boundary sentence above.
-- Results are reported for the configuration used only: "All calls used one dated snapshot, `gpt-5.5-2026-04-23`, with temperature 0 and reasoning effort none; results are reported for this configuration only" (final report §15, Single model, single setting). The reason for fixing the snapshot is stated in 05-2 §5.2.1: provider-side model updates can alter behaviour and threaten replicability.
+### 6.3 Use Findings to Reconceptualize and Refine
 
-### Use of the findings
+The study measured no psychological construct in the model, so construct reconceptualization does not apply. As a methodological pre-study for later human–AI interaction research, its results do not transfer to another coding manual. What transfers is the premise that a manual written for human coders should not be assumed to work equivalently as an LLM prompt without validation (01 §1.2.3; final report §14.4).
 
-- This study measures no psychological construct in the model, so the paper's reconceptualization step, replacing a human-centric construct that fails validation with a computationally grounded one, has no object here.
-- What the paper says for a tool-development goal is that the findings inform more robust instruments. In this study that role is limited and stated in advance: the study is "a methodological pre-study for a later human–AI interaction study, examining whether LLM-assisted coding can be used there" (01 §1.2.3). The results on TalkMoves do not transfer to the later study's coding manual; what transfers is the methodological premise that a manual developed for human coders should not be assumed, without validation, to function equivalently as an LLM prompt (01 §1.2.3; final report §14.4). Further directions are listed as questions for new designs, not as findings (final report §14.2).
+### 6.4 Address Limitations and Ethical Implications
 
-### Limitations and ethical implications
+Limitations, including generalization across model versions, are discussed in the final report (final report §15).
 
-- **Limitations.** The final report §15 lists thirteen items: rare categories and scope of inference, negative-control volume, placeholder neutrality, scope of token verification, uncertainty scope, label construction, context condition, single model and single setting, reference standard, names-only reference, held-out evaluation, generalization, and documentation.
-- **Generalization across model versions.** Addressed by fixing one dated snapshot and reporting for that configuration only (final report §15; 05-2 §5.2.1). No statement generalizes the result to other versions of the model.
-- **Ethical implications.** Not addressed. Neither the decision documents nor the final report discusses the consequences of misclassification or the risks of applying the tool (see the Consequential evidence row in Stage 1). The data are publicly licensed classroom transcripts from the TalkMoves corpus; no new human-participant data were collected.
-
-### Where this study differs from the workflow
-
-- No reporting guideline followed; no reproducibility checklist file; no external deposit.
-- The final report is a first draft that has not been independently audited.
-- No contamination statement for the substantive conditions and no training-data cutoff recorded.
-- Ethical and social implications not discussed.
-- No reconceptualization step, because no construct in the model is measured.
-
-Records: [01](../decisions/01-research-question.md), [03-3](../decisions/03-3-names-only-diagnostic.md), [05-1](../decisions/05-1-context-specification.md), [05-2](../decisions/05-2-model-and-api-parameters.md), [05-4](../decisions/05-4-repetition-and-label-aggregation.md), [06-analysis](../decisions/06-analysis.md), [final report](../reports/final-research-report-2026-09-25.md), [scoring record](../reports/main-scoring-record-2026-09-24.md), [run files](../runs/main-2026-09-24/), [analysis inputs](../analysis-inputs/)
+The study involved no human participants and used a public, licensed dataset. Its findings bear on research practice rather than public policy: they caution against treating LLM coding as a substitute for human coding without validation against human labels. The study did not propose replacing human coders; human labels served as the reference throughout.
