@@ -47,7 +47,7 @@ Lin (2026) treats a classification tool's central claim as functional: the LLM c
 
 ## Stage 3: Design Experiment
 
-### 1. Operationalize the Manipulation and Outcome
+### 3.1. Operationalize the Manipulation and Outcome
 
 In this study, the manipulated object was the coding instruction itself, not a psychological construct.
 
@@ -58,12 +58,12 @@ In this study, the manipulated object was the coding instruction itself, not a p
 | Manipulation | In the four replacement conditions, specified manual passages were replaced in place with placeholders matched in token count. | 03-1; 03-2 |
 | Resulting claim | How the implemented replacements changed agreement under the tested conditions, not psychological mechanisms or the independent contribution or intrinsic importance of individual manual components | main scoring record (claim boundary) |
 
-### 2. Control Four Categories of Validity Threats
-#### 2.1 Internal validity
+### 3.2. Control Four Categories of Validity Threats
+#### 3.2.1 Internal validity
 
 Applies under Table 1, Note 6 because the experiment manipulated the coding tool itself.
 
-##### 2.1.1 Prompt-level confounds
+##### 3.2.1.1 Prompt-level confounds
 
 | Item | This study | Where documented |
 |---|---|---|
@@ -72,7 +72,7 @@ Applies under Table 1, Note 6 because the experiment manipulated the coding tool
 | Address scenario reconstruction | The same utterances and byte-identical context blocks were used across conditions. This controlled supplied context; model-inferred background assumptions were not directly tested | 05-1; input verification |
 | Keep causal claims within the implemented manipulation | Placeholder neutrality was not established. Claims concern the specified replacements, not the independent contribution of individual manual components | 01; 03-2 |
 
-##### 2.1.2 Technical confounds
+##### 3.2.1.2 Technical confounds
 
 | Item | This study | Where documented |
 |---|---|---|
@@ -82,15 +82,15 @@ Applies under Table 1, Note 6 because the experiment manipulated the coding tool
 | Prevent context accumulation | Each call contained a single user message, with no conversation history or prior output passed into subsequent calls | 05-3 §5.3.10 |
 
 
-#### 2.2 External validity
+#### 3.2.2 External validity
 
 N/A in Table 1's research-tool pathway. Claims are limited to the eligible target population of the TalkMoves development set and to the tested model and settings.
 
-#### 2.3 Construct validity
+#### 3.2.3 Construct validity
 
 N/A in Table 1's research-tool pathway. The study manipulated coding instructions not a psychological construct. It makes no claims about psychological mechanisms or each component’s independent contribution.
 
-#### 2.3 Statistical conclusion validity
+### 3.2.4 Statistical conclusion validity
 
 | Item | This study | Where documented |
 |---|---|---|
@@ -105,7 +105,7 @@ N/A in Table 1's research-tool pathway. The study manipulated coding instruction
 | | The bootstrap was stated to approximate sampling uncertainty only | 06; main scoring record |
 | Do not overstate results because of low variability | Magnitudes and intervals of κ and Δκ were reported and interpreted together | 06; main scoring record |
 
-### 3. Develop Pre-registration Plan
+### 3.3. Develop Pre-registration Plan
 
 The study was not registered on a public registry. Instead, the protocol was frozen in the repository before sampling. Every later change was recorded with its date and reason.
 
@@ -120,7 +120,7 @@ The study was not registered on a public registry. Instead, the protocol was fro
 
 ## Stage 4. Execute and document the experiment
 
-### 1. Specify and Document the Environment
+### 4.1. Specify and Document the Environment
 
 The study used API access only; the web-interface requirements do not apply.
 
@@ -133,7 +133,7 @@ The study used API access only; the web-interface requirements do not apply.
 | API version and system specifications | Python 3.13.9, openai SDK 3.8.0, tiktoken 0.14.0 (`o200k_base`), NumPy 2.3.5, with upgrades prohibited until the analysis was complete | 05-2 §5.2.3 |
 | Execution record | Each run manifest records the run ID, call list, request parameters, SDK and retry settings, input and prompt hashes, and the runner git commit | 05-6 §5.6.2; `runs/main-2026-09-24/manifest_pass1.json` |
 
-### 2. Execute the Protocol with Transparency
+### 4.2. Execute the Protocol with Transparency
 
 | Item | This study | Where documented |
 |---|---|---|
@@ -144,7 +144,7 @@ The study used API access only; the web-interface requirements do not apply.
 | Report the original analysis alongside any revision | No analysis was revised. The held-out evaluation was omitted rather than replaced, so there is no revised analysis to report alongside it | held-out decision record |
 | Documentation corrections | Errors found after the freeze are listed in two errata files with location, current wording, the correct fact, and its basis; no sentence in a frozen document was edited | documentation errata; errata post-scoring |
 
-### 3. Ensure Data Preservation
+### 4.3. Ensure Data Preservation
 
 | Item | This study | Where documented |
 |---|---|---|
@@ -158,45 +158,45 @@ The study used API access only; the web-interface requirements do not apply.
 | Files not committed | `score_report.txt` and `score_summary.json` contain local absolute paths and are not committed; their hashes are sealed and their content is reproduced in the scoring record | main scoring record |
 
 
-## Stage 5. Analyze and interpret results
+## Stage 5: Analyze and Interpret Results
 
-The paper requires data-quality and assumption checks before analysis, explicit handling of the non-independence of LLM outputs (aggregation, multilevel or GEE models, cluster bootstrap, cluster-robust standard errors), robustness analyses across technical settings and task logic, and interpretation that weighs consistency across checks over any single p-value or effect size.
+### 5.1 Perform Data Quality and Assumption Checks
 
-### Data quality and assumption checks
+| Item | This study | Where documented |
+|---|---|---|
+| Qualitative data evaluation | In tool validation, all 306 responses were inspected against four prespecified anomaly types: a category never produced, systematic disagreement with human labels, coding a row other than the target, and excessive invalid responses. None was found. The two utterances that disagreed with human labels were traced back to the source data and judged not to be tool defects | 05-7; tool-validation record §7 |
+| | In the main run, every raw response was preserved and automatically classified against the invalid-response criteria (refusal, truncation, malformed JSON, schema mismatch, label outside the category set), with the reason recorded. All 5,400 pass-1 responses were valid. Six raw responses were compared with their parsed labels | 05-4 §5.4.5; 05-6 §5.6.7; main-run record §4 |
+| | Output was restricted to one of seven category names, so nonsensical free text or hallucinations could not appear | 05-3 §5.3.4 |
+| | Human inspection of response content was carried out in tool validation; the main run relied on automatic checks and a six-response sample comparison | — |
+| Statistical assumption checks | No regression model was fitted, so residual-based checks do not apply | — |
+| | For the analyses used (unweighted κ and paired percentile bootstrap), rules for undefined κ and degenerate intervals were set in advance; neither occurred in the main analysis | 06; main scoring record |
+| | The bootstrap's premises (simple random sampling and independence at the utterance level) were set by design and were not tested against the data | 02-3; 06 |
+| | Separately from assumption checks, the scorer was verified with synthetic-data tests, and point estimates were independently recomputed with no mismatches | 06; main scoring record |
 
-- **Structured output.** Responses were returned under a strict JSON schema with a single `category` field and a seven-name enum, so a value outside the category set could not be returned (05-3 §5.3.4). The parser normalises the value and applies the valid-label criterion, separating invalid responses from Not coded (05-4 §5.4.2). In the main run, all 5,400 pass-1 calls returned HTTP 200 with outcome `success`; no invalid response and no refusal occurred (main-run record §4).
-- **Raw-response checks.** In tool validation, five raw responses were compared with the parsed labels (tool-validation record §5); in the main run, six raw responses spread across the call order were compared (main-run record §6); before scoring, the `category` in every `raw_response` was compared with `labels.csv` for all 5,401 calls with 0 mismatches (completeness report §5).
-- **Completeness before scoring.** The completeness report ran 17 pass/fail checks (coverage, raw attempts → labels → final labels, an independent recomputation, and status), all PASS; all six conditions have 300 resolved final labels and no other status (completeness report §4–7). The scorer refuses to run unless every call in every pass is terminated and the final labels re-derived from the attempts files match the file on disk (06 §6.1.1; `scripts/scorer.py` `require_run_complete`).
-- **Model assumptions.** No regression model is fitted, so residual-based assumption checks do not apply. The conditions under which κ is undefined, and the distinction between an undefined statistic and a degenerate interval such as [0, 0], are handled by rule (06 §6.2.2–6.2.3).
+### 5.2 Address Data Non-Independence
 
-### Non-independence
+| Item | This study | Where documented |
+|---|---|---|
+| Within-model clustering | The three calls per utterance-condition were aggregated by plurality into one final label; repeated calls were not counted as observations | 05-4 §5.4.1–5.4.2; 06 §6.1.1 |
+| Model-condition clustering | Each utterance's labels under all conditions were resampled together in an utterance-level paired bootstrap, and Δκ was computed on paired sets | 06 §6.2.1; 02-3 §2.3.7 |
+| Item clustering | Utterances from the same transcript were not treated as a cluster, by design: the inferential population is the eligible target population, the sample was drawn at the utterance level, and no transcript-level superpopulation is posited | 02-3 §2.3.7; 06 §6.3 |
+| Multilevel models, GEE, cluster-robust standard errors | Not used. Each comparison is a single paired Δκ, and no regression model is fitted | — |
+| Number of clusters and intracluster correlation | The analysis unit was the utterance (300 clusters for the bootstrap); a single model was used. Intracluster correlation was not computed, including for utterances sharing a transcript | 02-3; 06 |
 
-- **Aggregation.** The three calls per item-condition are aggregated by plurality into one final label, and repeated calls are not counted as observations: "Repeated calls construct a label; they are not additional sampled observations" (06 §6.1.1; 05-4 §5.4.1–5.4.2).
-- **Utterance-level paired bootstrap.** Resampling is at the utterance level, with each utterance carrying its labels under all conditions, so the pairing across conditions is preserved in every replicate (06 §6.2.1; 02-3 §2.3.7). This is the paper's cluster-bootstrap strategy with the utterance as the cluster.
-- **Not used.** Multilevel models, GEE, and cluster-robust standard errors were not used. The comparison is a single paired Δκ per condition, and no regression model is involved.
-- **Transcript-level clustering.** Utterances from the same lesson transcript were not treated as a cluster. This was a design decision, not an oversight: the inferential population is the prespecified eligible target population, the sample is drawn at the utterance level, and the study does not posit a transcript-level superpopulation (02-3 §2.3.7; 06 §6.3). The final report's limitations section (§15) does not discuss this choice separately.
+### 5.3 Conduct Robustness Analyses
 
-### Robustness
+| Item | This study | Where documented |
+|---|---|---|
+| Technical robustness | Technical robustness was not assessed. The study focused on estimating agreement changes under one fixed configuration, and its results are limited to that configuration. Testing whether these changes hold across other configurations was outside its scope | — |
+| Conceptual robustness | Conceptual robustness was not assessed. The study varied instruction content within one coding task and one manual, and its results are limited to that task and manual. Testing whether these changes hold for other coding tasks or manuals was outside its scope | — |
 
-- **Technical robustness.** Not performed. Temperature was fixed at 0, `top_p` was left at the API default, and prompt formatting was identical across conditions (Stages 2–4). A high-repeat auxiliary study was considered and not adopted (06 §6.4).
-- **Conceptual robustness.** Two reference conditions serve this role within their stated limits: the negative control shows whether replacing task-irrelevant content by the same procedure changes agreement, and the names-only reference shows agreement when no substantive manual text is supplied. Neither is subtracted from, used to adjust, or used as a threshold for the substantive estimates, and no names-only contrast is created (03-1 §3.1.7; 03-3; 06 §6.5).
-- **Computational verification.** The point estimates were recomputed independently without importing the scorer (Roadmap 16-3), and the scoring record was audited independently (Roadmap 16-7). These verify the implementation, not the statistical robustness of the result.
+### 5.4 Calibrate Interpretations of Effects
 
-### Calibration of interpretation
-
-- **What is reported.** Per-condition κ, Δκ against the baseline for each replacement condition, and percentile bootstrap intervals from 10,000 replicates with seed 20260919. The intervals are individual-statistic intervals, not simultaneous coverage across the substantive contrasts (06 §6.2.1). No direct contrast between substantive conditions is performed, and no multiplicity adjustment is specified (06 §6.1.2; scoring record §12).
-- **Prespecified boundaries.** A small Δκ, an interval containing zero, or a failure to detect a clear difference is not interpreted as evidence of no effect, maintained agreement, or equivalence; no equivalence or noninferiority claim is made (03-1 §3.1.7; 02-3 §2.3.7). A [0, 0] interval is not read as population-level equality (02-3 §2.3.7; 06 §6.2.3). The R = 3 procedure is a label-construction rule and does not establish label stability or optimality (05-4 §5.4.1). The bootstrap approximates sampling uncertainty only and does not estimate variability from rerunning the API (06 §6.3).
-- **Repeated-call diagnostics.** Reported per condition as descriptive statistics only; no inferential test, interval, or between-condition contrast is computed on them (04-2; §4.2.5).
-
-
-### Where this study differs from the workflow
-
-- No technical robustness analysis across parameter settings or prompt formats.
-- No multilevel, GEE, or cluster-robust analysis; the design uses aggregation and utterance-level paired resampling only.
-- Transcript-level clustering is not modelled, by design; the final report does not list this as a limitation.
-- Conceptual robustness is limited to the two reference conditions.
-
-Records: [02-3](../decisions/02-3-sampling-design.md), [03-1](../decisions/03-1-manual-component-definition.md), [03-3](../decisions/03-3-names-only-diagnostic.md), [04-2](../decisions/04-2-repeated-call-reliability.md), [05-3](../decisions/05-3-call-unit-and-api-request.md), [05-4](../decisions/05-4-repetition-and-label-aggregation.md), [06-analysis](../decisions/06-analysis.md), [tool-validation record](../reports/tool-validation-record-2026-09-23.md), [main-run record](../reports/main-run-record-2026-09-24.md), [completeness report](../reports/completeness-report-2026-09-24.md), [scoring record](../reports/main-scoring-record-2026-09-24.md)
+| Item | This study | Where documented |
+|---|---|---|
+| Low response variability | Repeated calls were aggregated into one label per utterance-condition, and uncertainty was estimated by resampling utterances, so the model's low variability across repeated calls did not add observations. Repeated-call diagnostics were reported per condition as descriptive statistics only | 05-4; 06; 04-2 §4.2.5 |
+| Significance with large non-independent samples | No significance tests were used. κ, Δκ, and bootstrap intervals were reported and interpreted together. A small Δκ or an interval containing zero was prespecified not to be read as evidence of no effect or equivalence | 06; 03-1 §3.1.7; 02-3 §2.3.7 |
+| Consistency across robustness checks | Robustness checks were not conducted (5.3), so consistency across them could not be assessed. Interpretation is limited to the observed decreases under the tested configuration, without ranking components or claiming mechanisms | main scoring record (claim boundary) |
 
 ## Stage 6. Report and reconceptualize
 
