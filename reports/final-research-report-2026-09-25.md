@@ -508,6 +508,7 @@ Sources: 02-3:29–31, :37–39; 03-1:113; 03-2:10, :127–129; 06:63; 01:96; an
 - Held-out evaluation. Omitted by a post-freeze decision (HED:10, :16); "no held-out result will be reported." (HED:19)
 - Generalization. "Results on TalkMoves do not generalize to the later study's coding manual." (01:96)
 - Documentation. The hypergeometric quantities at 02-3:31 were not reproduced by a repository script (ERR2:14); other stale sentences are listed in ERR1 and ERR2 and were left unedited in the frozen documents.
+- TalkMoves is a public dataset, so prior model exposure to its transcripts or coding manual cannot be excluded for any condition, including the baseline and replacement conditions.
 
 ## 16. AI/tool use (R-16)
 
