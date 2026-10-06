@@ -1,8 +1,16 @@
 # runs/
 
-Run records written by `scripts/run_experiment.py` (Decision Log 5.6). Everything
-here except this README is git-ignored: the files contain prompt text (manual
-transcription) and raw API responses.
+Run records written by `scripts/run_experiment.py` (Decision Log 5.6). The files
+contain prompt text (manual transcription) and raw API responses.
+
+Git tracking (`.gitignore`: `runs/*`, `!runs/README.md`, `!runs/main-2026-09-24/`):
+only this README and the main run `runs/main-2026-09-24/` are tracked. The main
+run was published on 2026-09-30 under CC BY-NC-SA 4.0 (`LICENSE-DATA`); its seven
+tracked files are `prompts.jsonl`, `manifest_pass1.json`, `attempts_pass1.jsonl`,
+`manifest_pass2.json`, `attempts_pass2.jsonl`, `labels.csv` and `final_labels.csv`.
+Every other run directory (validation, pilot, dry runs) is git-ignored, and inside
+`runs/main-2026-09-24/` the files `run.lock`, `recovery_log.jsonl`, `*.bak-*`,
+`score_report.txt` and `score_summary.json` are git-ignored.
 
 ```
 runs/<run_id>/

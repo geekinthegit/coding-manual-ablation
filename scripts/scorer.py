@@ -543,7 +543,8 @@ class IntervalSummary:
 
 
 def draw_indices(n: int, n_replicates: int = N_REPLICATES, seed: int = BOOTSTRAP_SEED) -> Draws:
-    """Generate the replicate indices once, before any statistic is computed (6.2.1).
+    """Generate the replicate indices once per scorer run, after the point
+    estimates and before any bootstrap statistic is computed (6.2.1).
 
     The array is numpy.random.Generator(numpy.random.PCG64(seed)).integers(
     0, n, size=(n_replicates, n)): the bit generator is named explicitly,

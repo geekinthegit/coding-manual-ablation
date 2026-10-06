@@ -13,7 +13,7 @@ Checks
 6. rows_all.csv has no label column, one row per source row (203,601), row
    position equal to source_id, exactly the teacher count of "T" rows, each
    Transcript in one contiguous block, and its teacher rows agree with
-   frame.csv field by field [proposed 2026-09-15].
+   frame.csv field by field [decided 2026-09-23; proposed 2026-09-15].
 
 This script reads the derived CSVs only; it does not touch the raw file.
 """
@@ -112,7 +112,8 @@ def main() -> None:
     assert eligible_pass, "eligible per-tag counts differ from Decision Log 2.1.2"
     print(f"Eligible rows: {n_eligible:,} (expected {EXPECTED_ELIGIBLE_TOTAL:,}); ineligible: {n_ineligible}")
 
-    # rows_all.csv: full row table used for context windows [proposed 2026-09-15].
+    # rows_all.csv: full row table used for context windows
+    # [decided 2026-09-23; proposed 2026-09-15].
     rows_all = pd.read_csv(ROWS_ALL_FILE, keep_default_na=False, na_values=[""])
     assert list(rows_all.columns) == ROWS_ALL_COLUMNS, f"rows_all columns: {list(rows_all.columns)}"
     assert not FORBIDDEN_IN_FRAME & set(rows_all.columns), "label column present in rows_all.csv"

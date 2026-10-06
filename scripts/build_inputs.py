@@ -15,17 +15,19 @@ Context window [decided, Decision Log 5.1]
 Up to 7 rows before and 7 rows after the target, any speaker, within the same
 Transcript, truncated at transcript boundaries, full utterance text.
 
-Serialisation [proposed 2026-09-15, Decision Log 5.1.6]
--------------------------------------------------------
+Serialisation [decided 2026-09-23; proposed 2026-09-15, Decision Log 5.1.6]
+----------------------------------------------------------------------------
 * One line per row: ``T: <text>`` or ``S: <text>``; rows joined by a single
   newline; the block is preceded by the header line ``Context:``.
 * The target row is prefixed with ``[TARGET] `` (e.g. ``[TARGET] T: ...``).
 * A context row whose Sentence is missing in the source keeps only its
   speaker marker (``S:``). The row is not skipped, and no marker such as
-  ``nan`` or ``[MISSING]`` is inserted: the human coders saw that row empty
-  as well, and no artefact absent from the original situation is added.
-* TASK_INSTRUCTION and OUTPUT_INSTRUCTION are drafts; they are fixed after
-  tool validation.
+  ``nan`` or ``[MISSING]`` is inserted: the source file has no text for that
+  row (2.1.3(d)), no inference is drawn about the materials used by the human
+  coders, and inserting a marker would show the model an artefact absent from
+  the original situation.
+* TASK_INSTRUCTION and OUTPUT_INSTRUCTION (5.1.6 (d)): the wording was read on
+  assembled prompts during tool validation and kept unchanged.
 
 Prompt order [decided, Decision Log 5.3]
 ----------------------------------------
@@ -90,7 +92,8 @@ def load_manual(condition: str) -> str:
 
 CATEGORY_NAMES = list(TAG_TO_CATEGORY.values())
 
-# [proposed 2026-09-15] Draft instructions; fixed after tool validation.
+# [decided 2026-09-23; proposed 2026-09-15] Instruction wording (5.1.6 (d)): read on
+# assembled prompts during tool validation and kept unchanged.
 TASK_INSTRUCTION = (
     "You are coding teacher talk in a mathematics classroom transcript. "
     "The Context block below shows consecutive lines from one transcript; "
@@ -245,7 +248,7 @@ def main() -> None:
     out_file = REPORTS_DIR / f"input-examples-{now:%Y-%m-%d}.txt"
 
     lines = [
-        "Input construction examples (manual placeholders; instructions are drafts)",
+        "Input construction examples (manual placeholders)",
         f"Generated at: {now.isoformat(timespec='seconds')}",
         f"Script: scripts/{Path(__file__).name}",
         f"Script commit: {git_commit_hash()}",

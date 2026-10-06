@@ -42,7 +42,8 @@ Scope
 -----
 frame.csv and scoring_labels.csv contain every teacher row
 (``Speaker == "T"``) with no additional exclusions. rows_all.csv contains
-every source row in canonical order [proposed 2026-09-15]; the context window
+every source row in canonical order [decided 2026-09-23; proposed 2026-09-15];
+the context window
 is not materialised here but constructed later from rows_all.csv. The raw
 file is read only.
 
@@ -105,7 +106,8 @@ def main() -> None:
     first_gap = int(mismatch.idxmax()) if mismatch.any() else None
 
     # Full row table, all speakers, no labels, for context-window construction
-    # [proposed 2026-09-15]. Row position in df is source_id (see docstring).
+    # [decided 2026-09-23; proposed 2026-09-15]. Row position in df is source_id
+    # (see docstring).
     assert set(df["Speaker"].unique()) == {"S", "T"}, df["Speaker"].unique()
     assert (df["Transcript"] != "nan").all(), "literal 'nan' Transcript in source rows"
     rows_all = pd.DataFrame({
