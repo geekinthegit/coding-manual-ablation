@@ -15,3 +15,4 @@ runs/main-2026-09-24/recovery_log.jsonl
 runs/main-2026-09-24/*.bak-*
 runs/main-2026-09-24/score_report.txt
 runs/main-2026-09-24/score_summary.json
+.ipynb_checkpoints/
