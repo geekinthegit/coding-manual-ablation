@@ -1,4 +1,4 @@
-## 5.7 Tool validation (Roadmap 9)
+## 5.7 Tool validation
 
 This section fixes the rules of tool validation before any validation output is inspected; the execution results and any changes made afterwards are recorded separately in `reports/tool-validation-record-<date>.md`.
 

@@ -108,7 +108,7 @@ Structure overview. Each section below links to a file in `decisions/`. Topics w
   - [5.6.8 Parsing](decisions/05-6-execution-order-and-run-records.md#568-parsing)
   - [5.6.9 Directory layout](decisions/05-6-execution-order-and-run-records.md#569-directory-layout)
   - [5.6.10 Status](decisions/05-6-execution-order-and-run-records.md#5610-status)
-- [5.7 Tool validation (Roadmap 9)](decisions/05-7-tool-validation.md#57-tool-validation-roadmap-9)
+- [5.7 Tool validation](decisions/05-7-tool-validation.md#57-tool-validation-roadmap-9)
   - [5.7.1 Purpose and scope](decisions/05-7-tool-validation.md#571-purpose-and-scope)
   - [5.7.2 Development targets D](decisions/05-7-tool-validation.md#572-development-targets-d)
   - [5.7.3 Changes permitted and prohibited after inspecting validation output](decisions/05-7-tool-validation.md#573-changes-permitted-and-prohibited-after-inspecting-validation-output)
