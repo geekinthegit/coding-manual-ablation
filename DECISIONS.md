@@ -50,14 +50,14 @@ Structure overview. Each section links to its own file under `decisions/`; items
 - [3.3 Names-only reference](decisions/03-3-names-only-diagnostic.md#33-names-only-reference)
 
 ## 4. Measurement
-- 4.1 Human–LLM agreement — see [2.3.2 Sampling Design and Agreement Metric](decisions/02-3-sampling-design.md#232-sampling-design-and-agreement-metric) and [6.1.1 Input and scoring unit](decisions/06-analysis.md#611-input-and-scoring-unit)
+- 4.1 Human–LLM agreement
+  - [2.3.2 Sampling Design and Agreement Metric](decisions/02-3-sampling-design.md#232-sampling-design-and-agreement-metric)
+  - [6.1.1 Input and scoring unit](decisions/06-analysis.md#611-input-and-scoring-unit)
 - [4.2 Repeated-call reliability](decisions/04-2-repeated-call-reliability.md#42-repeated-call-reliability)
-  - [4.2.1 Unanimity rate](decisions/04-2-repeated-call-reliability.md#421-unanimity-rate)
-  - [4.2.2 Mean agreement with the final label](decisions/04-2-repeated-call-reliability.md#422-mean-agreement-with-the-final-label)
-  - [4.2.3 Ties and additional calls](decisions/04-2-repeated-call-reliability.md#423-ties-and-additional-calls)
-  - [4.2.4 Items without a final label](decisions/04-2-repeated-call-reliability.md#424-items-without-a-final-label)
-  - [4.2.5 Additional descriptive reporting](decisions/04-2-repeated-call-reliability.md#425-additional-descriptive-reporting)
-- 4.3 Primary contrast / Δκ — see [6.1.2 Comparison-specific missing-label handling](decisions/06-analysis.md#612-comparison-specific-missing-label-handling) and [6.2.1 Bootstrap specification](decisions/06-analysis.md#621-bootstrap-specification)
+  - (4.2.1~4.2.5 그대로)
+- 4.3 Primary contrast / Δκ
+  - [6.1.2 Comparison-specific missing-label handling](decisions/06-analysis.md#612-comparison-specific-missing-label-handling)
+  - [6.2.1 Bootstrap specification](decisions/06-analysis.md#621-bootstrap-specification)
 
 ## 5. Procedure
 - [5.1 Context specification](decisions/05-1-context-specification.md#51-context-specification)
