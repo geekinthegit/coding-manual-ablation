@@ -1,6 +1,6 @@
 # Decision Log
 
-Structure overview. Each section links to its own file under `decisions/`; items that have no file of their own point instead to the sections where that topic is recorded.
+Structure overview. Each section below links to a file in `decisions/`. Topics without a separate file link to the relevant sections in other decision documents or reports.
 
 ## [1. Research Question](decisions/01-research-question.md)
 - [1.1 RQ wording](decisions/01-research-question.md#11-rq-wording)
