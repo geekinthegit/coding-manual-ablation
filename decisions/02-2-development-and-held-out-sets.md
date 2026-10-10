@@ -30,3 +30,37 @@
   development run.
 
 Revision note (2026-09-24): Held-out evaluation, planned in 2.2.3 above as a single final evaluation, was omitted by a post-freeze decision recorded after main-run data collection and before any main-study agreement result was computed or examined. See `reports/heldout-evaluation-decision-2026-09-24.md` and the section "Post-freeze deviation: held-out evaluation omitted" of `reports/protocol-freeze-record-2026-09-24.md`. The text of 2.2.3 above is unchanged.
+
+### 2.2.4 Prior model exposure and direction of bias
+- Status: added 2026-10-10, after main-study scoring (post-scoring
+  documentation addition; no protocol change). This section was
+  written after the results in
+  `reports/main-scoring-record-2026-09-24.md` had been computed and
+  examined. It restates boundaries fixed before scoring in 3.3
+  (Boundary) and reported in that record (Section 12) and in
+  `reports/final-research-report-2026-09-25.md` (Sections 13 and 15);
+  it adds no new claim, analysis, or protocol change. The text of
+  2.2.1–2.2.3 and the Revision note above is unchanged.
+- Exposure: TalkMoves is a public dataset, so prior model exposure
+  to its transcripts or coding manual cannot be excluded for any
+  condition, including the baseline and replacement conditions
+  (3.3, Boundary; final report, Section 15).
+- Effect on κ: If such exposure occurred, it acted in common on all
+  six conditions, which use the same model (5.2) and the same 300
+  sampled utterances (2.3.2). It may therefore affect the absolute
+  level of the condition-specific κ values.
+- Direction: The direction in which such exposure would move Δκ
+  depends on the content and extent of the exposure, which the
+  design of this study cannot determine. This study therefore
+  assumes no direction of bias.
+- Consequence for claims: This study makes no claim about the
+  absolute level of κ and no generalization to other datasets or
+  coding manuals. Its claims are limited to comparisons between
+  conditions evaluated on the same 300 sampled utterances, with
+  the scope of inference stated in 2.3.1, and within the claim
+  boundaries of the scoring record (Section 12) and the final
+  report (Sections 13 and 15).
+- Record: This section is the record corresponding to the item
+  "7.2 Direction of development-set bias" in the `DECISIONS.md`
+  table of contents, which was planned in the outline of
+  2026-08-31 but not written before scoring.
