@@ -61,6 +61,6 @@ Revision note (2026-09-24): Held-out evaluation, planned in 2.2.3 above as a sin
   boundaries of the scoring record (Section 12) and the final
   report (Sections 13 and 15).
 - Record: This section is the record corresponding to the item
-  "7.2 Direction of development-set bias" in the `DECISIONS.md`
-  table of contents, which was planned in the outline of
-  2026-08-31 but not written before scoring.
+  planned as "7.2 Direction of development-set bias" in the
+  `DECISIONS.md` outline of 2026-08-31, which was not written
+  before scoring.

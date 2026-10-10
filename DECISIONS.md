@@ -1,47 +1,132 @@
 # Decision Log
 
-Structure overview. Each section links to its own file under `decisions/`.
+Structure overview. Each section links to its own file under `decisions/`; items that have no file of their own point instead to the sections where that topic is recorded.
 
 ## [1. Research Question](decisions/01-research-question.md)
-- 1.1 RQ wording
-- 1.2 Scope of claims
+- [1.1 RQ wording](decisions/01-research-question.md#11-rq-wording)
+- [1.2 Scope of claims](decisions/01-research-question.md#12-scope-of-claims)
+  - [1.2.1 Level of causal claim](decisions/01-research-question.md#121-level-of-causal-claim)
+  - [1.2.2 No mechanism claims](decisions/01-research-question.md#122-no-mechanism-claims)
+  - [1.2.3 Position of the study](decisions/01-research-question.md#123-position-of-the-study)
 
 ## 2. Data
-- [2.1 Dataset selection and scope](decisions/02-1-dataset-selection-and-scope.md)
-- [2.2 Development and held-out evaluation sets](decisions/02-2-development-and-held-out-sets.md)
-- [2.3 Sampling design](decisions/02-3-sampling-design.md)
+- [2.1 Dataset selection and scope](decisions/02-1-dataset-selection-and-scope.md#21-dataset-selection-and-scope)
+  - [2.1.1 Dataset selection](decisions/02-1-dataset-selection-and-scope.md#211-dataset-selection)
+  - [2.1.2 Analysis population](decisions/02-1-dataset-selection-and-scope.md#212-analysis-population)
+  - [2.1.3 Tag Mapping Verification](decisions/02-1-dataset-selection-and-scope.md#213-tag-mapping-verification)
+- [2.2 Development and held-out evaluation sets](decisions/02-2-development-and-held-out-sets.md#22-development-and-held-out-evaluation-sets)
+  - [2.2.1 Purpose of the split](decisions/02-2-development-and-held-out-sets.md#221-purpose-of-the-split)
+  - [2.2.2 Split as provided by the corpus](decisions/02-2-development-and-held-out-sets.md#222-split-as-provided-by-the-corpus)
+  - [2.2.3 Permitted use of each set](decisions/02-2-development-and-held-out-sets.md#223-permitted-use-of-each-set)
+  - [2.2.4 Prior model exposure and direction of bias](decisions/02-2-development-and-held-out-sets.md#224-prior-model-exposure-and-direction-of-bias)
+- [2.3 Sampling design](decisions/02-3-sampling-design.md#23-sampling-design)
+  - [2.3.1 Target Population and Primary Estimand](decisions/02-3-sampling-design.md#231-target-population-and-primary-estimand)
+  - [2.3.2 Sampling Design and Agreement Metric](decisions/02-3-sampling-design.md#232-sampling-design-and-agreement-metric)
+  - [2.3.3 Alternative Considered: Disproportionate Stratification Without Population Weighting](decisions/02-3-sampling-design.md#233-alternative-considered-disproportionate-stratification-without-population-weighting)
+  - [2.3.4 Alternative Considered: Disproportionate Stratification With Population Standardization](decisions/02-3-sampling-design.md#234-alternative-considered-disproportionate-stratification-with-population-standardization)
+  - [2.3.5 Sample Size Rationale](decisions/02-3-sampling-design.md#235-sample-size-rationale)
+  - [2.3.6 Rare-Category Representation and Scope of Inference](decisions/02-3-sampling-design.md#236-rare-category-representation-and-scope-of-inference)
+  - [2.3.7 Paired Resampling for Uncertainty Estimation](decisions/02-3-sampling-design.md#237-paired-resampling-for-uncertainty-estimation)
+  - [2.3.8 Limitation of the Sampling Design](decisions/02-3-sampling-design.md#238-limitation-of-the-sampling-design)
 
 ## 3. Experimental Design
-- [3.1 Manual-component definition](decisions/03-1-manual-component-definition.md)
-- [3.2 Placeholder specification](decisions/03-2-placeholder-specification.md)
-- [3.3 Names-only diagnostic](decisions/03-3-names-only-diagnostic.md)
+- [3.1 Manual-component definition](decisions/03-1-manual-component-definition.md#31-manual-component-definition)
+  - [3.1.1 Scope of the manual text](decisions/03-1-manual-component-definition.md#311-scope-of-the-manual-text)
+  - [3.1.2 Segmentation unit](decisions/03-1-manual-component-definition.md#312-segmentation-unit)
+  - [3.1.3 Inventory of component types and their locations in the manual](decisions/03-1-manual-component-definition.md#313-inventory-of-component-types-and-their-locations-in-the-manual)
+  - [3.1.4 Level at which components are defined: per move or manual-wide](decisions/03-1-manual-component-definition.md#314-level-at-which-components-are-defined-per-move-or-manual-wide)
+  - [3.1.5 Relevance judgment](decisions/03-1-manual-component-definition.md#315-relevance-judgment)
+  - [3.1.6 Selection of replacement targets](decisions/03-1-manual-component-definition.md#316-selection-of-replacement-targets)
+  - [3.1.7 Residual-information record](decisions/03-1-manual-component-definition.md#317-residual-information-record)
+  - [3.1.8 Assignment rulings](decisions/03-1-manual-component-definition.md#318-assignment-rulings)
+- [3.2 Placeholder specification](decisions/03-2-placeholder-specification.md#32-placeholder-specification)
+  - [3.2.1 Purpose and scope of placeholder replacement](decisions/03-2-placeholder-specification.md#321-purpose-and-scope-of-placeholder-replacement)
+  - [3.2.2 Placeholder form](decisions/03-2-placeholder-specification.md#322-placeholder-form)
+    - [Placeholder requirements](decisions/03-2-placeholder-specification.md#placeholder-requirements)
+    - [Candidate forms considered](decisions/03-2-placeholder-specification.md#candidate-forms-considered)
+    - [Selected form](decisions/03-2-placeholder-specification.md#selected-form)
+  - [3.2.3 Token count matching procedure](decisions/03-2-placeholder-specification.md#323-token-count-matching-procedure)
+  - [3.2.4 Interpretation rules fixed in advance](decisions/03-2-placeholder-specification.md#324-interpretation-rules-fixed-in-advance)
+- [3.3 Names-only reference](decisions/03-3-names-only-diagnostic.md#33-names-only-reference)
 
 ## 4. Measurement
-- 4.1 Human–LLM agreement
-- [4.2 Repeated-call reliability](decisions/04-2-repeated-call-reliability.md)
-- 4.3 Primary contrast / Δκ
+- 4.1 Human–LLM agreement — see [2.3.2 Sampling Design and Agreement Metric](decisions/02-3-sampling-design.md#232-sampling-design-and-agreement-metric) and [6.1.1 Input and scoring unit](decisions/06-analysis.md#611-input-and-scoring-unit)
+- [4.2 Repeated-call reliability](decisions/04-2-repeated-call-reliability.md#42-repeated-call-reliability)
+  - [4.2.1 Unanimity rate](decisions/04-2-repeated-call-reliability.md#421-unanimity-rate)
+  - [4.2.2 Mean agreement with the final label](decisions/04-2-repeated-call-reliability.md#422-mean-agreement-with-the-final-label)
+  - [4.2.3 Ties and additional calls](decisions/04-2-repeated-call-reliability.md#423-ties-and-additional-calls)
+  - [4.2.4 Items without a final label](decisions/04-2-repeated-call-reliability.md#424-items-without-a-final-label)
+  - [4.2.5 Additional descriptive reporting](decisions/04-2-repeated-call-reliability.md#425-additional-descriptive-reporting)
+- 4.3 Primary contrast / Δκ — see [6.1.2 Comparison-specific missing-label handling](decisions/06-analysis.md#612-comparison-specific-missing-label-handling) and [6.2.1 Bootstrap specification](decisions/06-analysis.md#621-bootstrap-specification)
 
 ## 5. Procedure
-- [5.1 Context specification](decisions/05-1-context-specification.md)
-- [5.2 Model and API parameters](decisions/05-2-model-and-api-parameters.md)
-- [5.3 Call unit and API request](decisions/05-3-call-unit-and-api-request.md)
-- [5.4 Repetition and label aggregation](decisions/05-4-repetition-and-label-aggregation.md)
-- [5.5 Role of the pilot](decisions/05-5-role-of-the-pilot.md)
-- [5.6 Execution order and run records](decisions/05-6-execution-order-and-run-records.md)
-- [5.7 Tool validation](decisions/05-7-tool-validation.md)
+- [5.1 Context specification](decisions/05-1-context-specification.md#51-context-specification)
+  - [5.1.1 Context window](decisions/05-1-context-specification.md#511-context-window)
+  - [5.1.2 Boundary handling](decisions/05-1-context-specification.md#512-boundary-handling)
+  - [5.1.3 Difference from the original study](decisions/05-1-context-specification.md#513-difference-from-the-original-study)
+  - [5.1.4 Prompt architecture](decisions/05-1-context-specification.md#514-prompt-architecture)
+  - [5.1.5 Output instruction](decisions/05-1-context-specification.md#515-output-instruction)
+  - [5.1.6 Serialisation, target marking, and instruction wording](decisions/05-1-context-specification.md#516-serialisation-target-marking-and-instruction-wording)
+- [5.2 Model and API parameters](decisions/05-2-model-and-api-parameters.md#52-model-and-api-parameters)
+  - [5.2.1 Model selection and version control](decisions/05-2-model-and-api-parameters.md#521-model-selection-and-version-control)
+  - [5.2.2 Generation parameters](decisions/05-2-model-and-api-parameters.md#522-generation-parameters)
+  - [5.2.3 Environment record](decisions/05-2-model-and-api-parameters.md#523-environment-record)
+  - [5.2.4 Final input construction and token verification](decisions/05-2-model-and-api-parameters.md#524-final-input-construction-and-token-verification)
+- [5.3 Call unit and API request](decisions/05-3-call-unit-and-api-request.md#53-call-unit-and-api-request)
+  - [5.3.1 Endpoint](decisions/05-3-call-unit-and-api-request.md#531-endpoint)
+  - [5.3.2 Message-role structure](decisions/05-3-call-unit-and-api-request.md#532-message-role-structure)
+  - [5.3.3 Prompt-content order](decisions/05-3-call-unit-and-api-request.md#533-prompt-content-order)
+  - [5.3.4 Structured output](decisions/05-3-call-unit-and-api-request.md#534-structured-output)
+  - [5.3.5 Model and generation settings](decisions/05-3-call-unit-and-api-request.md#535-model-and-generation-settings)
+  - [5.3.6 Technical verification call](decisions/05-3-call-unit-and-api-request.md#536-technical-verification-call)
+  - [5.3.7 Success criterion](decisions/05-3-call-unit-and-api-request.md#537-success-criterion)
+  - [5.3.8 Freezing rule](decisions/05-3-call-unit-and-api-request.md#538-freezing-rule)
+  - [5.3.9 Verification record](decisions/05-3-call-unit-and-api-request.md#539-verification-record)
+  - [5.3.10 Call unit, request independence, and call order](decisions/05-3-call-unit-and-api-request.md#5310-call-unit-request-independence-and-call-order)
+- [5.4 Repetition and label aggregation](decisions/05-4-repetition-and-label-aggregation.md#54-repetition-and-label-aggregation)
+  - [5.4.1 Number of repeats](decisions/05-4-repetition-and-label-aggregation.md#541-number-of-repeats)
+  - [5.4.2 Aggregation rule](decisions/05-4-repetition-and-label-aggregation.md#542-aggregation-rule)
+  - [5.4.3 Tie handling](decisions/05-4-repetition-and-label-aggregation.md#543-tie-handling)
+  - [5.4.4 Parser normalization](decisions/05-4-repetition-and-label-aggregation.md#544-parser-normalization)
+  - [5.4.5 Valid-label criterion](decisions/05-4-repetition-and-label-aggregation.md#545-valid-label-criterion)
+  - [5.4.6 Retryable errors](decisions/05-4-repetition-and-label-aggregation.md#546-retryable-errors)
+  - [5.4.7 Maximum attempts per repeat](decisions/05-4-repetition-and-label-aggregation.md#547-maximum-attempts-per-repeat)
+  - [5.4.8 Handling after retry exhaustion](decisions/05-4-repetition-and-label-aggregation.md#548-handling-after-retry-exhaustion)
+- [5.5 Role of the pilot](decisions/05-5-role-of-the-pilot.md#55-role-of-the-pilot)
+- [5.6 Execution order and run records](decisions/05-6-execution-order-and-run-records.md#56-execution-order-and-run-records)
+  - [5.6.1 Execution order](decisions/05-6-execution-order-and-run-records.md#561-execution-order)
+  - [5.6.2 Manifests](decisions/05-6-execution-order-and-run-records.md#562-manifests)
+  - [5.6.3 Prompts file](decisions/05-6-execution-order-and-run-records.md#563-prompts-file)
+  - [5.6.4 Concurrency and retry](decisions/05-6-execution-order-and-run-records.md#564-concurrency-and-retry)
+  - [5.6.5 Stop rules](decisions/05-6-execution-order-and-run-records.md#565-stop-rules)
+  - [5.6.6 Resume](decisions/05-6-execution-order-and-run-records.md#566-resume)
+  - [5.6.7 Record format and write rules](decisions/05-6-execution-order-and-run-records.md#567-record-format-and-write-rules)
+  - [5.6.8 Parsing](decisions/05-6-execution-order-and-run-records.md#568-parsing)
+  - [5.6.9 Directory layout](decisions/05-6-execution-order-and-run-records.md#569-directory-layout)
+  - [5.6.10 Status](decisions/05-6-execution-order-and-run-records.md#5610-status)
+- [5.7 Tool validation (Roadmap 9)](decisions/05-7-tool-validation.md#57-tool-validation-roadmap-9)
+  - [5.7.1 Purpose and scope](decisions/05-7-tool-validation.md#571-purpose-and-scope)
+  - [5.7.2 Development targets D](decisions/05-7-tool-validation.md#572-development-targets-d)
+  - [5.7.3 Changes permitted and prohibited after inspecting validation output](decisions/05-7-tool-validation.md#573-changes-permitted-and-prohibited-after-inspecting-validation-output)
+  - [5.7.4 Agreement computation in validation](decisions/05-7-tool-validation.md#574-agreement-computation-in-validation)
+  - [5.7.5 Run identifiers and provisional operational settings](decisions/05-7-tool-validation.md#575-run-identifiers-and-provisional-operational-settings)
+
 ## [6. Analysis](decisions/06-analysis.md)
-- 6.1 Estimation of condition-specific κ
-- 6.2 Estimation and uncertainty of Δκ
-- 6.3 Non-independence
-- 6.4 Robustness checks
-- 6.5 Descriptive reporting and condition roles
-- 6.6 Scorer validation specification
+- [6.1 Estimation of condition-specific κ](decisions/06-analysis.md#61-estimation-of-condition-specific-κ)
+  - [6.1.1 Input and scoring unit](decisions/06-analysis.md#611-input-and-scoring-unit)
+  - [6.1.2 Comparison-specific missing-label handling](decisions/06-analysis.md#612-comparison-specific-missing-label-handling)
+- [6.2 Estimation and uncertainty of Δκ](decisions/06-analysis.md#62-estimation-and-uncertainty-of-δκ)
+  - [6.2.1 Bootstrap specification](decisions/06-analysis.md#621-bootstrap-specification)
+  - [6.2.2 Undefined statistics](decisions/06-analysis.md#622-undefined-statistics)
+  - [6.2.3 Defined but degenerate intervals](decisions/06-analysis.md#623-defined-but-degenerate-intervals)
+- [6.3 Non-independence and uncertainty interpretation](decisions/06-analysis.md#63-non-independence-and-uncertainty-interpretation)
+- [6.4 Robustness checks and alternatives](decisions/06-analysis.md#64-robustness-checks-and-alternatives)
+- [6.5 Descriptive reporting and condition roles](decisions/06-analysis.md#65-descriptive-reporting-and-condition-roles)
+- [6.6 Scorer validation specification](decisions/06-analysis.md#66-scorer-validation-specification)
 
 ## 7. Interpretive Boundaries
-- 7.1 Underdetermined causes of near-zero Δκ
-- 7.2 Direction of development-set bias
-- 7.3 Remaining threats / unresolved alternatives
-
-## 8. Repository
-- 8.1 Repository name and local structure
-- 8.2 Data exclusion and licensing
+- [3.1.7 Residual-information record](decisions/03-1-manual-component-definition.md#317-residual-information-record)
+- [2.3.8 Limitation of the Sampling Design](decisions/02-3-sampling-design.md#238-limitation-of-the-sampling-design)
+- [2.2.4 Prior model exposure and direction of bias](decisions/02-2-development-and-held-out-sets.md#224-prior-model-exposure-and-direction-of-bias)
+- [12. Interpretation boundaries](reports/main-scoring-record-2026-09-24.md#12-interpretation-boundaries) (main scoring record)
+- [15. Limitations (R-15)](reports/final-research-report-2026-09-25.md#15-limitations-r-15) (final research report)
