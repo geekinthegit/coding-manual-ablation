@@ -54,7 +54,11 @@ Structure overview. Each section links to its own file under `decisions/`; items
   - [2.3.2 Sampling Design and Agreement Metric](decisions/02-3-sampling-design.md#232-sampling-design-and-agreement-metric)
   - [6.1.1 Input and scoring unit](decisions/06-analysis.md#611-input-and-scoring-unit)
 - [4.2 Repeated-call reliability](decisions/04-2-repeated-call-reliability.md#42-repeated-call-reliability)
-  - (4.2.1~4.2.5 그대로)
+  - [4.2.1 Unanimity rate](decisions/04-2-repeated-call-reliability.md#421-unanimity-rate)
+  - [4.2.2 Mean agreement with the final label](decisions/04-2-repeated-call-reliability.md#422-mean-agreement-with-the-final-label)
+  - [4.2.3 Ties and additional calls](decisions/04-2-repeated-call-reliability.md#423-ties-and-additional-calls)
+  - [4.2.4 Items without a final label](decisions/04-2-repeated-call-reliability.md#424-items-without-a-final-label)
+  - [4.2.5 Additional descriptive reporting](decisions/04-2-repeated-call-reliability.md#425-additional-descriptive-reporting)
 - 4.3 Primary contrast / Δκ
   - [6.1.2 Comparison-specific missing-label handling](decisions/06-analysis.md#612-comparison-specific-missing-label-handling)
   - [6.2.1 Bootstrap specification](decisions/06-analysis.md#621-bootstrap-specification)
@@ -125,8 +129,11 @@ Structure overview. Each section links to its own file under `decisions/`; items
 - [6.6 Scorer validation specification](decisions/06-analysis.md#66-scorer-validation-specification)
 
 ## 7. Interpretive Boundaries
-- [3.1.7 Residual-information record](decisions/03-1-manual-component-definition.md#317-residual-information-record)
-- [2.3.8 Limitation of the Sampling Design](decisions/02-3-sampling-design.md#238-limitation-of-the-sampling-design)
-- [2.2.4 Prior model exposure and direction of bias](decisions/02-2-development-and-held-out-sets.md#224-prior-model-exposure-and-direction-of-bias)
-- [12. Interpretation boundaries](reports/main-scoring-record-2026-09-24.md#12-interpretation-boundaries) (main scoring record)
-- [15. Limitations (R-15)](reports/final-research-report-2026-09-25.md#15-limitations-r-15) (final research report)
+- 7.1 Underdetermined causes of near-zero Δκ
+  - [3.1.7 Residual-information record](decisions/03-1-manual-component-definition.md#317-residual-information-record)
+  - [2.3.8 Limitation of the Sampling Design](decisions/02-3-sampling-design.md#238-limitation-of-the-sampling-design)
+- 7.2 Direction of development-set bias
+  - [2.2.4 Prior model exposure and direction of bias](decisions/02-2-development-and-held-out-sets.md#224-prior-model-exposure-and-direction-of-bias)
+- 7.3 Remaining threats / unresolved alternatives
+  - [12. Interpretation boundaries](reports/main-scoring-record-2026-09-24.md#12-interpretation-boundaries) (main scoring record)
+  - [15. Limitations (R-15)](reports/final-research-report-2026-09-25.md#15-limitations-r-15) (final research report)
