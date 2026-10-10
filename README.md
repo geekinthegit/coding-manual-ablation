@@ -58,7 +58,8 @@ The TalkMoves corpus is not included. Scripts read it from the directory named b
 ## Decisions and workflow
 
 - [DECISIONS.md](DECISIONS.md) — index of all design decisions, linked to their sections
-- [AI_WORKFLOW.md](AI_WORKFLOW.md) — AI tools used, division of work, and instructions given to coding agents
+- [AI_WORKFLOW.md](AI_WORKFLOW.md) — AI tools used and division of work
+- [docs/agent-context.md](docs/agent-context.md) — instructions given to the coding agents (CLAUDE.md and AGENTS.md, personal information removed, English translation)
 - [docs/ai-assisted-workflow.md](docs/ai-assisted-workflow.md) — the 18-step roadmap and its sub-steps
 - [docs/research-workflow.md](docs/research-workflow.md) — mapping of this study to the validity-guided workflow (Lin, 2026)
 
