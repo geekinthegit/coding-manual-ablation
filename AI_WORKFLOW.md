@@ -42,8 +42,6 @@ The sub-steps of each roadmap are listed in [docs/ai-assisted-workflow.md](docs/
 
 ## 5. Reproducibility and limits
 
-```
 The AI-assisted development process itself is not exactly reproducible. Model outputs are stochastic, and the models used by the AI assistants listed in Section 1. The model queried in the experiment, gpt-5.5-2026-04-23, was fixed throughout.
-```
 
 The reproducible basis of the reported study is the versioned repository: committed code and decision documents, sealed analysis inputs, and execution and scoring records. This document and the roadmap sub-step list describe how AI contributed to producing and checking those materials.
