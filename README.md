@@ -62,7 +62,4 @@ The TalkMoves corpus is not included. Scripts read it from the directory named b
 - [docs/agent-context.md](docs/agent-context.md) — instructions given to the coding agents (CLAUDE.md and AGENTS.md, personal information removed, English translation)
 - [docs/ai-assisted-workflow.md](docs/ai-assisted-workflow.md) — the 18-step roadmap and its sub-steps
 - [docs/research-workflow.md](docs/research-workflow.md) — mapping of this study to the validity-guided workflow (Lin, 2026)
-
-## Status
-
-The study is complete. No held-out evaluation was conducted ([reports/heldout-evaluation-decision-2026-09-24.md](reports/heldout-evaluation-decision-2026-09-24.md)). The final report has not had an independent audit. Post-scoring documentation changes are listed in [reports/documentation-errata-post-scoring-2026-09-25.md](reports/documentation-errata-post-scoring-2026-09-25.md).
+- [docs/experiment-workflow.md](docs/experiment-workflow.md) — flowchart of the main-experiment procedure, from the source data to the analysis
