@@ -1,6 +1,6 @@
 # Main experiment workflow
 
-This document summarizes the main-experiment procedure recorded in `decisions/` and `reports/`; where this document and those files differ, the original files take precedence.
+This page shows the procedure of the main experiment as one flowchart, from the source data to the final analysis. Each node gives the step and its key values. The table below the chart lists the decision document or report that records each step.
 
 ```mermaid
 flowchart TD
