@@ -1,6 +1,6 @@
 # Reproduction
 
-This document describes how to re-run the data preparation and analysis using the preserved outputs. The main-experiment API calls are not rerun; reproduction begins from the model outputs preserved in the repository and proceeds through scoring and analysis. The reasons behind the study design are not repeated here; they are documented in [`DECISIONS.md`](../DECISIONS.md) and the files under [`decisions/`](../decisions/).
+This document describes how to re-run the data preparation and analysis using the preserved outputs. The main-experiment API calls are not rerun; reproduction begins from the model outputs preserved in the repository and proceeds through scoring and analysis. The reasons behind the study design are documented in [`DECISIONS.md`](../DECISIONS.md) and the files under [`decisions/`](../decisions/).
 
 ## 1. Environment
 
