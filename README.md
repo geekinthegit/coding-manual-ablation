@@ -2,7 +2,17 @@
 
 How does replacing specific components of a dialogue coding manual with placeholders change an LLM's agreement with human dialogue coding?
 
-This repository contains an independent methodological study (August–September 2026) that answers that question on the TalkMoves classroom dialogue corpus. Chapter 1 of the TalkMoves coding manual was given to GPT-5.5 (gpt-5.5-2026-04-23) in six conditions: the full manual, four conditions in which one component type was replaced by token-matched placeholders (definitions, examples, exclusion rules, and a negative control of background text), and a names-only reference with no manual text. Agreement with the human labels was measured by unweighted Cohen's κ on 300 randomly sampled teacher utterances. The protocol and analysis plan were frozen before the sample was drawn. The full report is [reports/final-research-report-2026-09-25.md](reports/final-research-report-2026-09-25.md).
+I may use an LLM to help code records of human–AI interaction in my proposed graduate research. Before doing so, I wanted to examine how replacing parts of a coding manual affects agreement with human labels. TalkMoves provided an existing manual and human-coded dialogue for this test.
+
+This repository contains an independent methodological study conducted from August to September 2026. I tested GPT-5.5 (`gpt-5.5-2026-04-23`) under six conditions.
+
+The baseline used Chapter 1 of the TalkMoves coding manual. Four conditions replaced definitions, examples, exclusion rules, or background text with token-matched placeholders. The background-text condition served as a negative control. The sixth condition provided only the category names, with no manual text.
+
+Agreement with human labels was measured by unweighted Cohen's κ on 300 randomly sampled teacher utterances. The protocol and analysis plan were frozen before the sample was drawn.
+
+The findings are limited to the tested model, corpus, manual, and replacement procedure. They do not validate an LLM coder for my proposed research.
+
+The full report is [reports/final-research-report-2026-09-25.md](reports/final-research-report-2026-09-25.md).
 
 ## Results
 
