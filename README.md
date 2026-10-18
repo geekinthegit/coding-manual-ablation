@@ -77,5 +77,4 @@ The TalkMoves corpus is not included. Scripts read it from the directory named b
 ## Personal statistical exploration
 
 I use data from this study to explore statistical concepts in a separate [statistical-exploration](https://github.com/geekinthegit/statistical-exploration) project.
-
 These experiments are for personal learning. They are not part of the original study's protocol, analyses, or findings. Their results should not be cited as findings of the original study.
