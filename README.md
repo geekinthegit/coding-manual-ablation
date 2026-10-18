@@ -2,7 +2,7 @@
 
 How does replacing specific components of a dialogue coding manual with placeholders change an LLM's agreement with human dialogue coding?
 
-I may use an LLM to help code records of human–AI interaction in my proposed graduate research. Before doing so, I wanted to examine how replacing parts of a coding manual affects agreement with human labels. TalkMoves provided an existing manual and human-coded dialogue for this test.
+I may use an LLM to help code records of human–AI interaction in my proposed graduate research. Before doing so, I wanted to examine how replacing parts of a coding manual affects agreement with human labels. [TalkMoves](https://github.com/SumnerLab/TalkMoves) provided an existing manual and human-coded dialogue for this test.
 
 This repository contains an independent methodological study conducted from August to September 2026. I tested GPT-5.5 (`gpt-5.5-2026-04-23`) under six conditions.
 
