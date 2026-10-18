@@ -73,7 +73,3 @@ The TalkMoves corpus is not included. Scripts read it from the directory named b
 - [docs/ai-assisted-workflow.md](docs/ai-assisted-workflow.md) — the 18-step roadmap and its sub-steps
 - [docs/research-workflow.md](docs/research-workflow.md) — mapping of this study to the validity-guided workflow (Lin, 2026)
 - [docs/experiment-workflow.md](docs/experiment-workflow.md) — flowchart of the main-experiment procedure, from the source data to the analysis
-
-## Personal statistics exploration
-
-I use data from this study to explore statistical concepts in a [separate repository](https://github.com/geekinthegit/statistical-exploration). This is a personal learning project and is not part of the original study.
