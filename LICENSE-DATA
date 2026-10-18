@@ -1,5 +1,11 @@
-This licence applies to the data files derived from the TalkMoves dataset (SumnerLab, https://github.com/SumnerLab/TalkMoves): manual/, runs/main-2026-09-24/.
-Code under scripts/ and tests/ is licensed separately; see LICENSE.
+This licence applies to the files in this repository that contain material derived from the TalkMoves dataset and its coding manual (SumnerLab, https://github.com/SumnerLab/TalkMoves), licensed CC BY-NC-SA 4.0:
+
+- manual/: Chapter 1 of the coding manual, transcribed from the PDF with extraction corrections (chapter1.txt; the corrections are listed in chapter1-extraction-corrections.txt), and four modified versions in which one component type is replaced by placeholder text (the condition files).
+- runs/main-2026-09-24/: the main run record. prompts.jsonl embeds the transcribed manual and excerpts of transcript utterances (up to seven lines before and after each target utterance); the other files contain identifiers, labels and raw model responses only.
+- reports/input-examples-2026-09-15.txt, reports/input-examples-2026-09-23.txt, reports/manual-inventory-check-2026-09-15.txt: example prompts and manual fragments used for input checks.
+- examples/walkthrough_one_utterance.ipynb: saved outputs that show the context lines of one target utterance and excerpts of the manual.
+
+These files are modified from the original material as described above. The original transcripts and manual are not included. Code under scripts/ and tests/ is licensed separately; see LICENSE.
 
 Attribution-NonCommercial-ShareAlike 4.0 International
 

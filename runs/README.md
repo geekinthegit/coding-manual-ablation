@@ -1,7 +1,7 @@
 # runs/
 
 Run records written by `scripts/run_experiment.py` (Decision Log 5.6). The files
-contain prompt text (manual transcription) and raw API responses.
+contain prompt text (manual transcription and transcript excerpts) and raw API responses.
 
 Git tracking (`.gitignore`: `runs/*`, `!runs/README.md`, `!runs/main-2026-09-24/`):
 only this README and the main run `runs/main-2026-09-24/` are tracked. The main

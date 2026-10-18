@@ -63,7 +63,7 @@ To run the scripts and tests:
 
 ## Data and licensing
 
-The TalkMoves corpus is not included. Scripts read it from the directory named by the environment variable `TALKMOVES_DIR` (see [scripts/paths.py](scripts/paths.py)). The corpus and the coding manual are licensed CC BY-NC-SA 4.0; files in this repository derived from them ([runs/main-2026-09-24/](runs/main-2026-09-24/), [manual/](manual/)) are covered by [LICENSE-DATA](LICENSE-DATA) under the same terms. Code is under [LICENSE](LICENSE) (MIT). Human reference labels are not stored in the repository.
+The TalkMoves corpus is not included. Scripts read it from the directory named by the environment variable `TALKMOVES_DIR` (see [scripts/paths.py](scripts/paths.py)). The corpus and the coding manual are licensed CC BY-NC-SA 4.0; the files in this repository that contain material derived from them are listed in [LICENSE-DATA](LICENSE-DATA) and are covered by the same terms. Code is under [LICENSE](LICENSE) (MIT). Human reference labels are not stored in the repository.
 
 ## Decisions and workflow
 

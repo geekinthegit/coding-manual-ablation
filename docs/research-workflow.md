@@ -154,7 +154,7 @@ The study used API access only; the web-interface requirements do not apply.
 | Pre- and post-processing code | Input construction, parsing, and scoring code is committed under `scripts/` | [`scripts/`](../scripts/) |
 | Standardized format | JSONL and CSV | [`runs/main-2026-09-24/`](../runs/main-2026-09-24/) |
 | Sealed analysis inputs | The label files used for scoring are snapshotted with their hashes registered in the freeze record | [`analysis-inputs/`](../analysis-inputs/); [protocol freeze record](../reports/protocol-freeze-record-2026-09-24.md) |
-| Public deposit | The data, code, manual texts, and documentation are in a public GitHub repository under CC BY-NC-SA 4.0, the licence of the source dataset. No archival deposit (e.g., Zenodo) has been made | [`LICENSE-DATA`](../LICENSE-DATA) |
+| Public deposit | The data, code, manual texts, and documentation are in a public GitHub repository; the derived data and manual texts are under CC BY-NC-SA 4.0, the licence of the source dataset, and the code is under MIT. No archival deposit (e.g., Zenodo) has been made | [`LICENSE-DATA`](../LICENSE-DATA); [`LICENSE`](../LICENSE) |
 | Files not committed | `score_report.txt` and `score_summary.json` contain local absolute paths and are not committed; their hashes are sealed and their content is reproduced in the scoring record | [main scoring record](../reports/main-scoring-record-2026-09-24.md) |
 
 
