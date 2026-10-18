@@ -76,4 +76,4 @@ The TalkMoves corpus is not included. Scripts read it from the directory named b
 
 ## Personal statistics exploration
 
-I use data from this study to explore statistical concepts in a [separate repository](https://github.com/geekinthegit/sampling-variability-exploration). This is a personal learning project and is not part of the original study.
+I use data from this study to explore statistical concepts in a [separate repository](https://github.com/geekinthegit/statistical-exploration). This is a personal learning project and is not part of the original study.
